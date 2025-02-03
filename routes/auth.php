@@ -59,9 +59,7 @@ Route::middleware('auth')->group(function () {
         ->name('logout');
 });
 
-
-
-Route::group(['prefix' => 'admin', 'as' => 'admin.',], function () {
+Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
 
     Route::get('login', [AdminController::class, 'index'])->name('login.index');
 

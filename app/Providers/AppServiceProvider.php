@@ -2,6 +2,20 @@
 
 namespace App\Providers;
 
+use App\Contracts\Repositories\BlogRepositoryInterface;
+use App\Contracts\Repositories\ContactRepositoryInterface;
+use App\Contracts\Repositories\MailSubscriptionRepositoryInterface;
+use App\Contracts\Repositories\OfferRepositoryInterface;
+use App\Contracts\Repositories\OpportunityRepositoryInterface;
+use App\Contracts\Repositories\ServiceRepositoryInterface;
+use App\Contracts\Repositories\TestimonialRepositoryInterface;
+use App\Repositories\BlogRepository;
+use App\Repositories\ContactRepository;
+use App\Repositories\MailSubscriptionRepository;
+use App\Repositories\OfferRepository;
+use App\Repositories\OpportunityRepository;
+use App\Repositories\ServiceRepository;
+use App\Repositories\TestimonialRepository;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -11,7 +25,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind(BlogRepositoryInterface::class, BlogRepository::class);
+        $this->app->bind(OfferRepositoryInterface::class, OfferRepository::class);
+        $this->app->bind(ContactRepositoryInterface::class, ContactRepository::class);
+        $this->app->bind(ServiceRepositoryInterface::class, ServiceRepository::class);
+        $this->app->bind(OpportunityRepositoryInterface::class, OpportunityRepository::class);
+        $this->app->bind(TestimonialRepositoryInterface::class, TestimonialRepository::class);
+        $this->app->bind(MailSubscriptionRepositoryInterface::class, MailSubscriptionRepository::class);
     }
 
     /**
