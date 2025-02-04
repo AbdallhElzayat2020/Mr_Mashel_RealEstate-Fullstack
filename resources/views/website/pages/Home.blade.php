@@ -1,19 +1,18 @@
 @extends('website.layouts.master')
-@section('web_title')
-    الرئيسية || قدرة العقارية
-@endsection
+@section('web_title', 'الرئيسية || قدرة العقارية')
 
 @section('content')
     <!-- banner-section -->
     <section class="page-title p_relative pt_250 pb_170 centred"
-             style="background-image: url({{asset('images/banner/Home_2.png')}});background-position: center;">
+             style="background-image: url('{{ asset('assets/website/images/banner/Home_2.png') }}'); background-position: center;">
         <div class="bg-layer p_absolute r_100 t_0">
         </div>
         <div class="large-container">
             <div class="content-box p_relative d_block z_5">
                 <div class="title mb_25">
                     <h3 class="color_white d_block fs_30 lh_76 mb_35 fw_exbold">بقدرتنا المتنوعة نُحقق
-                        أهدافكم</h3>
+                        أهدافكم
+                    </h3>
                 </div>
             </div>
         </div>
@@ -21,16 +20,16 @@
     <!-- banner-section end -->
 
     <!-- about -->
-    <section class="about-style-three p_relative sec-pad">
+    <section class="about-style-three p_relative pt-5">
         <div class="large-container">
             <div class="row clearfix d-flex align-items-center">
                 <div class="col-lg-6 col-md-12 col-sm-12 content-column">
                     <div class="content_block_5">
                         <div class="content-box p_relative d_block">
                             <div class="sec-title mb_45">
-                                <div class="icon-box p_relative d_block fs_14 lh_20 mb_10"
-                                     style="text-align: right;">
-                                    <img src="./assets/images/LOGO.png" alt="LOGO" style="display: inline-block;">
+                                <div class="icon-box p_relative d_block fs_14 lh_20 mb_10" style="text-align: right;">
+                                    <img src="{{asset('assets/website/images/LOGO.png')}}" alt="LOGO"
+                                         style="display: inline-block;">
                                 </div>
                                 <h2 class="p_relative d_block fs_20 lh_60 fw_bold mt-4"
                                     style="color: #526652; text-align: start;">
@@ -46,9 +45,9 @@
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 image-column">
                     <div class="image-box p_relative d_block pr_120 pb_150">
-                        <figure class="image image-1 p_relative d_block mb-2 z_1 paroller"><img
-                                src="assets/images/About.png" alt="qudrah IMG">
-                        </figure>
+{{--                        <figure class="image image-1 p_relative d_block mb-2 z_1 paroller">--}}
+                            <img src="{{asset('assets/website/images/About.png')}}" alt="qudrah IMG">
+{{--                        </figure>--}}
                     </div>
                 </div>
             </div>
@@ -56,7 +55,7 @@
     </section>
     <!-- about -->
 
-    <section class="feature-style-two p_relative sec-pad">
+    <section class="feature-style-two p_relative pt-5">
         <div class="intro text-center mb-5">
             <div class="heading text-center font-weight-bold mb-3" style="color: #001D00; font-size: 40px;">خدماتنا
             </div>
@@ -71,10 +70,10 @@
                         <div
                             class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
                             <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                <img src="./assets/images/التوسيق العقاري.png" alt="تسويق العقاري">
+                                <img src="{{asset('assets/website/images/التوسيق العقاري.png')}}" alt="تسويق العقاري">
                             </div>
                             <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
-                                <a href="index-3.html" class="d_iblock color_black hov_color"
+                                <a href="#" class="d_iblock color_black hov_color"
                                    style="color: #526652 !important;">التسويق العقاري</a>
                             </h3>
                             <p style="text-align: start;">عبر أحدث التقنيات ووسائل التسويق الحديثة لفتح آفاق جديدة
@@ -89,10 +88,10 @@
                         <div
                             class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
                             <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                <img src="./assets/images/المزادات العقارية.png" alt="المزادات العقارية">
+                                <img src="{{asset('assets/website/images/المزادات العقارية.png')}}" alt="المزادات العقارية">
                             </div>
                             <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
-                                <a href="index-3.html" class="d_iblock color_black hov_color"
+                                <a href="" class="d_iblock color_black hov_color"
                                    style="color: #526652 !important;">المزادات العقارية</a>
                             </h3>
                             <p style="text-align: start;">نسعى في المزادات العقارية أن نوفر البيع السريع بأسعار
@@ -108,10 +107,10 @@
                         <div
                             class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
                             <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                <img src="./assets/images/إدارة العقارات.png" alt="ادارة العقارات">
+                                <img src="{{asset('assets/website/images/إدارة العقارات.png')}}" alt="ادارة العقارات">
                             </div>
                             <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
-                                <a href="index-3.html" class="d_iblock color_black hov_color"
+                                <a href="#" class="d_iblock color_black hov_color"
                                    style="color: #526652 !important;">ادارة
                                     العقارات</a>
                             </h3>
@@ -122,16 +121,17 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-lg-4 col-md-6 col-sm-12 feature-block mt-3">
                     <div class="feature-block-two wow fadeInUp animated" data-wow-delay="00ms"
                          data-wow-duration="1500ms">
                         <div
                             class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
                             <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                <img src="./assets/images/التوسيق العقاري.png" alt="تسويق العقاري">
+                                <img src="{{asset('assets/website/images/التوسيق العقاري.png')}}" alt="تسويق العقاري">
                             </div>
                             <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
-                                <a href="index-3.html" class="d_iblock color_black hov_color"
+                                <a href="#" class="d_iblock color_black hov_color"
                                    style="color: #526652 !important;">
                                     إدارة وتشغيل العقارات
                                 </a>
@@ -148,10 +148,10 @@
                         <div
                             class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
                             <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                <img src="./assets/images/ادارة المرافق.png" alt="ادارة المرافق">
+                                <img src="{{asset('assets/website/images/ادارة المرافق.png')}}" alt="ادارة المرافق">
                             </div>
                             <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
-                                <a href="index-3.html" class="d_iblock color_black hov_color"
+                                <a href="#" class="d_iblock color_black hov_color"
                                    style="color: #526652 !important;">ادارة
                                     المرافق</a>
                             </h3>
@@ -169,10 +169,10 @@
                         <div
                             class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
                             <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                <img src="./assets/images/التقييم العقاري.png" alt="التقييم العقاري">
+                                <img src="{{asset('assets/website/images/التقييم العقاري.png')}}" alt="التقييم العقاري">
                             </div>
                             <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
-                                <a href="index-3.html" class="d_iblock color_black hov_color"
+                                <a href="#" class="d_iblock color_black hov_color"
                                    style="color: #526652 !important;">
                                     التقييم العقاري
                                 </a>
@@ -191,10 +191,10 @@
                         <div
                             class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
                             <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                <img src="./assets/images/ادارة المرافق.png" alt="ادارة المرافق">
+                                <img src="{{asset('assets/website/images/ادارة المرافق.png')}}" alt="ادارة المرافق">
                             </div>
                             <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
-                                <a href="index-3.html" class="d_iblock color_black hov_color"
+                                <a href="" class="d_iblock color_black hov_color"
                                    style="color: #526652 !important;">الاستشارات العقارية</a>
                             </h3>
                             <p style="text-align: start;">نقدم خدماتنا الإستشارية بمختلف الإحتياجات لعملائنا
@@ -212,8 +212,8 @@
     </section>
 
     <section class="featured-projects p_relative sec-pad bg-color-3" style="direction: ltr;">
-        <div class="pattern-layer p_absolute t_0 r_0"
-             style="background-image: url(assets/images/shape/shape-7.png);"></div>
+        <div class="pattern-layer p_absolute t_0 r_0" style="background-image: url('{{asset('assets/website/images/shape/shape-7.png')}}');">
+        </div>
         <div class="large-container">
             <div class="sec-title mb_55 centred">
                 <h2 style="color: #001D00;" class="p_relative d_block fs_40 lh_60 mb-2 fw_exbold">العروض العقارية
@@ -318,31 +318,31 @@
             </div>
             <ul class="six-item-carousel owl-carousel owl-theme owl-dots-none owl-nav-none">
                 <li>
-                    <figure class="clients-logo"><a href="index-3.html"><img
-                                src="assets/images/clients/clients-1.png" alt=""></a></figure>
+                    <figure class="clients-logo"><a href="index-3.html"><img src="assets/images/clients/clients-1.png"
+                                                                             alt=""></a></figure>
                 </li>
                 <li>
-                    <figure class="clients-logo"><a href="index-3.html"><img
-                                src="assets/images/clients/clients-2.png" alt=""></a></figure>
+                    <figure class="clients-logo"><a href="index-3.html"><img src="assets/images/clients/clients-2.png"
+                                                                             alt=""></a></figure>
                 </li>
                 <li>
-                    <figure class="clients-logo"><a href="index-3.html"><img
-                                src="assets/images/clients/clients-3.png" alt=""></a></figure>
+                    <figure class="clients-logo"><a href="index-3.html"><img src="assets/images/clients/clients-3.png"
+                                                                             alt=""></a></figure>
                 </li>
                 <li>
-                    <figure class="clients-logo"><a href="index-3.html"><img
-                                src="assets/images/clients/clients-4.png" alt=""></a></figure>
+                    <figure class="clients-logo"><a href="index-3.html"><img src="assets/images/clients/clients-4.png"
+                                                                             alt=""></a></figure>
                 </li>
                 <!-- <li style="border: 3px solid #C19C6E; border-radius: 10px;">
-                        <figure class="clients-logo"><a href="index-3.html"><img src="assets/images/clients/clients-4.png" alt=""></a></figure>
-                    </li> -->
+                                    <figure class="clients-logo"><a href="index-3.html"><img src="assets/images/clients/clients-4.png" alt=""></a></figure>
+                                </li> -->
                 <li>
-                    <figure class="clients-logo"><a href="index-3.html"><img
-                                src="assets/images/clients/clients-5.png" alt=""></a></figure>
+                    <figure class="clients-logo"><a href="index-3.html"><img src="assets/images/clients/clients-5.png"
+                                                                             alt=""></a></figure>
                 </li>
                 <li>
-                    <figure class="clients-logo"><a href="index-3.html"><img
-                                src="assets/images/clients/clients-6.png" alt=""></a></figure>
+                    <figure class="clients-logo"><a href="index-3.html"><img src="assets/images/clients/clients-6.png"
+                                                                             alt=""></a></figure>
                 </li>
             </ul>
             <div class="more-text p_relative d_block mt_10">
@@ -472,31 +472,31 @@
             </div>
             <ul class="six-item-carousel owl-carousel owl-theme owl-dots-none owl-nav-none">
                 <li>
-                    <figure class="clients-logo"><a href="index-3.html"><img
-                                src="assets/images/clients/clients-1.png" alt=""></a></figure>
+                    <figure class="clients-logo"><a href="index-3.html"><img src="assets/images/clients/clients-1.png"
+                                                                             alt=""></a></figure>
                 </li>
                 <li>
-                    <figure class="clients-logo"><a href="index-3.html"><img
-                                src="assets/images/clients/clients-2.png" alt=""></a></figure>
+                    <figure class="clients-logo"><a href="index-3.html"><img src="assets/images/clients/clients-2.png"
+                                                                             alt=""></a></figure>
                 </li>
                 <li>
-                    <figure class="clients-logo"><a href="index-3.html"><img
-                                src="assets/images/clients/clients-3.png" alt=""></a></figure>
+                    <figure class="clients-logo"><a href="index-3.html"><img src="assets/images/clients/clients-3.png"
+                                                                             alt=""></a></figure>
                 </li>
                 <li>
-                    <figure class="clients-logo"><a href="index-3.html"><img
-                                src="assets/images/clients/clients-4.png" alt=""></a></figure>
+                    <figure class="clients-logo"><a href="index-3.html"><img src="assets/images/clients/clients-4.png"
+                                                                             alt=""></a></figure>
                 </li>
                 <!-- <li style="border: 3px solid #C19C6E; border-radius: 10px;">
-                            <figure class="clients-logo"><a href="index-3.html"><img src="assets/images/clients/clients-4.png" alt=""></a></figure>
-                        </li> -->
+                                        <figure class="clients-logo"><a href="index-3.html"><img src="assets/images/clients/clients-4.png" alt=""></a></figure>
+                                    </li> -->
                 <li>
-                    <figure class="clients-logo"><a href="index-3.html"><img
-                                src="assets/images/clients/clients-5.png" alt=""></a></figure>
+                    <figure class="clients-logo"><a href="index-3.html"><img src="assets/images/clients/clients-5.png"
+                                                                             alt=""></a></figure>
                 </li>
                 <li>
-                    <figure class="clients-logo"><a href="index-3.html"><img
-                                src="assets/images/clients/clients-6.png" alt=""></a></figure>
+                    <figure class="clients-logo"><a href="index-3.html"><img src="assets/images/clients/clients-6.png"
+                                                                             alt=""></a></figure>
                 </li>
             </ul>
         </div>
@@ -613,8 +613,7 @@
             </div>
             <div class="row clearfix">
                 <div class="col-lg-4 col-md-6 col-sm-12 news-block">
-                    <div class="news-block-one wow fadeInUp animated" data-wow-delay="00ms"
-                         data-wow-duration="1500ms">
+                    <div class="news-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
                         <div class="inner-box bg-color-1" style="text-align: start;">
                             <div class="image-box">
                                 <figure class="image"><a href="blog-details.html"><img
@@ -632,8 +631,7 @@
                 </div>
 
                 <div class="col-lg-4 col-md-6 col-sm-12 news-block">
-                    <div class="news-block-one wow fadeInUp animated" data-wow-delay="00ms"
-                         data-wow-duration="1500ms">
+                    <div class="news-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
                         <div class="inner-box bg-color-1" style="text-align: start;">
                             <div class="image-box">
                                 <figure class="image"><a href="blog-details.html"><img
@@ -651,8 +649,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12 news-block">
-                    <div class="news-block-one wow fadeInUp animated" data-wow-delay="00ms"
-                         data-wow-duration="1500ms">
+                    <div class="news-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
                         <div class="inner-box bg-color-1" style="text-align: start;">
                             <div class="image-box">
                                 <figure class="image"><a href="blog-details.html"><img
