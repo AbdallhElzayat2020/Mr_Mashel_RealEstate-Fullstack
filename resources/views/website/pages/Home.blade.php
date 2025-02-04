@@ -48,6 +48,7 @@
 {{--                        <figure class="image image-1 p_relative d_block mb-2 z_1 paroller">--}}
                             <img src="{{asset('assets/website/images/About.png')}}" alt="qudrah IMG">
 {{--                        </figure>--}}
+
                     </div>
                 </div>
             </div>
