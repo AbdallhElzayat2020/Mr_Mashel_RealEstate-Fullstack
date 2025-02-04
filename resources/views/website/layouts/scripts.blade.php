@@ -14,3 +14,4 @@
 
 <!-- main-js -->
 <script src="{{asset('assets/website/js/script.js')}}"></script>
+@stack('js')

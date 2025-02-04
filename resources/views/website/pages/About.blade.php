@@ -1,9 +1,9 @@
 @extends('website.layouts.master')
 @section('web_title', 'من نحن || قدرة العقارية')
-
+@include('website.layouts.header')
 @section('content')
     <section class="page-title p_relative pt_250 pb_170 centred"
-             style="background-image: url(assets/images/banner/Home_2.png);background-position: center;">
+             style="background-image: url('{{asset('assets/website/images/banner/Home_2.png')}}');background-position: center;">
         <div class="bg-layer p_absolute r_100 t_0">
         </div>
         <div class="large-container">
@@ -127,7 +127,7 @@
                         <div
                             class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
                             <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                <img src="{{ asset('assets/website/images/مرخصة_ومعتمدة.png') }}" alt="مرخصة ومعتمدة" />
+                                <img src="{{ asset('assets/website/images/مرخصة_ومعتمدة.png') }}" alt="مرخصة ومعتمدة"/>
                             </div>
                             <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
                                 <a href="index-3.html" class="d_iblock color_black hov_color"
@@ -148,7 +148,8 @@
                         <div
                             class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
                             <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                <img src="{{ asset('assets/website/images/الابتكار_والتطوير.png') }}" alt="الابتكار_والتطوير" />
+                                <img src="{{ asset('assets/website/images/الابتكار_والتطوير.png') }}"
+                                     alt="الابتكار_والتطوير"/>
                             </div>
                             <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
                                 <a href="index-3.html" class="d_iblock color_black hov_color"
@@ -169,7 +170,8 @@
                         <div
                             class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
                             <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                <img src="{{ asset('assets/website/images/الكفاءة_والاحترافية.png') }}" alt="الكفاءة_والاحترافية" />
+                                <img src="{{ asset('assets/website/images/الكفاءة_والاحترافية.png') }}"
+                                     alt="الكفاءة_والاحترافية"/>
                             </div>
                             <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
                                 <a href="index-3.html" class="d_iblock color_black hov_color"
@@ -190,7 +192,7 @@
                         <div
                             class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
                             <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                <img src="{{ asset('assets/website/images/النزاهة.png') }}" alt="النزاهة" />
+                                <img src="{{ asset('assets/website/images/النزاهة.png') }}" alt="النزاهة"/>
                             </div>
                             <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
                                 <a href="index-3.html" class="d_iblock color_black hov_color"
@@ -209,7 +211,8 @@
                         <div
                             class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
                             <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                <img src="{{ asset('assets/website/images/المسؤلية_والثقة.png') }}" alt="المسؤلية_والثقة" />
+                                <img src="{{ asset('assets/website/images/المسؤلية_والثقة.png') }}"
+                                     alt="المسؤلية_والثقة"/>
                             </div>
                             <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
                                 <a href="index-3.html" class="d_iblock color_black hov_color"
@@ -270,32 +273,6 @@
                             <h4 style="color: #C19C6E;">إستدامة العقار</h4>
                             <p>
                                 بتقديم إهتماماً كبيراً لصيانة وإدارة العقارات بطريقة تضمن إستدامتها لفترة طويلة </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="subscribe-section p_relative pl_60 pr_60">
-        <div class="bg-shape p_absolute l_0 b_0"></div>
-        <div class="outer-container p_relative bg_yellow pt_60 pb_60">
-            <div class="pattern-layer p_absolute l_0 b_0 r_0"></div>
-            <div class="large-container">
-                <div class="row clearfix">
-                    <div class="col-lg-6 col-md-12 col-sm-12 text-column">
-                        <div class="text">
-                            <h2 class="d_block fs_30 lh_50 color_white fw_exbold">اشترك ليصلك كل جديد</h2>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-12 col-sm-12 form-column">
-                        <div class="form-inner p_relative d_block ml_40 mt_8">
-                            <form action="https://azim.commonsupport.com/Amortez/contact.html" method="post">
-                                <div class="form-group p_relative d_block bg_white mr-0 p_13 b_radius_3 pr_100">
-                                    <input type="email" name="Email" placeholder="البريد الالكتروني" required>
-                                    <button type="submit"><i class="fas fa-envelope-open"></i></button>
-                                </div>
-                            </form>
                         </div>
                     </div>
                 </div>

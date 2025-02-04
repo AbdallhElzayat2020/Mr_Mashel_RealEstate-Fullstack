@@ -13,4 +13,8 @@ class ProjectsController extends Controller
     {
         return view('website.pages.Projects');
     }
+    public function show()
+    {
+        return view('website.pages.Project-details');
+    }
 }

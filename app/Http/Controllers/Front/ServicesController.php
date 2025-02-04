@@ -13,4 +13,9 @@ class ServicesController extends Controller
     {
         return view('website.pages.Services');
     }
+
+    public function show()
+    {
+        return view('website.pages.Services-details');
+    }
 }

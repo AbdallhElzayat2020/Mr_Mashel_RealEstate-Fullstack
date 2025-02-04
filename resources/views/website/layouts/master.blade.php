@@ -4,7 +4,8 @@
     {{--preloader--}}
     @include('website.layouts.preloader')
     {{--Header--}}
-    @include('website.layouts.header')
+
+{{--    @include('website.layouts.header')--}}
     {{-- ('content')--}}
     @yield('content')
     {{--footer--}}

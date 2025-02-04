@@ -11,4 +11,9 @@ class BlogController extends Controller
     {
         return view('website.pages.Blog');
     }
+
+    public function show()
+    {
+        return view('website.pages.Blog-details');
+    }
 }
