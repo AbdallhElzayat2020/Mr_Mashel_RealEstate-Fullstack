@@ -5,11 +5,10 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class AboutController extends Controller
+class BlogController extends Controller
 {
-    //
     public function index()
     {
-        return view('website.pages.About');
+        return view('website.pages.Blog');
     }
 }

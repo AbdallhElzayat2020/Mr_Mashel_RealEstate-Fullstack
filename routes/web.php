@@ -26,6 +26,19 @@ Route::get('/projects', [\App\Http\Controllers\Front\ProjectsController::class, 
 
 Route::get('/projects-details/{id}', [\App\Http\Controllers\Front\ProjectsController::class, 'show'])->name('project-details');
 
+Route::get('/projects', [\App\Http\Controllers\Front\ProjectsController::class, 'index'])->name('projects');
+
+Route::get('/hireing', [\App\Http\Controllers\Front\HireingController::class, 'index'])->name('hire');
+
+Route::get('/internship', [\App\Http\Controllers\Front\IntershingController::class, 'index'])->name('internship');
+
+Route::get('/blogs', [\App\Http\Controllers\Front\BlogController::class, 'index'])->name('blogs');
+
+Route::get('/blogs-details/{id}', [\App\Http\Controllers\Front\BlogController::class, 'index'])->name('blogs-details');
+
+Route::get('/contact', [\App\Http\Controllers\Front\ContactController::class, 'index'])->name('contact');
+
+
 
 
 
