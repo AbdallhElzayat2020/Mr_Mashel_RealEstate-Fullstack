@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->foreignId('admin_id')->nullable()->constrained('admins')->nullOnDelete();
+            $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
             $table->text('excerpt');
             $table->longText('content');
             $table->timestamps();

@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\OfferController;
 use App\Http\Controllers\Admin\OpportunityController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\ProfileController;
 
 Route::resource('blogs', BlogController::class);
 
@@ -28,3 +29,13 @@ Route::prefix('mail-subscriptions')
         Route::post('/', 'store')->name('store');
         Route::delete('{mailSubscription}', 'destroy')->name('destroy');
     });
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+
+

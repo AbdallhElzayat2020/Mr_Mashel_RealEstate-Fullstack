@@ -37,6 +37,4 @@ class Opportunity extends Model implements HasMedia
     {
         return $query->where('type', OpportunityType::EMPLOYMENT);
     }
-
-
 }

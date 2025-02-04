@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\Translatable\HasTranslations;
 
 class Service extends Model implements HasMedia
 {
-    use HasFactory, InteractsWithMedia;
+    use HasFactory, InteractsWithMedia, HasTranslations;
 
     protected $fillable = [
         'title',
@@ -18,6 +19,8 @@ class Service extends Model implements HasMedia
         'features',
         'contact_number',
     ];
+
+    public array $translatable = ['title', 'description', 'features'];
 
     protected $casts = [
         'details' => 'array',
