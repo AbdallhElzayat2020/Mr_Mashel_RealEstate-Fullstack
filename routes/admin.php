@@ -9,6 +9,14 @@ use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\ProfileController;
 
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+
+
+
 Route::resource('blogs', BlogController::class);
 
 Route::resource('offers', OfferController::class);
@@ -20,6 +28,9 @@ Route::resource('services', ServiceController::class);
 Route::resource('testimonials', TestimonialController::class);
 
 Route::resource('opportunities', OpportunityController::class);
+
+
+
 
 Route::prefix('mail-subscriptions')
     ->as('mail-subscriptions.')

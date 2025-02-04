@@ -1,6 +1,6 @@
 @extends('website.layouts.master')
 @section('web_title', 'الرئيسية || قدرة العقارية')
-
+@include('website.layouts.header')
 @section('content')
     <!-- banner-section -->
     <section class="page-title p_relative pt_250 pb_170 centred"

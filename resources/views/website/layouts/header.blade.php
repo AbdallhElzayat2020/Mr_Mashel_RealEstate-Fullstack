@@ -20,28 +20,35 @@
                     <nav class="main-menu navbar-expand-md navbar-light">
                         <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
                             <ul class="navigation clearfix">
-                                <!-- لغة الموقع -->
-                                <li class="dropdown">
-                                    <a href="#">EN <i class="fas fa-chevron-down"></i></a>
+                                <li class="dropdown"><a href="#">EN</a>
                                     <ul>
                                         <li><a href="#">EN</a></li>
                                         <li><a href="#">AR</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="{{route('contact')}}">للتواصل</a></li>
-                                <li><a href="{{route('blogs')}}">المدونة</a></li>
-                                <!-- التدريب والتوظيف -->
-                                <li class="dropdown">
-                                    <a href="javascript:void(0)">التدريب والتوظيف <i class="fas fa-chevron-down"></i></a>
+                                <li class="#"><a href="{{route('contact')}}">تواصل معنا</a></li>
+
+                                <li class="#"><a href="{{route('blogs')}}">المدونة</a></li>
+
+                                <li class="dropdown"><a href="javascript:void(0)">التدريب والتوظيف</a>
                                     <ul>
                                         <li><a href="{{route('internship')}}">فرص التدريب</a></li>
                                         <li><a href="{{route('hire')}}">فرص التوظيف</a></li>
+                                        {{--                                        <li><a href="error.html">404</a></li>--}}
                                     </ul>
                                 </li>
-                                <li><a href="{{route('services')}}">خدماتنا</a></li>
-                                <li><a href="{{route('projects')}}">العروض العقارية</a></li>
-                                <li><a href="{{route('about')}}">من نحن</a></li>
-                                <li><a href="{{route('home')}}">الرئيسية</a></li>
+                                <li class="">
+                                    <a href="{{route('services')}}">خدماتنا</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="{{route('projects')}}">العروض العقارية</a>
+                                </li>
+                                <li class="">
+                                    <a href="{{route('about')}}">من نحن</a>
+                                </li>
+                                <li class="">
+                                    <a href="{{route('home')}}">الرئيسية</a>
+                                </li>
                             </ul>
                         </div>
                     </nav>
