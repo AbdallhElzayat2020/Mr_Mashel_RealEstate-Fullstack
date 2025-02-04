@@ -9,10 +9,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\Translatable\HasTranslations;
 
 class Offer extends Model implements HasMedia
 {
-    use HasFactory, InteractsWithMedia;
+    use HasFactory, HasTranslations, InteractsWithMedia;
 
     protected $fillable = [
         'title',
@@ -22,6 +23,8 @@ class Offer extends Model implements HasMedia
         'price',
         'price_type',
     ];
+
+    public array $translatable = ['title', 'short_title', 'description', 'short_description'];
 
     protected $casts = [
         'price_type' => OfferPriceType::class,
