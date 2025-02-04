@@ -45,10 +45,10 @@
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 image-column">
                     <div class="image-box p_relative d_block pr_120 pb_150">
-{{--                        <figure class="image image-1 p_relative d_block mb-2 z_1 paroller">--}}
-                            <img src="{{asset('assets/website/images/About.png')}}" alt="qudrah IMG">
-{{--                        </figure>--}}
-
+                        {{--                        <figure class="image image-1 p_relative d_block mb-2 z_1 paroller">--}}
+                        <img src="{{asset('assets/website/images/About.png')}}" alt="qudrah IMG">
+                        {{--                        </figure>--}}
+                        {{--test comment for test git--}}
                     </div>
                 </div>
             </div>
@@ -89,7 +89,8 @@
                         <div
                             class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
                             <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                <img src="{{asset('assets/website/images/المزادات العقارية.png')}}" alt="المزادات العقارية">
+                                <img src="{{asset('assets/website/images/المزادات العقارية.png')}}"
+                                     alt="المزادات العقارية">
                             </div>
                             <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
                                 <a href="" class="d_iblock color_black hov_color"
@@ -213,7 +214,8 @@
     </section>
 
     <section class="featured-projects p_relative sec-pad bg-color-3" style="direction: ltr;">
-        <div class="pattern-layer p_absolute t_0 r_0" style="background-image: url('{{asset('assets/website/images/shape/shape-7.png')}}');">
+        <div class="pattern-layer p_absolute t_0 r_0"
+             style="background-image: url('{{asset('assets/website/images/shape/shape-7.png')}}');">
         </div>
         <div class="large-container">
             <div class="sec-title mb_55 centred">
