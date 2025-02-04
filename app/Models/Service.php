@@ -10,7 +10,7 @@ use Spatie\Translatable\HasTranslations;
 
 class Service extends Model implements HasMedia
 {
-    use HasFactory, InteractsWithMedia, HasTranslations;
+    use HasFactory, HasTranslations, InteractsWithMedia;
 
     protected $fillable = [
         'title',

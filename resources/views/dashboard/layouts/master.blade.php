@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 
-<html
-    lang="en"
-    class="light-style layout-navbar-fixed layout-menu-fixed"
-    dir="ltr"
-    data-theme="theme-default"
-    data-assets-path="{{asset('assets/dashboard/assets')}}/"
-    data-template="vertical-menu-template">
+{{--<html--}}
+{{--    lang="en"--}}
+{{--    class="light-style layout-navbar-fixed layout-menu-fixed"--}}
+{{--    dir="ltr"--}}
+{{--    data-theme="theme-default"--}}
+{{--    data-assets-path="{{asset('assets/dashboard/assets')}}/"--}}
+{{--    data-template="vertical-menu-template">--}}
+
+<html lang="en"
+      class="light-style layout-navbar-fixed layout-menu-fixed sf-js-enabled"
+      dir="rtl" data-theme="theme-default"
+      data-assets-path="{{asset('assets/dashboard/assets')}}/"
+      data-template="vertical-menu-template">
 @include('dashboard.layouts.main-head')
 
 <body>
@@ -49,7 +55,7 @@
     <div class="drag-target"></div>
 </div>
 <!-- / Layout wrapper -->
-
+@include('dashboard.layouts.scripts')
 
 </body>
 </html>
