@@ -72,7 +72,7 @@
                 <div class="col-lg-6 col-md-12 col-sm-12 image-column">
                     <div class="image-box p_relative d_block pr_120 pb_150">
                         <figure class="image image-1 p_relative d_block z_1 paroller"><img
-                                src="{{asset('assets/website/images/About.png')}}" alt="qudrah IMG">
+                                src="{{ asset('assets/website/images/About.png')}}" alt="qudrah IMG">
                         </figure>
                     </div>
                 </div>
@@ -127,7 +127,7 @@
                         <div
                             class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
                             <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                <img src="{{asset('assets/website/images/مرخصة_ومعتمدة.png')}}" alt="مرخصة ومعتمدة" />
+                                <img src="{{ asset('assets/website/images/مرخصة_ومعتمدة.png')}}" alt="مرخصة ومعتمدة" />
                             </div>
                             <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
                                 <a href="index-3.html" class="d_iblock color_black hov_color"
@@ -148,7 +148,7 @@
                         <div
                             class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
                             <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                <img src="{{asset('assets/website/images/الابتكار_والتطوير.png')}}" alt="الابتكار_والتطوير" />
+                                <img src="{{ asset('assets/website/images/الابتكار_والتطوير.png')}}" alt="الابتكار_والتطوير" />
                             </div>
                             <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
                                 <a href="index-3.html" class="d_iblock color_black hov_color"
@@ -169,7 +169,7 @@
                         <div
                             class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
                             <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                <img src="{{asset('assets/website/images/الكفاءة_والاحترافية.png')}}" alt="الكفاءة_والاحترافية" />
+                                <img src="{{ asset('assets/website/images/الكفاءة_والاحترافية.png')}}" alt="الكفاءة_والاحترافية" />
                             </div>
                             <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
                                 <a href="index-3.html" class="d_iblock color_black hov_color"
@@ -190,7 +190,7 @@
                         <div
                             class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
                             <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                <img src="{{asset('assets/website/images/النزاهة.png')}}" alt="النزاهة" />
+                                <img src="{{ asset('assets/website/images/النزاهة.png')}}" alt="النزاهة" />
                             </div>
                             <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
                                 <a href="index-3.html" class="d_iblock color_black hov_color"
@@ -209,7 +209,7 @@
                         <div
                             class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
                             <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                <img src="{{asset('assets/website/images/المسؤلية_والثقة.png')}}" alt="المسؤلية_والثقة" />
+                                <img src="{{ asset('assets/website/images/المسؤلية_والثقة.png')}}" alt="المسؤلية_والثقة" />
                             </div>
                             <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
                                 <a href="index-3.html" class="d_iblock color_black hov_color"
