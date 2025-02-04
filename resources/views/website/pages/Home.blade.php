@@ -48,7 +48,6 @@
                         {{--                        <figure class="image image-1 p_relative d_block mb-2 z_1 paroller">--}}
                         <img src="{{asset('assets/website/images/About.png')}}" alt="qudrah IMG">
                         {{--                        </figure>--}}
-                        {{--test comment for test git--}}
                     </div>
                 </div>
             </div>
@@ -228,7 +227,7 @@
                     <div class="row align-items-center clearfix">
                         <div class="col-lg-6 col-md-12 col-sm-12 image-column">
                             <figure class="image-box p_relative d_block pr_15">
-                                <img src="assets/images/صورة العقار.png" alt="صورة العقار">
+                                <img src="{{asset('assets/website/images/صورة العقار.png')}}" alt="صورة العقار">
                             </figure>
                         </div>
                         <div style="text-align: right;" class="col-lg-6 col-md-12 col-sm-12 content-column">
@@ -303,7 +302,7 @@
                         </div>
                     </div>
                     <div class="col-lg-6 d-flex align-items-center">
-                        <img style="width: 100%; max-width: 100%;" src="./assets/images/الخريطة.png"
+                        <img style="width: 100%; max-width: 100%;" src="{{asset('assets/website/images/الخريطة.png')}}"
                              alt="خريطة الممكلة">
                     </div>
                 </div>
@@ -321,31 +320,31 @@
             </div>
             <ul class="six-item-carousel owl-carousel owl-theme owl-dots-none owl-nav-none">
                 <li>
-                    <figure class="clients-logo"><a href="index-3.html"><img src="assets/images/clients/clients-1.png"
-                                                                             alt=""></a></figure>
+                    <figure class="clients-logo"><a href="#">
+                            <img src="{{asset('assets/website/images/clients/clients-1.png')}}" alt=""></a></figure>
                 </li>
                 <li>
-                    <figure class="clients-logo"><a href="index-3.html"><img src="assets/images/clients/clients-2.png"
-                                                                             alt=""></a></figure>
+                    <figure class="clients-logo"><a href="#">
+                            <img src="{{asset('assets/website/images/clients/clients-2.png')}}" alt=""></a></figure>
                 </li>
                 <li>
-                    <figure class="clients-logo"><a href="index-3.html"><img src="assets/images/clients/clients-3.png"
-                                                                             alt=""></a></figure>
+                    <figure class="clients-logo"><a href="#">
+                            <img src="{{asset('assets/website/images/clients/clients-3.png')}}" alt=""></a></figure>
                 </li>
                 <li>
-                    <figure class="clients-logo"><a href="index-3.html"><img src="assets/images/clients/clients-4.png"
-                                                                             alt=""></a></figure>
+                    <figure class="clients-logo"><a href="#">
+                            <img src="{{asset('assets/website/images/clients/clients-4.png')}}" alt=""></a></figure>
                 </li>
                 <!-- <li style="border: 3px solid #C19C6E; border-radius: 10px;">
                                     <figure class="clients-logo"><a href="index-3.html"><img src="assets/images/clients/clients-4.png" alt=""></a></figure>
                                 </li> -->
                 <li>
-                    <figure class="clients-logo"><a href="index-3.html"><img src="assets/images/clients/clients-5.png"
-                                                                             alt=""></a></figure>
+                    <figure class="clients-logo"><a href="#">
+                            <img src="{{asset('assets/website/images/clients/clients-5.png')}}" alt=""></a></figure>
                 </li>
                 <li>
-                    <figure class="clients-logo"><a href="index-3.html"><img src="assets/images/clients/clients-6.png"
-                                                                             alt=""></a></figure>
+                    <figure class="clients-logo"><a href="#">
+                            <img src="{{asset('assets/website/images/clients/clients-6.png')}}" alt=""></a></figure>
                 </li>
             </ul>
             <div class="more-text p_relative d_block mt_10">
@@ -355,7 +354,7 @@
     </section>
 
     <section class="testimonial-style-two p_relative sec-pad bg-color-1" style="direction: ltr;">
-        <div class="pattern-layer p_absolute" style="background-image: url(assets/images/shape/shape-14.png);">
+        <div class="pattern-layer p_absolute" style="background-image: url('{{asset('assets/website/images/shape/shape-14.png')}}');">
         </div>
         <div class="large-container">
             <div class="sec-title centred mb_55">
@@ -368,7 +367,7 @@
                             <div class="author-box p_relative d_block pl_80 pr_80 mb_35">
                                 <div class="quote p_absolute t_0 r_0 fs_50"><i class="fal fa-quote-right"></i></div>
                                 <figure class="author-thumb p_absolute l_0 t_0 w_60 h_60 b_radius_50"><img
-                                        src="assets/images/resource/testimonial-1.jpg" alt=""></figure>
+                                        src="{{asset('assets/website/images/resource/testimonial-1.jpg')}}" alt=""></figure>
                                 <h5 class="d_block fs_18 lh_30 fw_sbold">Sophia J. Milton</h5>
                                 <span class="designation p_relative d_block fs_14 lh_20">Property Owner</span>
                             </div>
@@ -384,7 +383,7 @@
                             <div class="author-box p_relative d_block pl_80 pr_80 mb_35">
                                 <div class="quote p_absolute t_0 r_0 fs_50"><i class="fal fa-quote-right"></i></div>
                                 <figure class="author-thumb p_absolute l_0 t_0 w_60 h_60 b_radius_50"><img
-                                        src="assets/images/resource/testimonial-2.jpg" alt=""></figure>
+                                        src="{{asset('assets/website/images/resource/testimonial-2.jpg')}}" alt=""></figure>
                                 <h5 class="d_block fs_18 lh_30 fw_sbold">Andy S. Matthew</h5>
                                 <span class="designation p_relative d_block fs_14 lh_20">Senior Manager</span>
                             </div>
@@ -400,7 +399,7 @@
                             <div class="author-box p_relative d_block pl_80 pr_80 mb_35">
                                 <div class="quote p_absolute t_0 r_0 fs_50"><i class="fal fa-quote-right"></i></div>
                                 <figure class="author-thumb p_absolute l_0 t_0 w_60 h_60 b_radius_50"><img
-                                        src="assets/images/resource/testimonial-1.jpg" alt=""></figure>
+                                        src="{{asset('assets/website/images/resource/testimonial-1.jpg')}}" alt=""></figure>
                                 <h5 class="d_block fs_18 lh_30 fw_sbold">Sophia J. Milton</h5>
                                 <span class="designation p_relative d_block fs_14 lh_20">Property Owner</span>
                             </div>
@@ -416,7 +415,7 @@
                             <div class="author-box p_relative d_block pl_80 pr_80 mb_35">
                                 <div class="quote p_absolute t_0 r_0 fs_50"><i class="fal fa-quote-right"></i></div>
                                 <figure class="author-thumb p_absolute l_0 t_0 w_60 h_60 b_radius_50"><img
-                                        src="assets/images/resource/testimonial-2.jpg" alt=""></figure>
+                                        src="{{asset('assets/website/images/resource/testimonial-2.jpg')}}" alt=""></figure>
                                 <h5 class="d_block fs_18 lh_30 fw_sbold">Andy S. Matthew</h5>
                                 <span class="designation p_relative d_block fs_14 lh_20">Senior Manager</span>
                             </div>
@@ -432,7 +431,7 @@
                             <div class="author-box p_relative d_block pl_80 pr_80 mb_35">
                                 <div class="quote p_absolute t_0 r_0 fs_50"><i class="fal fa-quote-right"></i></div>
                                 <figure class="author-thumb p_absolute l_0 t_0 w_60 h_60 b_radius_50"><img
-                                        src="assets/images/resource/testimonial-1.jpg" alt=""></figure>
+                                        src="{{asset('assets/website/images/resource/testimonial-1.jpg')}}" alt=""></figure>
                                 <h5 class="d_block fs_18 lh_30 fw_sbold">Sophia J. Milton</h5>
                                 <span class="designation p_relative d_block fs_14 lh_20">Property Owner</span>
                             </div>
@@ -448,7 +447,7 @@
                             <div class="author-box p_relative d_block pl_80 pr_80 mb_35">
                                 <div class="quote p_absolute t_0 r_0 fs_50"><i class="fal fa-quote-right"></i></div>
                                 <figure class="author-thumb p_absolute l_0 t_0 w_60 h_60 b_radius_50"><img
-                                        src="assets/images/resource/testimonial-2.jpg" alt=""></figure>
+                                        src="{{asset('assets/website/images/resource/testimonial-2.jpg')}}" alt=""></figure>
                                 <h5 class="d_block fs_18 lh_30 fw_sbold">Andy S. Matthew</h5>
                                 <span class="designation p_relative d_block fs_14 lh_20">Senior Manager</span>
                             </div>
@@ -475,31 +474,31 @@
             </div>
             <ul class="six-item-carousel owl-carousel owl-theme owl-dots-none owl-nav-none">
                 <li>
-                    <figure class="clients-logo"><a href="index-3.html"><img src="assets/images/clients/clients-1.png"
-                                                                             alt=""></a></figure>
+                    <figure class="clients-logo"><a href="#">
+                            <img src="{{asset('assets/website/images/clients/clients-1.png')}}" alt=""></a></figure>
                 </li>
                 <li>
-                    <figure class="clients-logo"><a href="index-3.html"><img src="assets/images/clients/clients-2.png"
-                                                                             alt=""></a></figure>
+                    <figure class="clients-logo"><a href="#">
+                            <img src="{{asset('assets/website/images/clients/clients-2.png')}}" alt=""></a></figure>
                 </li>
                 <li>
-                    <figure class="clients-logo"><a href="index-3.html"><img src="assets/images/clients/clients-3.png"
-                                                                             alt=""></a></figure>
+                    <figure class="clients-logo"><a href="#">
+                            <img src="{{asset('assets/website/images/clients/clients-3.png')}}" alt=""></a></figure>
                 </li>
                 <li>
-                    <figure class="clients-logo"><a href="index-3.html"><img src="assets/images/clients/clients-4.png"
-                                                                             alt=""></a></figure>
+                    <figure class="clients-logo"><a href="#">
+                            <img src="{{asset('assets/website/images/clients/clients-4.png')}}" alt=""></a></figure>
                 </li>
                 <!-- <li style="border: 3px solid #C19C6E; border-radius: 10px;">
-                                        <figure class="clients-logo"><a href="index-3.html"><img src="assets/images/clients/clients-4.png" alt=""></a></figure>
+                                        <figure class="clients-logo"><a href="#"><img src="assets/images/clients/clients-4.png" alt=""></a></figure>
                                     </li> -->
                 <li>
-                    <figure class="clients-logo"><a href="index-3.html"><img src="assets/images/clients/clients-5.png"
-                                                                             alt=""></a></figure>
+                    <figure class="clients-logo"><a href="#">
+                            <img src="{{asset('assets/website/images/clients/clients-5.png')}}" alt=""></a></figure>
                 </li>
                 <li>
-                    <figure class="clients-logo"><a href="index-3.html"><img src="assets/images/clients/clients-6.png"
-                                                                             alt=""></a></figure>
+                    <figure class="clients-logo"><a href="#">
+                            <img src="{{asset('assets/website/images/clients/clients-6.png')}}" alt=""></a></figure>
                 </li>
             </ul>
         </div>
@@ -519,10 +518,10 @@
                         <div
                             class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
                             <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                <img src="./assets/images/التوسيق العقاري.png" alt="تسويق العقاري">
+                                <img src="{{asset('assets/website/images/التوسيق العقاري.png')}}" alt="تسويق العقاري">
                             </div>
                             <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
-                                <a href="index-3.html" class="d_iblock color_black hov_color"
+                                <a href="#" class="d_iblock color_black hov_color"
                                    style="color: #526652 !important;">‫مرخصة‫ومعتمدة</a>
                             </h3>
                             <p>‫تعتبر‬‫شركة‬ ‫قدرة‬ ‫العقارية‬ ‫من‬ ‫أوائل‬ ‫الشركات‬ ‫المرخصة‬
@@ -538,10 +537,10 @@
                         <div
                             class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
                             <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                <img src="./assets/images/إدارة العقارات.png" alt="ادارة العقارات">
+                                <img src="{{asset('assets/website/images/إدارة العقارات.png')}}" alt="ادارة العقارات">
                             </div>
                             <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
-                                <a href="index-3.html" class="d_iblock color_black hov_color"
+                                <a href="#" class="d_iblock color_black hov_color"
                                    style="color: #526652 !important;">الابتكار والتطوير</a>
                             </h3>
                             <p>‫تدمج‬‫قدرة‬ ‫العقارية‬ ‫التقنيات‬ ‫الحديثة‬ ‫في‬ ‫جميع‬ ‫مراحل‬
@@ -556,10 +555,10 @@
                         <div
                             class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
                             <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                <img src="./assets/images/ادارة المرافق.png" alt="ادارة المرافق">
+                                <img src="{{asset('assets/website/images/ادارة المرافق.png')}}" alt="ادارة المرافق">
                             </div>
                             <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
-                                <a href="index-3.html" class="d_iblock color_black hov_color"
+                                <a href="#" class="d_iblock color_black hov_color"
                                    style="color: #526652 !important;">‫الكفاءة ‬‫واالحترافية‬</a>
                             </h3>
                             <p class="text-center">‫بسلسلة‬‫من‬ ‫الممارسات‬ ‫االحترافية‬ ‫المستدامة‪،‬‬ ‫تمكن‬
@@ -575,10 +574,10 @@
                         <div
                             class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
                             <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                <img src="./assets/images/ادارة المرافق.png" alt="ادارة المرافق">
+                                <img src="{{asset('assets/website/images/ادارة المرافق.png')}}" alt="ادارة المرافق">
                             </div>
                             <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
-                                <a href="index-3.html" class="d_iblock color_black hov_color"
+                                <a href="#" class="d_iblock color_black hov_color"
                                    style="color: #526652 !important;">‫النزاهة</a>
                             </h3>
                             <p class="text-center">‫نتمسك‬‫بأعلى‬ ‫المعايير‬ ‫األخالقية‬ ‫والشفافية‬ ‫في‬ ‫جميع‬
@@ -592,13 +591,13 @@
                         <div
                             class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
                             <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                <img src="./assets/images/المزادات العقارية.png" alt="المزادات العقارية">
+                                <img src="{{asset('assets/website/images/المزادات العقارية.png')}}" alt="المزادات العقارية">
                             </div>
                             <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
-                                <a href="index-3.html" class="d_iblock color_black hov_color"
-                                   style="color: #526652 !important;">‫المسؤولية‬‫والثقة</a>
+                                <a href="#" class="d_iblock color_black hov_color"
+                                   style="color: #526652 !important;">‫المسؤوليةوالثقة</a>
                             </h3>
-                            <p class="text-center">‫نسعى ‬‫لبناء‬ ‫علاقات‬ ‫متينة‬ ‫مع‬ ‫عمالئنا‬ ‫وشركاء‬ ‫األعمال‬
+                            <p class="text-center" style="font-size: 15px">‫نسعى ‬‫لبناء‬ ‫علاقات‬ ‫متينة‬ ‫مع‬ ‫عمالئنا‬ ‫وشركاء‬ ‫األعمال‬
                                 ‫عبر‬ ‫تقديم‬ ‫األولية‬ ‫القصوى‬ ‫ل‬ ‫مصالح‬‫هم‬‫المتنوعة‬</p>
                         </div>
                     </div>
@@ -619,12 +618,12 @@
                     <div class="news-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
                         <div class="inner-box bg-color-1" style="text-align: start;">
                             <div class="image-box">
-                                <figure class="image"><a href="blog-details.html"><img
-                                            src="assets/images/news/news-1.jpg" alt=""></a></figure>
+                                <figure class="image"><a href="#"><img
+                                            src="{{asset('assets/website/images/news/news-1.jpg')}}" alt=""></a></figure>
                                 <span class="post-date">23 JUN 2021</span>
                             </div>
                             <div class="lower-content">
-                                <h3><a href="blog-details.html">Developing in 106 Countries For Many Communities</a>
+                                <h3><a href="#">Developing in 106 Countries For Many Communities</a>
                                 </h3>
                                 <p>Voluptate velit cillum dol fugiat pariatur. Excepteur anim idet laboru sed
                                     perspise tis undy omnis iste natus.</p>
@@ -637,13 +636,13 @@
                     <div class="news-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
                         <div class="inner-box bg-color-1" style="text-align: start;">
                             <div class="image-box">
-                                <figure class="image"><a href="blog-details.html"><img
-                                            src="assets/images/news/news-1.jpg" alt=""></a>
+                                <figure class="image"><a href="3"><img
+                                            src="{{asset('assets/website/images/news/news-1.jpg')}}" alt=""></a>
                                 </figure>
                                 <span class="post-date">23 JUN 2021</span>
                             </div>
                             <div class="lower-content">
-                                <h3><a href="blog-details.html">Developing in 106 Countries For Many Communities</a>
+                                <h3><a href="#">Developing in 106 Countries For Many Communities</a>
                                 </h3>
                                 <p>Voluptate velit cillum dol fugiat pariatur. Excepteur anim idet laboru sed
                                     perspise tis undy omnis iste natus.</p>
@@ -655,13 +654,13 @@
                     <div class="news-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
                         <div class="inner-box bg-color-1" style="text-align: start;">
                             <div class="image-box">
-                                <figure class="image"><a href="blog-details.html"><img
-                                            src="assets/images/news/news-1.jpg" alt=""></a>
+                                <figure class="image"><a href="#"><img
+                                            src="{{asset('assets/website/images/news/news-1.jpg')}}" alt=""></a>
                                 </figure>
                                 <span class="post-date">23 JUN 2021</span>
                             </div>
                             <div class="lower-content">
-                                <h3><a href="blog-details.html">Developing in 106 Countries For Many Communities</a>
+                                <h3><a href="#">Developing in 106 Countries For Many Communities</a>
                                 </h3>
                                 <p>Voluptate velit cillum dol fugiat pariatur. Excepteur anim idet laboru sed
                                     perspise tis undy omnis iste natus.</p>

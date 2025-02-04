@@ -14,9 +14,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('website.pages.Home');
-});
+Route::get('/', [\App\Http\Controllers\Front\HomeController::class, 'index'])->name('home');
+
+Route::get('/about', [\App\Http\Controllers\Front\AboutController::class, 'index'])->name('about');
+
+Route::get('/services', [\App\Http\Controllers\Front\ServicesController::class, 'index'])->name('services');
+
+Route::get('/services-details/{id}', [\App\Http\Controllers\Front\ServicesController::class, 'show'])->name('service-details');
+
+Route::get('/projects', [\App\Http\Controllers\Front\ProjectsController::class, 'index'])->name('projects');
+
+Route::get('/projects-details/{id}', [\App\Http\Controllers\Front\ProjectsController::class, 'show'])->name('project-details');
+
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
