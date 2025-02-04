@@ -1,21 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html
+    lang="en"
+    class="light-style layout-navbar-fixed layout-menu-fixed"
+    dir="ltr"
+    data-theme="theme-default"
+    data-assets-path="{{asset('assets/dashboard/assets')}}/"
+    data-template="vertical-menu-template">
 @include('dashboard.layouts.main-head')
 
 <body>
-<div id="app">
-    <div class="main-wrapper main-wrapper-1">
-        @include('dashboard.layouts.main-header')
+<!-- Layout wrapper -->
+<div class="layout-wrapper layout-content-navbar">
+    <div class="layout-container">
+        <!-- Menu -->
         @include('dashboard.layouts.main-sidebar')
+        <!-- / Menu -->
 
-        <!-- Main Content -->
-        @yield('content')
+        <!-- Layout container -->
+        <div class="layout-page">
+            <!-- Navbar -->
 
-        @include('dashboard.layouts.main-footer')
+            @include('dashboard.layouts.main-header')
+
+            <!-- / Navbar -->
+
+            <!-- Content wrapper -->
+            <div class="content-wrapper">
+                <!-- Content -->
+                @yield('content')
+                <!-- / Content -->
+
+                <!-- Footer -->
+                @include('dashboard.layouts.main-footer')
+                <!-- / Footer -->
+
+                <div class="content-backdrop fade"></div>
+            </div>
+            <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
     </div>
-</div>
 
-@include('dashboard.layouts.scripts')
+    <!-- Overlay -->
+    <div class="layout-overlay layout-menu-toggle"></div>
+
+    <!-- Drag Target Area To SlideIn Menu On Small Screens -->
+    <div class="drag-target"></div>
+</div>
+<!-- / Layout wrapper -->
+
 
 </body>
 </html>

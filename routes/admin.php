@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\MailSubscriptionController;
@@ -16,6 +17,8 @@ Route::get('/dashboard', function () {
 
 
 
+
+Route::get('admin/dashboard',[AdminController::class])->name('dashboard');
 
 Route::resource('blogs', BlogController::class);
 
