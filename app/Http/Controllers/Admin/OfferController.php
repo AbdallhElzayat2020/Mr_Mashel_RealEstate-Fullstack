@@ -18,12 +18,12 @@ class OfferController extends Controller
     {
         $offers = $this->offerRepository->getAll();
 
-        return view('admin.offer.index', compact('offers'));
+        return view('dashboard.pages.offer.index', compact('offers'));
     }
 
     public function create()
     {
-        return view('admin.offer.create');
+        return view('dashboard.pages.offer.create');
     }
 
     public function store(OfferRequest $request)
@@ -35,12 +35,12 @@ class OfferController extends Controller
 
     public function show(Offer $offer)
     {
-        return view('admin.offer.show', compact('offer'));
+        return view('dashboard.pages.offer.show', compact('offer'));
     }
 
     public function edit(Offer $offer)
     {
-        return view('admin.offer.edit', compact('offer'));
+        return view('dashboard.pages.offer.edit', compact('offer'));
     }
 
     public function update(Request $request, Offer $offer)

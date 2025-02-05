@@ -17,7 +17,7 @@ class MailSubscriptionController extends Controller
     {
         $mail_subscriptions = $this->mailSubscriptionRepository->getAll();
 
-        return view('admin.mail-subscription.index', compact('mail_subscriptions'));
+        return view('dashboard.pages.mail-subscription.index', compact('mail_subscriptions'));
     }
 
     public function store(MailSubscriptionRequest $request)

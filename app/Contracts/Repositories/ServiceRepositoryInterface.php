@@ -8,6 +8,8 @@ interface ServiceRepositoryInterface
 {
     public function getAll(array $cols = ['*'], bool $paginate = true);
 
+    public function getAllWithFeatures();
+
     public function getById(int $id, array $cols = ['*']);
 
     public function create(array $data);

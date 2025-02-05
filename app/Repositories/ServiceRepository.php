@@ -18,6 +18,11 @@ class ServiceRepository implements ServiceRepositoryInterface
         return $services->get();
     }
 
+    public function getAllWithFeatures()
+    {
+        return Service::query()->with(['features'])->paginate();
+    }
+
     public function getById(int $id, array $cols = ['*'])
     {
         return Service::findOrFail($id, $cols);
@@ -25,16 +30,23 @@ class ServiceRepository implements ServiceRepositoryInterface
 
     public function create(array $data)
     {
-        return Service::create($data);
+        $service = Service::create($data);
+
+        $service->features()->createMany($data['features']);
     }
 
     public function update(Service $service, array $data)
     {
-        return $service->update($data);
+        $service->update($data);
+
+        $service->features()->delete();
+
+        $service->features()->createMany($data['features']);
     }
 
     public function delete(Service $service)
     {
-        return $service->delete();
+        $service->features()->delete();
+        $service->delete();
     }
 }

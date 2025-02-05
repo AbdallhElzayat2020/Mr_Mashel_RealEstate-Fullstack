@@ -17,12 +17,12 @@ class TestimonialController extends Controller
     {
         $testimonials = $this->testimonialRepository->getAll();
 
-        return view('admin.testimonial.index', compact('testimonials'));
+        return view('dashboard.pages.testimonial.index', compact('testimonials'));
     }
 
     public function create()
     {
-        return view('admin.testimonial.create');
+        return view('dashboard.pages.testimonial.create');
     }
 
     public function store(TestimonialRequest $request)
@@ -34,12 +34,12 @@ class TestimonialController extends Controller
 
     public function show(Testimonial $testimonial)
     {
-        return view('admin.testimonial.show', compact('testimonial'));
+        return view('dashboard.pages.testimonial.show', compact('testimonial'));
     }
 
     public function edit(Testimonial $testimonial)
     {
-        return view('admin.testimonial.edit', compact('testimonial'));
+        return view('dashboard.pages.testimonial.edit', compact('testimonial'));
     }
 
     public function update(TestimonialRequest $request, Testimonial $testimonial)
@@ -53,6 +53,6 @@ class TestimonialController extends Controller
     {
         $this->testimonialRepository->delete($testimonial);
 
-        return redirect()->route('admin.testimonials.index');
+        return to_route('admin.testimonials.index');
     }
 }

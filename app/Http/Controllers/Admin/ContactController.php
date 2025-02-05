@@ -17,12 +17,12 @@ class ContactController extends Controller
     {
         $contacts = $this->contactRepository->getAll();
 
-        return view('admin.contact.index', compact('contacts'));
+        return view('dashboard.pages.contact.index', compact('contacts'));
     }
 
     public function create()
     {
-        return view('admin.contact.create');
+        return view('dashboard.pages.contact.create');
     }
 
     public function store(ContactRequest $request)
@@ -34,12 +34,12 @@ class ContactController extends Controller
 
     public function show(Contact $contact)
     {
-        return view('admin.contact.show', compact('contact'));
+        return view('dashboard.pages.contact.show', compact('contact'));
     }
 
     public function edit(Contact $contact)
     {
-        return view('admin.contact.edit', compact('contact'));
+        return view('dashboard.pages.contact.edit', compact('contact'));
     }
 
     public function update(ContactRequest $request, Contact $contact)

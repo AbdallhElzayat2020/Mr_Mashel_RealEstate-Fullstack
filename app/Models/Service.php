@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Translatable\HasTranslations;
@@ -16,7 +17,6 @@ class Service extends Model implements HasMedia
         'title',
         'description',
         'details',
-        'features',
         'contact_number',
     ];
 
@@ -25,6 +25,11 @@ class Service extends Model implements HasMedia
     protected $casts = [
         'details' => 'array',
     ];
+
+    public function features(): HasMany
+    {
+        return $this->hasMany(ServiceFeature::class, 'service_id');
+    }
 
     // Icon and brochure
 }

@@ -13,7 +13,6 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->text('details');
-            $table->json('features')->nullable();
             $table->string('contact_number')->nullable();
             $table->timestamps();
         });

@@ -17,12 +17,12 @@ class BlogController extends Controller
     {
         $blogs = $this->blogRepository->getAll();
 
-        return view('admin.blog.index', compact('blogs'));
+        return view('dashboard.pages.blog.index', compact('blogs'));
     }
 
     public function create(BlogRequest $request)
     {
-        return view('admin.blog.create');
+        return view('dashboard.pages.blog.create');
     }
 
     public function store(BlogRequest $request)
@@ -34,12 +34,12 @@ class BlogController extends Controller
 
     public function show(Blog $blog)
     {
-        return view('admin.blog.show', compact('blog'));
+        return view('dashboard.pages.blog.show', compact('blog'));
     }
 
     public function edit(Blog $blog)
     {
-        return view('admin.blog.edit', compact('blog'));
+        return view('dashboard.pages.blog.edit', compact('blog'));
     }
 
     public function update(BlogRequest $request, Blog $blog)
@@ -51,7 +51,7 @@ class BlogController extends Controller
 
     public function destroy(Blog $blog)
     {
-        $this->blogRepository->delete($blog->id);
+        $this->blogRepository->delete($blog);
 
         return to_route('admin.blogs.index');
     }

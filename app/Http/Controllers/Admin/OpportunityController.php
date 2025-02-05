@@ -2,27 +2,27 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Contracts\Repositories\OpportunityRepositoryInterface;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\OpportunityRequest;
 use App\Models\Opportunity;
-use App\Repositories\OpportunityRepository;
 
 class OpportunityController extends Controller
 {
     public function __construct(
-        private OpportunityRepository $opportunityRepository
+        private OpportunityRepositoryInterface $opportunityRepository
     ) {}
 
     public function index()
     {
         $opportunities = $this->opportunityRepository->getAll();
 
-        return view('admin.opportunity.index', compact('opportunities'));
+        return view('dashboard.pages.opportunity.index', compact('opportunities'));
     }
 
     public function create()
     {
-        return view('admin.opportunity.create');
+        return view('dashboard.pages.opportunity.create');
     }
 
     public function store(OpportunityRequest $request)
@@ -34,12 +34,12 @@ class OpportunityController extends Controller
 
     public function show(Opportunity $opportunity)
     {
-        return view('admin.opportunity.show', compact('opportunity'));
+        return view('dashboard.pages.opportunity.show', compact('opportunity'));
     }
 
     public function edit(Opportunity $opportunity)
     {
-        return view('admin.opportunity.edit', compact('opportunity'));
+        return view('dashboard.pages.opportunity.edit', compact('opportunity'));
     }
 
     public function update(OpportunityRequest $request, Opportunity $opportunity)
