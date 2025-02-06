@@ -3,16 +3,16 @@
     <x-auth-session-status class="mb-4" :status="session('status')"/>
 
 
-    {{-- show error message --}}
+{{--     show error message --}}
     @if (session()->has('error'))
         <div class="text-sm text-red-600 space-y-1">
             {{ session()->get('error') }}
         </div>
     @endif
-    {{-- show error message --}}
+{{--     show error message --}}
 
 
-    <form method="POST" action="{{ route('admin.login') }}">
+    <form method="POST" action="{{ route('login') }}">
         @csrf
 
         <!-- Email Address -->
@@ -56,3 +56,8 @@
         </div>
     </form>
 </x-guest-layout>
+
+
+
+
+

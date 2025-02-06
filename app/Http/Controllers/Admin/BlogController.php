@@ -9,9 +9,10 @@ use App\Models\Blog;
 
 class BlogController extends Controller
 {
-    public function __construct(
-        private BlogRepositoryInterface $blogRepository,
-    ) {}
+    public function __construct(private BlogRepositoryInterface $blogRepository)
+    {
+        //
+    }
 
     public function index()
     {
