@@ -14,47 +14,82 @@
 
     <ul class="menu-inner py-1">
         <!-- Dashboards -->
-{{--        <li class="menu-item  open">--}}
-{{--            <a href="javascript:void(0);" class="menu-link menu-toggle">--}}
-{{--                <i class="menu-icon tf-icons ti ti-smart-home"></i>--}}
-{{--                <div data-i18n="Dashboards">Dashboards</div>--}}
-{{--                <div class="badge bg-label-primary rounded-pill ms-auto">3</div>--}}
-{{--            </a>--}}
-{{--            <ul class="menu-sub">--}}
-{{--                <li class="menu-item active">--}}
-{{--                    <a href="#" class="menu-link">--}}
-{{--                        <div data-i18n="Analytics">Analytics</div>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
-{{--                <li class="menu-item">--}}
-{{--                    <a href="#" class="menu-link">--}}
-{{--                        <div data-i18n="CRM">CRM</div>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
-{{--                <li class="menu-item">--}}
-{{--                    <a href="#" class="menu-link">--}}
-{{--                        <div data-i18n="eCommerce">eCommerce</div>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
-{{--            </ul>--}}
-{{--        </li>--}}
+        {{--        <li class="menu-item  open">--}}
+        {{--            <a href="javascript:void(0);" class="menu-link menu-toggle">--}}
+        {{--                <i class="menu-icon tf-icons ti ti-smart-home"></i>--}}
+        {{--                <div data-i18n="Dashboards">Dashboards</div>--}}
+        {{--                <div class="badge bg-label-primary rounded-pill ms-auto">3</div>--}}
+        {{--            </a>--}}
+        {{--            <ul class="menu-sub">--}}
+        {{--                <li class="menu-item active">--}}
+        {{--                    <a href="#" class="menu-link">--}}
+        {{--                        <div data-i18n="Analytics">Analytics</div>--}}
+        {{--                    </a>--}}
+        {{--                </li>--}}
+        {{--                <li class="menu-item">--}}
+        {{--                    <a href="#" class="menu-link">--}}
+        {{--                        <div data-i18n="CRM">CRM</div>--}}
+        {{--                    </a>--}}
+        {{--                </li>--}}
+        {{--                <li class="menu-item">--}}
+        {{--                    <a href="#" class="menu-link">--}}
+        {{--                        <div data-i18n="eCommerce">eCommerce</div>--}}
+        {{--                    </a>--}}
+        {{--                </li>--}}
+        {{--            </ul>--}}
+        {{--        </li>--}}
 
         <!-- Apps & Pages -->
-{{--        <li class="menu-header small text-uppercase">--}}
-{{--            <span class="menu-header-text">Home</span>--}}
-{{--        </li>--}}
+        {{--        <li class="menu-header small text-uppercase">--}}
+        {{--            <span class="menu-header-text">Home</span>--}}
+        {{--        </li>--}}
 
         <li class="menu-item {{ request()->is('admin/dashboard') ? 'active' : '' }}">
             <a href="{{route('admin.dashboard')}}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-home"></i>
-                <div data-i18n="Email">Home</div>
+                <div data-i18n="Email">الرئيسية</div>
             </a>
         </li>
 
-        <li class="menu-item {{ request()->is('admin/blogs') ? 'active' : '' }}">
+        <li class="menu-item {{ request()->is('admin/blogs*') ? 'active' : '' }}">
             <a href="{{route('admin.blogs.index')}}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-book"></i>
+                <div data-i18n="Home">المدونة الالكترونية</div>
+            </a>
+        </li>
+
+        <li class="menu-item {{ request()->is('admin/offers*') ? 'active' : '' }}">
+            <a href="{{route('admin.contacts.index')}}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-building"></i>
+                <div data-i18n="Home">العروض العقارية</div>
+            </a>
+        </li>
+
+        <li class="menu-item {{ request()->is('admin/contacts*') ? 'active' : '' }}">
+            <a href="{{route('admin.contacts.index')}}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-message"></i>
+                <div data-i18n="Home">رسائل التواصل</div>
+            </a>
+        </li>
+
+        <li class="menu-item {{ request()->is('admin/services*') ? 'active' : '' }}">
+            <a href="{{route('admin.services.index')}}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-home"></i>
-                <div data-i18n="Home">Blogs</div>
+                <div data-i18n="Home">الخدمات</div>
+            </a>
+        </li>
+
+        <li class="menu-item {{ request()->is('admin/testimonials*') ? 'active' : '' }}">
+            <a href="{{route('admin.testimonials.index')}}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-home"></i>
+                <div data-i18n="Home">اراء العملاء</div>
+            </a>
+        </li>
+
+        <li class="menu-item {{ request()->is('admin/mail-subscriptions') ? 'active' : '' }}">
+            <a href="{{route('admin.mail-subscriptions.index')}}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-home"></i>
+                <div data-i18n="Home">اشتراكات البريد</div>
             </a>
         </li>
 

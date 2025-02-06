@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('short_description');
             $table->unsignedDouble('price');
             $table->enum('price_type', OfferPriceType::values())->comment(OfferPriceType::comment());
-            $table->string('location');
+//            $table->string('location');
             $table->boolean('is_active')->default(true);
             $table->enum('type', PropertyType::values())->comment(PropertyType::comment());
             $table->enum('status', PropertyStatus::values())->comment(PropertyStatus::comment());

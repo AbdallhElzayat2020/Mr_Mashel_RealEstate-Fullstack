@@ -13,6 +13,7 @@ return new class extends Migration
             $table->string('title');
             $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
             $table->text('excerpt');
+            $table->enum('status', ['active', 'disActive'])->default('active');
             $table->longText('content');
             $table->timestamps();
         });

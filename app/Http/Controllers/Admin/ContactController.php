@@ -9,15 +9,19 @@ use App\Models\Contact;
 
 class ContactController extends Controller
 {
-    public function __construct(
-        private ContactRepositoryInterface $contactRepository,
-    ) {}
+    public function __construct(private ContactRepositoryInterface $contactRepository)
+    {
+        //
+    }
 
     public function index()
     {
         $contacts = $this->contactRepository->getAll();
 
         return view('dashboard.pages.contact.index', compact('contacts'));
+//        return view('dashboard.pages.contact.index', [
+//            'contacts' => Contact::all()
+//        ]);
     }
 
     public function create()

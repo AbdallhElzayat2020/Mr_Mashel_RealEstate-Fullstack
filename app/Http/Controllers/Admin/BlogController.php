@@ -21,7 +21,7 @@ class BlogController extends Controller
         return view('dashboard.pages.blog.index', compact('blogs'));
     }
 
-    public function create(BlogRequest $request)
+    public function create()
     {
         return view('dashboard.pages.blog.create');
     }

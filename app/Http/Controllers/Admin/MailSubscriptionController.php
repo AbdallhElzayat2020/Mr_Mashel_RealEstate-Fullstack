@@ -9,9 +9,10 @@ use App\Models\MailSubscription;
 
 class MailSubscriptionController extends Controller
 {
-    public function __construct(
-        private MailSubscriptionRepositoryInterface $mailSubscriptionRepository,
-    ) {}
+    public function __construct(private MailSubscriptionRepositoryInterface $mailSubscriptionRepository)
+    {
+        //
+    }
 
     public function index()
     {

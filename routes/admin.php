@@ -38,7 +38,6 @@ Route::prefix('mail-subscriptions')
         Route::delete('{mailSubscription}', 'destroy')->name('destroy');
     });
 
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

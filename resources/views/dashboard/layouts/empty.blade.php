@@ -10,34 +10,31 @@
         <div class="card p-3">
             <div class="table-responsive text-nowrap">
                 <div class="d-flex align-items-center justify-content-between">
-                    {{-- seacrh form and filter status --}}
                     <form action="{{ URL::current() }}" method="get" class="my-4">
                         <div class="d-flex justify-content-between align-items-center gap-2">
-                            <input type="text" name="search" class="form-control mx-2" placeholder="Search">
+                            <input type="text" name="search" class="form-control mx-2" placeholder="Search" >
                             <select name="status" class="form-control mx-2" id="">
-                                <option value="">الكل</option>
-                                <option value="active" @selected(request('status') == 'active')>مفعل</option>
-                                <option value="archived" @selected(request('status') == 'archived')>غير مفعل</option>
+                                <option value="">All</option>
+                                <option value="active" @selected(request('status') == 'active')>Active</option>
+                                <option value="archived" @selected(request('status') == 'archived')>Archived</option>
                             </select>
-                            <button type="submit" class="btn btn-primary mx-2">بحث</button>
+                            <button type="submit" class="btn btn-primary mx-2">Search</button>
                         </div>
                     </form>
-                    {{-- seacrh form and filter status --}}
-                    <a href="{{route('admin.testimonials.create')}}" class="btn btn-primary mb-4">اضافة جديد</a>
+                    <a href="{{route('admin.blogs.create')}}" class="btn btn-primary mb-4">اضافة جديد</a>
                 </div>
                 <table class="table">
                     <thead>
                     <tr>
-                        <th>#</th>
-                        <th>اسم العميل</th>
-                        <th>نبذة المدونة</th>
-                        <th>الحالة</th>
-                        <th>الوصف</th>
-                        <th>حالات</th>
+                        <th>Project</th>
+                        <th>Client</th>
+                        <th>Users</th>
+                        <th>Status</th>
+                        <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                    @forelse($testimonials as $blog)
+                    @forelse($blogs as $blog)
                         <tr>
                             <td>
                                 <i class="ti ti-brand-angular ti-lg text-danger me-3"></i>
@@ -47,11 +44,9 @@
                             <td>
                                 test
                             </td>
+                            <td><span class="badge bg-label-primary me-1">Active</span></td>
                             <td>
-                                test
-                            </td>
-                            <td>
-                                <a href="{{route('admin.blogs.edit')}}" class="btn btn-primary">تعديل</a>
+                                <a href="{{route('admin.blogs.edit')}}" class="btn btn-primary">Edit</a>
                                 <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal"
                                         data-bs-target="#delete{{ $blog->id }}">
                                     Delete
@@ -61,7 +56,7 @@
                         @include('dashboard.pages.blog.delete')
                     @empty
                         <tr class="text-center">
-                            <td colspan="8">لا يوجد بيانات لعرضها</td>
+                            <td colspan="8">No Data Available</td>
                         </tr>
                     @endforelse
 
