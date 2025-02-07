@@ -109,28 +109,14 @@
     <script src="{{ asset('assets/dashboard/js/tinymce/tinymce.min.js') }}"></script>
     <script>
         tinymce.init({
-            selector: `#excerpt_ar`,
+            selector: `#excerpt_ar, #excerpt_en`,
             height: 200,
             plugins: 'link lists code',
             toolbar: 'undo redo | bold italic underline strikethrough | fontfamily fontsize blocks | alignleft aligncenter alignright alignjustify | outdent indent | numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen preview save print | insertfile image media template link anchor codesample | ltr rtl',
             menubar: false
         });
         tinymce.init({
-            selector: `#excerpt_en`,
-            height: 200,
-            plugins: 'link lists code',
-            toolbar: 'undo redo | bold italic underline strikethrough | fontfamily fontsize blocks | alignleft aligncenter alignright alignjustify | outdent indent | numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen preview save print | insertfile image media template link anchor codesample | ltr rtl',
-            menubar: false
-        });
-        tinymce.init({
-            selector: `#content_ar`,
-            height: 400,
-            plugins: 'link lists code',
-            toolbar: 'undo redo | bold italic underline strikethrough | fontfamily fontsize blocks | alignleft aligncenter alignright alignjustify | outdent indent | numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen preview save print | insertfile image media template link anchor codesample | ltr rtl',
-            menubar: false
-        });
-        tinymce.init({
-            selector: `#content_en`,
+            selector: `#content_ar, #content_en`,
             height: 400,
             plugins: 'link lists code',
             toolbar: 'undo redo | bold italic underline strikethrough | fontfamily fontsize blocks | alignleft aligncenter alignright alignjustify | outdent indent | numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen preview save print | insertfile image media template link anchor codesample | ltr rtl',
