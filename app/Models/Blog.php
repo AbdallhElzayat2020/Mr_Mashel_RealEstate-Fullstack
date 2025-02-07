@@ -29,11 +29,11 @@ class Blog extends Model
 
     public function scopeFilter(Builder $query): Builder
     {
-        $query->when(request('status'), function (Builder $query, $status) {
+        $query->when(request('b_status'), function (Builder $query, $status) {
             $query->where('status', $status);
         });
 
-        $query->when(request('s'), function (Builder $query, $s) {
+        $query->when(request('b_s'), function (Builder $query, $s) {
             $query->where('title', 'LIKE', "%{$s}%");
         });
 

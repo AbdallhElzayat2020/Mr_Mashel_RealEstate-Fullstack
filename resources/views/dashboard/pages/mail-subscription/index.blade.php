@@ -12,7 +12,7 @@
                 <div class="d-flex align-items-center justify-content-between">
                     <form action="{{ URL::current() }}" method="get" class="my-4 flex flex-grow-1">
                         <div class="d-flex justify-content-between align-items-center gap-2 col-4">
-                            <input type="text" name="s" class="form-control mx-2" placeholder="بحث" value="{{ request('s') }}">
+                            <input type="text" name="ms_s" class="form-control mx-2" placeholder="بحث" value="{{ request('ms_s') }}">
                             <button type="submit" class="btn btn-primary mx-2">بحث</button>
                         </div>
                     </form>

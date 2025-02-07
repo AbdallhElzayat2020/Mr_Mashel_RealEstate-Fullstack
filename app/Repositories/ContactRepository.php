@@ -7,9 +7,13 @@ use App\Models\Contact;
 
 class ContactRepository implements ContactRepositoryInterface
 {
-    public function getAll(array $cols = ['*'], bool $paginate = true)
+    public function getAll(array $cols = ['*'], array $relations = [], bool $paginate = true)
     {
-        $contactInquiries = Contact::select('contact_inquiries.*');
+        $contactInquiries = Contact::filter()->select($cols);
+
+        if (count($relations)) {
+            $contactInquiries = $contactInquiries->with($relations);
+        }
 
         if ($paginate) {
             return $contactInquiries->paginate();

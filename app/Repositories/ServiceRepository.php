@@ -9,7 +9,7 @@ class ServiceRepository implements ServiceRepositoryInterface
 {
     public function getAll(array $cols = ['*'], bool $paginate = true)
     {
-        $services = Service::query();
+        $services = Service::filter()->select($cols);
 
         if ($paginate) {
             return $services->paginate();

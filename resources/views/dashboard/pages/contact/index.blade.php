@@ -11,17 +11,19 @@
             <div class="table-responsive text-nowrap">
                 <div class="d-flex align-items-center justify-content-between">
                     {{-- seacrh form and filter status --}}
-{{--                    <form action="{{ URL::current() }}" method="get" class="my-4">--}}
-{{--                        <div class="d-flex justify-content-between align-items-center gap-2">--}}
-{{--                            <input type="text" name="search" class="form-control mx-2" placeholder="Search">--}}
-{{--                            <select name="status" class="form-control mx-2" id="">--}}
-{{--                                <option value="">الكل</option>--}}
-{{--                                <option value="active" @selected(request('status') == 'active')>مفعل</option>--}}
-{{--                                <option value="archived" @selected(request('status') == 'archived')>غير مفعل</option>--}}
-{{--                            </select>--}}
-{{--                            <button type="submit" class="btn btn-primary mx-2">بحث</button>--}}
-{{--                        </div>--}}
-{{--                    </form>--}}
+                    <form action="{{ URL::current() }}" method="get" class="my-4 flex flex-grow-1">
+                        <div class="d-flex justify-content-between align-items-center gap-2 col-6">
+                            <input type="text" name="c_s" class="form-control mx-2" placeholder="بحث"
+                                   value="{{ request('c_s') }}">
+                            <select name="ser" class="form-control mx-2">
+                                @foreach($services as $service)
+                                    <option value="">الكل</option>
+                                    <option value="{{ $service->id }}" @selected(request('ser') == $service->id)>{{ $service->name }}</option>
+                                @endforeach
+                            </select>
+                            <button type="submit" class="btn btn-primary mx-2">بحث</button>
+                        </div>
+                    </form>
                     {{-- seacrh form and filter status --}}
                 </div>
                 <table class="table">
@@ -32,38 +34,46 @@
                         <th>البريد الالكتروني</th>
                         <th>رقم الهاتف</th>
                         <th>الخدمة المطلوبة</th>
-                        <th>رسالة العميل</th>
-                        <th>حالات</th>
+                        <th>تاريخ الإنشاء</th>
+                        <th>التحكم</th>
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                    @forelse($contacts as $key=>$blog)
+                    @forelse($contacts as $contact)
                         <tr>
-                            <td>{{$key + 1}}</td>
+                            <td>{{ $loop->iteration }}</td>
                             <td>
-                                اسم العميل
+                                {{ $contact->name }}
                             </td>
                             <td>
-                                email
+                                {{ $contact->email }}
                             </td>
                             <td>
-                                013132343
+                                {{ $contact->email }}
                             </td>
                             <td>
-                                gdhjasbfahjdabshjdbashdj
+                                {{ $contact->phone }}
                             </td>
                             <td>
-                                gdhjasbfahjdabshjdbashdj
+                                {{ $contact->service->title }}
                             </td>
                             <td>
-                                <a href="{{route('admin.blogs.edit')}}" class="btn btn-primary">Edit</a>
+                                {{ $contact->created_at->diffForHumans() }}
+                            </td>
+                            <td>
+                                <a href="{{route('admin.blogs.show', $contact)}}" class="btn btn-primary">Show</a>
                                 <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal"
                                         data-bs-target="#delete{{ $blog->id }}">
                                     Delete
                                 </button>
                             </td>
                         </tr>
-                        @include('dashboard.pages.blog.delete')
+                        @include('dashboard.layouts.delete-modal',
+                            [
+                                'route' => route('admin.contacts.destroy', $contact),
+                                'title' => $contact->name,
+                                'model' => $contact
+                            ])
                     @empty
                         <tr class="text-center">
                             <td colspan="8">لا يوجد بيانات لعرضها</td>

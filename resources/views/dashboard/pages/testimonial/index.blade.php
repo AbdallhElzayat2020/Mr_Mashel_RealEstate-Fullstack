@@ -12,11 +12,11 @@
                 <div class="d-flex align-items-center justify-content-between">
                     <form action="{{ URL::current() }}" method="get" class="my-4 flex flex-grow-1">
                         <div class="d-flex justify-content-between align-items-center gap-2 col-6">
-                            <input type="text" name="s" class="form-control mx-2" placeholder="بحث" value="{{ request('s') }}" >
-                            <select name="status" class="form-control mx-2" id="">
+                            <input type="text" name="t_s" class="form-control mx-2" placeholder="بحث" value="{{ request('s') }}" >
+                            <select name="t_status" class="form-control mx-2" id="">
                                 <option value="">الكل</option>
-                                <option value="active" @selected(request('status') === \App\Enums\Status::ACTIVE->value)>مفعل</option>
-                                <option value="inactive" @selected(request('status') === \App\Enums\Status::INACTIVE->value)>غير مفعل</option>
+                                <option value="active" @selected(request('t_status') === \App\Enums\Status::ACTIVE->value)>مفعل</option>
+                                <option value="inactive" @selected(request('t_status') === \App\Enums\Status::INACTIVE->value)>غير مفعل</option>
                             </select>
                             <button type="submit" class="btn btn-primary mx-2">بحث</button>
                         </div>

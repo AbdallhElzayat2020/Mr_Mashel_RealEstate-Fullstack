@@ -3,19 +3,27 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Contracts\Repositories\ContactRepositoryInterface;
+use App\Contracts\Repositories\ServiceRepositoryInterface;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\ContactRequest;
 use App\Models\Contact;
 
 class ContactController extends Controller
 {
-    public function __construct(private ContactRepositoryInterface $contactRepository) {}
+    public function __construct(
+        private ContactRepositoryInterface $contactRepository,
+        private ServiceRepositoryInterface $serviceRepository
+    ) {}
 
     public function index()
     {
-        $contacts = $this->contactRepository->getAll();
+        $contacts = $this->contactRepository->getAll([
+            'service:id,name',
+        ]);
 
-        return view('dashboard.pages.contact.index', compact('contacts'));
+        $services = $this->serviceRepository->getAll(cols: ['id', 'name']);
+
+        return view('dashboard.pages.contact.index', compact('contacts', 'services'));
     }
 
     public function create()

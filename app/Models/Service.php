@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -25,6 +26,15 @@ class Service extends Model implements HasMedia
     protected $casts = [
         'details' => 'array',
     ];
+
+    public function scopeFilter(Builder $query): Builder
+    {
+        $query->when(request('s_s'), static function ($query, $value) {
+            $query->where('title', 'like', "%{$value}%");
+        });
+
+        return $query;
+    }
 
     public function features(): HasMany
     {

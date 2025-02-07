@@ -25,11 +25,11 @@ class Testimonial extends Model
 
     public function scopeFilter(Builder $query): Builder
     {
-        $query->when(request('status'), function (Builder $query, $status) {
+        $query->when(request('t_status'), function (Builder $query, $status) {
             $query->where('status', $status);
         });
 
-        $query->when(request('s'), function (Builder $query, $value) {
+        $query->when(request('t_s'), function (Builder $query, $value) {
             $query->where('client_name', 'like', "%{$value}%")
                 ->orWhere('company_name', 'like', "%{$value}%");
         });
