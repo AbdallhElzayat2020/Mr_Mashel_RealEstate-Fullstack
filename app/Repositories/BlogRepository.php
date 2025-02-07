@@ -9,7 +9,7 @@ class BlogRepository implements BlogRepositoryInterface
 {
     public function getAll(array $cols = ['*'], array $relations = [], bool $paginate = true)
     {
-        $blogs = Blog::filter()->select($cols);
+        $blogs = Blog::filter()->select($cols)->orderByDesc('created_at');
 
         if (count($relations)) {
             $blogs = $blogs->with($relations);
