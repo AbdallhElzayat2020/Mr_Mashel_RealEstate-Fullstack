@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Enums\BlogStatus;
+use App\Enums\Status;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -24,7 +24,7 @@ class Blog extends Model
     public array $translatable = ['title', 'content', 'excerpt'];
 
     protected $casts = [
-        'status' => BlogStatus::class,
+        'status' => Status::class,
     ];
 
     public function scopeFilter(Builder $query): Builder

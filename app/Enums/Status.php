@@ -4,7 +4,7 @@ namespace App\Enums;
 
 use App\Traits\EnumHelpers;
 
-enum BlogStatus: string
+enum Status: string
 {
     use EnumHelpers;
 

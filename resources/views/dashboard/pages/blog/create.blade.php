@@ -18,6 +18,7 @@
                                 {{--status --}}
                                 <div class="form-check form-switch d-flex align-items-center gap-3 mb-5">
                                     <input class="form-check-input fs-large" name="status" value="active"
+                                           @checked(old('status') === \App\Enums\Status::ACTIVE->value)
                                            type="checkbox"
                                            id="blog">
                                     <label class="form-check-label" for="blog">حاله المقاله</label>
@@ -50,20 +51,21 @@
                                                     المقاله</label>
                                                 <input type="text" name="title[ar]" class="form-control"
                                                        id="defaultFormControlInput" placeholder="عنوان المقاله"
+                                                       value="{{ old('title.ar') }}"
                                                        aria-describedby="defaultFormControlHelp"/>
                                             </div>
                                             <div class="form-group my-3">
                                                 <label for="excerpt_ar" class="form-label">المقتطفات</label>
                                                 <textarea class="form-control" name="excerpt[ar]" id="excerpt_ar"
                                                           cols="30"
-                                                          rows="5"></textarea>
+                                                          rows="5">{{ old('excerpt.ar') }}</textarea>
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="content_ar" class="form-label">المحتوي</label>
                                                 <textarea class="form-control" name="content[ar]" id="content_ar"
                                                           cols="30"
-                                                          rows="10"></textarea>
+                                                          rows="10">{{ old('content.ar') }}</textarea>
                                             </div>
                                         </div>
                                         <div class="tab-pane fade" id="navs-pills-top-profile" role="tabpanel">
@@ -71,6 +73,7 @@
                                                 <label for="defaultFormControlInput" class="form-label">عنوان
                                                     المقاله</label>
                                                 <input type="text" name="title[en]" class="form-control"
+                                                       value="{{ old('title.en') }}"
                                                        id="defaultFormControlInput" placeholder="عنوان المقاله"
                                                        aria-describedby="defaultFormControlHelp"/>
                                             </div>
@@ -79,21 +82,22 @@
                                                 <label for="excerpt_en" class="form-label">المقتطفات</label>
                                                 <textarea class="form-control" name="excerpt[en]" id="excerpt_en"
                                                           cols="30"
-                                                          rows="5"></textarea>
+                                                          rows="5">{{ old('excerpt.en') }}</textarea>
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="content_en" class="form-label">المحتوي</label>
                                                 <textarea class="form-control" name="content[en]" id="content_en"
                                                           cols="30"
-                                                          rows="10"></textarea>
+                                                          rows="10">{{ old('content.en') }}</textarea>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="d-flex align-content-center gap-3">
-                                    <button class="btn btn-primary" type="submit">إنشاء</button>
-                                    <a href="{{ route('admin.blogs.index') }}" class="d-block btn btn-secondary" >العودة</a>
+                                    <button class="btn btn-primary" type="submit">حفظ</button>
+                                    <a href="{{ route('admin.blogs.index') }}"
+                                       class="d-block btn btn-secondary">العودة</a>
                                 </div>
                             </div>
                         </form>

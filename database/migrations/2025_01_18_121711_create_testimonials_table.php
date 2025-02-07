@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\Status;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,6 +14,7 @@ return new class extends Migration
             $table->string('client_name');
             $table->string('company_name')->nullable();
             $table->text('testimonial');
+            $table->enum('status', Status::values())->default(Status::ACTIVE)->comment(Status::comment());
             $table->timestamps();
         });
     }

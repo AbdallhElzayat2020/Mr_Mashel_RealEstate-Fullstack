@@ -1,6 +1,6 @@
 <?php
 
-use App\Enums\BlogStatus;
+use App\Enums\Status;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,7 +15,7 @@ return new class extends Migration
             $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
             $table->text('excerpt');
             $table->longText('content');
-            $table->enum('status', BlogStatus::values())->default(BlogStatus::ACTIVE)->comment(BlogStatus::comment());
+            $table->enum('status', Status::values())->default(Status::ACTIVE)->comment(Status::comment());
             $table->timestamps();
         });
     }

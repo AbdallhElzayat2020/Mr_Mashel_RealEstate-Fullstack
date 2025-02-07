@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\Admin;
 
-use App\Enums\BlogStatus;
+use App\Enums\Status;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -16,7 +16,7 @@ class BlogRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'status' => ['required', Rule::enum(BlogStatus::class)],
+            'status' => ['required', Rule::enum(Status::class)],
 
             'title.ar' => ['required', 'string', 'max:254'],
             'title.en' => ['required', 'string', 'max:254'],
@@ -32,9 +32,9 @@ class BlogRequest extends FormRequest
     protected function prepareForValidation(): void
     {
         if ($this->has('status')) {
-            $this->merge(['status' => BlogStatus::ACTIVE->value]);
+            $this->merge(['status' => Status::ACTIVE->value]);
         } else {
-            $this->merge(['status' => BlogStatus::INACTIVE->value]);
+            $this->merge(['status' => Status::INACTIVE->value]);
         }
     }
 }
