@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,4 +13,11 @@ class MailSubscription extends Model
     protected $fillable = [
         'email',
     ];
+
+    public function scopeFilter(Builder $query): Builder
+    {
+        return $query->when(request('s'), function (Builder $query, string $s) {
+            return $query->where('email', 'LIKE', "%$s%");
+        });
+    }
 }

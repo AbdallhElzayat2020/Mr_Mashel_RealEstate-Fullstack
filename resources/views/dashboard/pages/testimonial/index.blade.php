@@ -1,10 +1,10 @@
 @extends('dashboard.layouts.master')
-@section('title', 'Blogs Page')
+@section('title', 'اراء العملاء')
 
 @section('content')
     <div class="container-xxl flex-grow-1 container-p-y">
         <h4 class="fw-bold py-3 mb-4">
-            المدونات الالكترونية
+            اراء العملاء
         </h4>
         <!-- Basic Bootstrap Table -->
         <div class="card p-3">
@@ -16,8 +16,8 @@
                             <input type="text" name="search" class="form-control mx-2" placeholder="Search">
                             <select name="status" class="form-control mx-2" id="">
                                 <option value="">الكل</option>
-                                <option value="active" @selected(request('status') == 'active')>مفعل</option>
-                                <option value="archived" @selected(request('status') == 'archived')>غير مفعل</option>
+                                <option value="active" @selected(request('status') === 'active')>مفعل</option>
+                                <option value="archived" @selected(request('status') === 'archived')>غير مفعل</option>
                             </select>
                             <button type="submit" class="btn btn-primary mx-2">بحث</button>
                         </div>
@@ -37,7 +37,7 @@
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                    @forelse($testimonials as $blog)
+                    @forelse($testimonials as $testimonial)
                         <tr>
                             <td>
                                 <i class="ti ti-brand-angular ti-lg text-danger me-3"></i>
@@ -53,12 +53,16 @@
                             <td>
                                 <a href="{{route('admin.blogs.edit')}}" class="btn btn-primary">تعديل</a>
                                 <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#delete{{ $blog->id }}">
+                                        data-bs-target="#delete{{ $testimonial->id }}">
                                     Delete
                                 </button>
                             </td>
                         </tr>
-                        @include('dashboard.pages.blog.delete')
+                        @include('dashboard.layouts.delete-modal',
+                                [
+                                    'model' => $testimonial,
+                                    'title'=> $testimonials->client_name
+                                ])
                     @empty
                         <tr class="text-center">
                             <td colspan="8">لا يوجد بيانات لعرضها</td>

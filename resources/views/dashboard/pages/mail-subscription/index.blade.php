@@ -10,42 +10,40 @@
         <div class="card p-3">
             <div class="table-responsive text-nowrap">
                 <div class="d-flex align-items-center justify-content-between">
-                    {{-- seacrh form and filter status --}}
-                    <form action="#" method="get" class="my-4">
-                        <div class="d-flex justify-content-between align-items-center gap-2">
-                            <input type="text" name="search" class="form-control mx-2" placeholder="Search">
-                            <select name="status" class="form-control mx-2" id="">
-                                <option value="">الكل</option>
-                                <option value="active" @selected(request('status') == 'active')>مفعل</option>
-                                <option value="archived" @selected(request('status') == 'archived')>غير مفعل</option>
-                            </select>
+                    <form action="{{ URL::current() }}" method="get" class="my-4 flex flex-grow-1">
+                        <div class="d-flex justify-content-between align-items-center gap-2 col-4">
+                            <input type="text" name="s" class="form-control mx-2" placeholder="بحث" value="{{ request('s') }}">
                             <button type="submit" class="btn btn-primary mx-2">بحث</button>
                         </div>
                     </form>
-                    {{-- seacrh form and filter status --}}
                 </div>
                 <table class="table">
                     <thead>
                     <tr>
                         <th>#</th>
                         <th>البريد الالكتروني</th>
-                        <th>حالات</th>
+                        <th>تاريخ الإنشاء</th>
+                        <th>التحكم</th>
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                    @forelse($mail_subscriptions as $blog)
+                    @forelse($mail_subscriptions as $mail_subscription)
                         <tr>
-                            <td>#</td>
-                            <td>email here</td>
-                            <td><span class="badge bg-label-primary me-1">Active</span></td>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $mail_subscription->email }}</td>
+                            <td>{{ $mail_subscription->created_at->diffForHumans() }}</td>
                             <td>
                                 <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#delete{{ $blog->id }}">
-                                    Delete
+                                        data-bs-target="#delete{{ $mail_subscription->id }}">
+                                    حذف
                                 </button>
                             </td>
                         </tr>
-                        @include('dashboard.pages.blog.delete')
+                        @include('dashboard.layouts.delete-modal', [
+                                'title' => $mail_subscription->email,
+                                'model' => $mail_subscription,
+                                'route' => route('admin.mail-subscriptions.destroy', $mail_subscription)
+                                ])
                     @empty
                         <tr class="text-center">
                             <td colspan="8">لا يوجد بيانات لعرضها</td>

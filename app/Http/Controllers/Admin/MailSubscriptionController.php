@@ -9,10 +9,7 @@ use App\Models\MailSubscription;
 
 class MailSubscriptionController extends Controller
 {
-    public function __construct(private MailSubscriptionRepositoryInterface $mailSubscriptionRepository)
-    {
-        //
-    }
+    public function __construct(private MailSubscriptionRepositoryInterface $mailSubscriptionRepository) {}
 
     public function index()
     {
@@ -25,13 +22,13 @@ class MailSubscriptionController extends Controller
     {
         $this->mailSubscriptionRepository->create($request->validated());
 
-        return to_route('admin.mail-subscription.index');
+        return to_route('admin.mail-subscriptions.index');
     }
 
     public function destroy(MailSubscription $mailSubscription)
     {
         $this->mailSubscriptionRepository->delete($mailSubscription);
 
-        return to_route('admin.mail-subscription.index');
+        return to_route('admin.mail-subscriptions.index');
     }
 }
