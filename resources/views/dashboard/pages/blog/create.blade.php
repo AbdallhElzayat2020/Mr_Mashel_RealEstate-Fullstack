@@ -92,7 +92,7 @@
                                     </div>
                                 </div>
                                 <div class="d-flex align-content-center gap-3">
-                                    <button class="btn btn-primary" type="submit">إنشاءإ</button>
+                                    <button class="btn btn-primary" type="submit">إنشاء</button>
                                     <a href="{{ route('admin.blogs.index') }}" class="d-block btn btn-secondary" >العودة</a>
                                 </div>
                             </div>
