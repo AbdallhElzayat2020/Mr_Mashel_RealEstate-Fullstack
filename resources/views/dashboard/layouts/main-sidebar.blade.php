@@ -59,7 +59,7 @@
         </li>
 
         <li class="menu-item {{ request()->is('admin/offers*') ? 'active' : '' }}">
-            <a href="{{route('admin.contacts.index')}}" class="menu-link">
+            <a href="{{route('admin.offers.index')}}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-building"></i>
                 <div data-i18n="Home">العروض العقارية</div>
             </a>
