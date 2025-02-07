@@ -16,8 +16,8 @@
                            <input type="text" name="s" class="form-control mx-2" placeholder="بحث" value="{{ request('s') }}" >
                            <select name="status" class="form-control mx-2" id="">
                                <option value="">الكل</option>
-                               <option value="active" @selected(request('status') === 'active')>مفعل</option>
-                               <option value="inactive" @selected(request('status') === 'archived')>غير مفعل</option>
+                               <option value="active" @selected(request('status') === \App\Enums\Status::ACTIVE->value)>مفعل</option>
+                               <option value="inactive" @selected(request('status') === \App\Enums\Status::INACTIVE->value)>غير مفعل</option>
                            </select>
                            <button type="submit" class="btn btn-primary mx-2">بحث</button>
                        </div>

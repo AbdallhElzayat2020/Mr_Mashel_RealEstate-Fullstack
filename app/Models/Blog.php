@@ -40,6 +40,11 @@ class Blog extends Model
         return $query;
     }
 
+    public function scopeActive(Builder $query): Builder
+    {
+        return $query->where('status', Status::ACTIVE);
+    }
+
     protected static function booted()
     {
         parent::booted();

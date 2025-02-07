@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests\Admin;
 
+use App\Enums\Status;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class TestimonialRequest extends FormRequest
 {
@@ -14,9 +16,19 @@ class TestimonialRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'client_name' => ['required'],
-            'company_name' => ['nullable'],
-            'testimonial' => ['required'],
+            'client_name' => ['required', 'string', 'max:254'],
+            'company_name' => ['nullable', 'string', 'max:254'],
+            'testimonial' => ['required', 'string', 'max:65535'],
+            'status' => ['required', Rule::enum(Status::class)],
         ];
+    }
+
+    protected function prepareForValidation(): void
+    {
+        if ($this->has('status')) {
+            $this->merge(['status' => Status::ACTIVE->value]);
+        } else {
+            $this->merge(['status' => Status::INACTIVE->value]);
+        }
     }
 }
