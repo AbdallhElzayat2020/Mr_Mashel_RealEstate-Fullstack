@@ -16,7 +16,11 @@ class BlogController extends Controller
 
     public function index()
     {
-        $blogs = $this->blogRepository->getAll();
+        $blogs = $this->blogRepository->getAll(relations: [
+            'author:id,name',
+        ]);
+
+        //        dd($blogs->toArray());
 
         return view('dashboard.pages.blog.index', compact('blogs'));
     }
@@ -45,7 +49,7 @@ class BlogController extends Controller
 
     public function update(BlogRequest $request, Blog $blog)
     {
-        $this->blogRepository->update($blog->id, $request->validated());
+        $this->blogRepository->update($blog, $request->validated());
 
         return to_route('admin.blogs.index');
     }

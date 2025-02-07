@@ -10,12 +10,11 @@ use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\ProfileController;
 
-
-//Route::get('dashboard', function () {
+// Route::get('dashboard', function () {
 //    return view('dashboard.pages.index');
-//})->middleware(['auth'])->name('dashboard');
+// })->middleware(['auth'])->name('dashboard');
 
-Route::get('dashboard',[DashboardHomeController::class,'index'])->name('dashboard'); //   name => admin.dashboard
+Route::get('dashboard', [DashboardHomeController::class, 'index'])->name('dashboard'); //   name => admin.dashboard
 
 Route::resource('blogs', BlogController::class);
 

@@ -11,6 +11,7 @@ class Contact extends Model
     use HasFactory;
 
     protected $table = 'contact_inquiries';
+
     protected $fillable = [
         'name',
         'email',

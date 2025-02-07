@@ -11,13 +11,13 @@
             <div class="table-responsive text-nowrap">
                <div class="d-flex align-items-center justify-content-between">
                    {{-- seacrh form and filter status --}}
-                   <form action="{{ URL::current() }}" method="get" class="my-4">
-                       <div class="d-flex justify-content-between align-items-center gap-2">
-                           <input type="text" name="search" class="form-control mx-2" placeholder="Search" >
+                   <form action="{{ URL::current() }}" method="get" class="my-4 flex flex-grow-1">
+                       <div class="d-flex justify-content-between align-items-center gap-2 col-6">
+                           <input type="text" name="s" class="form-control mx-2" placeholder="بحث" value="{{ request('s') }}" >
                            <select name="status" class="form-control mx-2" id="">
                                <option value="">الكل</option>
-                               <option value="active" @selected(request('status') == 'active')>مفعل</option>
-                               <option value="archived" @selected(request('status') == 'archived')>غير مفعل</option>
+                               <option value="active" @selected(request('status') === 'active')>مفعل</option>
+                               <option value="inactive" @selected(request('status') === 'archived')>غير مفعل</option>
                            </select>
                            <button type="submit" class="btn btn-primary mx-2">بحث</button>
                        </div>
@@ -28,41 +28,32 @@
                 <table class="table">
                     <thead>
                     <tr>
-                        <th>اسم المدونة</th>
-                        <th>انشات بواسطة</th>
-                        <th>نبذة المدونة</th>
+                        <th>عنوان المدونة</th>
+                        <th>دونت بواسطة</th>
                         <th>الحالة</th>
-                        <th>الوصف</th>
-                        <th>حالات</th>
+                        <th>التحكم</th>
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
                     @forelse($blogs as $blog)
                         <tr>
                             <td>
-                                <i class="ti ti-brand-angular ti-lg text-danger me-3"></i>
-                                <strong>Angular Project</strong>
+                                <strong>{{ $blog->title }}</strong>
                             </td>
-                            <td>Albert Cook</td>
+                            <td>{{ $blog->author->name }}</td>
+                            <td><span class="badge {{ $blog->status->style() }} me-1">{{ $blog->status->label() }}</span></td>
                             <td>
-                                test
-                            </td>
-                            <td>
-                                test
-                            </td>
-                            <td><span class="badge bg-label-primary me-1">Active</span></td>
-                            <td>
-                                <a href="{{route('admin.blogs.edit')}}" class="btn btn-primary">Edit</a>
-                                <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal"
+                                <a href="{{route('admin.blogs.edit', $blog)}}" class="btn btn-primary">تعديل</a>
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                         data-bs-target="#delete{{ $blog->id }}">
-                                    Delete
+                                    حذف
                                 </button>
                             </td>
                         </tr>
                         @include('dashboard.pages.blog.delete')
                     @empty
                         <tr class="text-center">
-                            <td colspan="8">لا يوجد بيانات لعرضها</td>
+                            <td colspan="4">لا يوجد بيانات لعرضها</td>
                         </tr>
                     @endforelse
 

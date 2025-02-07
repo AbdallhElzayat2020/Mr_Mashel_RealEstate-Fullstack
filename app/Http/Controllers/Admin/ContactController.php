@@ -19,9 +19,9 @@ class ContactController extends Controller
         $contacts = $this->contactRepository->getAll();
 
         return view('dashboard.pages.contact.index', compact('contacts'));
-//        return view('dashboard.pages.contact.index', [
-//            'contacts' => Contact::all()
-//        ]);
+        //        return view('dashboard.pages.contact.index', [
+        //            'contacts' => Contact::all()
+        //        ]);
     }
 
     public function create()

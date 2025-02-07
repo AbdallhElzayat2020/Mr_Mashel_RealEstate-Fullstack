@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
 
         // or
 
-        $admins = new User();
+        $admins = new User;
         $admins->name = 'Super Admin';
         $admins->email = 'admin@gmail.com';
         $admins->password = bcrypt('password');

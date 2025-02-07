@@ -1,15 +1,5 @@
-<head>
-    <meta charset="utf-8"/>
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
 
-    <title>@yield('title')</title>
 
-    <meta name="description" content=""/>
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{asset('assets/dashboard/assets/img/favicon/favicon.ico')}}"/>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -49,4 +39,4 @@
 {{--    <script src="{{asset('assets/dashboard/assets/vendor/js/template-customizer.js')}}"></script>--}}
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="{{asset('assets/dashboard/assets/js/config.js')}}"></script>
-</head>
+

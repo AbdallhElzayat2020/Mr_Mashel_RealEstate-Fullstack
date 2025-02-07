@@ -7,9 +7,13 @@ use App\Models\Blog;
 
 class BlogRepository implements BlogRepositoryInterface
 {
-    public function getAll(array $cols = ['*'], bool $paginate = true)
+    public function getAll(array $cols = ['*'], array $relations = [], bool $paginate = true)
     {
-        $blogs = Blog::select($cols);
+        $blogs = Blog::filter()->select($cols);
+
+        if (count($relations)) {
+            $blogs = $blogs->with($relations);
+        }
 
         if ($paginate) {
             return $blogs->paginate();
