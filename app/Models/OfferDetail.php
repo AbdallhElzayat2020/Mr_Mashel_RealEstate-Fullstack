@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Spatie\Translatable\HasTranslations;
 
 class OfferDetail extends Model
 {
-    use HasFactory;
+    use HasFactory, HasTranslations;
 
     public $timestamps = false;
 
@@ -18,9 +19,8 @@ class OfferDetail extends Model
         'data',
     ];
 
-    protected $casts = [
-        'data' => 'array',
-    ];
+    public array $translatable = ['section', 'data'];
+
 
     public function offer(): BelongsTo
     {
