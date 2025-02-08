@@ -4,8 +4,9 @@ namespace App\Models;
 
 use App\Enums\OfferPriceType;
 use App\Enums\PropertyLocations;
-use App\Enums\PropertyStatus;
+use App\Enums\OfferType;
 use App\Enums\PropertyType;
+use App\Enums\Status;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -24,11 +25,11 @@ class Offer extends Model implements HasMedia
         'description',
         'short_description',
         'price',
-        'price_type',
-        'location',
-        'is_active',
-        'type',
         'status',
+        'price_type',
+        'property_type',
+        'offer_type',
+        'location',
     ];
 
     public array $translatable = ['title', 'short_title', 'description', 'short_description'];
@@ -36,13 +37,14 @@ class Offer extends Model implements HasMedia
     protected $casts = [
         'price_type' => OfferPriceType::class,
         'location' => PropertyLocations::class,
-        'type' => PropertyType::class,
-        'status' => PropertyStatus::class,
+        'property_type' => PropertyType::class,
+        'offer_type' => OfferType::class,
+        'status' => Status::class,
     ];
 
     public function scopeActive(Builder $query): Builder
     {
-        return $query->where('is_active', true);
+        return $query->where('status', Status::ACTIVE);
     }
 
     public function scopeFilter(Builder $query): Builder

@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use App\Enums\OfferPriceType;
 use App\Enums\PropertyLocations;
-use App\Enums\PropertyStatus;
+use App\Enums\OfferType;
 use App\Enums\PropertyType;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
@@ -26,7 +26,7 @@ class OfferRequest extends FormRequest
             'price' => ['required', 'numeric'],
             'price_type' => ['required', Rule::enum(OfferPriceType::class)],
             'is_active' => ['required', 'boolean'],
-            'status' => ['required', Rule::enum(PropertyStatus::class)],
+            'status' => ['required', Rule::enum(OfferType::class)],
             'type' => ['required', Rule::enum(PropertyType::class)],
             'location' => ['required', Rule::enum(PropertyLocations::class)],
         ];

@@ -131,7 +131,7 @@
 
 @section('css')
     <style>
-        .tox-promotion-link {
+         .tox-promotion-link, .tox-statusbar__branding {
             display: none !important;
         }
     </style>

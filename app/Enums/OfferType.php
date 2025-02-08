@@ -4,7 +4,7 @@ namespace App\Enums;
 
 use App\Traits\EnumHelpers;
 
-enum PropertyStatus: string
+enum OfferType: string
 {
     use EnumHelpers;
 

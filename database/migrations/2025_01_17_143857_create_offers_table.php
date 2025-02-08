@@ -2,8 +2,9 @@
 
 use App\Enums\OfferPriceType;
 use App\Enums\PropertyLocations;
-use App\Enums\PropertyStatus;
+use App\Enums\OfferType;
 use App\Enums\PropertyType;
+use App\Enums\Status;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -19,11 +20,10 @@ return new class extends Migration
             $table->text('description');
             $table->string('short_description');
             $table->unsignedDouble('price');
+            $table->enum('status', Status::values())->comment(Status::comment());
             $table->enum('price_type', OfferPriceType::values())->comment(OfferPriceType::comment());
-            //            $table->string('location');
-            $table->boolean('is_active')->default(true);
-            $table->enum('type', PropertyType::values())->comment(PropertyType::comment());
-            $table->enum('status', PropertyStatus::values())->comment(PropertyStatus::comment());
+            $table->enum('property_type', PropertyType::values())->comment(PropertyType::comment());
+            $table->enum('offer_type', OfferType::values())->comment(OfferType::comment());
             $table->enum('location', PropertyLocations::values())->comment(PropertyLocations::comment());
             $table->timestamps();
         });

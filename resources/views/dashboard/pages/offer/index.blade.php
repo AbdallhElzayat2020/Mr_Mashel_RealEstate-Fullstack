@@ -1,0 +1,68 @@
+@extends('dashboard.layouts.master')
+@section('title', 'العروض العقاريه')
+
+@section('content')
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <h4 class="fw-bold py-3 mb-4">
+            العروض العقاريه
+        </h4>
+        <!-- Basic Bootstrap Table -->
+        <div class="card p-3">
+            <div class="table-responsive text-nowrap">
+                <div class="d-flex align-items-center justify-content-between">
+                    {{-- seacrh form and filter status --}}
+                    <form action="{{ URL::current() }}" method="get" class="my-4 flex flex-grow-1">
+                        <div class="d-flex justify-content-between align-items-center gap-2 col-6">
+                            <input type="text" name="b_s" class="form-control mx-2" placeholder="بحث" value="{{ request('b_s') }}" >
+                            <select name="o_status" class="form-control mx-2" id="">
+                                <option value="">الكل</option>
+                                <option value="active" @selected(request('o_status') === \App\Enums\Status::ACTIVE->value)>مفعل</option>
+                                <option value="inactive" @selected(request('o_status') === \App\Enums\Status::INACTIVE->value)>غير مفعل</option>
+                            </select>
+                            <button type="submit" class="btn btn-primary mx-2">بحث</button>
+                        </div>
+                    </form>
+                    {{-- seacrh form and filter status --}}
+                    <a href="{{route('admin.offers.create')}}" class="btn btn-primary mb-4">اضافة جديد</a>
+                </div>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>عنوان المدونة</th>
+                        <th>دونت بواسطة</th>
+                        <th>الحالة</th>
+                        <th>التحكم</th>
+                    </tr>
+                    </thead>
+                    <tbody class="table-border-bottom-0">
+                    @forelse($offers as $offer)
+                        <tr>
+                            <td>
+                                <strong>{{ $offer->title }}</strong>
+                            </td>
+                            <td>{{ $offer->author->name }}</td>
+                            <td>
+                                <span class="badge {{ $offer->status->style() }} me-1">{{ $offer->status->label() }}</span>
+                            </td>
+                            <td>
+                                <a href="{{route('admin.blogs.edit', $offer)}}" class="btn btn-primary">تعديل</a>
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                        data-bs-target="#delete{{ $offer->id }}">
+                                    حذف
+                                </button>
+                            </td>
+                        </tr>
+                        @include('dashboard.pages.blog.delete')
+                    @empty
+                        <tr class="text-center">
+                            <td colspan="4">لا يوجد بيانات لعرضها</td>
+                        </tr>
+                    @endforelse
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--/ Basic Bootstrap Table -->
+    </div>
+@endsection
