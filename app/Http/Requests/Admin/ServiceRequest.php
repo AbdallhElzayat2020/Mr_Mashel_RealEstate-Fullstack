@@ -20,10 +20,10 @@ class ServiceRequest extends FormRequest
             'status' => ['required', Rule::enum(Status::class)],
             'title.ar' => ['required', 'string', 'max:254'],
             'title.en' => ['required', 'string', 'max:254'],
-            'short_description.ar' => ['required', 'string', 'max:254'],
-            'short_description.en' => ['required', 'string', 'max:254'],
-            'description.ar' => ['required', 'string', 'max:254'],
-            'description.en' => ['required', 'string', 'max:254'],
+            'short_description.ar' => ['required', 'string', 'max:65535'],
+            'short_description.en' => ['required', 'string', 'max:65535'],
+            'description.ar' => ['required', 'string'],
+            'description.en' => ['required', 'string'],
             'features' => ['required', 'array', 'min:1'],
         ];
     }
