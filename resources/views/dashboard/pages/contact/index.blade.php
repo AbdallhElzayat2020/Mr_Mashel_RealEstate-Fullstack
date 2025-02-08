@@ -18,7 +18,7 @@
                             <select name="ser" class="form-control mx-2">
                                 @foreach($services as $service)
                                     <option value="">الكل</option>
-                                    <option value="{{ $service->id }}" @selected(request('ser') == $service->id)>{{ $service->name }}</option>
+                                    <option value="{{ $service->id }}" @selected(request('ser') == $service->id)>{{ $service->title }}</option>
                                 @endforeach
                             </select>
                             <button type="submit" class="btn btn-primary mx-2">بحث</button>

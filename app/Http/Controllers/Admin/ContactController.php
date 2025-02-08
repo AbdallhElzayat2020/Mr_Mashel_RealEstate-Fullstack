@@ -21,7 +21,7 @@ class ContactController extends Controller
             'service:id,name',
         ]);
 
-        $services = $this->serviceRepository->getAll(cols: ['id', 'name']);
+        $services = $this->serviceRepository->getAll(cols: ['id', 'title']);
 
         return view('dashboard.pages.contact.index', compact('contacts', 'services'));
     }
