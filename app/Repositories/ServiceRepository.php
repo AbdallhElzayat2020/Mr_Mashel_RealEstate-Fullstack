@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Contracts\Repositories\ServiceRepositoryInterface;
 use App\Models\Service;
+use Illuminate\Support\Facades\DB;
 
 class ServiceRepository implements ServiceRepositoryInterface
 {
@@ -30,18 +31,40 @@ class ServiceRepository implements ServiceRepositoryInterface
 
     public function create(array $data)
     {
-        $service = Service::create($data);
+        DB::transaction(function () use ($data) {
+            $service = Service::create($data);
 
-        $service->features()->createMany($data['features']);
+            $features = [];
+
+            foreach ($data['features'] as $feature) {
+                $features[] = [
+                    'service_id' => $service->id,
+                    'feature' => json_encode($feature),
+                ];
+            }
+
+            DB::table('service_features')->insert($features);
+        });
     }
 
     public function update(Service $service, array $data)
     {
-        $service->update($data);
+        DB::transaction(function () use ($service, $data) {
+            $service->update($data);
 
-        $service->features()->delete();
+            $service->features()->delete();
 
-        $service->features()->createMany($data['features']);
+            $features = [];
+
+            foreach ($data['features'] as $feature) {
+                $features[] = [
+                    'service_id' => $service->id,
+                    'feature' => json_encode($feature),
+                ];
+            }
+
+            DB::table('service_features')->insert($features);
+        });
     }
 
     public function delete(Service $service)

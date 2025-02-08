@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\Status;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -17,14 +18,15 @@ class Service extends Model implements HasMedia
     protected $fillable = [
         'title',
         'description',
-        'details',
+        'short_description',
         'contact_number',
+        'status',
     ];
 
-    public array $translatable = ['title', 'description', 'features'];
+    public array $translatable = ['title', 'description', 'short_description'];
 
     protected $casts = [
-        'details' => 'array',
+        'status' => Status::class,
     ];
 
     public function scopeFilter(Builder $query): Builder
@@ -41,5 +43,5 @@ class Service extends Model implements HasMedia
         return $this->hasMany(ServiceFeature::class, 'service_id');
     }
 
-    // Icon and brochure
+    // Icon and brochure, image
 }

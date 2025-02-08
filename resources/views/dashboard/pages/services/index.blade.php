@@ -1,23 +1,19 @@
 @extends('dashboard.layouts.master')
-@section('title', 'Blogs Page')
+@section('title', 'رسايل التواصل')
 
 @section('content')
     <div class="container-xxl flex-grow-1 container-p-y">
         <h4 class="fw-bold py-3 mb-4">
-          خدمات قدرة
+            الخدمات
         </h4>
         <!-- Basic Bootstrap Table -->
         <div class="card p-3">
             <div class="table-responsive text-nowrap">
                 <div class="d-flex align-items-center justify-content-between">
-                    <form action="#" method="get" class="my-4">
-                        <div class="d-flex justify-content-between align-items-center gap-2">
-                            <input type="text" name="search" class="form-control mx-2" placeholder="Search" >
-                            <select name="status" class="form-control mx-2" id="">
-                                <option value="">الكل</option>
-                                <option value="active" @selected(request('status') == 'active')>مفعل</option>
-                                <option value="archived" @selected(request('status') == 'archived')>غير مفعل</option>
-                            </select>
+                    <form action="{{ URL::current() }}" method="get" class="my-4 flex flex-grow-1">
+                        <div class="d-flex justify-content-between align-items-center gap-2 col-6">
+                            <input type="text" name="s_s" class="form-control mx-2" placeholder="بحث"
+                                   value="{{ request('s_s') }}">
                             <button type="submit" class="btn btn-primary mx-2">بحث</button>
                         </div>
                     </form>
@@ -27,36 +23,40 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>Client</th>
-                        <th>Users</th>
-                        <th>Status</th>
-                        <th>Actions</th>
+                        <th>اسم الخدمه</th>
+                        <th>الحاله</th>
+                        <th>تاريخ الإنشاء</th>
+                        <th>التحكم</th>
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                    @forelse($services as $blog)
+                    @forelse($services as $service)
                         <tr>
+                            <td>{{ $loop->iteration }}</td>
                             <td>
-                                <i class="ti ti-brand-angular ti-lg text-danger me-3"></i>
-                                <strong>Angular Project</strong>
+                                {{ $service->title }}
                             </td>
-                            <td>Albert Cook</td>
+                            <td><span class="badge {{ $service->status->style() }} me-1">{{ $service->status->label() }}</span></td>
                             <td>
-                                test
+                                {{ $service->created_at->diffForHumans() }}
                             </td>
-                            <td><span class="badge bg-label-primary me-1">Active</span></td>
                             <td>
-                                <a href="{{route('admin.blogs.edit')}}" class="btn btn-primary">Edit</a>
-                                <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#delete{{ $blog->id }}">
-                                    Delete
+                                <a href="{{route('admin.services.edit', $service)}}" class="btn btn-primary">تعديل</a>
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                        data-bs-target="#delete{{ $service->id }}">
+                                    حذف
                                 </button>
                             </td>
                         </tr>
-                        @include('dashboard.pages.blog.delete')
+                        @include('dashboard.layouts.delete-modal',
+                            [
+                                'route' => route('admin.services.destroy', $service),
+                                'title' => $service->title,
+                                'model' => $service
+                            ])
                     @empty
                         <tr class="text-center">
-                            <td colspan="8">No Data Available</td>
+                            <td colspan="8">لا يوجد بيانات لعرضها</td>
                         </tr>
                     @endforelse
 

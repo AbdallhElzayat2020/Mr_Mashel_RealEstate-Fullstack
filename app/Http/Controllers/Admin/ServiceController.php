@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Contracts\Repositories\ServiceRepositoryInterface;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\ServiceRequest;
 use App\Models\Service;
-use App\Repositories\ServiceRepository;
 
 class ServiceController extends Controller
 {
     public function __construct(
-        private ServiceRepository $serviceRepository
+        private ServiceRepositoryInterface $serviceRepository
     ) {}
 
     public function index()

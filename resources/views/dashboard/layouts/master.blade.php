@@ -29,6 +29,10 @@
 
     @yield('css')
 
+
+
+    @vite(['resources/js/app.js'])
+
 </head>
 
 <body>

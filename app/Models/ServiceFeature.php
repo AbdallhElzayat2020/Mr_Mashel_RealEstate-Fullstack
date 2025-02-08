@@ -13,12 +13,12 @@ class ServiceFeature extends Model
 
     protected $fillable = [
         'service_id',
-        'title',
+        'feature',
     ];
 
     public $timestamps = false;
 
-    public array $translatable = ['title'];
+    public array $translatable = ['feature'];
 
     public function service(): BelongsTo
     {
