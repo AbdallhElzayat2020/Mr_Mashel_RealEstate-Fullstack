@@ -60,7 +60,7 @@
                             <td>
                                 <a href="{{route('admin.blogs.show', $contact)}}" class="btn btn-primary">Show</a>
                                 <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#delete{{ $blog->id }}">
+                                        data-bs-target="#delete{{ $contact->id }}">
                                     Delete
                                 </button>
                             </td>
