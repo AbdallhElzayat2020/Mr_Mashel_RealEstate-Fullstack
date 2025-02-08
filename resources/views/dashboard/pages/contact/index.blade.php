@@ -49,9 +49,6 @@
                                 {{ $contact->email }}
                             </td>
                             <td>
-                                {{ $contact->email }}
-                            </td>
-                            <td>
                                 {{ $contact->phone }}
                             </td>
                             <td>
