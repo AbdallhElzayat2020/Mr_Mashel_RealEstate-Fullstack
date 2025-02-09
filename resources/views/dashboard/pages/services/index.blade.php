@@ -71,6 +71,9 @@
 
                     </tbody>
                 </table>
+                <div class="mt-4">
+                    {{ $services->links() }}
+                </div>
             </div>
         </div>
         <!--/ Basic Bootstrap Table -->

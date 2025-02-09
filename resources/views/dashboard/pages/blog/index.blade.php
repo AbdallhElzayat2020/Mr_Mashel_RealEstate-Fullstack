@@ -18,11 +18,11 @@
                             <select name="b_status" class="form-control mx-2" id="">
                                 <option value="">الكل</option>
                                 <option
-                                    value="active" @selected(request('b_status') === \App\Enums\Status::ACTIVE->value)>
+                                        value="active" @selected(request('b_status') === \App\Enums\Status::ACTIVE->value)>
                                     مفعل
                                 </option>
                                 <option
-                                    value="inactive" @selected(request('b_status') === \App\Enums\Status::INACTIVE->value)>
+                                        value="inactive" @selected(request('b_status') === \App\Enums\Status::INACTIVE->value)>
                                     غير مفعل
                                 </option>
                             </select>
@@ -51,7 +51,7 @@
                             </td>
                             <td>{{ $blog->author->name }}</td>
                             <td><span
-                                    class="badge {{ $blog->status->style() }} me-1">{{ $blog->status->label() }}</span>
+                                        class="badge {{ $blog->status->style() }} me-1">{{ $blog->status->label() }}</span>
                             </td>
                             <td>
                                 @can('update-blogs')
@@ -79,6 +79,9 @@
 
                     </tbody>
                 </table>
+                <div class="mt-4">
+                    {{ $blogs->links() }}
+                </div>
             </div>
         </div>
         <!--/ Basic Bootstrap Table -->

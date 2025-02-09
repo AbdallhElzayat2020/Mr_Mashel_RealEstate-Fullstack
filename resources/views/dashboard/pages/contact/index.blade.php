@@ -83,6 +83,9 @@
 
                     </tbody>
                 </table>
+                <div class="mt-4">
+                    {{ $contacts->links() }}
+                </div>
             </div>
         </div>
         <!--/ Basic Bootstrap Table -->

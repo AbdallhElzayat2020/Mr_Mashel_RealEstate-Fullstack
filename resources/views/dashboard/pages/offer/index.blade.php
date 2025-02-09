@@ -84,6 +84,9 @@
                     @endforelse
                     </tbody>
                 </table>
+                <div class="mt-4">
+                    {{ $offers->links() }}
+                </div>
             </div>
         </div>
         <!--/ Basic Bootstrap Table -->

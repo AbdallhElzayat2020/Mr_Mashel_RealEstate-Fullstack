@@ -18,7 +18,7 @@
                                 <option value="">الكل</option>
                                 @foreach(\App\Enums\OpportunityType::cases() as $opportunity)
                                     <option
-                                        value="{{ $opportunity->value }}" @selected(request('op_type') === $opportunity->value)>{{ $opportunity->label() }}</option>
+                                            value="{{ $opportunity->value }}" @selected(request('op_type') === $opportunity->value)>{{ $opportunity->label() }}</option>
                                 @endforeach
                             </select>
                             <button type="submit" class="btn btn-primary mx-2">بحث</button>
@@ -78,6 +78,9 @@
                     @endforelse
                     </tbody>
                 </table>
+                <div class="mt-4">
+                    {{ $opportunities->links() }}
+                </div>
             </div>
         </div>
         <!--/ Basic Bootstrap Table -->
