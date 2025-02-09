@@ -31,7 +31,6 @@ class RoleController extends Controller
 
     public function store(RoleRequest $request)
     {
-        //        dd($request->validated());
         $this->roleRepository->create($request->validated());
 
         return to_route('admin.roles.index');
