@@ -10,4 +10,12 @@ enum PropertyLocations: string
 
     case RIYADH = 'riyadh';
     case JEDDAH = 'jeddah';
+
+    public function label(): string
+    {
+        return match ($this) {
+            self::RIYADH => __('dashboard.RIYADH'),
+            self::JEDDAH => __('dashboard.JEDDAH'),
+        };
+    }
 }

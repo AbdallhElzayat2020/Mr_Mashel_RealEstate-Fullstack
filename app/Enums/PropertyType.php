@@ -10,4 +10,12 @@ enum PropertyType: string
 
     case VILLA = 'villa';
     case APARTMENT = 'apartment';
+
+    public function label(): string
+    {
+        return match ($this) {
+            self::VILLA => __('dashboard.VILLA'),
+            self::APARTMENT => __('dashboard.APARTMENT'),
+        };
+    }
 }
