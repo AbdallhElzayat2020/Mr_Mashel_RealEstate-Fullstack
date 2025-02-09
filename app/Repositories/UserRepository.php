@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Contracts\Repositories\UserRepositoryInterface;
 use App\Enums\Status;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class UserRepository implements UserRepositoryInterface
 {
@@ -30,12 +31,20 @@ class UserRepository implements UserRepositoryInterface
 
     public function create(array $data)
     {
-        return User::create($data);
+        DB::transaction(function () use ($data) {
+            $user = User::create($data);
+
+            $user->assignRole($data['role']);
+        });
     }
 
     public function update(User $user, array $data)
     {
-        return $user->update($data);
+        DB::transaction(function () use ($user, $data) {
+            $user->update($data);
+
+            $user->syncRoles($data['role']);
+        });
     }
 
     public function delete(User $user)

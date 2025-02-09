@@ -42,6 +42,22 @@
 
                 <div class="row mb-4">
                     <div class="my-3 my-md-0  col-12 col-md-6">
+                        <label for="role" class="form-label">الدور</label>
+                        <select name="role" class="form-control" id="role">
+                            <option value="" selected disabled>اختر</option>
+                            @foreach($roles as $role)
+                                <option value="{{ $role->name }}" @selected(old('role') === $role->name)>
+                                    {{ $role->display_name }}
+                                </option>
+                            @endforeach
+                        </select>
+
+                        <x-input-error class="mt-2" :messages="$errors->get('role')" />
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="my-3 my-md-0  col-12 col-md-6">
                         <label for="password" class="form-label">كلمه المرور</label>
                         <input type="password" name="password" class="form-control"
                                id="password" placeholder="كلمه المرور"

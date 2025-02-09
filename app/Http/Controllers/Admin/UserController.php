@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Contracts\Repositories\RoleRepositoryInterface;
 use App\Contracts\Repositories\UserRepositoryInterface;
 use App\Enums\Status;
 use App\Http\Controllers\Controller;
@@ -12,7 +13,8 @@ use App\Models\User;
 class UserController extends Controller
 {
     public function __construct(
-        private UserRepositoryInterface $userRepository
+        private UserRepositoryInterface $userRepository,
+        private RoleRepositoryInterface $roleRepository
     ) {
         $this->middleware('can:delete-users')->only(['destroy']);
         $this->middleware('can:create-users')->only(['create', 'store']);
@@ -29,8 +31,9 @@ class UserController extends Controller
 
     public function create()
     {
+        $roles = $this->roleRepository->getAll(paginate: false);
 
-        return view('dashboard.pages.users.create');
+        return view('dashboard.pages.users.create', compact('roles'));
     }
 
     public function store(StoreUserRequest $request)
@@ -44,7 +47,11 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
-        return view('dashboard.pages.users.edit', compact('user'));
+        $roles = $this->roleRepository->getAll(paginate: false);
+
+        $userRole = $user->roles()->first();
+
+        return view('dashboard.pages.users.edit', compact('user', 'roles', 'userRole'));
     }
 
     public function update(UpdateUserRequest $request, User $user)
