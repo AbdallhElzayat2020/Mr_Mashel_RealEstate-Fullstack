@@ -2,6 +2,7 @@
 
 namespace App\Contracts\Repositories;
 
+use App\Enums\Status;
 use App\Models\User;
 
 interface UserRepositoryInterface
@@ -15,4 +16,6 @@ interface UserRepositoryInterface
     public function update(User $user, array $data);
 
     public function delete(User $user);
+
+    public function updateStatus(User $user, Status $status);
 }

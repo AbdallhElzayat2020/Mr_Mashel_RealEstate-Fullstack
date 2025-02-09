@@ -42,7 +42,7 @@ class Opportunity extends Model implements HasMedia
     {
         $query->when(request('op_s'), function (Builder $query, $value) {
             $query->where('name', 'like', "%{$value}%")
-            ->orWhere('email', 'like', "%{$value}%");
+                ->orWhere('email', 'like', "%{$value}%");
         });
 
         $query->when(request('op_type'), function (Builder $query, $value) {

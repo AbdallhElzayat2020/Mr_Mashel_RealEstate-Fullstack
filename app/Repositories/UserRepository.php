@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Contracts\Repositories\UserRepositoryInterface;
+use App\Enums\Status;
 use App\Models\User;
 
 class UserRepository implements UserRepositoryInterface
@@ -40,5 +41,12 @@ class UserRepository implements UserRepositoryInterface
     public function delete(User $user)
     {
         return $user->delete();
+    }
+
+    public function updateStatus(User $user, Status $status)
+    {
+        $user->update([
+            'status' => $status,
+        ]);
     }
 }

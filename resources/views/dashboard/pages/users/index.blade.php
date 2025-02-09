@@ -13,10 +13,10 @@
                     <form action="{{ URL::current() }}" method="get" class="my-4 flex flex-grow-1">
                         <div class="d-flex justify-content-between align-items-center gap-2 col-6">
                             <input type="text" name="u_s" class="form-control mx-2" placeholder="بحث" value="{{ request('u_s') }}" >
-                            <select name="t_status" class="form-control mx-2" id="">
+                            <select name="u_status" class="form-control mx-2" id="">
                                 <option value="">الكل</option>
-                                <option value="active" @selected(request('t_status') === \App\Enums\Status::ACTIVE->value)>مفعل</option>
-                                <option value="inactive" @selected(request('t_status') === \App\Enums\Status::INACTIVE->value)>غير مفعل</option>
+                                <option value="active" @selected(request('u_status') === \App\Enums\Status::ACTIVE->value)>مفعل</option>
+                                <option value="inactive" @selected(request('u_status') === \App\Enums\Status::INACTIVE->value)>غير مفعل</option>
                             </select>
                             <button type="submit" class="btn btn-primary mx-2">بحث</button>
                         </div>
@@ -31,7 +31,7 @@
                         <th>البريد</th>
                         <th>حاله الحساب</th>
                         <th>تاريخ الإنشاء</th>
-                        <th>التحكم</th>
+                        <th class="text-center">التحكم</th>
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
@@ -50,12 +50,25 @@
                                 <td>
                                     {{ $user->created_at->diffForHumans() }}
                                 </td>
-                                <td>
+                                <td class="d-flex justify-content-center align-content-center gap-2">
                                     <a href="{{route('admin.users.edit', $user)}}" class="btn btn-primary">تعديل</a>
                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#delete{{ $user->id }}">
                                         حذف
                                     </button>
+                                    <form action="{{ route('admin.users.update-status', $user) }}" method="post" class="d-flex">
+                                        @csrf
+                                        @if($user->status->is(\App\Enums\Status::ACTIVE))
+                                            <button class="btn btn-warning">إيقاف</button>
+                                        @else
+                                            <button class="btn btn-warning">تفعيل</button>
+                                        @endif
+                                    </form>
+
+                                    <form action="{{ route('admin.users.password-reset', $user) }}" method="post" class="d-flex">
+                                        @csrf
+                                            <button class="btn btn-info">إسترجاع</button>
+                                    </form>
                                 </td>
                             </tr>
                             @include('dashboard.layouts.delete-modal',

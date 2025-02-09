@@ -1,58 +1,42 @@
 @extends('dashboard.layouts.master')
-@section('title', 'تعديل شهادة')
+@section('title', 'تعديل مستخدم')
 
 @section('content')
     <div class="container-xxl flex-grow-1 container-p-y">
         <h4 class="fw-bold py-3 mb-4">
-            اراء العملاء
+            تعديل مستخدم
         </h4>
         <!-- Basic Bootstrap Table -->
         <div class="card p-3">
-            <form method="post" action="{{ route('admin.testimonials.update', $testimonial) }}">
+            <form method="post" action="{{ route('admin.users.update', $user) }}">
                 @csrf
                 @method('PUT')
-                <div class="form-check form-switch d-flex align-items-center gap-3 mb-5">
-                    <input class="form-check-input fs-large" name="status" value="active"
-                           @checked(old('status', $testimonial->status->value) === \App\Enums\Status::ACTIVE->value)
-                           type="checkbox"
-                           id="testimonial_status">
-                    <label class="form-check-label" for="testimonial_status">حاله الشهادة</label>
-                </div>
 
                 <div class="row mb-4">
-
                     <div class="my-3 my-md-0  col-12 col-md-6 ">
-                        <label for="c_name" class="form-label">إسم العميل</label>
-                        <input type="text" name="client_name" class="form-control"
-                               id="c_name" placeholder="إسم العميل"
-                               value="{{ old('client_name', $testimonial->client_name) }}"
-                               aria-describedby="Client Name"/>
+                        <label for="name" class="form-label">الاسم</label>
+                        <input type="text" name="name" class="form-control"
+                               id="name" placeholder="إسم المستخدم"
+                               value="{{ old('name', $user->name) }}"
+                               aria-describedby="Name"/>
                     </div>
+
                     <div class="my-3 my-md-0  col-12 col-md-6">
-                        <label for="c_name" class="form-label">إسم العميل</label>
-                        <input type="text" name="company_name" class="form-control"
-                               id="c_name" placeholder="إسم العميل"
-                               value="{{ old('client_name', $testimonial->client_name) }}"
-                               aria-describedby="Client Name"/>
-                    </div>
-
-
-                    <div class="form-group mt-4">
-                        <label for="testimonial" class="form-label">شهادة العميل</label>
-                        <textarea class="form-control" name="testimonial" id="testimonial"
-                                  cols="30"
-                                  rows="5">{{ old('testimonial', $testimonial->testimonial) }}</textarea>
+                        <label for="email" class="form-label">البريد</label>
+                        <input type="email" name="email" class="form-control"
+                               id="email" placeholder="البريد"
+                               value="{{ old('email', $user->email) }}"
+                               aria-describedby="Email"/>
                     </div>
                 </div>
 
                 <div class="d-flex align-content-center gap-3">
-                    <button class="btn btn-primary" type="submit">تحديث</button>
-                    <a href="{{ route('admin.testimonials.index') }}"
+                    <button class="btn btn-primary" type="submit">حفظ</button>
+                    <a href="{{ route('admin.users.index') }}"
                        class="d-block btn btn-secondary">العودة</a>
                 </div>
             </form>
 
         </div>
-        <!--/ Basic Bootstrap Table -->
     </div>
 @endsection

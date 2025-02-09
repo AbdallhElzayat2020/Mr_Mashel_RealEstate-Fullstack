@@ -29,11 +29,11 @@
                                aria-describedby="Client Name"/>
                     </div>
                     <div class="my-3 my-md-0  col-12 col-md-6">
-                        <label for="c_name" class="form-label">إسم العميل</label>
+                        <label for="c_name" class="form-label">إسم الشركة</label>
                         <input type="text" name="company_name" class="form-control"
-                               id="c_name" placeholder="إسم العميل"
-                               value="{{ old('client_name') }}"
-                               aria-describedby="Client Name"/>
+                               id="c_name" placeholder="إسم الشركة"
+                               value="{{ old('company_name') }}"
+                               aria-describedby="Company Name"/>
                     </div>
 
 

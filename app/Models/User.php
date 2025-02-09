@@ -14,6 +14,8 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    const DEFAULT_PASSWORD = '123456789';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -50,10 +52,15 @@ class User extends Authenticatable
     public function scopeFilter(Builder $query): Builder
     {
         $query->when(request('u_s'), function (Builder $query, $value) {
-            $query->where('name', 'like', "%{$value}%")
-            ->orWhere('email', 'like', "%{$value}%");
+            $query->where(function (Builder $query) use ($value) {
+                $query->where('name', 'like', "%{$value}%")
+                    ->orWhere('email', 'like', "%{$value}%");
+            });
         });
 
+        $query->when(request('u_status'), function (Builder $query, $value) {
+            $query->where('status', $value);
+        });
 
         return $query;
     }

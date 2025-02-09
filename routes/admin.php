@@ -15,8 +15,10 @@ use App\Http\Controllers\ProfileController;
 //    return view('dashboard.pages.index');
 // })->middleware(['auth'])->name('dashboard');
 
-Route::get('dashboard', [DashboardHomeController::class, 'index'])->name('dashboard'); //   name => admin.dashboard
+Route::get('dashboard', [DashboardHomeController::class, 'index'])->name('dashboard');
 
+Route::post('users/{user}/update-status', [UserController::class, 'updateStatus'])->name('users.update-status');
+Route::post('users/{user}/password-reset', [UserController::class, 'passwordReset'])->name('users.password-reset');
 Route::resource('users', UserController::class);
 
 Route::resource('blogs', BlogController::class);
