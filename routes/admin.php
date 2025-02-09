@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\DashboardHomeController;
 use App\Http\Controllers\Admin\MailSubscriptionController;
 use App\Http\Controllers\Admin\OfferController;
 use App\Http\Controllers\Admin\OpportunityController;
+use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\UserController;
@@ -32,6 +33,8 @@ Route::resource('services', ServiceController::class);
 Route::resource('testimonials', TestimonialController::class);
 
 Route::resource('opportunities', OpportunityController::class);
+
+Route::resource('roles', RoleController::class);
 
 Route::prefix('mail-subscriptions')
     ->as('mail-subscriptions.')

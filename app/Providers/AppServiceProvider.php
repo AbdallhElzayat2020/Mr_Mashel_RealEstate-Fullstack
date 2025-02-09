@@ -7,6 +7,8 @@ use App\Contracts\Repositories\ContactRepositoryInterface;
 use App\Contracts\Repositories\MailSubscriptionRepositoryInterface;
 use App\Contracts\Repositories\OfferRepositoryInterface;
 use App\Contracts\Repositories\OpportunityRepositoryInterface;
+use App\Contracts\Repositories\PermissionRepositoryInterface;
+use App\Contracts\Repositories\RoleRepositoryInterface;
 use App\Contracts\Repositories\ServiceRepositoryInterface;
 use App\Contracts\Repositories\TestimonialRepositoryInterface;
 use App\Contracts\Repositories\UserRepositoryInterface;
@@ -15,6 +17,8 @@ use App\Repositories\ContactRepository;
 use App\Repositories\MailSubscriptionRepository;
 use App\Repositories\OfferRepository;
 use App\Repositories\OpportunityRepository;
+use App\Repositories\PermissionRepository;
+use App\Repositories\RoleRepository;
 use App\Repositories\ServiceRepository;
 use App\Repositories\TestimonialRepository;
 use App\Repositories\UserRepository;
@@ -28,6 +32,8 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
+        $this->app->bind(RoleRepositoryInterface::class, RoleRepository::class);
+        $this->app->bind(PermissionRepositoryInterface::class, PermissionRepository::class);
         $this->app->bind(BlogRepositoryInterface::class, BlogRepository::class);
         $this->app->bind(OfferRepositoryInterface::class, OfferRepository::class);
         $this->app->bind(ContactRepositoryInterface::class, ContactRepository::class);

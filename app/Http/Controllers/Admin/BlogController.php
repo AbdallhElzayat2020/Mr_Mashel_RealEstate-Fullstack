@@ -20,8 +20,6 @@ class BlogController extends Controller
             'author:id,name',
         ]);
 
-        //        dd($blogs->toArray());
-
         return view('dashboard.pages.blog.index', compact('blogs'));
     }
 

@@ -107,6 +107,13 @@
             </a>
         </li>
 
+        <li class="menu-item {{ request()->routeIs('admin.roles.*') ? 'active' : '' }}">
+            <a href="{{route('admin.roles.index')}}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-home"></i>
+                <div data-i18n="Home">الادوار</div>
+            </a>
+        </li>
+
 
     </ul>
 </aside>
