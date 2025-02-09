@@ -93,5 +93,20 @@
             </a>
         </li>
 
+        <li class="menu-item {{ request()->routeIs('admin.opportunities.*') ? 'active' : '' }}">
+            <a href="{{route('admin.opportunities.index')}}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-home"></i>
+                <div data-i18n="Home">الفرص</div>
+            </a>
+        </li>
+
+        <li class="menu-item {{ request()->routeIs('admin.users.*') ? 'active' : '' }}">
+            <a href="{{route('admin.users.index')}}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-home"></i>
+                <div data-i18n="Home">المستخدمين</div>
+            </a>
+        </li>
+
+
     </ul>
 </aside>

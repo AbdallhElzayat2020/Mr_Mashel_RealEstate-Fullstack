@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\OfferController;
 use App\Http\Controllers\Admin\OpportunityController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\ProfileController;
 
 // Route::get('dashboard', function () {
@@ -15,6 +16,8 @@ use App\Http\Controllers\ProfileController;
 // })->middleware(['auth'])->name('dashboard');
 
 Route::get('dashboard', [DashboardHomeController::class, 'index'])->name('dashboard'); //   name => admin.dashboard
+
+Route::resource('users', UserController::class);
 
 Route::resource('blogs', BlogController::class);
 

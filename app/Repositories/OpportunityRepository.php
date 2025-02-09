@@ -9,7 +9,7 @@ class OpportunityRepository implements OpportunityRepositoryInterface
 {
     public function getAll(array $cols = ['*'], bool $paginate = true)
     {
-        $opportunities = Opportunity::query();
+        $opportunities = Opportunity::filter()->select($cols)->orderByDesc('created_at');
 
         if ($paginate) {
             return $opportunities->paginate();
