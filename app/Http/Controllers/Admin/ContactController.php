@@ -13,7 +13,12 @@ class ContactController extends Controller
     public function __construct(
         private ContactRepositoryInterface $contactRepository,
         private ServiceRepositoryInterface $serviceRepository
-    ) {}
+    ) {
+        $this->middleware('can:view-contacts')->only(['index', 'show']);
+        $this->middleware('can:update-contacts')->only(['edit', 'update']);
+        $this->middleware('can:delete-contacts')->only(['destroy']);
+        $this->middleware('can:view-contacts')->only(['index', 'show']);
+    }
 
     public function index()
     {

@@ -25,8 +25,8 @@
                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
                    data-bs-toggle="dropdown">
                     <div class="avatar avatar-online">
-                        <img src="{{asset('assets/dashboard/assets/img/avatars/1.png')}}" alt
-                             class="h-auto rounded-circle"/>
+                        <img src="{{asset('assets/dashboard/assets/img/user.png')}}" alt
+                             class="h-auto rounded-circle pull-up"/>
                     </div>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
@@ -35,24 +35,23 @@
                             <div class="d-flex">
                                 <div class="flex-shrink-0 me-3">
                                     <div class="avatar avatar-online">
-                                        <img src="{{asset('assets/dashboard/assets/img/avatars/1.png')}}" alt
-                                             class="h-auto rounded-circle"/>
+                                        <img src="{{asset('assets/dashboard/assets/img/user.png')}}" alt
+                                             class="h-auto rounded-circle pull-up"/>
                                     </div>
                                 </div>
-                                {{--user name and email when Auth--}}
                                 <div class="flex-grow-1">
                                     <span class="fw-semibold d-block">
                                         @auth
-                                            {{Auth::user()->email}}
+                                            {{Auth::user()->name}}
                                         @endauth
+
                                     </span>
                                     <small class="text-muted">
                                         @auth
-                                            {{Auth::user()->name}}
+                                            {{Auth::user()->email}}
                                         @endauth
                                     </small>
                                 </div>
-                                {{--user name and email when Auth--}}
                             </div>
                         </a>
                     </li>

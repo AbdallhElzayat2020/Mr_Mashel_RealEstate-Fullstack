@@ -21,7 +21,9 @@
                             <button type="submit" class="btn btn-primary mx-2">بحث</button>
                         </div>
                     </form>
+                    @can('create-testimonials')
                     <a href="{{route('admin.testimonials.create')}}" class="btn btn-primary mb-4">اضافة جديد</a>
+                    @endcan
                 </div>
                 <table class="table">
                     <thead>
@@ -51,11 +53,15 @@
                                     {{ $testimonial->created_at->diffForHumans() }}
                                 </td>
                                 <td>
+                                    @can('update-testimonials')
                                     <a href="{{route('admin.testimonials.edit', $testimonial)}}" class="btn btn-primary">تعديل</a>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                            data-bs-target="#delete{{ $testimonial->id }}">
-                                        حذف
-                                    </button>
+                                    @endcan
+                                    @can('delete-testimonials')
+                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                                    data-bs-target="#delete{{ $testimonial->id }}">
+                                                حذف
+                                            </button>
+                                        @endcan
                                 </td>
                             </tr>
                             @include('dashboard.layouts.delete-modal',

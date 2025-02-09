@@ -51,69 +51,85 @@
             </a>
         </li>
 
-        <li class="menu-item {{ request()->is('admin/blogs*') ? 'active' : '' }}">
-            <a href="{{route('admin.blogs.index')}}" class="menu-link">
-                <i class="menu-icon tf-icons ti ti-book"></i>
-                <div data-i18n="Home">المدونة الالكترونية</div>
-            </a>
-        </li>
+        @can('view-blogs')
+            <li class="menu-item {{ request()->is('admin/blogs*') ? 'active' : '' }}">
+                <a href="{{route('admin.blogs.index')}}" class="menu-link">
+                    <i class="menu-icon tf-icons ti ti-book"></i>
+                    <div data-i18n="Home">المدونة الالكترونية</div>
+                </a>
+            </li>
+        @endcan
 
-        <li class="menu-item {{ request()->is('admin/offers*') ? 'active' : '' }}">
-            <a href="{{route('admin.offers.index')}}" class="menu-link">
-                <i class="menu-icon tf-icons ti ti-building"></i>
-                <div data-i18n="Home">العروض العقارية</div>
-            </a>
-        </li>
+        @can('view-offers')
+            <li class="menu-item {{ request()->is('admin/offers*') ? 'active' : '' }}">
+                <a href="{{route('admin.offers.index')}}" class="menu-link">
+                    <i class="menu-icon tf-icons ti ti-building"></i>
+                    <div data-i18n="Home">العروض العقارية</div>
+                </a>
+            </li>
+        @endcan
 
-        <li class="menu-item {{ request()->is('admin/contacts*') ? 'active' : '' }}">
-            <a href="{{route('admin.contacts.index')}}" class="menu-link">
-                <i class="menu-icon tf-icons ti ti-message"></i>
-                <div data-i18n="Home">رسائل التواصل</div>
-            </a>
-        </li>
+        @can('view-contacts')
+            <li class="menu-item {{ request()->is('admin/contacts*') ? 'active' : '' }}">
+                <a href="{{route('admin.contacts.index')}}" class="menu-link">
+                    <i class="menu-icon tf-icons ti ti-message"></i>
+                    <div data-i18n="Home">رسائل التواصل</div>
+                </a>
+            </li>
+        @endcan
 
-        <li class="menu-item {{ request()->is('admin/services*') ? 'active' : '' }}">
-            <a href="{{route('admin.services.index')}}" class="menu-link">
-                <i class="menu-icon tf-icons ti ti-home"></i>
-                <div data-i18n="Home">الخدمات</div>
-            </a>
-        </li>
+        @can('view-services')
+            <li class="menu-item {{ request()->is('admin/services*') ? 'active' : '' }}">
+                <a href="{{route('admin.services.index')}}" class="menu-link">
+                    <i class="menu-icon tf-icons ti ti-home"></i>
+                    <div data-i18n="Home">الخدمات</div>
+                </a>
+            </li>
+        @endcan
 
-        <li class="menu-item {{ request()->is('admin/testimonials*') ? 'active' : '' }}">
-            <a href="{{route('admin.testimonials.index')}}" class="menu-link">
-                <i class="menu-icon tf-icons ti ti-home"></i>
-                <div data-i18n="Home">اراء العملاء</div>
-            </a>
-        </li>
+        @can('view-testimonials')
+            <li class="menu-item {{ request()->is('admin/testimonials*') ? 'active' : '' }}">
+                <a href="{{route('admin.testimonials.index')}}" class="menu-link">
+                    <i class="menu-icon tf-icons ti ti-home"></i>
+                    <div data-i18n="Home">اراء العملاء</div>
+                </a>
+            </li>
+        @endcan
 
-        <li class="menu-item {{ request()->is('admin/mail-subscriptions') ? 'active' : '' }}">
-            <a href="{{route('admin.mail-subscriptions.index')}}" class="menu-link">
-                <i class="menu-icon tf-icons ti ti-home"></i>
-                <div data-i18n="Home">اشتراكات البريد</div>
-            </a>
-        </li>
+        @can('view-mail-subscriptions')
+            <li class="menu-item {{ request()->is('admin/mail-subscriptions') ? 'active' : '' }}">
+                <a href="{{route('admin.mail-subscriptions.index')}}" class="menu-link">
+                    <i class="menu-icon tf-icons ti ti-home"></i>
+                    <div data-i18n="Home">اشتراكات البريد</div>
+                </a>
+            </li>
+        @endcan
 
-        <li class="menu-item {{ request()->routeIs('admin.opportunities.*') ? 'active' : '' }}">
-            <a href="{{route('admin.opportunities.index')}}" class="menu-link">
-                <i class="menu-icon tf-icons ti ti-home"></i>
-                <div data-i18n="Home">الفرص</div>
-            </a>
-        </li>
+        @can('view-opportunities')
+            <li class="menu-item {{ request()->routeIs('admin.opportunities.*') ? 'active' : '' }}">
+                <a href="{{route('admin.opportunities.index')}}" class="menu-link">
+                    <i class="menu-icon tf-icons ti ti-home"></i>
+                    <div data-i18n="Home">الفرص</div>
+                </a>
+            </li>
+        @endcan
 
-        <li class="menu-item {{ request()->routeIs('admin.users.*') ? 'active' : '' }}">
-            <a href="{{route('admin.users.index')}}" class="menu-link">
-                <i class="menu-icon tf-icons ti ti-home"></i>
-                <div data-i18n="Home">المستخدمين</div>
-            </a>
-        </li>
+        @can('view-users')
+            <li class="menu-item {{ request()->routeIs('admin.users.*') ? 'active' : '' }}">
+                <a href="{{route('admin.users.index')}}" class="menu-link">
+                    <i class="menu-icon tf-icons ti ti-home"></i>
+                    <div data-i18n="Home">المستخدمين</div>
+                </a>
+            </li>
+        @endcan
 
-        <li class="menu-item {{ request()->routeIs('admin.roles.*') ? 'active' : '' }}">
-            <a href="{{route('admin.roles.index')}}" class="menu-link">
-                <i class="menu-icon tf-icons ti ti-home"></i>
-                <div data-i18n="Home">الادوار</div>
-            </a>
-        </li>
-
-
+        @can('view-roles')
+            <li class="menu-item {{ request()->routeIs('admin.roles.*') ? 'active' : '' }}">
+                <a href="{{route('admin.roles.index')}}" class="menu-link">
+                    <i class="menu-icon tf-icons ti ti-home"></i>
+                    <div data-i18n="Home">الادوار</div>
+                </a>
+            </li>
+        @endcan
     </ul>
 </aside>

@@ -13,7 +13,12 @@ class UserController extends Controller
 {
     public function __construct(
         private UserRepositoryInterface $userRepository
-    ) {}
+    ) {
+        $this->middleware('can:delete-users')->only(['destroy']);
+        $this->middleware('can:create-users')->only(['create', 'store']);
+        $this->middleware('can:view-users')->only(['index', 'show']);
+        $this->middleware('can:update-users')->only(['edit', 'update']);
+    }
 
     public function index()
     {

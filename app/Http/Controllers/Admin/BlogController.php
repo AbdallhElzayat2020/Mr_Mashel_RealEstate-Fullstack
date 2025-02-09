@@ -11,7 +11,10 @@ class BlogController extends Controller
 {
     public function __construct(private BlogRepositoryInterface $blogRepository)
     {
-        //
+        $this->middleware('can:create-blogs')->only(['create', 'store']);
+        $this->middleware('can:view-blogs')->only(['index', 'show']);
+        $this->middleware('can:update-blogs')->only(['edit', 'update']);
+        $this->middleware('can:delete-blogs')->only(['destroy']);
     }
 
     public function index()

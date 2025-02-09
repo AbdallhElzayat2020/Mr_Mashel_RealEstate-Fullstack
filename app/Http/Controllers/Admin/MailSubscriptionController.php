@@ -9,7 +9,11 @@ use App\Models\MailSubscription;
 
 class MailSubscriptionController extends Controller
 {
-    public function __construct(private MailSubscriptionRepositoryInterface $mailSubscriptionRepository) {}
+    public function __construct(private MailSubscriptionRepositoryInterface $mailSubscriptionRepository)
+    {
+        $this->middleware('can:view-mail-subscriptions')->only(['index', 'show']);
+        $this->middleware('can:delete-mail-subscriptions')->only(['destroy']);
+    }
 
     public function index()
     {

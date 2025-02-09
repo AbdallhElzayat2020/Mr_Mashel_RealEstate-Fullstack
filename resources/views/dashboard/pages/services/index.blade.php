@@ -17,7 +17,9 @@
                             <button type="submit" class="btn btn-primary mx-2">بحث</button>
                         </div>
                     </form>
-                    <a href="{{route('admin.services.create')}}" class="btn btn-primary mb-4">اضافة جديد</a>
+                    @can('create-services')
+                        <a href="{{route('admin.services.create')}}" class="btn btn-primary mb-4">اضافة جديد</a>
+                    @endcan
                 </div>
                 <table class="table">
                     <thead>
@@ -36,16 +38,23 @@
                             <td>
                                 {{ $service->title }}
                             </td>
-                            <td><span class="badge {{ $service->status->style() }} me-1">{{ $service->status->label() }}</span></td>
+                            <td><span
+                                    class="badge {{ $service->status->style() }} me-1">{{ $service->status->label() }}</span>
+                            </td>
                             <td>
                                 {{ $service->created_at->diffForHumans() }}
                             </td>
                             <td>
-                                <a href="{{route('admin.services.edit', $service)}}" class="btn btn-primary">تعديل</a>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#delete{{ $service->id }}">
-                                    حذف
-                                </button>
+                                @can('update-services')
+                                    <a href="{{route('admin.services.edit', $service)}}"
+                                       class="btn btn-primary">تعديل</a>
+                                @endcan
+                                @can('delete-services')
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                            data-bs-target="#delete{{ $service->id }}">
+                                        حذف
+                                    </button>
+                                @endcan
                             </td>
                         </tr>
                         @include('dashboard.layouts.delete-modal',

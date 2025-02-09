@@ -33,10 +33,12 @@
                             <td>{{ $mail_subscription->email }}</td>
                             <td>{{ $mail_subscription->created_at->diffForHumans() }}</td>
                             <td>
+                                @can('delete-mail-subscriptions')
                                 <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal"
                                         data-bs-target="#delete{{ $mail_subscription->id }}">
                                     حذف
                                 </button>
+                                    @endcan
                             </td>
                         </tr>
                         @include('dashboard.layouts.delete-modal', [

@@ -11,7 +11,12 @@ class OpportunityController extends Controller
 {
     public function __construct(
         private OpportunityRepositoryInterface $opportunityRepository
-    ) {}
+    ) {
+        $this->middleware('can:update-opportunities')->only(['edit', 'update']);
+        $this->middleware('can:delete-opportunities')->only(['destroy']);
+        $this->middleware('can:create-opportunities')->only(['create', 'store']);
+        $this->middleware('can:view-opportunities')->only(['index', 'show']);
+    }
 
     public function index()
     {

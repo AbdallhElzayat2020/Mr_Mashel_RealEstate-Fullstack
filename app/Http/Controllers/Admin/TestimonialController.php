@@ -11,7 +11,12 @@ class TestimonialController extends Controller
 {
     public function __construct(
         private TestimonialRepository $testimonialRepository
-    ) {}
+    ) {
+        $this->middleware('can:delete-testimonials')->only(['destroy']);
+        $this->middleware('can:create-testimonials')->only(['create', 'store']);
+        $this->middleware('can:view-testimonials')->only(['index', 'show']);
+        $this->middleware('can:update-testimonials')->only(['edit', 'update']);
+    }
 
     public function index()
     {

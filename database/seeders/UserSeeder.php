@@ -15,18 +15,14 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->delete();
 
-        // Admin::create([
-        //     'name' => 'Admin',
-        //     'email' => 'admin@gmail.com',
-        //     'password' => bcrypt('password'),
-        // ]);
-
         // or
 
-        $admins = new User;
-        $admins->name = 'Super Admin';
-        $admins->email = 'admin@gmail.com';
-        $admins->password = bcrypt('password');
-        $admins->save();
+        $user = User::create([
+            'name' => 'Super Admin',
+            'email' => 'admin@gmail.com',
+            'password' => 'password',
+        ]);
+
+        $user->assignRole('super-admin');
     }
 }

@@ -12,16 +12,25 @@
                 <div class="d-flex align-items-center justify-content-between">
                     <form action="{{ URL::current() }}" method="get" class="my-4 flex flex-grow-1">
                         <div class="d-flex justify-content-between align-items-center gap-2 col-6">
-                            <input type="text" name="u_s" class="form-control mx-2" placeholder="بحث" value="{{ request('u_s') }}" >
+                            <input type="text" name="u_s" class="form-control mx-2" placeholder="بحث"
+                                   value="{{ request('u_s') }}">
                             <select name="u_status" class="form-control mx-2" id="">
                                 <option value="">الكل</option>
-                                <option value="active" @selected(request('u_status') === \App\Enums\Status::ACTIVE->value)>مفعل</option>
-                                <option value="inactive" @selected(request('u_status') === \App\Enums\Status::INACTIVE->value)>غير مفعل</option>
+                                <option
+                                    value="active" @selected(request('u_status') === \App\Enums\Status::ACTIVE->value)>
+                                    مفعل
+                                </option>
+                                <option
+                                    value="inactive" @selected(request('u_status') === \App\Enums\Status::INACTIVE->value)>
+                                    غير مفعل
+                                </option>
                             </select>
                             <button type="submit" class="btn btn-primary mx-2">بحث</button>
                         </div>
                     </form>
-                    <a href="{{route('admin.users.create')}}" class="btn btn-primary mb-4">اضافة جديد</a>
+                    @can('create-users')
+                        <a href="{{route('admin.users.create')}}" class="btn btn-primary mb-4">اضافة جديد</a>
+                    @endcan
                 </div>
                 <table class="table">
                     <thead>
@@ -35,28 +44,35 @@
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                        @forelse($users as $user)
-                            <tr>
-                                <td>
-                                    {{ $loop->iteration }}
-                                </td>
-                                <td>
-                                    <strong>{{ $user->name }}</strong>
-                                </td>
-                                <td>{{ $user->email }}</td>
-                                <td>
-                                    <span class="badge {{ $user->status->style() }} me-1">{{ $user->status->label() }}</span>
-                                </td>
-                                <td>
-                                    {{ $user->created_at->diffForHumans() }}
-                                </td>
-                                <td class="d-flex justify-content-center align-content-center gap-2">
+                    @forelse($users as $user)
+                        <tr>
+                            <td>
+                                {{ $loop->iteration }}
+                            </td>
+                            <td>
+                                <strong>{{ $user->name }}</strong>
+                            </td>
+                            <td>{{ $user->email }}</td>
+                            <td>
+                                <span
+                                    class="badge {{ $user->status->style() }} me-1">{{ $user->status->label() }}</span>
+                            </td>
+                            <td>
+                                {{ $user->created_at->diffForHumans() }}
+                            </td>
+                            <td class="d-flex justify-content-center align-content-center gap-2">
+                                @can('update-users')
                                     <a href="{{route('admin.users.edit', $user)}}" class="btn btn-primary">تعديل</a>
+                                @endcan
+                                @can('delete-users')
                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#delete{{ $user->id }}">
                                         حذف
                                     </button>
-                                    <form action="{{ route('admin.users.update-status', $user) }}" method="post" class="d-flex">
+                                @endcan
+                                @can('update-users')
+                                    <form action="{{ route('admin.users.update-status', $user) }}" method="post"
+                                          class="d-flex">
                                         @csrf
                                         @if($user->status->is(\App\Enums\Status::ACTIVE))
                                             <button class="btn btn-warning">إيقاف</button>
@@ -64,24 +80,28 @@
                                             <button class="btn btn-warning">تفعيل</button>
                                         @endif
                                     </form>
+                                @endcan
 
-                                    <form action="{{ route('admin.users.password-reset', $user) }}" method="post" class="d-flex">
+                                @can('update-users')
+                                    <form action="{{ route('admin.users.password-reset', $user) }}" method="post"
+                                          class="d-flex">
                                         @csrf
-                                            <button class="btn btn-info">إسترجاع</button>
+                                        <button class="btn btn-info">إسترجاع</button>
                                     </form>
-                                </td>
-                            </tr>
-                            @include('dashboard.layouts.delete-modal',
-                                    [
-                                        'model' => $user,
-                                        'title'=> $user->name,
-                                        'route' => route('admin.users.destroy', $user)
-                                    ])
-                        @empty
-                            <tr class="text-center">
-                                <td colspan="8">لا يوجد بيانات لعرضها</td>
-                            </tr>
-                        @endforelse
+                                @endcan
+                            </td>
+                        </tr>
+                        @include('dashboard.layouts.delete-modal',
+                                [
+                                    'model' => $user,
+                                    'title'=> $user->name,
+                                    'route' => route('admin.users.destroy', $user)
+                                ])
+                    @empty
+                        <tr class="text-center">
+                            <td colspan="8">لا يوجد بيانات لعرضها</td>
+                        </tr>
+                    @endforelse
                     </tbody>
                 </table>
             </div>

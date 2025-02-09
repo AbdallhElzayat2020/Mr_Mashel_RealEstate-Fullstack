@@ -11,7 +11,13 @@ class OfferController extends Controller
 {
     public function __construct(
         private OfferRepositoryInterface $offerRepository
-    ) {}
+    ) {
+        $this->middleware('can:view-offers')->only(['index', 'show']);
+        $this->middleware('can:update-offers')->only(['edit', 'update']);
+        $this->middleware('can:delete-offers')->only(['destroy']);
+        $this->middleware('can:create-offers')->only(['create', 'store']);
+
+    }
 
     public function index()
     {

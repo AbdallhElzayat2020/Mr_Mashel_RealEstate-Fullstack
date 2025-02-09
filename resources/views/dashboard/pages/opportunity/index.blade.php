@@ -12,11 +12,13 @@
                 <div class="d-flex align-items-center justify-content-between">
                     <form action="{{ URL::current() }}" method="get" class="my-4 flex flex-grow-1">
                         <div class="d-flex justify-content-between align-items-center gap-2 col-6">
-                            <input type="text" name="op_s" class="form-control mx-2" placeholder="بحث" value="{{ request('op_s') }}" >
+                            <input type="text" name="op_s" class="form-control mx-2" placeholder="بحث"
+                                   value="{{ request('op_s') }}">
                             <select name="op_type" class="form-control mx-2" id="">
                                 <option value="">الكل</option>
                                 @foreach(\App\Enums\OpportunityType::cases() as $opportunity)
-                                    <option value="{{ $opportunity->value }}" @selected(request('op_type') === $opportunity->value)>{{ $opportunity->label() }}</option>
+                                    <option
+                                        value="{{ $opportunity->value }}" @selected(request('op_type') === $opportunity->value)>{{ $opportunity->label() }}</option>
                                 @endforeach
                             </select>
                             <button type="submit" class="btn btn-primary mx-2">بحث</button>
@@ -51,11 +53,16 @@
                                 {{ $opportunity->created_at->diffForHumans() }}
                             </td>
                             <td>
-                                <a href="{{route('admin.testimonials.edit', $opportunity)}}" class="btn btn-primary">تعديل</a>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#delete{{ $opportunity->id }}">
-                                    حذف
-                                </button>
+                                @can('view-opportunities')
+                                    <a href="{{route('admin.opportunities.show', $opportunity)}}"
+                                       class="btn btn-primary">تعديل</a>
+                                @endcan
+                                @can('delete-opportunities')
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                            data-bs-target="#delete{{ $opportunity->id }}">
+                                        حذف
+                                    </button>
+                                @endcan
                             </td>
                         </tr>
                         @include('dashboard.layouts.delete-modal',

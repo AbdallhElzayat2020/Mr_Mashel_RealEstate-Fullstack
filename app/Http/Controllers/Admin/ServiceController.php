@@ -11,7 +11,12 @@ class ServiceController extends Controller
 {
     public function __construct(
         private ServiceRepositoryInterface $serviceRepository
-    ) {}
+    ) {
+        $this->middleware('can:update-services')->only(['edit', 'update']);
+        $this->middleware('can:delete-services')->only(['destroy']);
+        $this->middleware('can:create-services')->only(['create', 'store']);
+        $this->middleware('can:view-services')->only(['index', 'show']);
+    }
 
     public function index()
     {

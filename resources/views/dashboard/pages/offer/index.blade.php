@@ -29,8 +29,9 @@
                             <button type="submit" class="btn btn-primary mx-2">بحث</button>
                         </div>
                     </form>
-                    {{-- seacrh form and filter status --}}
-                    <a href="{{route('admin.offers.create')}}" class="btn btn-primary mb-4">اضافة جديد</a>
+                    @can('create-offers')
+                        <a href="{{route('admin.offers.create')}}" class="btn btn-primary mb-4">اضافة جديد</a>
+                    @endcan
                 </div>
                 <table class="table">
                     <thead>
@@ -59,11 +60,15 @@
                                     class="badge {{ $offer->status->style() }} me-1">{{ $offer->status->label() }}</span>
                             </td>
                             <td>
-                                <a href="{{route('admin.offers.edit', $offer)}}" class="btn btn-primary">تعديل</a>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#delete{{ $offer->id }}">
-                                    حذف
-                                </button>
+                                @can('update-offers')
+                                    <a href="{{route('admin.offers.edit', $offer)}}" class="btn btn-primary">تعديل</a>
+                                @endcan
+                                @can('delete-offers')
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                            data-bs-target="#delete{{ $offer->id }}">
+                                        حذف
+                                    </button>
+                                @endcan
                             </td>
                         </tr>
                         @include('dashboard.layouts.delete-modal',

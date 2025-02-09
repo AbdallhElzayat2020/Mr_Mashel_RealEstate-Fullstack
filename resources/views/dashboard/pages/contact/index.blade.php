@@ -58,11 +58,15 @@
                                 {{ $contact->created_at->diffForHumans() }}
                             </td>
                             <td>
-                                <a href="{{route('admin.blogs.show', $contact)}}" class="btn btn-primary">Show</a>
-                                <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#delete{{ $contact->id }}">
-                                    Delete
-                                </button>
+                                @can('view-contacts')
+                                    <a href="{{route('admin.blogs.show', $contact)}}" class="btn btn-primary">Show</a>
+                                @endcan
+                                @can('delete-contacts')
+                                    <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal"
+                                            data-bs-target="#delete{{ $contact->id }}">
+                                        Delete
+                                    </button>
+                                @endcan
                             </td>
                         </tr>
                         @include('dashboard.layouts.delete-modal',

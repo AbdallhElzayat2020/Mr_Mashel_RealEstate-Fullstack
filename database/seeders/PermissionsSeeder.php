@@ -56,6 +56,8 @@ class PermissionsSeeder extends Seeder
 
             // Mail Subscriptions
             ['name' => 'view-mail-subscriptions', 'display_name' => 'عرض اشتراكات البريد الإلكتروني', 'guard_name' => 'web', 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'delete-mail-subscriptions', 'display_name' => 'حذف اشتراكات البريد الإلكتروني', 'guard_name' => 'web', 'created_at' => now(), 'updated_at' => now()],
+
         ];
 
         DB::table('permissions')->insert($permissions);

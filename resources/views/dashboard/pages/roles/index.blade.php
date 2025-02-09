@@ -10,7 +10,9 @@
         <div class="card p-3">
             <div class="table-responsive text-nowrap">
                 <div class="d-flex justify-content-end">
-                    <a href="{{route('admin.roles.create')}}" class="btn btn-primary mb-4">اضافة جديد</a>
+                    @can('create-roles')
+                        <a href="{{route('admin.roles.create')}}" class="btn btn-primary mb-4">اضافة جديد</a>
+                    @endcan
                 </div>
                 <table class="table">
                     <thead>
@@ -34,11 +36,15 @@
                                 {{ $role->created_at->diffForHumans() }}
                             </td>
                             <td>
-                                <a href="{{route('admin.roles.edit', $role)}}" class="btn btn-primary">تعديل</a>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#delete{{ $role->id }}">
-                                    حذف
-                                </button>
+                                @can('update-roles')
+                                    <a href="{{route('admin.roles.edit', $role)}}" class="btn btn-primary">تعديل</a>
+                                @endcan
+                                @can('delete-roles')
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                            data-bs-target="#delete{{ $role->id }}">
+                                        حذف
+                                    </button>
+                                @endcan
                             </td>
                         </tr>
                         @include('dashboard.layouts.delete-modal',

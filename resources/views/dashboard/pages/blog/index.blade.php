@@ -30,7 +30,9 @@
                         </div>
                     </form>
                     {{-- seacrh form and filter status --}}
-                    <a href="{{route('admin.blogs.create')}}" class="btn btn-primary mb-4">اضافة جديد</a>
+                    @can('create-blogs')
+                        <a href="{{route('admin.blogs.create')}}" class="btn btn-primary mb-4">اضافة جديد</a>
+                    @endcan
                 </div>
                 <table class="table">
                     <thead>
@@ -52,11 +54,15 @@
                                     class="badge {{ $blog->status->style() }} me-1">{{ $blog->status->label() }}</span>
                             </td>
                             <td>
-                                <a href="{{route('admin.blogs.edit', $blog)}}" class="btn btn-primary">تعديل</a>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#delete{{ $blog->id }}">
-                                    حذف
-                                </button>
+                                @can('update-blogs')
+                                    <a href="{{route('admin.blogs.edit', $blog)}}" class="btn btn-primary">تعديل</a>
+                                @endcan
+                                @can('delete-blogs')
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                            data-bs-target="#delete{{ $blog->id }}">
+                                        حذف
+                                    </button>
+                                @endcan
                             </td>
                         </tr>
                         @include('dashboard.layouts.delete-modal',
