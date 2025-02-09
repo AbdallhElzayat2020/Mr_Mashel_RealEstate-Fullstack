@@ -6,6 +6,15 @@
         <h4 class="fw-bold py-3 mb-4">
             اراء العملاء
         </h4>
+        @if($errors->any())
+            <div class="alert alert-danger mt-2" role="alert">
+                <ul class="mb-0">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <!-- Basic Bootstrap Table -->
         <div class="card p-3">
             <form method="post" action="{{ route('admin.testimonials.update', $testimonial) }}">
@@ -27,13 +36,15 @@
                                id="c_name" placeholder="إسم العميل"
                                value="{{ old('client_name', $testimonial->client_name) }}"
                                aria-describedby="Client Name"/>
+                        <x-input-error class="mt-2" :messages="$errors->get('client_name')" />
                     </div>
                     <div class="my-3 my-md-0  col-12 col-md-6">
-                        <label for="c_name" class="form-label">إسم العميل</label>
+                        <label for="company" class="form-label">الشركة</label>
                         <input type="text" name="company_name" class="form-control"
-                               id="c_name" placeholder="إسم العميل"
-                               value="{{ old('client_name', $testimonial->client_name) }}"
+                               id="company" placeholder="الشركة"
+                               value="{{ old('company_name', $testimonial->client_name) }}"
                                aria-describedby="Client Name"/>
+                        <x-input-error class="mt-2" :messages="$errors->get('company_name')" />
                     </div>
 
 
@@ -42,6 +53,7 @@
                         <textarea class="form-control" name="testimonial" id="testimonial"
                                   cols="30"
                                   rows="5">{{ old('testimonial', $testimonial->testimonial) }}</textarea>
+                        <x-input-error class="mt-2" :messages="$errors->get('testimonial')" />
                     </div>
                 </div>
 

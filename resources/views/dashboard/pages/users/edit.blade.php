@@ -6,6 +6,15 @@
         <h4 class="fw-bold py-3 mb-4">
             تعديل مستخدم
         </h4>
+        @if($errors->any())
+            <div class="alert alert-danger mt-2" role="alert">
+                <ul class="mb-0">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <!-- Basic Bootstrap Table -->
         <div class="card p-3">
             <form method="post" action="{{ route('admin.users.update', $user) }}">
@@ -19,6 +28,7 @@
                                id="name" placeholder="إسم المستخدم"
                                value="{{ old('name', $user->name) }}"
                                aria-describedby="Name"/>
+                        <x-input-error class="mt-2" :messages="$errors->get('name')" />
                     </div>
 
                     <div class="my-3 my-md-0  col-12 col-md-6">
@@ -27,6 +37,7 @@
                                id="email" placeholder="البريد"
                                value="{{ old('email', $user->email) }}"
                                aria-describedby="Email"/>
+                        <x-input-error class="mt-2" :messages="$errors->get('email')" />
                     </div>
                 </div>
 

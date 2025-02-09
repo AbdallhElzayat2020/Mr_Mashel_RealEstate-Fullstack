@@ -37,12 +37,15 @@
                                                 </option>
                                             @endforeach
                                         </select>
+
+                                        <x-input-error class="mt-2" :messages="$errors->get('property_type')" />
                                     </div>
 
                                     <div class="col-12 col-md-4 my-3">
                                         <label for="price" class="form-label">السعر</label>
                                         <input type="text" name="price" class="form-control" id="price" placeholder="السعر"
                                                value="{{ old('price') }}" aria-describedby="price"/>
+                                        <x-input-error class="mt-2" :messages="$errors->get('price')" />
                                     </div>
 
                                     <div class="col-12 col-md-4 my-3">
@@ -55,6 +58,7 @@
                                                 </option>
                                             @endforeach
                                         </select>
+                                        <x-input-error class="mt-2" :messages="$errors->get('price_type')" />
                                     </div>
                                 </div>
 
@@ -70,6 +74,7 @@
                                                 </option>
                                             @endforeach
                                         </select>
+                                        <x-input-error class="mt-2" :messages="$errors->get('offer_type')" />
                                     </div>
 
                                     <div class="col-12 col-md-4 my-3">
@@ -82,6 +87,7 @@
                                                 </option>
                                             @endforeach
                                         </select>
+                                        <x-input-error class="mt-2" :messages="$errors->get('location')" />
                                     </div>
 
                                     <div class="form-check form-switch d-flex align-content-center justify-content-center gap-3 col-12 col-md-4 my-3">
@@ -90,6 +96,7 @@
                                                type="checkbox"
                                                id="blog">
                                         <label class="form-check-label" for="blog">حاله العرض</label>
+                                        <x-input-error class="mt-2" :messages="$errors->get('status')" />
                                     </div>
                                 </div>
 
@@ -123,6 +130,7 @@
                                                 <textarea class="form-control" name="short_title[ar]" id="short_title_ar"
                                                           cols="30"
                                                           rows="5">{{ old('short_title.ar') }}</textarea>
+                                                <x-input-error class="mt-2" :messages="$errors->get('short_title.ar')" />
                                             </div>
 
                                             <div class="form-group my-3">
@@ -131,6 +139,7 @@
                                                 <textarea class="form-control" name="title[ar]" id="title_ar"
                                                           cols="30"
                                                           rows="5">{{ old('title.ar') }}</textarea>
+                                                <x-input-error class="mt-2" :messages="$errors->get('title.ar')" />
                                             </div>
 
                                             <div class="form-group my-3">
@@ -138,6 +147,7 @@
                                                 <textarea class="form-control" name="short_description[ar]" id="short_description_ar"
                                                           cols="30"
                                                           rows="5">{{ old('short_description.ar') }}</textarea>
+                                                <x-input-error class="mt-2" :messages="$errors->get('short_description.ar')" />
                                             </div>
 
                                             <div class="form-group my-3">
@@ -145,6 +155,7 @@
                                                 <textarea class="form-control" name="description[ar]" id="description_ar"
                                                           cols="30"
                                                           rows="10">{{ old('description.ar') }}</textarea>
+                                                <x-input-error class="mt-2" :messages="$errors->get('description.ar')" />
                                             </div>
 
                                             <hr class="mt-4">
@@ -157,6 +168,7 @@
                                                     <textarea class="form-control" name="property_specifications[ar]" id="property_specifications_ar"
                                                               cols="30"
                                                               rows="10">{{ old('property_specifications.ar') }}</textarea>
+                                                    <x-input-error class="mt-2" :messages="$errors->get('property_specifications.ar')" />
                                                 </div>
 
                                                 <div class="form-group my-3">
@@ -164,6 +176,7 @@
                                                     <textarea class="form-control" name="property_contents[ar]" id="property_contents_ar"
                                                               cols="30"
                                                               rows="10">{{ old('property_contents.ar') }}</textarea>
+                                                    <x-input-error class="mt-2" :messages="$errors->get('property_contents.ar')" />
                                                 </div>
 
                                                 <div class="form-group my-3">
@@ -171,6 +184,7 @@
                                                     <textarea class="form-control" name="property_features[ar]" id="property_features_ar"
                                                               cols="30"
                                                               rows="10">{{ old('property_features.ar') }}</textarea>
+                                                    <x-input-error class="mt-2" :messages="$errors->get('property_features.ar')" />
                                                 </div>
 
                                                 <div class="form-group my-3">
@@ -178,6 +192,7 @@
                                                     <textarea class="form-control" name="financial_communication[ar]" id="financial_communication_ar"
                                                               cols="30"
                                                               rows="10">{{ old('financial_communication.ar') }}</textarea>
+                                                    <x-input-error class="mt-2" :messages="$errors->get('financial_communication.ar')" />
                                                 </div>
                                             </div>
 
@@ -189,6 +204,7 @@
                                                 <textarea class="form-control" name="short_title[en]" id="short_title_en"
                                                           cols="30"
                                                           rows="5">{{ old('short_title.en') }}</textarea>
+                                                <x-input-error class="mt-2" :messages="$errors->get('short_title.en')" />
                                             </div>
 
                                             <div class="form-group my-3">
@@ -197,6 +213,7 @@
                                                 <textarea class="form-control" name="title[en]" id="title_en"
                                                           cols="30"
                                                           rows="5">{{ old('title.en') }}</textarea>
+                                                <x-input-error class="mt-2" :messages="$errors->get('title.en')" />
                                             </div>
 
                                             <div class="form-group my-3">
@@ -204,6 +221,7 @@
                                                 <textarea class="form-control" name="short_description[en]" id="short_description_en"
                                                           cols="30"
                                                           rows="5">{{ old('short_description.en') }}</textarea>
+                                                <x-input-error class="mt-2" :messages="$errors->get('short_description.en')" />
                                             </div>
 
                                             <div class="form-group">
@@ -211,6 +229,7 @@
                                                 <textarea class="form-control" name="description[en]" id="description_en"
                                                           cols="30"
                                                           rows="10">{{ old('description.en') }}</textarea>
+                                                <x-input-error class="mt-2" :messages="$errors->get('description.en')" />
                                             </div>
 
                                             <hr class="mt-4">
@@ -223,6 +242,7 @@
                                                     <textarea class="form-control" name="property_specifications[en]" id="property_specifications_en"
                                                               cols="30"
                                                               rows="10">{{ old('property_specifications.en') }}</textarea>
+                                                    <x-input-error class="mt-2" :messages="$errors->get('property_specifications.en')" />
                                                 </div>
 
                                                 <div class="form-group my-3">
@@ -230,6 +250,7 @@
                                                     <textarea class="form-control" name="property_contents[en]" id="property_contents_en"
                                                               cols="30"
                                                               rows="10">{{ old('property_contents.en') }}</textarea>
+                                                    <x-input-error class="mt-2" :messages="$errors->get('property_contents.en')" />
                                                 </div>
 
                                                 <div class="form-group my-3">
@@ -237,6 +258,7 @@
                                                     <textarea class="form-control" name="property_features[en]" id="property_features_en"
                                                               cols="30"
                                                               rows="10">{{ old('property_features.en') }}</textarea>
+                                                    <x-input-error class="mt-2" :messages="$errors->get('property_features.en')" />
                                                 </div>
 
                                                 <div class="form-group my-3">
@@ -244,6 +266,7 @@
                                                     <textarea class="form-control" name="financial_communication[en]" id="financial_communication_en"
                                                               cols="30"
                                                               rows="10">{{ old('financial_communication.en') }}</textarea>
+                                                    <x-input-error class="mt-2" :messages="$errors->get('financial_communication.en')" />
                                                 </div>
                                             </div>
 

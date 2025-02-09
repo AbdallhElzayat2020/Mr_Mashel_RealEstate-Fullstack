@@ -32,6 +32,7 @@
                                                id="contact_number" placeholder="رقم التواصل"
                                                value="{{ old('contact_number') }}"
                                                aria-describedby="contact_number"/>
+                                        <x-input-error class="mt-2" :messages="$errors->get('contact_number')" />
                                     </div>
 
                                     <div class="form-check form-switch d-flex align-content-center  gap-3 mb-5 ">
@@ -40,6 +41,7 @@
                                                type="checkbox"
                                                id="blog">
                                         <label class="form-check-label" for="blog">حاله الخدمه</label>
+                                        <x-input-error class="mt-2" :messages="$errors->get('status')" />
                                     </div>
                                 </div>
 
@@ -71,6 +73,7 @@
                                                        id="title_ar" placeholder="إسم الخدمه"
                                                        value="{{ old('title.ar') }}"
                                                        aria-describedby="title_ar"/>
+                                                <x-input-error class="mt-2" :messages="$errors->get('title.ar')" />
                                             </div>
 
                                             <div class="form-group my-3">
@@ -78,6 +81,7 @@
                                                 <textarea class="form-control" name="short_description[ar]" id="short_description_ar"
                                                           cols="30"
                                                           rows="5">{{ old('short_description.ar') }}</textarea>
+                                                <x-input-error class="mt-2" :messages="$errors->get('short_description.ar')" />
                                             </div>
 
                                             <div class="form-group">
@@ -85,12 +89,15 @@
                                                 <textarea class="form-control" name="description[ar]" id="description_ar"
                                                           cols="30"
                                                           rows="10">{{ old('description.ar') }}</textarea>
+                                                <x-input-error class="mt-2" :messages="$errors->get('description.ar')" />
                                             </div>
 
                                             <hr class="mt-4">
 
                                             <div>
                                                 <h4>المميزات</h4>
+
+                                                <x-input-error class="mt-2" :messages="$errors->get('features')" />
 
                                                 <div x-data="{ features: [] }">
                                                     <div class="table-responsive text-nowrap">
@@ -133,6 +140,7 @@
                                                        value="{{ old('title.en') }}"
                                                        id="title_en" placeholder="إسم الخدمه"
                                                        aria-describedby="defaultFormControlHelp"/>
+                                                <x-input-error class="mt-2" :messages="$errors->get('title.en')" />
                                             </div>
 
                                             <div class="form-group my-3">
@@ -140,6 +148,7 @@
                                                 <textarea class="form-control" name="short_description[en]" id="short_description_en"
                                                           cols="30"
                                                           rows="5">{{ old('short_description.en') }}</textarea>
+                                                <x-input-error class="mt-2" :messages="$errors->get('short_description.en')" />
                                             </div>
 
                                             <div class="form-group">
@@ -147,6 +156,7 @@
                                                 <textarea class="form-control" name="description[en]" id="description_en"
                                                           cols="30"
                                                           rows="10">{{ old('description.en') }}</textarea>
+                                                <x-input-error class="mt-2" :messages="$errors->get('description.en')" />
                                             </div>
 
                                             <hr class="mt-4">
@@ -192,7 +202,7 @@
                                 </div>
                                 <div class="d-flex align-content-center justify-content-end gap-3">
                                     <button class="btn btn-primary" type="submit">حفظ</button>
-                                    <a href="{{ route('admin.blogs.index') }}"
+                                    <a href="{{ route('admin.services.index') }}"
                                        class="d-block btn btn-secondary">العودة</a>
                                 </div>
                             </div>

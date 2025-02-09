@@ -6,6 +6,15 @@
         <h4 class="fw-bold py-3 mb-4">
             المدونات الالكترونية
         </h4>
+        @if($errors->any())
+            <div class="alert alert-danger mt-2" role="alert">
+                <ul class="mb-0">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="row">
             <div class="col-lg-12">
                 <div class="card mb-4">
@@ -22,6 +31,7 @@
                                            type="checkbox"
                                            id="blog">
                                     <label class="form-check-label" for="blog">حاله المقاله</label>
+                                    <x-input-error class="mt-2" :messages="$errors->get('status')" />
                                 </div>
 
                                 <div class="nav-align-top mb-4 shadow-none">
@@ -53,12 +63,14 @@
                                                        id="defaultFormControlInput" placeholder="عنوان المقاله"
                                                        value="{{ old('title.ar', $blog->translate('title', 'ar')) }}"
                                                        aria-describedby="defaultFormControlHelp"/>
+                                                <x-input-error class="mt-2" :messages="$errors->get('title.ar')" />
                                             </div>
                                             <div class="form-group my-3">
                                                 <label for="excerpt_ar" class="form-label">المقتطفات</label>
                                                 <textarea class="form-control" name="excerpt[ar]" id="excerpt_ar"
                                                           cols="30"
                                                           rows="5">{{ old('excerpt.ar', $blog->translate('excerpt', 'ar')) }}</textarea>
+                                                <x-input-error class="mt-2" :messages="$errors->get('excerpt.ar')" />
                                             </div>
 
                                             <div class="form-group">
@@ -66,6 +78,7 @@
                                                 <textarea class="form-control" name="content[ar]" id="content_ar"
                                                           cols="30"
                                                           rows="10">{{ old('content.ar', $blog->translate('content', 'ar')) }}</textarea>
+                                                <x-input-error class="mt-2" :messages="$errors->get('content.ar')" />
                                             </div>
                                         </div>
                                         <div class="tab-pane fade" id="navs-pills-top-profile" role="tabpanel">
@@ -76,6 +89,7 @@
                                                        value="{{ old('title.en', $blog->translate('title', 'en')) }}"
                                                        id="defaultFormControlInput" placeholder="عنوان المقاله"
                                                        aria-describedby="defaultFormControlHelp"/>
+                                                <x-input-error class="mt-2" :messages="$errors->get('title.en')" />
                                             </div>
 
                                             <div class="form-group my-3">
@@ -83,6 +97,7 @@
                                                 <textarea class="form-control" name="excerpt[en]" id="excerpt_en"
                                                           cols="30"
                                                           rows="5">{{ old('excerpt.en', $blog->translate('excerpt', 'en')) }}</textarea>
+                                                <x-input-error class="mt-2" :messages="$errors->get('excerpt.en')" />
                                             </div>
 
                                             <div class="form-group">
@@ -90,6 +105,7 @@
                                                 <textarea class="form-control" name="content[en]" id="content_en"
                                                           cols="30"
                                                           rows="10">{{ old('content.en', $blog->translate('content', 'en')) }}</textarea>
+                                                <x-input-error class="mt-2" :messages="$errors->get('content.en')" />
                                             </div>
                                         </div>
                                     </div>
