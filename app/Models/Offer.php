@@ -3,8 +3,8 @@
 namespace App\Models;
 
 use App\Enums\OfferPriceType;
-use App\Enums\PropertyLocations;
 use App\Enums\OfferType;
+use App\Enums\PropertyLocations;
 use App\Enums\PropertyType;
 use App\Enums\Status;
 use Illuminate\Database\Eloquent\Builder;
@@ -49,6 +49,15 @@ class Offer extends Model implements HasMedia
 
     public function scopeFilter(Builder $query): Builder
     {
+        $query->when(request('o_status'), function ($query, $value) {
+            $query->where('status', $value);
+        });
+
+        $query->when(request('o_s'), function ($query, $value) {
+            $query->where('short_title', 'like', "%{$value}%")
+                ->orWhere('title', 'like', "%{$value}%");
+        });
+
         return $query;
     }
 

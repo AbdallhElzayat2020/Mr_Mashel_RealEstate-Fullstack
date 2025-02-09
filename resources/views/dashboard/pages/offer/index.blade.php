@@ -13,11 +13,18 @@
                     {{-- seacrh form and filter status --}}
                     <form action="{{ URL::current() }}" method="get" class="my-4 flex flex-grow-1">
                         <div class="d-flex justify-content-between align-items-center gap-2 col-6">
-                            <input type="text" name="b_s" class="form-control mx-2" placeholder="بحث" value="{{ request('b_s') }}" >
+                            <input type="text" name="o_s" class="form-control mx-2" placeholder="بحث"
+                                   value="{{ request('o_s') }}">
                             <select name="o_status" class="form-control mx-2" id="">
                                 <option value="">الكل</option>
-                                <option value="active" @selected(request('o_status') === \App\Enums\Status::ACTIVE->value)>مفعل</option>
-                                <option value="inactive" @selected(request('o_status') === \App\Enums\Status::INACTIVE->value)>غير مفعل</option>
+                                <option
+                                    value="active" @selected(request('o_status') === \App\Enums\Status::ACTIVE->value)>
+                                    مفعل
+                                </option>
+                                <option
+                                    value="inactive" @selected(request('o_status') === \App\Enums\Status::INACTIVE->value)>
+                                    غير مفعل
+                                </option>
                             </select>
                             <button type="submit" class="btn btn-primary mx-2">بحث</button>
                         </div>
@@ -28,8 +35,11 @@
                 <table class="table">
                     <thead>
                     <tr>
-                        <th>عنوان المدونة</th>
-                        <th>دونت بواسطة</th>
+                        <th>#</th>
+                        <th>عنوان العرض</th>
+                        <th>النوع</th>
+                        <th>السعر</th>
+                        <th>المكان</th>
                         <th>الحالة</th>
                         <th>التحكم</th>
                     </tr>
@@ -37,28 +47,36 @@
                     <tbody class="table-border-bottom-0">
                     @forelse($offers as $offer)
                         <tr>
+                            <td>{{ $loop->iteration }}</td>
                             <td>
-                                <strong>{{ $offer->title }}</strong>
+                                <strong class="text-start">{!! $offer->short_title !!}</strong>
                             </td>
-                            <td>{{ $offer->author->name }}</td>
+                            <td>{{ $offer->property_type->value }}</td>
+                            <td>{{ $offer->price }}</td>
+                            <td>{{ $offer->location->value }}</td>
                             <td>
-                                <span class="badge {{ $offer->status->style() }} me-1">{{ $offer->status->label() }}</span>
+                                <span
+                                    class="badge {{ $offer->status->style() }} me-1">{{ $offer->status->label() }}</span>
                             </td>
                             <td>
-                                <a href="{{route('admin.blogs.edit', $offer)}}" class="btn btn-primary">تعديل</a>
+                                <a href="{{route('admin.offers.edit', $offer)}}" class="btn btn-primary">تعديل</a>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                         data-bs-target="#delete{{ $offer->id }}">
                                     حذف
                                 </button>
                             </td>
                         </tr>
-                        @include('dashboard.pages.blog.delete')
+                        @include('dashboard.layouts.delete-modal',
+                                        [
+                                            'route' => route('admin.offers.destroy', $offer),
+                                            'title' => 'عقار',
+                                            'model' => $offer
+                                        ])
                     @empty
                         <tr class="text-center">
-                            <td colspan="4">لا يوجد بيانات لعرضها</td>
+                            <td colspan="7">لا يوجد بيانات لعرضها</td>
                         </tr>
                     @endforelse
-
                     </tbody>
                 </table>
             </div>

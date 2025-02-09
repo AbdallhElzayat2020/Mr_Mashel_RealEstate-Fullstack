@@ -11,8 +11,9 @@ return new class extends Migration
         Schema::create('offer_details', function (Blueprint $table) {
             $table->id();
             $table->foreignId('offer_id')->constrained('offers')->cascadeOnDelete();
+            $table->string('key');
             $table->string('section');
-            $table->json('data');
+            $table->text('data');
         });
     }
 

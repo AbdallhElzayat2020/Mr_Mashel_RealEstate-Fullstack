@@ -6,7 +6,7 @@ use App\Models\Offer;
 
 interface OfferRepositoryInterface
 {
-    public function getAll(array $cols = ['*'], bool $paginate = true);
+    public function getAll(array $cols = ['*'], array $relations = [], bool $paginate = true);
 
     public function getById(int $id, array $cols = ['*']);
 

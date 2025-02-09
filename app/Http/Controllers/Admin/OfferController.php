@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Contracts\Repositories\OfferRepositoryInterface;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\OfferRequest;
 use App\Models\Offer;
-use App\Repositories\OfferRepository;
-use Illuminate\Http\Request;
 
 class OfferController extends Controller
 {
     public function __construct(
-        private OfferRepository $offerRepository
+        private OfferRepositoryInterface $offerRepository
     ) {}
 
     public function index()
@@ -40,10 +39,14 @@ class OfferController extends Controller
 
     public function edit(Offer $offer)
     {
+        $offer->load('details');
+
+        //        dd($offer->details);
+
         return view('dashboard.pages.offer.edit', compact('offer'));
     }
 
-    public function update(Request $request, Offer $offer)
+    public function update(OfferRequest $request, Offer $offer)
     {
         $this->offerRepository->update($offer, $request->validated());
 

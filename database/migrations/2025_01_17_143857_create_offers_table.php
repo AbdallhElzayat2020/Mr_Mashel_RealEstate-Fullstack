@@ -1,8 +1,8 @@
 <?php
 
 use App\Enums\OfferPriceType;
-use App\Enums\PropertyLocations;
 use App\Enums\OfferType;
+use App\Enums\PropertyLocations;
 use App\Enums\PropertyType;
 use App\Enums\Status;
 use Illuminate\Database\Migrations\Migration;
@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('offers', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('short_title');
+            $table->text('title');
+            $table->text('short_title');
             $table->text('description');
-            $table->string('short_description');
+            $table->text('short_description');
             $table->unsignedDouble('price');
             $table->enum('status', Status::values())->comment(Status::comment());
             $table->enum('price_type', OfferPriceType::values())->comment(OfferPriceType::comment());

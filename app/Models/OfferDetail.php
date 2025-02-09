@@ -14,13 +14,13 @@ class OfferDetail extends Model
     public $timestamps = false;
 
     protected $fillable = [
+        'key',
         'offer_id',
         'section',
         'data',
     ];
 
     public array $translatable = ['section', 'data'];
-
 
     public function offer(): BelongsTo
     {

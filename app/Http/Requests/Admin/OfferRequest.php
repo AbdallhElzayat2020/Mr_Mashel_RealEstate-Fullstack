@@ -3,9 +3,10 @@
 namespace App\Http\Requests\Admin;
 
 use App\Enums\OfferPriceType;
-use App\Enums\PropertyLocations;
 use App\Enums\OfferType;
+use App\Enums\PropertyLocations;
 use App\Enums\PropertyType;
+use App\Enums\Status;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -19,23 +20,29 @@ class OfferRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required', 'string', 'max:254'],
-            'description' => ['required', 'string'],
-            'short_title' => ['required', 'string', 'max:254'],
-            'short_description' => ['required', 'string'],
+            'title' => ['required', 'array'],
+            'short_title' => ['required', 'array'],
+            'description' => ['required', 'array'],
+            'short_description' => ['required', 'array'],
+            'property_specifications' => ['required', 'array'],
+            'property_contents' => ['required', 'array'],
+            'property_features' => ['required', 'array'],
+            'financial_communication' => ['required', 'array'],
             'price' => ['required', 'numeric'],
             'price_type' => ['required', Rule::enum(OfferPriceType::class)],
-            'is_active' => ['required', 'boolean'],
-            'status' => ['required', Rule::enum(OfferType::class)],
-            'type' => ['required', Rule::enum(PropertyType::class)],
+            'status' => ['required', Rule::enum(Status::class)],
+            'offer_type' => ['required', Rule::enum(OfferType::class)],
+            'property_type' => ['required', Rule::enum(PropertyType::class)],
             'location' => ['required', Rule::enum(PropertyLocations::class)],
         ];
     }
 
     protected function prepareForValidation(): void
     {
-        $this->merge([
-            'is_active' => $this->input('is_active') === 'on',
-        ]);
+        if ($this->has('status')) {
+            $this->merge(['status' => Status::ACTIVE->value]);
+        } else {
+            $this->merge(['status' => Status::INACTIVE->value]);
+        }
     }
 }
