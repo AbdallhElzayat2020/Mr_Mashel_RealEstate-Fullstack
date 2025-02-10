@@ -12,40 +12,47 @@ use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\ProfileController;
 
-// Route::get('dashboard', function () {
-//    return view('dashboard.pages.index');
-// })->middleware(['auth'])->name('dashboard');
+Route::middleware(['check-status', 'auth'])->group(function () {
 
-Route::get('dashboard', [DashboardHomeController::class, 'index'])->name('dashboard');
+    // ##################### Dashboard Route ###########################
+    Route::get('dashboard', [DashboardHomeController::class, 'index'])->name('dashboard');
 
-Route::post('users/{user}/update-status', [UserController::class, 'updateStatus'])->name('users.update-status');
-Route::post('users/{user}/password-reset', [UserController::class, 'passwordReset'])->name('users.password-reset');
-Route::resource('users', UserController::class);
+    // ##################### Users Management Routes ###########################
+    Route::post('users/{user}/update-status', [UserController::class, 'updateStatus'])->name('users.update-status');
+    Route::post('users/{user}/password-reset', [UserController::class, 'passwordReset'])->name('users.password-reset');
+    Route::resource('users', UserController::class);
 
-Route::resource('blogs', BlogController::class);
+    // ##################### Blogs Management Routes ###########################
+    Route::resource('blogs', BlogController::class);
 
-Route::resource('offers', OfferController::class);
+    // ##################### Offers Management Routes ###########################
+    Route::resource('offers', OfferController::class);
 
-Route::resource('contacts', ContactController::class);
+    // ##################### Contact us Management Routes ###########################
+    Route::resource('contacts', ContactController::class);
 
-Route::resource('services', ServiceController::class);
+    // ##################### Services Management Routes ###########################
+    Route::resource('services', ServiceController::class);
 
-Route::resource('testimonials', TestimonialController::class);
+    // ##################### Testimonials Management Routes ###########################
+    Route::resource('testimonials', TestimonialController::class);
 
-Route::resource('opportunities', OpportunityController::class);
+    // ##################### Opportunities Management Routes ###########################
+    Route::resource('opportunities', OpportunityController::class);
 
-Route::resource('roles', RoleController::class);
+    // ##################### Roles Management Routes ###########################
+    Route::resource('roles', RoleController::class);
 
-Route::prefix('mail-subscriptions')
-    ->as('mail-subscriptions.')
-    ->controller(MailSubscriptionController::class)
-    ->group(function () {
-        Route::get('/', 'index')->name('index');
-        Route::post('/', 'store')->name('store');
-        Route::delete('{mailSubscription}', 'destroy')->name('destroy');
-    });
+    // ##################### Mail- Subscription Management Routes ###########################
+    Route::prefix('mail-subscriptions')->as('mail-subscriptions.')
+        ->controller(MailSubscriptionController::class)
+        ->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::post('/', 'store')->name('store');
+            Route::delete('{mailSubscription}', 'destroy')->name('destroy');
+        });
 
-Route::middleware('auth')->group(function () {
+    // ##################### User Profile Routes ###########################
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
