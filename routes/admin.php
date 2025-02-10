@@ -43,7 +43,7 @@ Route::middleware(['check-status', 'auth'])->group(function () {
     // ##################### Roles Management Routes ###########################
     Route::resource('roles', RoleController::class);
 
-    // ##################### Mail- Subscription Management Routes ###########################
+    // ##################### Mail-Subscriptions Management Routes ###########################
     Route::prefix('mail-subscriptions')->as('mail-subscriptions.')
         ->controller(MailSubscriptionController::class)
         ->group(function () {
