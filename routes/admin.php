@@ -12,7 +12,7 @@ use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\ProfileController;
 
-Route::middleware(['check-status', 'auth'])->group(function () {
+Route::middleware(['auth', 'check-status'])->group(function () {
 
     // ##################### Dashboard Route ###########################
     Route::get('dashboard', [DashboardHomeController::class, 'index'])->name('dashboard');
