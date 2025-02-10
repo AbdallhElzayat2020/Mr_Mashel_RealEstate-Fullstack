@@ -64,22 +64,23 @@
                             <span class="align-middle">حسابي</span>
                         </a>
                     </li>
-                    <li>
-                        <a class="dropdown-item" href="#">
-                            <i class="ti ti-settings me-2 ti-sm"></i>
-                            <span class="align-middle">Settings</span>
-                        </a>
-                    </li>
+{{--                    <li>--}}
+{{--                        <a class="dropdown-item" href="#">--}}
+{{--                            <i class="ti ti-settings me-2 ti-sm"></i>--}}
+{{--                            <span class="align-middle">Settings</span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
 
                     <li>
-                        <form action="{{route('logout')}}" method="post">
+                        <form method="POST" action="{{ route('logout') }}">
                             @csrf
-                            <a class="dropdown-item" href="{{route('logout')}}">
+                            <a class="dropdown-item" href="{{ route('logout') }}" style="text-align:start"
+                               onclick="event.preventDefault();
+                            this.closest('form').submit();">
                                 <i class="ti ti-logout me-2 ti-sm"></i>
-                                <button class="align-middle btn btn-danger">Log Out</button>
+                                <span class="align-middle">تسجيل الخروج</span>
                             </a>
                         </form>
-
                     </li>
                 </ul>
             </li>
