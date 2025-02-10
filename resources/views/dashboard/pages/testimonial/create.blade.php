@@ -26,6 +26,7 @@
                            type="checkbox"
                            id="blog">
                     <label class="form-check-label" for="blog">حاله الشهادة</label>
+                    <x-input-error class="mt-2" :messages="$errors->get('status')" />
                 </div>
 
                 <div class="row mb-4">

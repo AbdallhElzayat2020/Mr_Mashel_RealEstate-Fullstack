@@ -1,29 +1,36 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
+@extends('dashboard.layouts.master')
+@section('title', 'حسابي')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-profile-information-form')
-                </div>
+@section('content')
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <h4 class="fw-bold py-3">
+حسابي
+        </h4>
+        @if($errors->any())
+            <div class="alert alert-danger mt-2" role="alert">
+                <ul class="mb-0">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
             </div>
+        @endif
+    <div class="row">
+        <div class="col-md-12">
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-password-form')
-                </div>
+            <!-- Profile Details -->
+            <div class="card mb-4">
+                @include('profile.partials.update-profile-information-form')
             </div>
+            <!-- /Profile Details -->
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.delete-user-form')
-                </div>
+            <!-- Update Password -->
+            <div class="card mb-4">
+                @include('profile.partials.update-password-form')
             </div>
+            <!-- /Update Password -->
         </div>
     </div>
-</x-app-layout>
+
+    </div>
+@endsection
