@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Contracts\Repositories\PermissionRepositoryInterface;
 use App\Contracts\Repositories\RoleRepositoryInterface;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Role\RoleRequest;
+use App\Http\Requests\Admin\Role\RoleRequest;
 use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller

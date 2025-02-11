@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Contracts\Repositories\OfferRepositoryInterface;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Offer\StoreOfferRequest;
-use App\Http\Requests\Offer\UpdateOfferRequest;
+use App\Http\Requests\Admin\Offer\StoreOfferRequest;
+use App\Http\Requests\Admin\Offer\UpdateOfferRequest;
 use App\Models\Offer;
 
 class OfferController extends Controller
