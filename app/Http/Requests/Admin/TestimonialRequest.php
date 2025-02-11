@@ -31,4 +31,14 @@ class TestimonialRequest extends FormRequest
             $this->merge(['status' => Status::INACTIVE->value]);
         }
     }
+
+    public function attributes(): array
+    {
+        return [
+            'client_name' => 'اسم العميل',
+            'company_name' => 'اسم الشركة',
+            'testimonial' => 'التوصية',
+            'status' => 'الحالة',
+        ];
+    }
 }

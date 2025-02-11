@@ -26,4 +26,18 @@ class OpportunityRequest extends FormRequest
             'type' => ['required', Rule::enum(OpportunityType::class)],
         ];
     }
+
+    public function attributes(): array
+    {
+        return [
+            'name' => 'الاسم',
+            'email' => 'البريد الإلكتروني',
+            'phone' => 'رقم الهاتف',
+            'years_of_exp' => 'سنوات الخبرة',
+            'field_of_exp' => 'مجال الخبرة',
+            'education' => 'المؤهل الدراسي',
+            'job_title' => 'المسمى الوظيفي',
+            'type' => 'النوع',
+        ];
+    }
 }

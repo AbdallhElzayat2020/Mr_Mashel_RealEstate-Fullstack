@@ -18,4 +18,12 @@ class ServiceFeatureRequest extends FormRequest
             'feature' => ['required'],
         ];
     }
+
+    public function attributes(): array
+    {
+        return [
+            'service_id' => 'الخدمة',
+            'feature' => 'الميزة',
+        ];
+    }
 }

@@ -43,5 +43,19 @@ class Service extends Model implements HasMedia
         return $this->hasMany(ServiceFeature::class, 'service_id');
     }
 
-    // Icon and brochure, image
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('image')
+            ->useFallbackUrl(asset('assets/dashboard/assets/img/user.png'))
+            ->useDisk('files')
+            ->singleFile()
+            ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/webp', 'image/svg', 'image/jpg']);
+    }
+
+    public function imageUrl(): string
+    {
+        return $this->getFirstMediaUrl('image');
+    }
+
+    // TODO:  Icon and brochure, image
 }

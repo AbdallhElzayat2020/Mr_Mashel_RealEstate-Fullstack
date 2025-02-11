@@ -6,10 +6,12 @@ use App\Enums\Status;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Testimonial extends Model
+class Testimonial extends Model implements HasMedia
 {
-    use HasFactory;
+    use HasFactory, InteractsWithMedia;
 
     protected $fillable = [
         'client_name',
@@ -29,8 +31,10 @@ class Testimonial extends Model
         });
 
         $query->when(request('t_s'), function (Builder $query, $value) {
-            $query->where('client_name', 'like', "%{$value}%")
-                ->orWhere('company_name', 'like', "%{$value}%");
+            $query->where(function (Builder $query) use ($value) {
+                $query->where('client_name', 'like', "%{$value}%")
+                    ->orWhere('company_name', 'like', "%{$value}%");
+            });
         });
 
         return $query;
@@ -40,4 +44,20 @@ class Testimonial extends Model
     {
         return $query->where('status', Status::ACTIVE);
     }
+
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('profile')
+            ->useFallbackUrl(asset('assets/dashboard/assets/img/user.png'))
+            ->useDisk('files')
+            ->singleFile()
+            ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/webp', 'image/svg', 'image/jpg']);
+    }
+
+    public function profileUrl(): string
+    {
+        return $this->getFirstMediaUrl('profile');
+    }
+
+    // TODO Image with default
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Admin;
+namespace App\Http\Requests\Offer;
 
 use App\Enums\OfferPriceType;
 use App\Enums\OfferType;
@@ -10,7 +10,7 @@ use App\Enums\Status;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class OfferRequest extends FormRequest
+class StoreOfferRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -34,6 +34,9 @@ class OfferRequest extends FormRequest
             'offer_type' => ['required', Rule::enum(OfferType::class)],
             'property_type' => ['required', Rule::enum(PropertyType::class)],
             'location' => ['required', Rule::enum(PropertyLocations::class)],
+
+            'files' => ['required', 'array'],
+            'files.*' => ['file', 'mimes:jpg,png,jpeg', 'max:2048'],
         ];
     }
 
@@ -44,5 +47,31 @@ class OfferRequest extends FormRequest
         } else {
             $this->merge(['status' => Status::INACTIVE->value]);
         }
+    }
+
+    public function attributes(): array
+    {
+        return [
+            'title' => 'العنوان',
+            'short_title' => 'العنوان المختصر',
+
+            'description' => 'الوصف',
+            'short_description' => 'الوصف المختصر',
+
+            'property_specifications' => 'مواصفات العقار',
+            'property_contents' => 'محتويات العقار',
+            'property_features' => 'ميزات العقار',
+            'financial_communication' => 'التواصل المالي',
+
+            'price' => 'السعر',
+            'price_type' => 'نوع السعر',
+            'status' => 'الحالة',
+            'offer_type' => 'نوع العرض',
+            'property_type' => 'نوع العقار',
+            'location' => 'الموقع',
+
+            'files' => 'الملفات',
+            'files.*' => 'الملفات',
+        ];
     }
 }

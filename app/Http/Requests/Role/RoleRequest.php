@@ -19,4 +19,13 @@ class RoleRequest extends FormRequest
             'permissions.*' => ['required', 'exists:permissions,id'],
         ];
     }
+
+    public function attributes(): array
+    {
+        return [
+            'display_name' => 'اسم الصلاحية',
+            'permissions' => 'الصلاحيات',
+            'permissions.*' => 'الصلاحيات',
+        ];
+    }
 }

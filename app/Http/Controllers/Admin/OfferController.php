@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Contracts\Repositories\OfferRepositoryInterface;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\OfferRequest;
+use App\Http\Requests\Offer\StoreOfferRequest;
+use App\Http\Requests\Offer\UpdateOfferRequest;
 use App\Models\Offer;
 
 class OfferController extends Controller
@@ -31,37 +32,56 @@ class OfferController extends Controller
         return view('dashboard.pages.offer.create');
     }
 
-    public function store(OfferRequest $request)
+    public function store(StoreOfferRequest $request)
     {
-        $this->offerRepository->create($request->validated());
+        //        dd($request->validated());
+        try {
+
+            $this->offerRepository->create($request->validated());
+
+        } catch (\Throwable $exception) {
+            throw $exception;
+
+            return back()->with('error', $exception->getMessage());
+        }
 
         return to_route('admin.offers.index');
     }
 
     public function show(Offer $offer)
     {
+        $offer->load('details', 'media');
+
         return view('dashboard.pages.offer.show', compact('offer'));
     }
 
     public function edit(Offer $offer)
     {
-        $offer->load('details');
-
-        //        dd($offer->details);
+        $offer->load('details', 'media');
 
         return view('dashboard.pages.offer.edit', compact('offer'));
     }
 
-    public function update(OfferRequest $request, Offer $offer)
+    public function update(UpdateOfferRequest $request, Offer $offer)
     {
-        $this->offerRepository->update($offer, $request->validated());
+        try {
+            $this->offerRepository->update($offer, $request->validated());
+        } catch (\Throwable $exception) {
+            throw $exception;
+
+            return back()->with('error', $exception->getMessage());
+        }
 
         return to_route('admin.offers.index');
     }
 
     public function destroy(Offer $offer)
     {
-        $this->offerRepository->delete($offer);
+        try {
+            $this->offerRepository->delete($offer);
+        } catch (\Throwable $exception) {
+            throw $exception;
+        }
 
         return to_route('admin.offers.index');
     }

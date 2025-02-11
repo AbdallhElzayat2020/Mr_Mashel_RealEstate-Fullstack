@@ -21,7 +21,7 @@
                 <div class="card mb-4">
                     <div class="card-body">
 
-                        <form method="POST" action="{{ route('admin.offers.store') }}">
+                        <form method="POST" action="{{ route('admin.offers.store') }}" enctype="multipart/form-data">
                             @csrf
 
                             <div class="col-xl-12 col-md-12">
@@ -118,6 +118,14 @@
                                                     aria-controls="navs-pills-top-profile"
                                                     aria-selected="false">
                                                 الإنجليزيه
+                                            </button>
+                                        </li>
+                                        <li class="nav-item">
+                                            <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
+                                                    data-bs-target="#media-data"
+                                                    aria-controls="media-data"
+                                                    aria-selected="false">
+                                                الميديا
                                             </button>
                                         </li>
                                     </ul>
@@ -270,6 +278,17 @@
                                                 </div>
                                             </div>
 
+                                        </div>
+                                        <div class="tab-pane fade" id="media-data" role="tabpanel">
+                                            <div class="my-3">
+                                                <label for="file_input" class="form-label">
+                                                    الصوره</label>
+                                                <input type="file" name="files[]" class="form-control"
+                                                       multiple
+                                                       id="file_input"
+                                                       aria-describedby="File input"/>
+                                                <x-input-error class="mt-2" :messages="$errors->get('files')" />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

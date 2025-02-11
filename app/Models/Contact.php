@@ -24,9 +24,11 @@ class Contact extends Model
     public function scopeFilter(Builder $query): Builder
     {
         $query->when(request('c_s'), static function ($query, $value) {
-            $query->where('name', 'like', "%{$value}%")
-                ->orWhere('email', 'like', "%{$value}%")
-                ->orWhere('phone', 'like', "%{$value}%");
+            $query->where(function (Builder $query) use ($value) {
+                $query->where('name', 'like', "%{$value}%")
+                    ->orWhere('email', 'like', "%{$value}%")
+                    ->orWhere('phone', 'like', "%{$value}%");
+            });
         });
 
         $query->when(request('ser'), static function ($query, $value) {

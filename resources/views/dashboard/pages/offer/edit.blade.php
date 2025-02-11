@@ -21,7 +21,7 @@
                 <div class="card mb-4">
                     <div class="card-body">
 
-                        <form method="POST" action="{{ route('admin.offers.update', $offer) }}">
+                        <form method="POST" action="{{ route('admin.offers.update', $offer) }}" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
 
@@ -118,6 +118,14 @@
                                                     aria-controls="navs-pills-top-profile"
                                                     aria-selected="false">
                                                 الإنجليزيه
+                                            </button>
+                                        </li>
+                                        <li class="nav-item">
+                                            <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
+                                                    data-bs-target="#media-data"
+                                                    aria-controls="media-data"
+                                                    aria-selected="false">
+                                                الميديا
                                             </button>
                                         </li>
                                     </ul>
@@ -270,6 +278,22 @@
                                                 </div>
                                             </div>
 
+                                        </div>
+                                        <div class="tab-pane fade" id="media-data" role="tabpanel">
+                                            <div class="my-3">
+                                                <label for="file_input" class="form-label">
+                                                    الصوره</label>
+                                                <input type="file" name="files[]" class="form-control"
+                                                       multiple
+                                                       id="file_input"
+                                                       aria-describedby="File input"/>
+                                                <x-input-error class="mt-2" :messages="$errors->get('files')" />
+                                            </div>
+                                            <div class="row">
+                                                @foreach($offer->gallery() as $media)
+                                                    <img class="image w-50 h-25 col-4" src="{{ $media->getFullUrl() }}" alt="Offer Image">
+                                                @endforeach
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

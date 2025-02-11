@@ -18,7 +18,7 @@ class CheckAccountStatusMiddleware
 
             $request->session()->regenerateToken();
 
-            return to_route('login')->with('status', 'Your account is not activated.');
+            return to_route('login')->with('status', 'تم إيقاف حسابك. الرجاء التواصل مع أحد المديرين.');
         }
 
         return $next($request);

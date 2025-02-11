@@ -41,8 +41,11 @@ class Opportunity extends Model implements HasMedia
     public function scopeFilter(Builder $query): Builder
     {
         $query->when(request('op_s'), function (Builder $query, $value) {
-            $query->where('name', 'like', "%{$value}%")
-                ->orWhere('email', 'like', "%{$value}%");
+            $query->where(function (Builder $query) use ($value) {
+                $query->where('name', 'like', "%{$value}%")
+                    ->orWhere('email', 'like', "%{$value}%");
+
+            });
         });
 
         $query->when(request('op_type'), function (Builder $query, $value) {

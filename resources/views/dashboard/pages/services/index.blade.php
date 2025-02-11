@@ -1,5 +1,5 @@
 @extends('dashboard.layouts.master')
-@section('title', 'رسايل التواصل')
+@section('title', 'الخدمات')
 
 @section('content')
     <div class="container-xxl flex-grow-1 container-p-y">

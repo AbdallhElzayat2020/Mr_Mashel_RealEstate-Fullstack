@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
 use Spatie\Translatable\HasTranslations;
 
 class Offer extends Model implements HasMedia
@@ -54,8 +55,10 @@ class Offer extends Model implements HasMedia
         });
 
         $query->when(request('o_s'), function ($query, $value) {
-            $query->where('short_title', 'like', "%{$value}%")
-                ->orWhere('title', 'like', "%{$value}%");
+            $query->where(function (Builder $query) use ($value) {
+                $query->where('short_title', 'like', "%{$value}%")
+                    ->orWhere('title', 'like', "%{$value}%");
+            });
         });
 
         return $query;
@@ -66,6 +69,18 @@ class Offer extends Model implements HasMedia
         return $this->hasMany(OfferDetail::class, 'offer_id');
     }
 
-    // GALLERY
-    // brochure
+    // ############################ Media #####################################
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('gallery')
+            ->useDisk('files')
+            ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/webp', 'image/svg', 'image/jpg']);
+    }
+
+    public function gallery(): MediaCollection
+    {
+        return $this->getMedia('gallery');
+    }
+
+    // TODO: brochure
 }

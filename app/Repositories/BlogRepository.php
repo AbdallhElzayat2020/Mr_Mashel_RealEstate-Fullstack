@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Contracts\Repositories\BlogRepositoryInterface;
 use App\Models\Blog;
+use Illuminate\Support\Facades\DB;
 
 class BlogRepository implements BlogRepositoryInterface
 {
@@ -29,12 +30,24 @@ class BlogRepository implements BlogRepositoryInterface
 
     public function create(array $data)
     {
-        return Blog::create($data);
+        DB::transaction(function () use ($data) {
+            $blog = Blog::create($data);
+
+            if (request()->hasFile('file')) {
+                $blog->addMediaFromRequest('file')
+                    ->toMediaCollection('image');
+            }
+        });
     }
 
     public function update(Blog $blog, array $data)
     {
-        return $blog->update($data);
+        $blog->update($data);
+
+        if (request()->hasFile('file')) {
+            $blog->addMediaFromRequest('file')
+                ->toMediaCollection('image');
+        }
     }
 
     public function delete(Blog $blog)

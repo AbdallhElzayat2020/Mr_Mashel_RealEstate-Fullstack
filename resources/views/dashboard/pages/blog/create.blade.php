@@ -20,7 +20,7 @@
                 <div class="card mb-4">
                     <div class="card-body">
 
-                        <form method="POST" action="{{ route('admin.blogs.store') }}">
+                        <form method="POST" action="{{ route('admin.blogs.store') }}" enctype="multipart/form-data">
                             @csrf
 
                             <div class="col-xl-12 col-md-12">
@@ -39,23 +39,31 @@
                                         <li class="nav-item">
                                             <button type="button" class="nav-link active" role="tab"
                                                     data-bs-toggle="tab"
-                                                    data-bs-target="#navs-pills-top-home"
-                                                    aria-controls="navs-pills-top-home"
+                                                    data-bs-target="#ar-data"
+                                                    aria-controls="ar-data"
                                                     aria-selected="true">
                                                 العربيه
                                             </button>
                                         </li>
                                         <li class="nav-item">
                                             <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
-                                                    data-bs-target="#navs-pills-top-profile"
-                                                    aria-controls="navs-pills-top-profile"
+                                                    data-bs-target="#en-data"
+                                                    aria-controls="en-data"
                                                     aria-selected="false">
                                                 الإنجليزيه
                                             </button>
                                         </li>
+                                        <li class="nav-item">
+                                            <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
+                                                    data-bs-target="#media-data"
+                                                    aria-controls="media-data"
+                                                    aria-selected="false">
+                                                الميديا
+                                            </button>
+                                        </li>
                                     </ul>
                                     <div class="tab-content shadow-none">
-                                        <div class="tab-pane fade show active" id="navs-pills-top-home" role="tabpanel">
+                                        <div class="tab-pane fade show active" id="ar-data" role="tabpanel">
                                             <div class="my-3">
                                                 <label for="defaultFormControlInput" class="form-label">عنوان
                                                     المقاله</label>
@@ -81,7 +89,7 @@
                                                 <x-input-error class="mt-2" :messages="$errors->get('content.ar')" />
                                             </div>
                                         </div>
-                                        <div class="tab-pane fade" id="navs-pills-top-profile" role="tabpanel">
+                                        <div class="tab-pane fade" id="en-data" role="tabpanel">
                                             <div class="my-3">
                                                 <label for="defaultFormControlInput" class="form-label">عنوان
                                                     المقاله</label>
@@ -106,6 +114,17 @@
                                                           cols="30"
                                                           rows="10">{{ old('content.en') }}</textarea>
                                                 <x-input-error class="mt-2" :messages="$errors->get('content.en')" />
+                                            </div>
+                                        </div>
+
+                                        <div class="tab-pane fade" id="media-data" role="tabpanel">
+                                            <div class="my-3">
+                                                <label for="file_input" class="form-label">
+                                                    الصوره</label>
+                                                <input type="file" name="file" class="form-control"
+                                                       id="file_input"
+                                                       aria-describedby="File input"/>
+                                                <x-input-error class="mt-2" :messages="$errors->get('file')" />
                                             </div>
                                         </div>
                                     </div>

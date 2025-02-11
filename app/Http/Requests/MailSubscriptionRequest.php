@@ -17,4 +17,11 @@ class MailSubscriptionRequest extends FormRequest
             'email' => ['required', 'email', 'max:254'],
         ];
     }
+
+    public function attributes(): array
+    {
+        return [
+            'email' => 'البريد الإلكتروني',
+        ];
+    }
 }

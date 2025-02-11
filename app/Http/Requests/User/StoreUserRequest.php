@@ -20,4 +20,14 @@ class StoreUserRequest extends FormRequest
             'password' => ['required', 'string', 'min:8', 'confirmed', 'max:254'],
         ];
     }
+
+    public function attributes(): array
+    {
+        return [
+            'name' => 'الاسم',
+            'email' => 'البريد الإلكتروني',
+            'role' => 'الدور',
+            'password' => 'كلمة المرور',
+        ];
+    }
 }

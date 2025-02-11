@@ -19,7 +19,7 @@
             <div class="col-lg-12">
                 <div class="card mb-4">
                     <div class="card-body">
-                        <form method="POST" action="{{ route('admin.blogs.update', $blog) }}">
+                        <form method="POST" action="{{ route('admin.blogs.update', $blog) }}" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
 
@@ -31,7 +31,7 @@
                                            type="checkbox"
                                            id="blog">
                                     <label class="form-check-label" for="blog">حاله المقاله</label>
-                                    <x-input-error class="mt-2" :messages="$errors->get('status')" />
+                                    <x-input-error class="mt-2" :messages="$errors->get('status')"/>
                                 </div>
 
                                 <div class="nav-align-top mb-4 shadow-none">
@@ -53,6 +53,14 @@
                                                 الإنجليزيه
                                             </button>
                                         </li>
+                                        <li class="nav-item">
+                                            <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
+                                                    data-bs-target="#media-data"
+                                                    aria-controls="media-data"
+                                                    aria-selected="false">
+                                                الميديا
+                                            </button>
+                                        </li>
                                     </ul>
                                     <div class="tab-content shadow-none">
                                         <div class="tab-pane fade show active" id="navs-pills-top-home" role="tabpanel">
@@ -63,14 +71,14 @@
                                                        id="defaultFormControlInput" placeholder="عنوان المقاله"
                                                        value="{{ old('title.ar', $blog->translate('title', 'ar')) }}"
                                                        aria-describedby="defaultFormControlHelp"/>
-                                                <x-input-error class="mt-2" :messages="$errors->get('title.ar')" />
+                                                <x-input-error class="mt-2" :messages="$errors->get('title.ar')"/>
                                             </div>
                                             <div class="form-group my-3">
                                                 <label for="excerpt_ar" class="form-label">المقتطفات</label>
                                                 <textarea class="form-control" name="excerpt[ar]" id="excerpt_ar"
                                                           cols="30"
                                                           rows="5">{{ old('excerpt.ar', $blog->translate('excerpt', 'ar')) }}</textarea>
-                                                <x-input-error class="mt-2" :messages="$errors->get('excerpt.ar')" />
+                                                <x-input-error class="mt-2" :messages="$errors->get('excerpt.ar')"/>
                                             </div>
 
                                             <div class="form-group">
@@ -78,7 +86,7 @@
                                                 <textarea class="form-control" name="content[ar]" id="content_ar"
                                                           cols="30"
                                                           rows="10">{{ old('content.ar', $blog->translate('content', 'ar')) }}</textarea>
-                                                <x-input-error class="mt-2" :messages="$errors->get('content.ar')" />
+                                                <x-input-error class="mt-2" :messages="$errors->get('content.ar')"/>
                                             </div>
                                         </div>
                                         <div class="tab-pane fade" id="navs-pills-top-profile" role="tabpanel">
@@ -89,7 +97,7 @@
                                                        value="{{ old('title.en', $blog->translate('title', 'en')) }}"
                                                        id="defaultFormControlInput" placeholder="عنوان المقاله"
                                                        aria-describedby="defaultFormControlHelp"/>
-                                                <x-input-error class="mt-2" :messages="$errors->get('title.en')" />
+                                                <x-input-error class="mt-2" :messages="$errors->get('title.en')"/>
                                             </div>
 
                                             <div class="form-group my-3">
@@ -97,7 +105,7 @@
                                                 <textarea class="form-control" name="excerpt[en]" id="excerpt_en"
                                                           cols="30"
                                                           rows="5">{{ old('excerpt.en', $blog->translate('excerpt', 'en')) }}</textarea>
-                                                <x-input-error class="mt-2" :messages="$errors->get('excerpt.en')" />
+                                                <x-input-error class="mt-2" :messages="$errors->get('excerpt.en')"/>
                                             </div>
 
                                             <div class="form-group">
@@ -105,7 +113,22 @@
                                                 <textarea class="form-control" name="content[en]" id="content_en"
                                                           cols="30"
                                                           rows="10">{{ old('content.en', $blog->translate('content', 'en')) }}</textarea>
-                                                <x-input-error class="mt-2" :messages="$errors->get('content.en')" />
+                                                <x-input-error class="mt-2" :messages="$errors->get('content.en')"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="tab-pane fade" id="media-data" role="tabpanel">
+                                            <div class="my-3 col-12 col-md-6 mb-4">
+                                                <label for="file_input" class="form-label">
+                                                    الصوره</label>
+                                                <input type="file" name="file" class="form-control"
+                                                       id="file_input"
+                                                       aria-describedby="File input"/>
+                                                <x-input-error class="mt-2" :messages="$errors->get('file')"/>
+                                            </div>
+
+                                            <div>
+                                                <img class="image w-50 h-25" src="{{ $blog->getImageUrl() }}" alt="Blog Image">
                                             </div>
                                         </div>
                                     </div>
@@ -160,7 +183,7 @@
 
 @section('css')
     <style>
-         .tox-promotion-link, .tox-statusbar__branding {
+        .tox-promotion-link, .tox-statusbar__branding {
             display: none !important;
         }
     </style>

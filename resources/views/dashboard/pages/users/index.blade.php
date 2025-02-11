@@ -44,10 +44,13 @@
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
+                        <?php
+                        $counter = paginate_counter();
+                        ?>
                     @forelse($users as $user)
                         <tr>
                             <td>
-                                {{ $loop->iteration }}
+                                {{ $counter++ }}
                             </td>
                             <td>
                                 <strong>{{ $user->name }}</strong>

@@ -21,4 +21,13 @@ class UpdateUserRequest extends FormRequest
             'role' => ['required', 'string', 'exists:roles,name'],
         ];
     }
+
+    public function attributes(): array
+    {
+        return [
+            'name' => 'الاسم',
+            'email' => 'البريد الإلكتروني',
+            'role' => 'الدور',
+        ];
+    }
 }

@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Contracts\Repositories\BlogRepositoryInterface;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\BlogRequest;
+use App\Http\Requests\Blog\StoreBlogRequest;
+use App\Http\Requests\Blog\UpdateBlogRequest;
 use App\Models\Blog;
 
 class BlogController extends Controller
@@ -31,7 +32,7 @@ class BlogController extends Controller
         return view('dashboard.pages.blog.create');
     }
 
-    public function store(BlogRequest $request)
+    public function store(StoreBlogRequest $request)
     {
         $this->blogRepository->create($request->validated());
 
@@ -48,7 +49,7 @@ class BlogController extends Controller
         return view('dashboard.pages.blog.edit', compact('blog'));
     }
 
-    public function update(BlogRequest $request, Blog $blog)
+    public function update(UpdateBlogRequest $request, Blog $blog)
     {
         $this->blogRepository->update($blog, $request->validated());
 

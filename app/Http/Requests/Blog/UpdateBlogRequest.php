@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Admin;
+namespace App\Http\Requests\Blog;
 
 use App\Enums\Status;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class BlogRequest extends FormRequest
+class UpdateBlogRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -26,6 +26,8 @@ class BlogRequest extends FormRequest
 
             'content.ar' => ['required', 'string'],
             'content.en' => ['required', 'string'],
+
+            'file' => ['sometimes', 'file', 'mimes:jpg,jpeg,png', 'max:1024'],
         ];
     }
 
@@ -36,5 +38,23 @@ class BlogRequest extends FormRequest
         } else {
             $this->merge(['status' => Status::INACTIVE->value]);
         }
+    }
+
+    public function attributes(): array
+    {
+        return [
+            'status' => 'الحالة',
+
+            'title.ar' => 'العنوان بالعربية',
+            'title.en' => 'العنوان بالإنجليزية',
+
+            'excerpt.ar' => 'المقتطف بالعربية',
+            'excerpt.en' => 'المقتطف بالإنجليزية',
+
+            'content.ar' => 'المحتوى بالعربية',
+            'content.en' => 'المحتوى بالإنجليزية',
+
+            'file' => 'الملف',
+        ];
     }
 }

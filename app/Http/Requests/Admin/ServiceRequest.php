@@ -31,14 +31,14 @@ class ServiceRequest extends FormRequest
     public function attributes(): array
     {
         return [
-            'title.ar' => __('Title'),
-            'title.en' => __('Title'),
-            'short_description.ar' => __('Title'),
-            'short_description.en' => __('Title'),
-            'description.ar' => __('Description'),
-            'description.en' => __('Description'),
-            'features' => __('Features'),
-            'features.*' => __('Features'),
+            'title.en' => 'العنوان بالإنجليزية',
+            'title.ar' => 'العنوان بالعربية',
+            'short.description.en' => 'الوصف المختصر بالإنجليزية',
+            'short.description.ar' => 'الوصف المختصر بالعربية',
+            'description.en' => 'الوصف بالإنجليزية',
+            'description.ar' => 'الوصف بالعربية',
+            'features' => 'المميزات',
+            'features.*' => 'المميزات',
         ];
     }
 

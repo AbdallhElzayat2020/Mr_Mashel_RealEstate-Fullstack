@@ -9,7 +9,6 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('contact_inquiries', function (Blueprint $table) {
-            // TODO : How many inquiries use can make
             $table->id();
             $table->string('name');
             $table->string('email');

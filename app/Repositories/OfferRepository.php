@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Contracts\Repositories\OfferRepositoryInterface;
 use App\Models\Offer;
 use Illuminate\Support\Facades\DB;
+use Spatie\MediaLibrary\MediaCollections\FileAdder;
 
 class OfferRepository implements OfferRepositoryInterface
 {
@@ -34,6 +35,13 @@ class OfferRepository implements OfferRepositoryInterface
             $offer = Offer::create($data);
 
             $this->CreateDetails($data, $offer);
+
+            if (request()->hasFile('files')) {
+                $offer->addMultipleMediaFromRequest(['files'])
+                    ->each(function (FileAdder $fileAdder) {
+                        $fileAdder->toMediaCollection('gallery');
+                    });
+            }
         });
     }
 
@@ -45,14 +53,35 @@ class OfferRepository implements OfferRepositoryInterface
             $offer->details()->delete();
 
             $this->CreateDetails($data, $offer);
+
+            if (request()->hasFile('files')) {
+
+                $offer->load('media');
+
+                // Delete old media files associated with this offer
+                $offer->media->each(function ($media) {
+                    $media->delete();
+                });
+
+                $offer->addMultipleMediaFromRequest(['files'])
+                    ->each(function (FileAdder $fileAdder) {
+                        $fileAdder->toMediaCollection('gallery');
+                    });
+            }
         });
     }
 
     public function delete(Offer $offer)
     {
-        $offer->details()->delete();
+        DB::transaction(function () use ($offer) {
+            $offer->media->each(function ($meda) {
+                $meda->delete();
+            });
 
-        $offer->delete();
+            $offer->details()->delete();
+
+            $offer->delete();
+        });
     }
 
     public function CreateDetails(array $data, Offer $offer): void
