@@ -9,15 +9,15 @@
     data-template="vertical-menu-template"
 >
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>تسجيل الدخول</title>
+    <title>إستعاده كلمة المرور</title>
 
-    <meta name="description" content=""/>
+    <meta name="description" content="" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/dashboard/assets/img/favicon/favicon.ico') }}" />
@@ -66,7 +66,7 @@
 <div class="container-xxl">
     <div class="authentication-wrapper authentication-basic container-p-y">
         <div class="authentication-inner py-4">
-            <!-- Login -->
+            <!-- Reset Password -->
             <div class="card">
                 <div class="card-body">
                     <!-- Logo -->
@@ -81,34 +81,33 @@
                             </div>
                         </a>
                     </div>
-
-                    <x-auth-session-status class="mb-4" :status="session('status')" />
-
-                    <form id="formAuthentication" class="mb-3" action="{{ route('login') }}" method="POST">
+                    <!-- /Logo -->
+                    <h4 class="mb-1 pt-2">إعادة تعيين كلمة المرور 🔒</h4>
+                    <p class="mb-4">لـ <span class="fw-bold">john.doe@email.com</span></p>
+                    <form id="formAuthentication" action="{{ route('password.store') }}" method="POST">
                         @csrf
 
+                        <!-- Password Reset Token -->
+                        <input type="hidden" name="token" value="{{ $request->route('token') }}">
+
+
                         <div class="mb-3">
-                            <label for="email" class="form-label">البريد الالكتروني</label>
+                            <label for="email" class="form-label">البريد الإلكتروني</label>
                             <input
                                 type="text"
                                 class="form-control"
                                 id="email"
                                 name="email"
-                                placeholder="ادخل البريد الالكتروني"
-                                value="{{ old('email') }}"
-                                autofocus
+                                value="{{  old('email', $request->email) }}"
+                                placeholder="أدخل بريدك الإلكتروني"
                                 required
                             />
 
                             <x-input-error :messages="$errors->get('email')" class="mt-2" />
                         </div>
+
                         <div class="mb-3 form-password-toggle">
-                            <div class="d-flex justify-content-between">
-                                <label class="form-label" for="password">كلمة المرور</label>
-                                <a href="{{ route('password.request') }}">
-                                    <small>هل نسيت كلمة المرور ؟</small>
-                                </a>
-                            </div>
+                            <label class="form-label" for="password">كلمة المرور الجديدة</label>
                             <div class="input-group input-group-merge">
                                 <input
                                     type="password"
@@ -118,25 +117,41 @@
                                     placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                                     aria-describedby="password"
                                     required
+                                    autofocus
                                 />
                                 <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
+                            </div>
 
-                                <x-input-error :messages="$errors->get('password')" class="mt-2" />
-                            </div>
+                            <x-input-error :messages="$errors->get('password')" class="mt-2" />
                         </div>
-                        <div class="mb-3">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="remember-me" name="remember" />
-                                <label class="form-check-label" for="remember-me">تذكرني</label>
+                        <div class="mb-3 form-password-toggle">
+                            <label class="form-label" for="confirm-password">تأكيد كلمة المرور</label>
+                            <div class="input-group input-group-merge">
+                                <input
+                                    type="password"
+                                    id="confirm-password"
+                                    class="form-control"
+                                    name="password_confirmation"
+                                    placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                    required
+                                    aria-describedby="password"
+                                />
+                                <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
                             </div>
+
+                            <x-input-error :messages="$errors->get('password')" class="mt-2" />
                         </div>
-                        <div class="mb-3">
-                            <button class="btn btn-primary d-grid w-100" type="submit">تسجيل الدخول</button>
+                        <button class="btn btn-primary d-grid w-100 mb-3">تعيين كلمة المرور الجديدة</button>
+                        <div class="text-center">
+                            <a href="{{ route('login') }}">
+                                <i class="ti ti-chevron-left scaleX-n1-rtl"></i>
+                                العودة إلى تسجيل الدخول
+                            </a>
                         </div>
                     </form>
                 </div>
             </div>
-            <!-- /Register -->
+            <!-- /Reset Password -->
         </div>
     </div>
 </div>

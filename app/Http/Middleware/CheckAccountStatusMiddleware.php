@@ -18,7 +18,7 @@ class CheckAccountStatusMiddleware
 
             $request->session()->regenerateToken();
 
-            return to_route('login')->with('status', 'تم إيقاف حسابك. الرجاء التواصل مع أحد المديرين.');
+            return to_route('login')->withErrors(['email' => 'تم إيقاف حسابك. الرجاء التواصل مع أحد المديرين.']);
         }
 
         return $next($request);
