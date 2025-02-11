@@ -57,3 +57,5 @@ Route::middleware(['auth', 'check-status'])->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+// TODO: lOGO, Settings , notifications

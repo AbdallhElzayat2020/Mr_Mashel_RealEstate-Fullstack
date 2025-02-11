@@ -11,7 +11,7 @@ class UserRepository implements UserRepositoryInterface
 {
     public function getAll(array $cols = ['*'], array $relations = [], bool $paginate = true)
     {
-        $users = User::filter()->select($cols)->orderByDesc('created_at');
+        $users = User::whereNot('id', 1)->filter()->select($cols)->orderByDesc('created_at');
 
         if (count($relations)) {
             $users = $users->with($relations);
@@ -49,11 +49,19 @@ class UserRepository implements UserRepositoryInterface
 
     public function delete(User $user)
     {
+        if ($user->id === 1) {
+            abort(403);
+        }
+
         return $user->delete();
     }
 
     public function updateStatus(User $user, Status $status)
     {
+        if ($user->id === 1) {
+            abort(403);
+        }
+
         $user->update([
             'status' => $status,
         ]);
