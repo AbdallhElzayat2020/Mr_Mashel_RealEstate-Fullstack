@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Offer;
+namespace App\Http\Requests\Admin\Offer;
 
 use App\Enums\OfferPriceType;
 use App\Enums\OfferType;
@@ -22,12 +22,15 @@ class UpdateOfferRequest extends FormRequest
         return [
             'title' => ['required', 'array'],
             'short_title' => ['required', 'array'],
+
             'description' => ['required', 'array'],
             'short_description' => ['required', 'array'],
+
             'property_specifications' => ['required', 'array'],
             'property_contents' => ['required', 'array'],
             'property_features' => ['required', 'array'],
             'financial_communication' => ['required', 'array'],
+
             'price' => ['required', 'numeric'],
             'price_type' => ['required', Rule::enum(OfferPriceType::class)],
             'status' => ['required', Rule::enum(Status::class)],

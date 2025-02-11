@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Offer;
+namespace App\Http\Requests\Admin\Offer;
 
 use App\Enums\OfferPriceType;
 use App\Enums\OfferType;

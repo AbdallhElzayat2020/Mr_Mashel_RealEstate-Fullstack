@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Contracts\Repositories\BlogRepositoryInterface;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Blog\StoreBlogRequest;
-use App\Http\Requests\Blog\UpdateBlogRequest;
+use App\Http\Requests\Admin\Blog\StoreBlogRequest;
+use App\Http\Requests\Admin\Blog\UpdateBlogRequest;
 use App\Models\Blog;
 
 class BlogController extends Controller

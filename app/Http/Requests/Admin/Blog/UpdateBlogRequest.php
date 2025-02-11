@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Blog;
+namespace App\Http\Requests\Admin\Blog;
 
 use App\Enums\Status;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class StoreBlogRequest extends FormRequest
+class UpdateBlogRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -27,7 +27,7 @@ class StoreBlogRequest extends FormRequest
             'content.ar' => ['required', 'string'],
             'content.en' => ['required', 'string'],
 
-            'file' => ['required', 'file', 'mimes:jpg,jpeg,png', 'max:1024'],
+            'file' => ['sometimes', 'file', 'mimes:jpg,jpeg,png', 'max:1024'],
         ];
     }
 

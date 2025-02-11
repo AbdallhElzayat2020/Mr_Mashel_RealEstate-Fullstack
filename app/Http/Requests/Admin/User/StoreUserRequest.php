@@ -1,12 +1,10 @@
 <?php
 
-namespace App\Http\Requests\User;
+namespace App\Http\Requests\Admin\User;
 
-use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
-class UpdateUserRequest extends FormRequest
+class StoreUserRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -17,8 +15,9 @@ class UpdateUserRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:254'],
-            'email' => ['required', 'email', 'max:254', Rule::unique(User::class, 'email')->ignoreModel($this->user)],
+            'email' => ['required', 'email', 'max:254', 'unique:users'],
             'role' => ['required', 'string', 'exists:roles,name'],
+            'password' => ['required', 'string', 'min:8', 'confirmed', 'max:254'],
         ];
     }
 
@@ -28,6 +27,7 @@ class UpdateUserRequest extends FormRequest
             'name' => 'الاسم',
             'email' => 'البريد الإلكتروني',
             'role' => 'الدور',
+            'password' => 'كلمة المرور',
         ];
     }
 }
