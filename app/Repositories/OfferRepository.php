@@ -74,9 +74,6 @@ class OfferRepository implements OfferRepositoryInterface
     public function delete(Offer $offer)
     {
         DB::transaction(function () use ($offer) {
-            $offer->media->each(function ($meda) {
-                $meda->delete();
-            });
 
             $offer->details()->delete();
 
