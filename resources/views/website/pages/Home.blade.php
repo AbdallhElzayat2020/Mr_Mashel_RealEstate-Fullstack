@@ -9,7 +9,7 @@
     <title>الرئيسية || قدرة العقارية</title>
 
     <!-- Fav Icon -->
-    <link rel="icon" href="{{ asset('assets/website/images/LOGO.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('assets/website/images/Fav_logo.png') }}" type="image/x-icon">
 
     <!-- Google Fonts -->
     <link
