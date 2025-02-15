@@ -79,5 +79,6 @@ class Kernel extends HttpKernel
         'localeViewPath' => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationViewPath::class,
 
         'check-status' => \App\Http\Middleware\CheckAccountStatusMiddleware::class,
+        'force-ar' => \App\Http\Middleware\ForceARLangForDashboardMiddleware::class,
     ];
 }

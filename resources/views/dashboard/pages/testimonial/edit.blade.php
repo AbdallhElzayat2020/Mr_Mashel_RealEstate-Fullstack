@@ -20,7 +20,7 @@
             <form method="post" action="{{ route('admin.testimonials.update', $testimonial) }}">
                 @csrf
                 @method('PUT')
-                <div class="form-check form-switch d-flex align-items-center gap-3 mb-5">
+                <div class="form-check form-switch d-flex align-items-center justify-content-end gap-3 mb-5">
                     <input class="form-check-input fs-large" name="status" value="active"
                            @checked(old('status', $testimonial->status->value) === \App\Enums\Status::ACTIVE->value)
                            type="checkbox"
@@ -39,12 +39,12 @@
                         <x-input-error class="mt-2" :messages="$errors->get('client_name')" />
                     </div>
                     <div class="my-3 my-md-0  col-12 col-md-6">
-                        <label for="company" class="form-label">الشركة</label>
-                        <input type="text" name="company_name" class="form-control"
-                               id="company" placeholder="الشركة"
-                               value="{{ old('company_name', $testimonial->client_name) }}"
+                        <label for="job_title" class="form-label">وظيفة العميل</label>
+                        <input type="text" name="job_title_name" class="form-control"
+                               id="job_title" placeholder="وظيفة العميل"
+                               value="{{ old('job_title', $testimonial->job_title) }}"
                                aria-describedby="Client Name"/>
-                        <x-input-error class="mt-2" :messages="$errors->get('company_name')" />
+                        <x-input-error class="mt-2" :messages="$errors->get('job_title')" />
                     </div>
 
 

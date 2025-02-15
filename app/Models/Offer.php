@@ -64,6 +64,27 @@ class Offer extends Model implements HasMedia
         return $query;
     }
 
+    public function scopeWebsiteFilters(Builder $query): Builder
+    {
+        $query->when(request('o_type'), function ($query, $value) {
+            $query->where('offer_type', $value);
+        });
+
+        $query->when(request('op_type'), function ($query, $value) {
+            $query->where('property_type', $value);
+        });
+
+        $query->when(request('op_location'), function ($query, $value) {
+            $query->where('location', $value);
+        });
+
+        $query->when(request('price'), function ($query, $value) {
+            $query->where('price', '<=', (int) $value);
+        });
+
+        return $query;
+    }
+
     public function details(): HasMany
     {
         return $this->hasMany(OfferDetail::class, 'offer_id');
@@ -80,6 +101,11 @@ class Offer extends Model implements HasMedia
     public function gallery(): MediaCollection
     {
         return $this->getMedia('gallery');
+    }
+
+    public function getThumbUrl(): string
+    {
+        return $this->getFirstMediaUrl('gallery');
     }
 
     // TODO: brochure

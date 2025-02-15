@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\Translatable\HasTranslations;
 
 class Service extends Model implements HasMedia
@@ -38,6 +39,11 @@ class Service extends Model implements HasMedia
         return $query;
     }
 
+    public function scopeActive(Builder $query): Builder
+    {
+        return $query->where('status', Status::ACTIVE);
+    }
+
     public function features(): HasMany
     {
         return $this->hasMany(ServiceFeature::class, 'service_id');
@@ -52,9 +58,22 @@ class Service extends Model implements HasMedia
             ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/webp', 'image/svg', 'image/jpg']);
     }
 
-    public function imageUrl(): string
+    public function registerMediaConversions(?Media $media = null): void
+    {
+        $this->addMediaConversion('thumb')
+            ->width(100)
+            ->height(100)
+            ->nonQueued();
+    }
+
+    public function getImageUrl(): string
     {
         return $this->getFirstMediaUrl('image');
+    }
+
+    public function getThumbUrl(): string
+    {
+        return $this->getFirstMediaUrl('image', 'thumb');
     }
 
     // TODO:  Icon and brochure, image

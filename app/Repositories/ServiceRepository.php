@@ -10,7 +10,7 @@ class ServiceRepository implements ServiceRepositoryInterface
 {
     public function getAll(array $cols = ['*'], bool $paginate = true)
     {
-        $services = Service::filter()->select($cols);
+        $services = Service::filter()->select($cols)->latest();
 
         if ($paginate) {
             return $services->paginate();
@@ -44,6 +44,10 @@ class ServiceRepository implements ServiceRepositoryInterface
             }
 
             DB::table('service_features')->insert($features);
+
+            if (request()->hasFile('file')) {
+                $service->addMediaFromRequest('file')->toMediaCollection('image');
+            }
         });
     }
 
@@ -64,6 +68,10 @@ class ServiceRepository implements ServiceRepositoryInterface
             }
 
             DB::table('service_features')->insert($features);
+
+            if (request()->hasFile('file')) {
+                $service->addMediaFromRequest('file')->toMediaCollection('image');
+            }
         });
     }
 

@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\Translatable\HasTranslations;
 
 class Blog extends Model implements HasMedia
@@ -71,8 +72,21 @@ class Blog extends Model implements HasMedia
             ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/webp', 'image/svg', 'image/jpg']);
     }
 
+    public function registerMediaConversions(?Media $media = null): void
+    {
+        $this->addMediaConversion('thumb')
+            ->width(450)
+            ->height(350)
+            ->nonQueued();
+    }
+
     public function getImageUrl(): string
     {
         return $this->getFirstMediaUrl('image');
+    }
+
+    public function getThumbUrl(): string
+    {
+        return $this->getFirstMediaUrl('image', 'thumb');
     }
 }

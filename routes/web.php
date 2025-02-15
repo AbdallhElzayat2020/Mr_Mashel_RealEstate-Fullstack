@@ -6,7 +6,7 @@ use App\Http\Controllers\Front\ContactController;
 use App\Http\Controllers\Front\HireingController;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\IntershingController;
-use App\Http\Controllers\Front\ProjectsController;
+use App\Http\Controllers\Front\OfferController;
 use App\Http\Controllers\Front\ServicesController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,31 +24,33 @@ use Illuminate\Support\Facades\Route;
 //    return view('dashboard.pages.index');
 // });
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath'],
+    ], function () {
 
-Route::get('/about', [AboutController::class, 'index'])->name('about');
+        Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/services', [ServicesController::class, 'index'])->name('services');
+        Route::get('/about', [AboutController::class, 'index'])->name('about');
 
-// Route::get('/services-details/{id}', [ServicesController::class, 'show'])->name('service-details');
-Route::get('/services-details', [ServicesController::class, 'show'])->name('service-details');
+        Route::get('/services', [ServicesController::class, 'index'])->name('services');
 
-Route::get('/projects', [ProjectsController::class, 'index'])->name('projects');
+        Route::get('/services-details/{id}', [ServicesController::class, 'show'])->name('service.details');
 
-// Route::get('/projects-details/{id}', [ProjectsController::class, 'show'])->name('project-details');
-Route::get('/projects-details', [ProjectsController::class, 'show'])->name('project-details');
+        Route::get('/offers', [OfferController::class, 'index'])->name('offers');
 
-Route::get('/projects', [ProjectsController::class, 'index'])->name('projects');
+        Route::get('/offer-details/{id}', [OfferController::class, 'show'])->name('offers.details');
 
-Route::get('/hireing', [HireingController::class, 'index'])->name('hire');
+        Route::get('/apply', [HireingController::class, 'index'])->name('apply');
 
-Route::get('/internship', [IntershingController::class, 'index'])->name('internship');
+        Route::get('/internship', [IntershingController::class, 'index'])->name('internship');
 
-Route::get('/blogs', [BlogController::class, 'index'])->name('blogs');
+        Route::get('/blogs', [BlogController::class, 'index'])->name('blogs');
 
-// Route::get('/blogs-details/{id}', [BlogController::class, 'show'])->name('blogs-details');
-Route::get('/blogs-details', [BlogController::class, 'show'])->name('blogs-details');
+        Route::get('/blogs-details/{id}', [BlogController::class, 'show'])->name('blogs.details');
 
-Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+        Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+    });
 
 require __DIR__.'/auth.php';

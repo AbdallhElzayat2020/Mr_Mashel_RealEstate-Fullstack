@@ -8,30 +8,7 @@
 
     <title>الرئيسية || قدرة العقارية</title>
 
-    <!-- Fav Icon -->
-    <link rel="icon" href="{{ asset('assets/website/images/Fav_logo.png') }}" type="image/x-icon">
-
-    <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-        rel="stylesheet">
-
-    <!-- Stylesheets -->
-    <link href="{{ asset('assets/website/css/font-awesome-all.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/website/css/flaticon.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/website/css/owl.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/website/css/bootstrap.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/website/css/jquery.fancybox.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/website/css/animate.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/website/css/nice-select.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/website/css/color.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/website/css/global.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/website/css/blog.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/website/css/elpath.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/website/css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/website/css/rtl.css') }}" rel="stylesheet">
-
-    <link href="{{ asset('assets/website/css/responsive.css') }}" rel="stylesheet">
+  @include('website.layouts.head')
 
 </head>
 
@@ -56,83 +33,7 @@
     </div>
     <!-- preloader end -->
 
-    <header class="main-header header-style-one">
-        <!-- header-lower -->
-        <div class="header-lower">
-            <div class="large-container">
-                <div class="outer-box">
-                    <div class="logo-box">
-                        <figure class="logo"><a href="index-rtl.html"><img src="{{ asset('assets/website/images/LOGO.png') }}" alt=""></a>
-                        </figure>
-                    </div>
-                    <div class="menu-area clearfix">
-                        <!--Mobile Navigation Toggler-->
-                        <div class="mobile-nav-toggler">
-                            <i class="icon-bar"></i>
-                            <i class="icon-bar"></i>
-                            <i class="icon-bar"></i>
-                        </div>
-                        <nav class="main-menu navbar-expand-md navbar-light">
-                            <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
-                                <ul class="navigation clearfix">
-                                    <li class="dropdown"><a href="#">EN</a>
-                                        <ul>
-                                            <li><a href="#">EN</a></li>
-                                            <li><a href="#">AR</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="#"><a href="contact.html">للتواصل</a></li>
-                                    <li class="#"><a href="blog-2.html">المدونة</a></li>
-                                    <li class="dropdown"><a href="javascript:void(0)">التدريب والتوظيف</a>
-                                        <ul>
-                                            <li><a href="intership.html">فرص التدريب</a></li>
-                                            <li><a href="hireing.html">فرص التوظيف</a></li>
-                                            <!-- <li><a href="error.html">404</a></li> -->
-                                        </ul>
-                                    </li>
-                                    <li class=""><a href="service.html">خدماتنا</a></li>
-                                    <li class=""><a href="project-2.html">العروض العقارية</a></li>
-                                    <li class=""><a href="about.html">من نحن</a></li>
-                                    <li class=""><a href="index.html">الرئيسية</a></li>
-                                </ul>
-                            </div>
-                        </nav>
-                    </div>
-                    <div class="nav-right">
-                        <div class="support-box">
-                            <a href="tel:+966541111426" class="theme-btn btn-one">تواصل معنا</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!--sticky Header-->
-        <div class="sticky-header">
-            <div class="large-container">
-                <div class="outer-box">
-                    <div class="logo-box">
-                        <figure class="logo"><a href="index-2.html"><img src="{{ asset('assets/website/images/LOGO_Sticky.png') }}"
-                                                                         alt=""></a>
-                        </figure>
-                    </div>
-                    <div class="menu-area clearfix">
-                        <nav class="main-menu clearfix">
-                            <!--Keep This Empty / Menu will come through Javascript-->
-                        </nav>
-                    </div>
-                    <div class="nav-right">
-                        <div class="support-box">
-                            <!-- <div class="icon-box"><i class="far fa-phone"></i></div> -->
-                            <a href="tel:+966541111426" class="theme-btn btn-one">تواصل معنا</a>
-
-                            <!-- <h3><a href="tel:+966541111426">تواصل معنا</a></h3> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+    @include('website.layouts.header')
 
     <!-- Mobile Menu  -->
     <div class="mobile-menu">
@@ -217,6 +118,7 @@
     <!-- about -->
 
 
+    <!-- Services -->
     <section class="feature-style-two p_relative sec-pad">
         <div class="intro text-center mb-5">
             <div class="heading text-center font-weight-bold mb-3" style="color: #001D00; font-size: 40px;">خدماتنا
@@ -366,11 +268,31 @@
                     </div>
                 </div>
 
+                @foreach($services as $service)
+                    <div class="col-lg-4 col-md-6 col-sm-12 feature-block mt-3">
+                        <div class="feature-block-two wow fadeInUp animated" data-wow-delay="00ms"
+                             data-wow-duration="1500ms">
+                            <div
+                                class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
+                                <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
+                                    <img src="{{ $service->getThumbUrl() }}" alt="{{ $service->title }}">
+                                </div>
+                                <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
+                                    <a href="{{ route('service.details', $service) }}" class="d_iblock color_black hov_color"
+                                       style="color: #526652 !important;">{{ $service->title }}</a>
+                                </h3>
+                                <p style="text-align: start;">{!! $service->short_description !!}</p>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
 
             </div>
         </div>
 
     </section>
+
+    <!-- /Services -->
 
     <section class="featured-projects p_relative sec-pad bg-color-3" style="direction: ltr;">
         <div class="pattern-layer p_absolute t_0 r_0"
@@ -512,116 +434,42 @@
         </div>
     </section>
 
-    <section class="testimonial-style-two p_relative sec-pad bg-color-1" style="direction: ltr;">
-        <div class="pattern-layer p_absolute" style="background-image: url(/assets/website/images/shape/shape-14.png);">
-        </div>
-        <div class="large-container">
-            <div class="sec-title centred mb_55">
-                <h2 class="p_relative d_block fs_40 lh_60 fw_exbold" style="color: #001D00;">ماذا يقولون عنا</h2>
+    <!-- Testimonials -->
+    @if($testimonials->count())
+        <section class="testimonial-style-two p_relative sec-pad bg-color-1" style="direction: ltr;">
+            <div class="pattern-layer p_absolute" style="background-image: url({{ asset('assets/website/images/shape/shape-14.png') }});">
             </div>
-            <div class="testimonial-inner p_relative pl_100 pr_100">
-                <div class="two-item-carousel owl-carousel owl-theme owl-nav-none">
-                    <div class="testimonial-block-one mb_75">
-                        <div class="inner-box p_relative d_block bg_white pt_45 pr_40 pb_40 pl_40">
-                            <div class="author-box p_relative d_block pl_80 pr_80 mb_35">
-                                <div class="quote p_absolute t_0 r_0 fs_50"><i class="fal fa-quote-right"></i></div>
-                                <figure class="author-thumb p_absolute l_0 t_0 w_60 h_60 b_radius_50"><img
-                                        src="{{ asset('assets/website/images/resource/testimonial-1.jpg') }}" alt=""></figure>
-                                <h5 class="d_block fs_18 lh_30 fw_sbold">Sophia J. Milton</h5>
-                                <span class="designation p_relative d_block fs_14 lh_20">Property Owner</span>
+            <div class="large-container">
+                <div class="sec-title centred mb_55">
+                    <h2 class="p_relative d_block fs_40 lh_60 fw_exbold" style="color: #001D00;">ماذا يقولون عنا</h2>
+                </div>
+                <div class="testimonial-inner p_relative pl_100 pr_100">
+                    <div class="two-item-carousel owl-carousel owl-theme owl-nav-none">
+                        @foreach($testimonials as $testimonial)
+                            <div class="testimonial-block-one mb_75">
+                                <div class="inner-box p_relative d_block bg_white pt_45 pr_40 pb_40 pl_40">
+                                    <div class="author-box p_relative d_block pl_80 pr_80 mb_35">
+                                        <div class="quote p_absolute t_0 r_0 fs_50"><i class="fal fa-quote-right"></i></div>
+                                        <figure class="author-thumb p_absolute l_0 t_0 w_60 h_60 b_radius_50"><img
+                                                src="{{ $testimonial->profileImageUrl() }}" alt=""></figure>
+                                        <h5 class="d_block fs_18 lh_30 fw_sbold">{{ $testimonial->client_name }}</h5>
+                                        <span class="designation p_relative d_block fs_14 lh_20">{{ $testimonial->job_title }}</span>
+                                    </div>
+                                    <div class="text p_relative d_block">
+                                        <p class="lh_30">{{ $testimonial->testimonial }}</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="text p_relative d_block">
-                                <p class="lh_30">Duis aute irure dolor reprehenderit in voluptate cilum fugiat nulla
-                                    pariatur. Excepteur aintys cupidata proidents sunt in culpa qui officia desmolit
-                                    anim.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-block-one mb_75">
-                        <div class="inner-box p_relative d_block bg_white pt_45 pr_40 pb_40 pl_40">
-                            <div class="author-box p_relative d_block pl_80 pr_80 mb_35">
-                                <div class="quote p_absolute t_0 r_0 fs_50"><i class="fal fa-quote-right"></i></div>
-                                <figure class="author-thumb p_absolute l_0 t_0 w_60 h_60 b_radius_50"><img
-                                        src="{{ asset('assets/website/images/resource/testimonial-2.jpg') }}" alt=""></figure>
-                                <h5 class="d_block fs_18 lh_30 fw_sbold">Andy S. Matthew</h5>
-                                <span class="designation p_relative d_block fs_14 lh_20">Senior Manager</span>
-                            </div>
-                            <div class="text p_relative d_block">
-                                <p class="lh_30">Duis aute irure dolor reprehenderit in voluptate cilum fugiat nulla
-                                    pariatur. Excepteur aintys cupidata proidents sunt in culpa qui officia desmolit
-                                    anim.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-block-one mb_75">
-                        <div class="inner-box p_relative d_block bg_white pt_45 pr_40 pb_40 pl_40">
-                            <div class="author-box p_relative d_block pl_80 pr_80 mb_35">
-                                <div class="quote p_absolute t_0 r_0 fs_50"><i class="fal fa-quote-right"></i></div>
-                                <figure class="author-thumb p_absolute l_0 t_0 w_60 h_60 b_radius_50"><img
-                                        src="{{ asset('assets/website/images/resource/testimonial-1.jpg') }}" alt=""></figure>
-                                <h5 class="d_block fs_18 lh_30 fw_sbold">Sophia J. Milton</h5>
-                                <span class="designation p_relative d_block fs_14 lh_20">Property Owner</span>
-                            </div>
-                            <div class="text p_relative d_block">
-                                <p class="lh_30">Duis aute irure dolor reprehenderit in voluptate cilum fugiat nulla
-                                    pariatur. Excepteur aintys cupidata proidents sunt in culpa qui officia desmolit
-                                    anim.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-block-one mb_75">
-                        <div class="inner-box p_relative d_block bg_white pt_45 pr_40 pb_40 pl_40">
-                            <div class="author-box p_relative d_block pl_80 pr_80 mb_35">
-                                <div class="quote p_absolute t_0 r_0 fs_50"><i class="fal fa-quote-right"></i></div>
-                                <figure class="author-thumb p_absolute l_0 t_0 w_60 h_60 b_radius_50"><img
-                                        src="{{ asset('assets/website/images/resource/testimonial-2.jpg') }}" alt=""></figure>
-                                <h5 class="d_block fs_18 lh_30 fw_sbold">Andy S. Matthew</h5>
-                                <span class="designation p_relative d_block fs_14 lh_20">Senior Manager</span>
-                            </div>
-                            <div class="text p_relative d_block">
-                                <p class="lh_30">Duis aute irure dolor reprehenderit in voluptate cilum fugiat nulla
-                                    pariatur. Excepteur aintys cupidata proidents sunt in culpa qui officia desmolit
-                                    anim.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-block-one mb_75">
-                        <div class="inner-box p_relative d_block bg_white pt_45 pr_40 pb_40 pl_40">
-                            <div class="author-box p_relative d_block pl_80 pr_80 mb_35">
-                                <div class="quote p_absolute t_0 r_0 fs_50"><i class="fal fa-quote-right"></i></div>
-                                <figure class="author-thumb p_absolute l_0 t_0 w_60 h_60 b_radius_50"><img
-                                        src="{{ asset('assets/website/images/resource/testimonial-1.jpg') }}" alt=""></figure>
-                                <h5 class="d_block fs_18 lh_30 fw_sbold">Sophia J. Milton</h5>
-                                <span class="designation p_relative d_block fs_14 lh_20">Property Owner</span>
-                            </div>
-                            <div class="text p_relative d_block">
-                                <p class="lh_30">Duis aute irure dolor reprehenderit in voluptate cilum fugiat nulla
-                                    pariatur. Excepteur aintys cupidata proidents sunt in culpa qui officia desmolit
-                                    anim.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-block-one mb_75">
-                        <div class="inner-box p_relative d_block bg_white pt_45 pr_40 pb_40 pl_40">
-                            <div class="author-box p_relative d_block pl_80 pr_80 mb_35">
-                                <div class="quote p_absolute t_0 r_0 fs_50"><i class="fal fa-quote-right"></i></div>
-                                <figure class="author-thumb p_absolute l_0 t_0 w_60 h_60 b_radius_50"><img
-                                        src="{{ asset('assets/website/images/resource/testimonial-2.jpg') }}" alt=""></figure>
-                                <h5 class="d_block fs_18 lh_30 fw_sbold">Andy S. Matthew</h5>
-                                <span class="designation p_relative d_block fs_14 lh_20">Senior Manager</span>
-                            </div>
-                            <div class="text p_relative d_block">
-                                <p class="lh_30">Duis aute irure dolor reprehenderit in voluptate cilum fugiat nulla
-                                    pariatur. Excepteur aintys cupidata proidents sunt in culpa qui officia desmolit
-                                    anim.
-                                </p>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
+
+    <!-- /Testimonials -->
+
+
 
     <section class="clients-section p_relative sec-pad centred" style="direction: ltr;">
         <div class="large-container">
@@ -766,182 +614,46 @@
 
     </section>
 
-    <section class="news-section p_relative sec-pad">
-        <div class="large-container">
-            <div class="sec-title centred mb_55">
-                <h2 class="p_relative d_block fs_50 lh_60 fw_exbold">مقالات تُفيدك</h2>
-            </div>
-            <div class="row clearfix">
-                <div class="col-lg-4 col-md-6 col-sm-12 news-block">
-                    <div class="news-block-one wow fadeInUp animated" data-wow-delay="00ms"
-                         data-wow-duration="1500ms">
-                        <div class="inner-box bg-color-1" style="text-align: start;">
-                            <div class="image-box">
-                                <figure class="image"><a href="blog-details.html"><img
-                                            src="{{ asset('assets/website/images/news/news-1.jpg') }}" alt=""></a></figure>
-                                <span class="post-date">23 JUN 2021</span>
-                            </div>
-                            <div class="lower-content">
-                                <h3><a href="blog-details.html">Developing in 106 Countries For Many Communities</a>
-                                </h3>
-                                <p>Voluptate velit cillum dol fugiat pariatur. Excepteur anim idet laboru sed
-                                    perspise tis undy omnis iste natus.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 col-sm-12 news-block">
-                    <div class="news-block-one wow fadeInUp animated" data-wow-delay="00ms"
-                         data-wow-duration="1500ms">
-                        <div class="inner-box bg-color-1" style="text-align: start;">
-                            <div class="image-box">
-                                <figure class="image"><a href="blog-details.html"><img
-                                            src="{{ asset('assets/website/images/news/news-1.jpg') }}" alt=""></a>
-                                </figure>
-                                <span class="post-date">23 JUN 2021</span>
-                            </div>
-                            <div class="lower-content">
-                                <h3><a href="blog-details.html">Developing in 106 Countries For Many Communities</a>
-                                </h3>
-                                <p>Voluptate velit cillum dol fugiat pariatur. Excepteur anim idet laboru sed
-                                    perspise tis undy omnis iste natus.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 news-block">
-                    <div class="news-block-one wow fadeInUp animated" data-wow-delay="00ms"
-                         data-wow-duration="1500ms">
-                        <div class="inner-box bg-color-1" style="text-align: start;">
-                            <div class="image-box">
-                                <figure class="image"><a href="blog-details.html"><img
-                                            src="{{ asset('assets/website/images/news/news-1.jpg') }}" alt=""></a>
-                                </figure>
-                                <span class="post-date">23 JUN 2021</span>
-                            </div>
-                            <div class="lower-content">
-                                <h3><a href="blog-details.html">Developing in 106 Countries For Many Communities</a>
-                                </h3>
-                                <p>Voluptate velit cillum dol fugiat pariatur. Excepteur anim idet laboru sed
-                                    perspise tis undy omnis iste natus.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="subscribe-section p_relative pl_60 pr_60">
-        <div class="bg-shape p_absolute l_0 b_0"></div>
-        <div class="outer-container p_relative bg_yellow pt_60 pb_60">
-            <div class="pattern-layer p_absolute l_0 b_0 r_0"></div>
+    <!-- Blogs -->
+    @if($blogs->count())
+        <section class="news-section p_relative sec-pad">
             <div class="large-container">
+                <div class="sec-title centred mb_55">
+                    <h2 class="p_relative d_block fs_50 lh_60 fw_exbold">مقالات تُفيدك</h2>
+                </div>
                 <div class="row clearfix">
-                    <div class="col-lg-6 col-md-12 col-sm-12 text-column">
-                        <div class="text">
-                            <h2 class="d_block fs_30 lh_50 color_white fw_exbold" style="text-align: start;">اشترك
-                                ليصلك كل جديد</h2>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-12 col-sm-12 form-column">
-                        <div class="form-inner p_relative d_block ml_40 mt_8">
-                            <form action="https://azim.commonsupport.com/Amortez/contact.html" method="post">
-                                <div class="form-group p_relative d_block bg_white mr-0 p_13 b_radius_3 pr_100">
-                                    <input type="email" name="Email" placeholder="البريد الالكتروني" required>
-                                    <button type="submit"><i class="fas fa-envelope-open"></i></button>
+                    @foreach($blogs as $blog)
+                        <div class="col-lg-4 col-md-6 col-sm-12 news-block">
+                            <div class="news-block-one wow fadeInUp animated" data-wow-delay="00ms"
+                                 data-wow-duration="1500ms">
+                                <div class="inner-box bg-color-1" style="text-align: start;">
+                                    <div class="image-box">
+                                        <figure class="image">
+                                            <a href="{{ route('blogs.details', $blog) }}">
+                                                <img src="{{ $blog->getThumbUrl() }}" alt="">
+                                            </a>
+                                        </figure>
+                                        <span class="post-date">{{ strtoupper($blog->created_at->format('d M Y')) }}</span>
+                                        {{--                                    <span class="post-date">23 JUN 2021</span>--}}
+                                    </div>
+                                    <div class="lower-content">
+                                        <h3><a href="{{ route('blogs.details', $blog) }}">{{ $blog->title }}</a>
+                                        </h3>
+                                        <p>{!! $blog->excerpt !!}</p>
+                                    </div>
                                 </div>
-                            </form>
+                            </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
+    <!-- /Blogs -->
 
-    <footer class="main-footer" style="text-align: start;">
-        <div class="large-container">
-            <div class="footer-top">
-                <div class="row clearfix">
-                    <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
-                        <div class="footer-widget logo-widget">
-                            <figure class="footer-logo"><a href="index-2.html"><img
-                                        src="{{ asset('assets/website/images/LOGO_Sticky.png') }}" alt=""></a></figure>
-                            <div class="text">
-                                <p>
-                                    انطلقت قدرة العقارية لتقديم مجموعة واسعة من الخدمات العقارية عالية الجودة والتي
-                                    تتوافق مع افضل المعايير والممارسات لتواكب رؤية الممكلة 2030 نحو مستقبل عقاري
-                                    مزدهر
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-sm-12 footer-column">
-                        <div class="footer-widget links-widget">
-                            <div class="widget-title">
-                                <h3>الخدمات</h3>
-                            </div>
-                            <div class="widget-content">
-                                <ul class="links-list clearfix">
-                                    <li><a href="index-2.html">التسويق العقاري</a></li>
-                                    <li><a href="index-2.html">ادارة العقارات</a></li>
-                                    <li><a href="index-2.html">ادارة المرافق</a></li>
-                                    <li><a href="index-2.html">الاستشارات العقارية</a></li>
-                                    <li><a href="index-2.html">المزادات العقارية</a></li>
-                                    <li><a href="index-2.html">إدارة وتشغيل العقارات</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-sm-12 footer-column">
-                        <div class="footer-widget links-widget">
-                            <div class="widget-title">
-                                <h3>اهم الروابط</h3>
-                            </div>
-                            <div class="widget-content">
-                                <ul class="links-list clearfix">
-                                    <li><a href="index-2.html">الرئيسية</a></li>
-                                    <li><a href="index-2.html">من نحن</a></li>
-                                    <li><a href="index-2.html">اهم المقالات</a></li>
-                                    <li><a href="index-2.html">العروض العقارية</a></li>
-                                    <li><a href="index-2.html">تواصل معنا</a></li>
-                                    <li><a href="index-2.html">للتوظيف</a></li>
-                                    <li><a href="index-2.html">الشروط والاحكام</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
-                        <div class="footer-widget links-widget">
-                            <div class="widget-title">
-                                <h3>فروعنا</h3>
-                            </div>
-                            <div class="location-box">
-                                <p>المكتب الرئيسي - الرياض - حي المروج</p>
-                            </div>
-                            <div class="location-box">
-                                <p>المكتب الفرعي - الرياض - حي السلي</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom clearfix centred">
-                <div class="copyright">
-                    <p>الحقوق محفوظة لشركة قدرة العقارية &copy; 2025</p>
-                </div>
 
-                <ul class="footer-social">
-                    <li><a href="index-2.html"><i class="fab fa-x"></i></a></li>
-                    <li><a href="index-2.html"><i class="fab fa-tiktok"></i></a></li>
-                    <li><a href="index-2.html"><i class="fab fa-facebook-f"></i></a></li>
-                    <li><a href="index-2.html"><i class="fab fa-instagram"></i></a></li>
-                    <li><a href="index-2.html"><i class="fab fa-linkedin-in"></i></a></li>
-                </ul>
-            </div>
-        </div>
-    </footer>
+    @include('website.layouts.subscribe')
+    @include('website.layouts.footer')
 
     <!--Scroll to top-->
     <button class="scroll-top scroll-to-target" data-target="html">
@@ -949,22 +661,7 @@
     </button>
 </div>
 
-<!-- jequery plugins -->
-<script src="{{ asset('assets/website/js/jquery.js') }}"></script>
-<script src="{{ asset('assets/website/js/popper.min.js') }}"></script>
-<script src="{{ asset('assets/website/js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('assets/website/js/owl.js') }}"></script>
-<script src="{{ asset('assets/website/js/wow.js') }}"></script>
-<script src="{{ asset('assets/website/js/validation.js') }}"></script>
-<script src="{{ asset('assets/website/js/jquery.fancybox.js') }}"></script>
-<script src="{{ asset('assets/website/js/appear.js') }}"></script>
-<script src="{{ asset('assets/website/js/scrollbar.js') }}"></script>
-<script src="{{ asset('assets/website/js/isotope.js') }}"></script>
-<script src="{{ asset('assets/website/js/jquery.paroller.min.js') }}"></script>
-<script src="{{ asset('assets/website/js/jquery.nice-select.min.js') }}"></script>
-
-<!-- main-js -->
-<script src="{{ asset('assets/website/js/script.js') }}"></script>
+@include('website.layouts.scripts')
 
 </body><!-- End of .page_wrapper -->
 

@@ -21,7 +21,7 @@
                 <div class="card mb-4">
                     <div class="card-body">
 
-                        <form method="POST" action="{{ route('admin.services.update', $service) }}">
+                        <form method="POST" action="{{ route('admin.services.update', $service) }}" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="col-xl-12 col-md-12">
@@ -62,6 +62,14 @@
                                                 الإنجليزيه
                                             </button>
                                         </li>
+                                        <li class="nav-item">
+                                            <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
+                                                    data-bs-target="#media-data"
+                                                    aria-controls="media-data"
+                                                    aria-selected="false">
+                                                الميديا
+                                            </button>
+                                        </li>
                                     </ul>
                                     <div class="tab-content shadow-none">
                                         <div class="tab-pane fade show active" id="navs-pills-top-home" role="tabpanel">
@@ -95,7 +103,8 @@
                                             <div>
                                                 <h4>المميزات</h4>
 
-                                                <div class="table-responsive text-nowrap" x-data="{ features: [] , featuresCount: @json(count($service->features))}">
+                                                <div class="table-responsive text-nowrap"
+                                                     x-data="{ features: [] , featuresCount: @json(count($service->features))}">
                                                     <table class="table table-bordered">
                                                         <thead>
                                                         <tr>
@@ -116,7 +125,10 @@
                                                                            aria-describedby="feature text"/>
                                                                 </td>
                                                                 <td style="width: 25px">
-                                                                    <button class="btn btn-danger" type="button" @click="$el.parentElement.parentElement.remove(); console.log(featuresCount--);">حذف</button>
+                                                                    <button class="btn btn-danger" type="button"
+                                                                            @click="$el.parentElement.parentElement.remove(); console.log(featuresCount--);">
+                                                                        حذف
+                                                                    </button>
                                                                 </td>
                                                             </tr>
                                                         @endforeach
@@ -177,7 +189,8 @@
                                             <div>
                                                 <h4>المميزات</h4>
 
-                                                <div class="table-responsive text-nowrap" x-data="{ features: [] , featuresCount: @json(count($service->features))}">
+                                                <div class="table-responsive text-nowrap"
+                                                     x-data="{ features: [] , featuresCount: @json(count($service->features))}">
                                                     <table class="table table-bordered">
                                                         <thead>
                                                         <tr>
@@ -198,7 +211,10 @@
                                                                            aria-describedby="feature text"/>
                                                                 </td>
                                                                 <td style="width: 25px">
-                                                                    <button class="btn btn-danger" type="button" @click="$el.parentElement.parentElement.remove(); featuresCount--">حذف</button>
+                                                                    <button class="btn btn-danger" type="button"
+                                                                            @click="$el.parentElement.parentElement.remove(); featuresCount--">
+                                                                        حذف
+                                                                    </button>
                                                                 </td>
                                                             </tr>
                                                         @endforeach
@@ -226,6 +242,21 @@
                                                             class="btn btn-success mt-3">إضافه ميزه
                                                     </button>
                                                 </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="media-data" role="tabpanel">
+                                            <div class="my-3 col-12 col-md-6 mb-4">
+                                                <label for="file_input" class="form-label">
+                                                    الصوره ( بمقاس 100 * 100 )</label>
+                                                <input type="file" name="file" class="form-control"
+                                                       id="file_input"
+                                                       aria-describedby="File input"/>
+                                                <x-input-error class="mt-2" :messages="$errors->get('file')"/>
+                                            </div>
+
+                                            <div>
+                                                <img class="image w-50 h-25" src="{{ $service->getImageUrl() }}"
+                                                     alt="Blog Image">
                                             </div>
                                         </div>
                                     </div>
@@ -274,7 +305,7 @@
 
 @section('css')
     <style>
-         .tox-promotion-link, .tox-statusbar__branding {
+        .tox-promotion-link, .tox-statusbar__branding {
             display: none !important;
         }
     </style>

@@ -1,7 +1,77 @@
-@extends('website.layouts.master')
-@section('web_title', 'من نحن || قدرة العقارية')
-@include('website.layouts.header')
-@section('content')
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
+    <title>من نحن</title>
+
+    @include('website.layouts.head')
+</head>
+
+<!-- page wrapper -->
+
+<body>
+<div class="boxed_wrapper">
+    <!-- preloader -->
+    <div class="loader-wrap">
+        <div class="preloader">
+            <div class="preloader-close">x</div>
+            <div id="handle-preloader" class="handle-preloader">
+                <div class="animation-preloader">
+                    <div class="spinner"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- preloader end -->
+
+    <!-- main header -->
+    @include('website.layouts.header')
+    <!-- main-header end -->
+
+    <!-- Mobile Menu  -->
+    <div class="mobile-menu">
+        <div class="menu-backdrop"></div>
+        <div class="close-btn"><i class="fas fa-times"></i></div>
+
+        <nav class="menu-box" style="direction: rtl; text-align: right">
+            <div class="nav-logo">
+                <a href="index-2.html"><img src="{{ asset('assets/website/images/LOGO.png') }}" alt="" title=""/></a>
+            </div>
+            <div class="menu-outer">
+                <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+            </div>
+            <div class="contact-info">
+                <h4>للتواصل معنا</h4>
+                <ul>
+                    <li>الرياض - حي المروج</li>
+                    <li>الرياض - حي السلي</li>
+                    <li><a href="mailto:info@example.com">info@example.com</a></li>
+                </ul>
+            </div>
+            <div class="social-links">
+                <ul class="clearfix">
+                    <li>
+                        <a href="index-2.html"><span class="fab fa-x"></span></a>
+                    </li>
+                    <li>
+                        <a href="index-2.html"><span class="fab fa-facebook-square"></span></a>
+                    </li>
+                    <li>
+                        <a href="index-2.html"><span class="fab fa-instagram"></span></a>
+                    </li>
+                    <li>
+                        <a href="index-2.html"><span class="fab fa-youtube"></span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!-- End Mobile Menu -->
+
     <section class="page-title p_relative pt_250 pb_170 centred"
              style="background-image: url('{{asset('assets/website/images/banner/Home_2.png')}}');background-position: center;">
         <div class="bg-layer p_absolute r_100 t_0">
@@ -279,4 +349,24 @@
             </div>
         </div>
     </section>
-@endsection
+
+
+    <!-- subscribe-section -->
+    @include('website.layouts.subscribe')
+    <!-- subscribe-section end -->
+
+    <!-- main-footer -->
+    @include('website.layouts.footer')
+    <!-- main-footer end -->
+
+    <!--Scroll to top-->
+    <button class="scroll-top scroll-to-target" data-target="html">
+        <span class="fal fa-long-arrow-up"></span>
+    </button>
+</div>
+
+@include('website.layouts.scripts')
+</body>
+<!-- End of .page_wrapper -->
+
+</html>

@@ -21,7 +21,7 @@
                 <div class="card mb-4">
                     <div class="card-body">
 
-                        <form method="POST" action="{{ route('admin.services.store') }}">
+                        <form method="POST" action="{{ route('admin.services.store') }}" enctype="multipart/form-data">
                             @csrf
 
                             <div class="col-xl-12 col-md-12">
@@ -35,7 +35,7 @@
                                         <x-input-error class="mt-2" :messages="$errors->get('contact_number')" />
                                     </div>
 
-                                    <div class="form-check form-switch d-flex align-content-center  gap-3 mb-5 ">
+                                    <div class="form-check form-switch d-flex align-items-center justify-content-center  gap-3 mb-5 ">
                                         <input class="form-check-input fs-large" name="status" value="active"
                                                @checked(old('status') === \App\Enums\Status::ACTIVE->value)
                                                type="checkbox"
@@ -45,7 +45,7 @@
                                     </div>
                                 </div>
 
-                                <div class="nav-align-top mb-5 shadow-none">
+                                <div class="nav-align-top mb-5 shadow-none mt-3">
                                     <ul class="nav nav-pills mb-3" role="tablist">
                                         <li class="nav-item">
                                             <button type="button" class="nav-link active" role="tab"
@@ -62,6 +62,15 @@
                                                     aria-controls="navs-pills-top-profile"
                                                     aria-selected="false">
                                                 الإنجليزيه
+                                            </button>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
+                                                    data-bs-target="#media-data"
+                                                    aria-controls="media-data"
+                                                    aria-selected="false">
+                                                الميديا
                                             </button>
                                         </li>
                                     </ul>
@@ -196,6 +205,17 @@
                                                         <button @click="features.push({})" type="button" class="btn btn-success mt-3">إضافه ميزه</button>
                                                     </div>
                                                 </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="tab-pane fade" id="media-data" role="tabpanel">
+                                            <div class="my-3 col-12 col-md-6">
+                                                <label for="file_input" class="form-label">
+                                                    الصوره ( بمقاس 100 * 100 )</label>
+                                                <input type="file" name="file" class="form-control"
+                                                       id="file_input"
+                                                       aria-describedby="File input"/>
+                                                <x-input-error class="mt-2" :messages="$errors->get('file')" />
                                             </div>
                                         </div>
                                     </div>

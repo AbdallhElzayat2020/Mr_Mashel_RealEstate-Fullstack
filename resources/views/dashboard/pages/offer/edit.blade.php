@@ -90,7 +90,7 @@
                                         <x-input-error class="mt-2" :messages="$errors->get('location')" />
                                     </div>
 
-                                    <div class="form-check form-switch d-flex align-content-center justify-content-center gap-3 col-12 col-md-4 my-3">
+                                    <div class="form-check form-switch d-flex align-items-center justify-content-center gap-3 col-12 col-md-4 my-3">
                                         <input class="form-check-input fs-large" name="status" value="active"
                                                @checked(old('status', $offer->status->value) === \App\Enums\Status::ACTIVE->value)
                                                type="checkbox"

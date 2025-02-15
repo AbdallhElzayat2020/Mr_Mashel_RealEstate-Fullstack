@@ -1,7 +1,77 @@
-@extends('website.layouts.master')
-@section('web_title', 'الخدمات || قدرة العقارية')
-@include('website.layouts.header_2')
-@section('content')
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+
+    <title>خدماتنا</title>
+
+    @include('website.layouts.head')
+</head>
+
+<!-- page wrapper -->
+
+<body>
+<div class="boxed_wrapper">
+    <!-- preloader -->
+    <div class="loader-wrap">
+        <div class="preloader">
+            <div class="preloader-close">x</div>
+            <div id="handle-preloader" class="handle-preloader">
+                <div class="animation-preloader">
+                    <div class="spinner"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- preloader end -->
+
+    <!-- main header -->
+    @include('website.layouts.header')
+    <!-- main-header end -->
+
+    <!-- Mobile Menu  -->
+    <div class="mobile-menu">
+        <div class="menu-backdrop"></div>
+        <div class="close-btn"><i class="fas fa-times"></i></div>
+
+        <nav class="menu-box" style="direction: rtl; text-align: right">
+            <div class="nav-logo">
+                <a href="index-2.html"><img src="{{ asset('assets/website/images/LOGO.png') }}" alt="" title=""/></a>
+            </div>
+            <div class="menu-outer">
+                <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+            </div>
+            <div class="contact-info">
+                <h4>للتواصل معنا</h4>
+                <ul>
+                    <li>الرياض - حي المروج</li>
+                    <li>الرياض - حي السلي</li>
+                    <li><a href="mailto:info@example.com">info@example.com</a></li>
+                </ul>
+            </div>
+            <div class="social-links">
+                <ul class="clearfix">
+                    <li>
+                        <a href="index-2.html"><span class="fab fa-x"></span></a>
+                    </li>
+                    <li>
+                        <a href="index-2.html"><span class="fab fa-facebook-square"></span></a>
+                    </li>
+                    <li>
+                        <a href="index-2.html"><span class="fab fa-instagram"></span></a>
+                    </li>
+                    <li>
+                        <a href="index-2.html"><span class="fab fa-youtube"></span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!-- End Mobile Menu -->
+
     <!-- sidebar-page-container -->
     <section class="sidebar-page-container sec-pad" style="direction: rtl; padding-top: 150px;">
         <div class="auto-container">
@@ -30,148 +100,24 @@
         </div>
         <div class="large-container">
             <div class="row clearfix d-flex align-items-center justify-content-center">
-                <div class="col-lg-4 col-md-6 col-sm-12 feature-block mt-3">
-                    <div class="feature-block-two wow fadeInUp animated" data-wow-delay="00ms"
-                         data-wow-duration="1500ms">
-                        <div
-                            class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
-                            <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                <img src="{{asset('assets/website/images/التوسيق العقاري.png')}}" alt="تسويق العقاري">
+                @foreach($services as $service)
+                    <div class="col-lg-4 col-md-6 col-sm-12 feature-block mt-3">
+                        <div class="feature-block-two wow fadeInUp animated" data-wow-delay="00ms"
+                             data-wow-duration="1500ms">
+                            <div
+                                class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
+                                <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
+                                    <img src="{{ $service->getThumbUrl() }}" alt="service_image">
+                                </div>
+                                <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
+                                    <a href="{{ route('service.details', $service) }}" class="d_iblock color_black hov_color"
+                                       style="color: #526652 !important;">{{ $service->title }}</a>
+                                </h3>
+                                <p style="text-align: start;">{!! $service->short_description !!}</p>
                             </div>
-                            <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
-                                <a href="index-3.html" class="d_iblock color_black hov_color"
-                                   style="color: #526652 !important;">التسويق العقاري</a>
-                            </h3>
-                            <p style="text-align: start;">عبر أحدث التقنيات ووسائل التسويق الحديثة لفتح آفاق جديدة
-                                لتسويق
-                                العقارات وجذب العملاء المناسبين</p>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 feature-block mt-3">
-                    <div class="feature-block-two wow fadeInUp animated" data-wow-delay="00ms"
-                         data-wow-duration="1500ms">
-                        <div
-                            class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
-                            <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                <img src="{{asset('assets/website/images/المزادات العقارية.png')}}"
-                                     alt="المزادات العقارية">
-                            </div>
-                            <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
-                                <a href="index-3.html" class="d_iblock color_black hov_color"
-                                   style="color: #526652 !important;">المزادات العقارية</a>
-                            </h3>
-                            <p style="text-align: start;">نسعى في المزادات العقارية أن نوفر البيع السريع بأسعار
-                                السوق
-                                العادلة سواءً كانت مزادات حضورية أو إلكترونية</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 col-sm-12 feature-block mt-3">
-                    <div class="feature-block-two wow fadeInUp animated" data-wow-delay="00ms"
-                         data-wow-duration="1500ms">
-                        <div
-                            class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
-                            <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                <img src="{{asset('assets/website/images/إدارة العقارات.png')}}" alt="ادارة العقارات">
-                            </div>
-                            <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
-                                <a href="index-3.html" class="d_iblock color_black hov_color"
-                                   style="color: #526652 !important;">ادارة
-                                    العقارات</a>
-                            </h3>
-                            <p style="text-align: start;">من خلال أفضل الطرق والممارسات نقوم بإدارة العقارات عبر
-                                مجموعة
-                                متكاملة من الخدمات العقارية لنمو الأُصول وزيادة دخلها والمحافظة عليها
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 feature-block mt-3">
-                    <div class="feature-block-two wow fadeInUp animated" data-wow-delay="00ms"
-                         data-wow-duration="1500ms">
-                        <div
-                            class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
-                            <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                <img src="{{asset('assets/website/images/التوسيق العقاري.png')}}" alt="تسويق العقاري">
-                            </div>
-                            <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
-                                <a href="index-3.html" class="d_iblock color_black hov_color"
-                                   style="color: #526652 !important;">
-                                    إدارة وتشغيل العقارات
-                                </a>
-                            </h3>
-                            <p style="text-align: start;">عبر أحدث التقنيات ووسائل التسويق الحديثة لفتح آفاق جديدة
-                                لتسويق
-                                العقارات وجذب العملاء المناسبين</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 feature-block mt-3">
-                    <div class="feature-block-two wow fadeInUp animated" data-wow-delay="00ms"
-                         data-wow-duration="1500ms">
-                        <div
-                            class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
-                            <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                <img src="{{asset('assets/website/images/ادارة المرافق.png')}}" alt="ادارة المرافق">
-                            </div>
-                            <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
-                                <a href="index-3.html" class="d_iblock color_black hov_color"
-                                   style="color: #526652 !important;">ادارة
-                                    المرافق</a>
-                            </h3>
-                            <p style="text-align: start;">من خلال أفضل الطرق والممارسات نقوم بإدارة العقارات عبر
-                                مجموعة
-                                متكاملة من الخدمات العقارية لنمو الأُصول وزيادة دخلها والمحافظة عليها
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 col-sm-12 feature-block mt-3">
-                    <div class="feature-block-two wow fadeInUp animated" data-wow-delay="00ms"
-                         data-wow-duration="1500ms">
-                        <div
-                            class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
-                            <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                <img src="{{asset('assets/website/images/التقييم العقاري.png')}}" alt="التقييم العقاري">
-                            </div>
-                            <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
-                                <a href="index-3.html" class="d_iblock color_black hov_color"
-                                   style="color: #526652 !important;">
-                                    التقييم العقاري
-                                </a>
-                            </h3>
-                            <p style="text-align: start;">
-                                نقدم تقييم عقاري معتمد وموثوق يساعدك في معرفة القيمة الحقيقية لعقارك بناءً على تحليل
-                                شامل للسوق وإحتياجاتك، مما يسهل
-                                عليك إتخاذ قرارات مدروسة.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 feature-block mt-3">
-                    <div class="feature-block-two wow fadeInUp animated" data-wow-delay="00ms"
-                         data-wow-duration="1500ms">
-                        <div
-                            class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
-                            <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                <img src="{{asset('assets/website/images/ادارة المرافق.png')}}" alt="ادارة المرافق">
-                            </div>
-                            <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
-                                <a href="index-3.html" class="d_iblock color_black hov_color"
-                                   style="color: #526652 !important;">الاستشارات العقارية</a>
-                            </h3>
-                            <p style="text-align: start;">نقدم خدماتنا الإستشارية بمختلف الإحتياجات لعملائنا
-                                لتمكينهم من
-                                إتخاذ قرارتهم العقارية المتنوعة على أساس المعرفة الشاملة والرؤى القائمة على البيانات
-                                والخبرات المتراكمة لفريق العمل</p>
-                        </div>
-                    </div>
-                </div>
-
-
+                @endforeach
             </div>
         </div>
 
@@ -199,115 +145,57 @@
     <!-- clients-section end -->
 
 
-    <section class="testimonial-style-two p_relative sec-pad bg-color-1" style="direction: ltr;">
-        <div class="pattern-layer p_absolute"
-             style="background-image: url('{{asset('assets/website/images/shape/shape-14.png')}}');">
-        </div>
-        <div class="large-container">
-            <div class="sec-title centred mb_55">
-                <h2 class="p_relative d_block fs_40 lh_60 fw_exbold" style="color: #001D00;">ماذا يقولون عنا</h2>
+    @if($testimonials->count())
+        <section class="testimonial-style-two p_relative sec-pad bg-color-1" style="direction: ltr;">
+            <div class="pattern-layer p_absolute"
+                 style="background-image: url('{{asset('assets/website/images/shape/shape-14.png')}}');">
             </div>
-            <div class="testimonial-inner p_relative pl_100 pr_100">
-                <div class="two-item-carousel owl-carousel owl-theme owl-nav-none">
-                    <div class="testimonial-block-one mb_75">
-                        <div class="inner-box p_relative d_block bg_white pt_45 pr_40 pb_40 pl_40">
-                            <div class="author-box p_relative d_block pl_80 pr_80 mb_35">
-                                <div class="quote p_absolute t_0 r_0 fs_50"><i class="fal fa-quote-right"></i></div>
-                                <figure class="author-thumb p_absolute l_0 t_0 w_60 h_60 b_radius_50"><img
-                                        src="{{asset('assets/website/images/resource/testimonial-1.jpg')}}" alt=""></figure>
-                                <h5 class="d_block fs_18 lh_30 fw_sbold">Sophia J. Milton</h5>
-                                <span class="designation p_relative d_block fs_14 lh_20">Property Owner</span>
+            <div class="large-container">
+                <div class="sec-title centred mb_55">
+                    <h2 class="p_relative d_block fs_40 lh_60 fw_exbold" style="color: #001D00;">ماذا يقولون عنا</h2>
+                </div>
+                <div class="testimonial-inner p_relative pl_100 pr_100">
+                    <div class="two-item-carousel owl-carousel owl-theme owl-nav-none">
+                        @foreach($testimonials as $testimonial)
+                            <div class="testimonial-block-one mb_75">
+                                <div class="inner-box p_relative d_block bg_white pt_45 pr_40 pb_40 pl_40">
+                                    <div class="author-box p_relative d_block pl_80 pr_80 mb_35">
+                                        <div class="quote p_absolute t_0 r_0 fs_50"><i class="fal fa-quote-right"></i></div>
+                                        <figure class="author-thumb p_absolute l_0 t_0 w_60 h_60 b_radius_50"><img
+                                                src="{{ $testimonial->profileImageUrl()  }}" alt="">
+                                        </figure>
+                                        <h5 class="d_block fs_18 lh_30 fw_sbold">{{ $testimonial->client_name }}</h5>
+                                        <span class="designation p_relative d_block fs_14 lh_20">{{ $testimonial->job_title }}</span>
+                                    </div>
+                                    <div class="text p_relative d_block">
+                                        <p class="lh_30">{{ $testimonial->testimonial }}</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="text p_relative d_block">
-                                <p class="lh_30">Duis aute irure dolor reprehenderit in voluptate cilum fugiat nulla
-                                    pariatur. Excepteur aintys cupidata proidents sunt in culpa qui officia desmolit
-                                    anim.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-block-one mb_75">
-                        <div class="inner-box p_relative d_block bg_white pt_45 pr_40 pb_40 pl_40">
-                            <div class="author-box p_relative d_block pl_80 pr_80 mb_35">
-                                <div class="quote p_absolute t_0 r_0 fs_50"><i class="fal fa-quote-right"></i></div>
-                                <figure class="author-thumb p_absolute l_0 t_0 w_60 h_60 b_radius_50"><img
-                                        src="{{asset('assets/website/images/resource/testimonial-2.jpg')}}" alt=""></figure>
-                                <h5 class="d_block fs_18 lh_30 fw_sbold">Andy S. Matthew</h5>
-                                <span class="designation p_relative d_block fs_14 lh_20">Senior Manager</span>
-                            </div>
-                            <div class="text p_relative d_block">
-                                <p class="lh_30">Duis aute irure dolor reprehenderit in voluptate cilum fugiat nulla
-                                    pariatur. Excepteur aintys cupidata proidents sunt in culpa qui officia desmolit
-                                    anim.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-block-one mb_75">
-                        <div class="inner-box p_relative d_block bg_white pt_45 pr_40 pb_40 pl_40">
-                            <div class="author-box p_relative d_block pl_80 pr_80 mb_35">
-                                <div class="quote p_absolute t_0 r_0 fs_50"><i class="fal fa-quote-right"></i></div>
-                                <figure class="author-thumb p_absolute l_0 t_0 w_60 h_60 b_radius_50"><img
-                                        src="{{asset('assets/website/images/resource/testimonial-1.jpg')}}" alt=""></figure>
-                                <h5 class="d_block fs_18 lh_30 fw_sbold">Sophia J. Milton</h5>
-                                <span class="designation p_relative d_block fs_14 lh_20">Property Owner</span>
-                            </div>
-                            <div class="text p_relative d_block">
-                                <p class="lh_30">Duis aute irure dolor reprehenderit in voluptate cilum fugiat nulla
-                                    pariatur. Excepteur aintys cupidata proidents sunt in culpa qui officia desmolit
-                                    anim.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-block-one mb_75">
-                        <div class="inner-box p_relative d_block bg_white pt_45 pr_40 pb_40 pl_40">
-                            <div class="author-box p_relative d_block pl_80 pr_80 mb_35">
-                                <div class="quote p_absolute t_0 r_0 fs_50"><i class="fal fa-quote-right"></i></div>
-                                <figure class="author-thumb p_absolute l_0 t_0 w_60 h_60 b_radius_50"><img
-                                        src="{{asset('assets/website/images/resource/testimonial-1.jpg')}}" alt=""></figure>
-                                <h5 class="d_block fs_18 lh_30 fw_sbold">Sophia J. Milton</h5>
-                                <span class="designation p_relative d_block fs_14 lh_20">Property Owner</span>
-                            </div>
-                            <div class="text p_relative d_block">
-                                <p class="lh_30">Duis aute irure dolor reprehenderit in voluptate cilum fugiat nulla
-                                    pariatur. Excepteur aintys cupidata proidents sunt in culpa qui officia desmolit
-                                    anim.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-block-one mb_75">
-                        <div class="inner-box p_relative d_block bg_white pt_45 pr_40 pb_40 pl_40">
-                            <div class="author-box p_relative d_block pl_80 pr_80 mb_35">
-                                <div class="quote p_absolute t_0 r_0 fs_50"><i class="fal fa-quote-right"></i></div>
-                                <figure class="author-thumb p_absolute l_0 t_0 w_60 h_60 b_radius_50"><img
-                                        src="{{asset('assets/website/images/resource/testimonial-1.jpg')}}" alt=""></figure>
-                                <h5 class="d_block fs_18 lh_30 fw_sbold">Sophia J. Milton</h5>
-                                <span class="designation p_relative d_block fs_14 lh_20">Property Owner</span>
-                            </div>
-                            <div class="text p_relative d_block">
-                                <p class="lh_30">Duis aute irure dolor reprehenderit in voluptate cilum fugiat nulla
-                                    pariatur. Excepteur aintys cupidata proidents sunt in culpa qui officia desmolit
-                                    anim.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-block-one mb_75">
-                        <div class="inner-box p_relative d_block bg_white pt_45 pr_40 pb_40 pl_40">
-                            <div class="author-box p_relative d_block pl_80 pr_80 mb_35">
-                                <div class="quote p_absolute t_0 r_0 fs_50"><i class="fal fa-quote-right"></i></div>
-                                <figure class="author-thumb p_absolute l_0 t_0 w_60 h_60 b_radius_50"><img
-                                        src="{{asset('assets/website/images/resource/testimonial-1.jpg')}}" alt=""></figure>
-                                <h5 class="d_block fs_18 lh_30 fw_sbold">Sophia J. Milton</h5>
-                                <span class="designation p_relative d_block fs_14 lh_20">Property Owner</span>
-                            </div>
-                            <div class="text p_relative d_block">
-                                <p class="lh_30">Duis aute irure dolor reprehenderit in voluptate cilum fugiat nulla
-                                    pariatur. Excepteur aintys cupidata proidents sunt in culpa qui officia desmolit
-                                    anim.</p>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
 
-@endsection
+
+    <!-- subscribe-section -->
+    @include('website.layouts.subscribe')
+    <!-- subscribe-section end -->
+
+    <!-- main-footer -->
+    @include('website.layouts.footer')
+    <!-- main-footer end -->
+
+    <!--Scroll to top-->
+    <button class="scroll-top scroll-to-target" data-target="html">
+        <span class="fal fa-long-arrow-up"></span>
+    </button>
+</div>
+
+@include('website.layouts.scripts')
+</body>
+<!-- End of .page_wrapper -->
+
+</html>

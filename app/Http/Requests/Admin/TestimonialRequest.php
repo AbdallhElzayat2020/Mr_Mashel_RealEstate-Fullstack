@@ -17,7 +17,7 @@ class TestimonialRequest extends FormRequest
     {
         return [
             'client_name' => ['required', 'string', 'max:254'],
-            'company_name' => ['nullable', 'string', 'max:254'],
+            'job_title' => ['nullable', 'string', 'max:254'],
             'testimonial' => ['required', 'string', 'max:65535'],
             'status' => ['required', Rule::enum(Status::class)],
         ];
@@ -36,7 +36,7 @@ class TestimonialRequest extends FormRequest
     {
         return [
             'client_name' => 'اسم العميل',
-            'company_name' => 'اسم الشركة',
+            'job_title' => 'وظيفة العميل',
             'testimonial' => 'التوصية',
             'status' => 'الحالة',
         ];

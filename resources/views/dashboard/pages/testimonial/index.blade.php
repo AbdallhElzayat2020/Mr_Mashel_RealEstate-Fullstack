@@ -37,7 +37,7 @@
                     <tr>
                         <th>#</th>
                         <th>اسم العميل</th>
-                        <th>اسم الشركه</th>
+                        <th>وظيفة العميل</th>
                         <th>الحالة</th>
                         <th>تاريخ الإنشاء</th>
                         <th>التحكم</th>
@@ -46,13 +46,13 @@
                     <tbody class="table-border-bottom-0">
                     @forelse($testimonials as $testimonial)
                         <tr>
-                            <td>
+                            <td>و
                                 {{ $loop->iteration }}
                             </td>
                             <td>
                                 <strong>{{ $testimonial->client_name }}</strong>
                             </td>
-                            <td>{{ $testimonial->company_name }}</td>
+                            <td>{{ $testimonial->job_title }}</td>
                             <td>
                                 <span
                                     class="badge {{ $testimonial->status->style() }} me-1">{{ $testimonial->status->label() }}</span>

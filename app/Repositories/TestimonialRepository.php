@@ -9,7 +9,7 @@ class TestimonialRepository implements TestimonialRepositoryInterface
 {
     public function getAll(array $cols = ['*'], bool $paginate = true)
     {
-        $testimonials = Testimonial::filter()->select($cols);
+        $testimonials = Testimonial::filter()->select($cols)->orderByDesc('created_at');
 
         if ($paginate) {
             return $testimonials->paginate();

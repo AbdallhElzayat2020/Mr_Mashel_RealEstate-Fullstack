@@ -25,7 +25,7 @@
 
                             <div class="col-xl-12 col-md-12">
                                 {{--status --}}
-                                <div class="form-check form-switch d-flex align-items-center gap-3 mb-5">
+                                <div class="form-check form-switch d-flex align-items-center justify-content-end gap-3 mb-5">
                                     <input class="form-check-input fs-large" name="status" value="active"
                                            @checked(old('status', $blog->status->value) === \App\Enums\Status::ACTIVE->value)
                                            type="checkbox"
@@ -120,7 +120,7 @@
                                         <div class="tab-pane fade" id="media-data" role="tabpanel">
                                             <div class="my-3 col-12 col-md-6 mb-4">
                                                 <label for="file_input" class="form-label">
-                                                    الصوره</label>
+                                                    الصوره ( بمقاس 800 * 450 )</label>
                                                 <input type="file" name="file" class="form-control"
                                                        id="file_input"
                                                        aria-describedby="File input"/>

@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Contracts\Repositories\TestimonialRepositoryInterface;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\TestimonialRequest;
 use App\Models\Testimonial;
-use App\Repositories\TestimonialRepository;
 
 class TestimonialController extends Controller
 {
     public function __construct(
-        private TestimonialRepository $testimonialRepository
+        private TestimonialRepositoryInterface $testimonialRepository
     ) {
         $this->middleware('can:delete-testimonials')->only(['destroy']);
         $this->middleware('can:create-testimonials')->only(['create', 'store']);

@@ -15,7 +15,7 @@ class Testimonial extends Model implements HasMedia
 
     protected $fillable = [
         'client_name',
-        'company_name',
+        'job_title',
         'testimonial',
         'status',
     ];
@@ -33,7 +33,7 @@ class Testimonial extends Model implements HasMedia
         $query->when(request('t_s'), function (Builder $query, $value) {
             $query->where(function (Builder $query) use ($value) {
                 $query->where('client_name', 'like', "%{$value}%")
-                    ->orWhere('company_name', 'like', "%{$value}%");
+                    ->orWhere('job_title', 'like', "%{$value}%");
             });
         });
 
@@ -54,7 +54,7 @@ class Testimonial extends Model implements HasMedia
             ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/webp', 'image/svg', 'image/jpg']);
     }
 
-    public function profileUrl(): string
+    public function profileImageUrl(): string
     {
         return $this->getFirstMediaUrl('profile');
     }

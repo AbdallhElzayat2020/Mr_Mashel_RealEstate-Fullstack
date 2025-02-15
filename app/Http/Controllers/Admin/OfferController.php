@@ -34,7 +34,6 @@ class OfferController extends Controller
 
     public function store(StoreOfferRequest $request)
     {
-        //        dd($request->validated());
         try {
 
             $this->offerRepository->create($request->validated());

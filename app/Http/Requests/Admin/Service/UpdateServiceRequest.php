@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Admin;
+namespace App\Http\Requests\Admin\Service;
 
 use App\Enums\Status;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class ServiceRequest extends FormRequest
+class UpdateServiceRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -25,6 +25,8 @@ class ServiceRequest extends FormRequest
             'description.ar' => ['required', 'string'],
             'description.en' => ['required', 'string'],
             'features' => ['required', 'array', 'min:1'],
+
+            'file' => ['nullable', 'file', 'mimes:jpg,jpeg,png', 'max:1024'],
         ];
     }
 
@@ -39,6 +41,7 @@ class ServiceRequest extends FormRequest
             'description.ar' => 'الوصف بالعربية',
             'features' => 'المميزات',
             'features.*' => 'المميزات',
+            'file' => 'الصورة',
         ];
     }
 

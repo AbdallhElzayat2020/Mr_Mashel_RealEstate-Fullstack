@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Contracts\Repositories\ServiceRepositoryInterface;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\ServiceRequest;
+use App\Http\Requests\Admin\Service\StoreServiceRequest;
+use App\Http\Requests\Admin\Service\UpdateServiceRequest;
 use App\Models\Service;
 
 class ServiceController extends Controller
@@ -30,7 +31,7 @@ class ServiceController extends Controller
         return view('dashboard.pages.services.create');
     }
 
-    public function store(ServiceRequest $request)
+    public function store(StoreServiceRequest $request)
     {
         $this->serviceRepository->create($request->validated());
 
@@ -49,7 +50,7 @@ class ServiceController extends Controller
         return view('dashboard.pages.services.edit', compact('service'));
     }
 
-    public function update(ServiceRequest $request, Service $service)
+    public function update(UpdateServiceRequest $request, Service $service)
     {
         $this->serviceRepository->update($service, $request->validated());
 
