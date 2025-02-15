@@ -34,6 +34,15 @@ class BlogController extends Controller
 
     public function store(StoreBlogRequest $request)
     {
+        try {
+            $this->blogRepository->create($request->validated());
+
+            toast('تمت العمليه بنجاح', 'success');
+        } catch (\Throwable $exception) {
+
+            toast('حدث خطأ جرب لاحقا', 'error');
+        }
+
         $this->blogRepository->create($request->validated());
 
         return to_route('admin.blogs.index');
@@ -51,14 +60,28 @@ class BlogController extends Controller
 
     public function update(UpdateBlogRequest $request, Blog $blog)
     {
-        $this->blogRepository->update($blog, $request->validated());
+        try {
+            $this->blogRepository->update($blog, $request->validated());
+
+            toast('تمت العمليه بنجاح', 'success');
+        } catch (\Throwable $exception) {
+
+            toast('حدث خطأ جرب لاحقا', 'error');
+        }
 
         return to_route('admin.blogs.index');
     }
 
     public function destroy(Blog $blog)
     {
-        $this->blogRepository->delete($blog);
+        try {
+            $this->blogRepository->delete($blog);
+
+            toast('تمت العمليه بنجاح', 'success');
+        } catch (\Throwable $exception) {
+
+            toast('حدث خطأ جرب لاحقا', 'error');
+        }
 
         return to_route('admin.blogs.index');
     }

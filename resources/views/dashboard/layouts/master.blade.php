@@ -78,5 +78,9 @@
 @include('dashboard.layouts.scripts')
 @yield('js')
 
+
+@include('sweetalert::alert')
+
+
 </body>
 </html>

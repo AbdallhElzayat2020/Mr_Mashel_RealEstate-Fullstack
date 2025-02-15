@@ -36,7 +36,13 @@ class RoleController extends Controller
 
     public function store(RoleRequest $request)
     {
-        $this->roleRepository->create($request->validated());
+        try {
+            $this->roleRepository->create($request->validated());
+
+            toast('تمت العمليه بنجاح', 'success');
+        } catch (\Throwable $exception) {
+            toast('حدث خطأ جرب لاحقا', 'error');
+        }
 
         return to_route('admin.roles.index');
     }
@@ -56,14 +62,26 @@ class RoleController extends Controller
 
     public function update(RoleRequest $request, Role $role)
     {
-        $this->roleRepository->update($role, $request->validated());
+        try {
+            $this->roleRepository->update($role, $request->validated());
+
+            toast('تمت العمليه بنجاح', 'success');
+        } catch (\Throwable $exception) {
+            toast('حدث خطأ جرب لاحقا', 'error');
+        }
 
         return to_route('admin.roles.index');
     }
 
     public function destroy(Role $role)
     {
-        $this->roleRepository->delete($role);
+        try {
+            $this->roleRepository->delete($role);
+
+            toast('تمت العمليه بنجاح', 'success');
+        } catch (\Throwable $exception) {
+            toast('حدث خطأ جرب لاحقا', 'error');
+        }
 
         return to_route('admin.roles.index');
     }

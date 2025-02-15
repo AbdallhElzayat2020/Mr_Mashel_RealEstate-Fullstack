@@ -38,7 +38,14 @@ class ContactController extends Controller
 
     public function store(ContactRequest $request)
     {
-        $this->contactRepository->create($request->validated());
+        try {
+            $this->contactRepository->create($request->validated());
+
+            toast('تمت العمليه بنجاح', 'success');
+        } catch (\Throwable $exception) {
+
+            toast('حدث خطأ جرب لاحقا', 'error');
+        }
 
         return to_route('admin.contacts.index');
     }
@@ -55,14 +62,28 @@ class ContactController extends Controller
 
     public function update(ContactRequest $request, Contact $contact)
     {
-        $this->contactRepository->update($contact, $request->validated());
+        try {
+            $this->contactRepository->update($contact, $request->validated());
+
+            toast('تمت العمليه بنجاح', 'success');
+        } catch (\Throwable $exception) {
+
+            toast('حدث خطأ جرب لاحقا', 'error');
+        }
 
         return to_route('admin.contacts.index');
     }
 
     public function destroy(Contact $contact)
     {
-        $this->contactRepository->delete($contact);
+        try {
+            $this->contactRepository->delete($contact);
+
+            toast('تمت العمليه بنجاح', 'success');
+        } catch (\Throwable $exception) {
+
+            toast('حدث خطأ جرب لاحقا', 'error');
+        }
 
         return to_route('admin.contacts.index');
     }

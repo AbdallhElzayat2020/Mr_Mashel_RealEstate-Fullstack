@@ -32,7 +32,13 @@ class TestimonialController extends Controller
 
     public function store(TestimonialRequest $request)
     {
-        $this->testimonialRepository->create($request->validated());
+        try {
+            $this->testimonialRepository->create($request->validated());
+
+            toast('تمت العمليه بنجاح', 'success');
+        } catch (\Throwable $exception) {
+            toast('حدث خطأ جرب لاحقا', 'error');
+        }
 
         return to_route('admin.testimonials.index');
     }
@@ -49,14 +55,26 @@ class TestimonialController extends Controller
 
     public function update(TestimonialRequest $request, Testimonial $testimonial)
     {
-        $this->testimonialRepository->update($testimonial, $request->validated());
+        try {
+            $this->testimonialRepository->update($testimonial, $request->validated());
+
+            toast('تمت العمليه بنجاح', 'success');
+        } catch (\Throwable $exception) {
+            toast('حدث خطأ جرب لاحقا', 'error');
+        }
 
         return to_route('admin.testimonials.index');
     }
 
     public function destroy(Testimonial $testimonial)
     {
-        $this->testimonialRepository->delete($testimonial);
+        try {
+            $this->testimonialRepository->delete($testimonial);
+
+            toast('تمت العمليه بنجاح', 'success');
+        } catch (\Throwable $exception) {
+            toast('حدث خطأ جرب لاحقا', 'error');
+        }
 
         return to_route('admin.testimonials.index');
     }

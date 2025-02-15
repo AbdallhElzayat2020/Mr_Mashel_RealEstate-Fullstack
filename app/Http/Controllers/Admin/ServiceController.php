@@ -33,7 +33,13 @@ class ServiceController extends Controller
 
     public function store(StoreServiceRequest $request)
     {
-        $this->serviceRepository->create($request->validated());
+        try {
+            $this->serviceRepository->create($request->validated());
+
+            toast('تمت العمليه بنجاح', 'success');
+        } catch (\Throwable $exception) {
+            toast('حدث خطأ جرب لاحقا', 'error');
+        }
 
         return to_route('admin.services.index');
     }
@@ -52,14 +58,26 @@ class ServiceController extends Controller
 
     public function update(UpdateServiceRequest $request, Service $service)
     {
-        $this->serviceRepository->update($service, $request->validated());
+        try {
+            $this->serviceRepository->update($service, $request->validated());
+
+            toast('تمت العمليه بنجاح', 'success');
+        } catch (\Throwable $exception) {
+            toast('حدث خطأ جرب لاحقا', 'error');
+        }
 
         return to_route('admin.services.index');
     }
 
     public function destroy(Service $service)
     {
-        $this->serviceRepository->delete($service);
+        try {
+            $this->serviceRepository->delete($service);
+
+            toast('تمت العمليه بنجاح', 'success');
+        } catch (\Throwable $exception) {
+            toast('حدث خطأ جرب لاحقا', 'error');
+        }
 
         return to_route('admin.services.index');
     }

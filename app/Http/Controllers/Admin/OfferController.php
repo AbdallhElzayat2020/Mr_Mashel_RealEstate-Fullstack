@@ -35,13 +35,12 @@ class OfferController extends Controller
     public function store(StoreOfferRequest $request)
     {
         try {
-
             $this->offerRepository->create($request->validated());
 
-        } catch (\Throwable $exception) {
-            throw $exception;
+            toast('تمت العمليه بنجاح', 'success');
 
-            return back()->with('error', $exception->getMessage());
+        } catch (\Throwable $exception) {
+            toast('حدث خطأ جرب لاحقا', 'error');
         }
 
         return to_route('admin.offers.index');
@@ -65,10 +64,10 @@ class OfferController extends Controller
     {
         try {
             $this->offerRepository->update($offer, $request->validated());
-        } catch (\Throwable $exception) {
-            throw $exception;
 
-            return back()->with('error', $exception->getMessage());
+            toast('تمت العمليه بنجاح', 'success');
+        } catch (\Throwable $exception) {
+            toast('حدث خطأ جرب لاحقا', 'error');
         }
 
         return to_route('admin.offers.index');
@@ -78,8 +77,10 @@ class OfferController extends Controller
     {
         try {
             $this->offerRepository->delete($offer);
+
+            toast('تمت العمليه بنجاح', 'success');
         } catch (\Throwable $exception) {
-            throw $exception;
+            toast('حدث خطأ جرب لاحقا', 'error');
         }
 
         return to_route('admin.offers.index');

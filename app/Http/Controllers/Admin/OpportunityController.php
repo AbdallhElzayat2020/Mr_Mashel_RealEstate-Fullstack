@@ -56,6 +56,14 @@ class OpportunityController extends Controller
 
     public function destroy(Opportunity $opportunity)
     {
-        return $this->opportunityRepository->delete($opportunity);
+        try {
+            $this->opportunityRepository->delete($opportunity);
+
+            toast('تمت العمليه بنجاح', 'success');
+        } catch (\Throwable $exception) {
+            toast('حدث خطأ جرب لاحقا', 'error');
+        }
+
+        return to_route('admin.opportunities.index');
     }
 }

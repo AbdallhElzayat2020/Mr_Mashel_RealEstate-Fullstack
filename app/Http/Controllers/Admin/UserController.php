@@ -38,7 +38,14 @@ class UserController extends Controller
 
     public function store(StoreUserRequest $request)
     {
-        $this->userRepository->create($request->validated());
+        try {
+            $this->userRepository->create($request->validated());
+
+            toast('تمت العمليه بنجاح', 'success');
+        } catch (\Throwable $exception) {
+
+            toast('حدث خطأ جرب لاحقا', 'error');
+        }
 
         return to_route('admin.users.index');
     }
@@ -56,7 +63,14 @@ class UserController extends Controller
 
     public function update(UpdateUserRequest $request, User $user)
     {
-        $this->userRepository->update($user, $request->validated());
+        try {
+            $this->userRepository->update($user, $request->validated());
+
+            toast('تمت العمليه بنجاح', 'success');
+        } catch (\Throwable $exception) {
+
+            toast('حدث خطأ جرب لاحقا', 'error');
+        }
 
         return to_route('admin.users.index');
     }
@@ -70,20 +84,33 @@ class UserController extends Controller
 
     public function updateStatus(User $user)
     {
-        $status = $user->status->is(Status::ACTIVE) ? Status::INACTIVE : Status::ACTIVE;
+        try {
+            $status = $user->status->is(Status::ACTIVE) ? Status::INACTIVE : Status::ACTIVE;
+            $this->userRepository->updateStatus($user, $status);
 
-        $this->userRepository->updateStatus($user, $status);
+            toast('تمت العمليه بنجاح', 'success');
+        } catch (\Throwable $exception) {
+
+            toast('حدث خطأ جرب لاحقا', 'error');
+        }
 
         return to_route('admin.users.index');
     }
 
     public function passwordReset(User $user)
     {
-        $data = [
-            'password' => User::DEFAULT_PASSWORD,
-        ];
+        try {
+            $data = [
+                'password' => User::DEFAULT_PASSWORD,
+            ];
 
-        $this->userRepository->update($user, $data);
+            $this->userRepository->update($user, $data);
+
+            toast('تمت العمليه بنجاح', 'success');
+        } catch (\Throwable $exception) {
+
+            toast('حدث خطأ جرب لاحقا', 'error');
+        }
 
         return to_route('admin.users.index');
     }

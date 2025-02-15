@@ -31,7 +31,14 @@ class MailSubscriptionController extends Controller
 
     public function destroy(MailSubscription $mailSubscription)
     {
-        $this->mailSubscriptionRepository->delete($mailSubscription);
+        try {
+            $this->mailSubscriptionRepository->delete($mailSubscription);
+
+            toast('تمت العمليه بنجاح', 'success');
+        } catch (\Throwable $exception) {
+
+            toast('حدث خطأ جرب لاحقا', 'error');
+        }
 
         return to_route('admin.mail-subscriptions.index');
     }
