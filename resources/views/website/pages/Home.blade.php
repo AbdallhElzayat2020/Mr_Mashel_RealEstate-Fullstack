@@ -119,179 +119,40 @@
 
 
     <!-- Services -->
-    <section class="feature-style-two p_relative sec-pad">
-        <div class="intro text-center mb-5">
-            <div class="heading text-center font-weight-bold mb-3" style="color: #001D00; font-size: 40px;">خدماتنا
+    @if($services->count())
+        <section class="feature-style-two p_relative sec-pad">
+            <div class="intro text-center mb-5">
+                <div class="heading text-center font-weight-bold mb-3" style="color: #001D00; font-size: 40px;">خدماتنا
+                </div>
+                <p style="color: #526652;">تقدم <span class="gold-color text-center">“قدرة العقارية”</span> مجموعة
+                    متنوعة من الخدمات بإسلوب حديث وإحترافي بخبرات متنوعة لتلبية إحتياجات مُختلف شرائح القطاع العقاري</p>
             </div>
-            <p style="color: #526652;">تقدم <span class="gold-color text-center">“قدرة العقارية”</span> مجموعة
-                متنوعة من الخدمات بإسلوب حديث وإحترافي بخبرات متنوعة لتلبية إحتياجات مُختلف شرائح القطاع العقاري</p>
-        </div>
-        <div class="large-container">
-            <div class="row clearfix d-flex align-items-center justify-content-center">
-                <div class="col-lg-4 col-md-6 col-sm-12 feature-block mt-3">
-                    <div class="feature-block-two wow fadeInUp animated" data-wow-delay="00ms"
-                         data-wow-duration="1500ms">
-                        <div
-                            class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
-                            <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                <img src="{{ asset('assets/website/images/التوسيق العقاري.png') }}" alt="تسويق العقاري">
-                            </div>
-                            <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
-                                <a href="index-3.html" class="d_iblock color_black hov_color"
-                                   style="color: #526652 !important;">التسويق العقاري</a>
-                            </h3>
-                            <p style="text-align: start;">عبر أحدث التقنيات ووسائل التسويق الحديثة لفتح آفاق جديدة
-                                لتسويق
-                                العقارات وجذب العملاء المناسبين</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 feature-block mt-3">
-                    <div class="feature-block-two wow fadeInUp animated" data-wow-delay="00ms"
-                         data-wow-duration="1500ms">
-                        <div
-                            class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
-                            <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                <img src="{{ asset('assets/website/images/المزادات العقارية.png') }}" alt="المزادات العقارية">
-                            </div>
-                            <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
-                                <a href="index-3.html" class="d_iblock color_black hov_color"
-                                   style="color: #526652 !important;">المزادات العقارية</a>
-                            </h3>
-                            <p style="text-align: start;">نسعى في المزادات العقارية أن نوفر البيع السريع بأسعار
-                                السوق
-                                العادلة سواءً كانت مزادات حضورية أو إلكترونية</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 col-sm-12 feature-block mt-3">
-                    <div class="feature-block-two wow fadeInUp animated" data-wow-delay="00ms"
-                         data-wow-duration="1500ms">
-                        <div
-                            class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
-                            <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                <img src="{{ asset('assets/website/images/إدارة العقارات.png') }}" alt="ادارة العقارات">
-                            </div>
-                            <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
-                                <a href="index-3.html" class="d_iblock color_black hov_color"
-                                   style="color: #526652 !important;">ادارة
-                                    العقارات</a>
-                            </h3>
-                            <p style="text-align: start;">من خلال أفضل الطرق والممارسات نقوم بإدارة العقارات عبر
-                                مجموعة
-                                متكاملة من الخدمات العقارية لنمو الأُصول وزيادة دخلها والمحافظة عليها
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 feature-block mt-3">
-                    <div class="feature-block-two wow fadeInUp animated" data-wow-delay="00ms"
-                         data-wow-duration="1500ms">
-                        <div
-                            class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
-                            <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                <img src="{{ asset('assets/website/images/التوسيق العقاري.png') }}" alt="تسويق العقاري">
-                            </div>
-                            <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
-                                <a href="index-3.html" class="d_iblock color_black hov_color"
-                                   style="color: #526652 !important;">
-                                    إدارة وتشغيل العقارات
-                                </a>
-                            </h3>
-                            <p style="text-align: start;">عبر أحدث التقنيات ووسائل التسويق الحديثة لفتح آفاق جديدة
-                                لتسويق
-                                العقارات وجذب العملاء المناسبين</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 feature-block mt-3">
-                    <div class="feature-block-two wow fadeInUp animated" data-wow-delay="00ms"
-                         data-wow-duration="1500ms">
-                        <div
-                            class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
-                            <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                <img src="{{ asset('assets/website/images/ادارة المرافق.png') }}" alt="ادارة المرافق">
-                            </div>
-                            <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
-                                <a href="index-3.html" class="d_iblock color_black hov_color"
-                                   style="color: #526652 !important;">ادارة
-                                    المرافق</a>
-                            </h3>
-                            <p style="text-align: start;">من خلال أفضل الطرق والممارسات نقوم بإدارة العقارات عبر
-                                مجموعة
-                                متكاملة من الخدمات العقارية لنمو الأُصول وزيادة دخلها والمحافظة عليها
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 col-sm-12 feature-block mt-3">
-                    <div class="feature-block-two wow fadeInUp animated" data-wow-delay="00ms"
-                         data-wow-duration="1500ms">
-                        <div
-                            class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
-                            <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                <img src="{{ asset('assets/website/images/التقييم العقاري.png') }}" alt="التقييم العقاري">
-                            </div>
-                            <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
-                                <a href="index-3.html" class="d_iblock color_black hov_color"
-                                   style="color: #526652 !important;">
-                                    التقييم العقاري
-                                </a>
-                            </h3>
-                            <p style="text-align: start;">
-                                نقدم تقييم عقاري معتمد وموثوق يساعدك في معرفة القيمة الحقيقية لعقارك بناءً على تحليل
-                                شامل للسوق وإحتياجاتك، مما يسهل
-                                عليك إتخاذ قرارات مدروسة.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 feature-block mt-3">
-                    <div class="feature-block-two wow fadeInUp animated" data-wow-delay="00ms"
-                         data-wow-duration="1500ms">
-                        <div
-                            class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
-                            <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                <img src="{{ asset('assets/website/images/ادارة المرافق.png') }}" alt="ادارة المرافق">
-                            </div>
-                            <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
-                                <a href="index-3.html" class="d_iblock color_black hov_color"
-                                   style="color: #526652 !important;">الاستشارات العقارية</a>
-                            </h3>
-                            <p style="text-align: start;">نقدم خدماتنا الإستشارية بمختلف الإحتياجات لعملائنا
-                                لتمكينهم من
-                                إتخاذ قرارتهم العقارية المتنوعة على أساس المعرفة الشاملة والرؤى القائمة على البيانات
-                                والخبرات المتراكمة لفريق العمل</p>
-                        </div>
-                    </div>
-                </div>
-
-                @foreach($services as $service)
-                    <div class="col-lg-4 col-md-6 col-sm-12 feature-block mt-3">
-                        <div class="feature-block-two wow fadeInUp animated" data-wow-delay="00ms"
-                             data-wow-duration="1500ms">
-                            <div
-                                class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
-                                <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                    <img src="{{ $service->getThumbUrl() }}" alt="{{ $service->title }}">
+            <div class="large-container">
+                <div class="row clearfix d-flex align-items-center justify-content-center">
+                    @foreach($services as $service)
+                        <div class="col-lg-4 col-md-6 col-sm-12 feature-block mt-3">
+                            <div class="feature-block-two wow fadeInUp animated" data-wow-delay="00ms"
+                                 data-wow-duration="1500ms">
+                                <div
+                                    class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
+                                    <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
+                                        <img src="{{ $service->getThumbUrl() }}" alt="{{ $service->title }}">
+                                    </div>
+                                    <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
+                                        <a href="{{ route('service.details', $service) }}" class="d_iblock color_black hov_color"
+                                           style="color: #526652 !important;">{{ $service->title }}</a>
+                                    </h3>
+                                    <p style="text-align: start;">{!! $service->short_description !!}</p>
                                 </div>
-                                <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
-                                    <a href="{{ route('service.details', $service) }}" class="d_iblock color_black hov_color"
-                                       style="color: #526652 !important;">{{ $service->title }}</a>
-                                </h3>
-                                <p style="text-align: start;">{!! $service->short_description !!}</p>
                             </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
 
+                </div>
             </div>
-        </div>
 
-    </section>
-
+        </section>
+    @endif
     <!-- /Services -->
 
     <section class="featured-projects p_relative sec-pad bg-color-3" style="direction: ltr;">
@@ -303,65 +164,40 @@
                 </h2>
                 <span class="sub-title p_relative d_block fs_18 lh_25 mb_10">عقارات مُختارة تُناسب إحتياجكم</span>
             </div>
-            <div class="single-item-carousel owl-carousel owl-theme owl-dots-none">
-                <div class="inner-box p_relative d_block pl_130 pr_120">
-                    <div class="row align-items-center clearfix">
-                        <div class="col-lg-6 col-md-12 col-sm-12 image-column">
-                            <figure class="image-box p_relative d_block pr_15">
-                                <img src="{{ asset('assets/website/images/صورة العقار.png') }}" alt="صورة العقار">
-                            </figure>
-                        </div>
-                        <div style="text-align: right;" class="col-lg-6 col-md-12 col-sm-12 content-column">
-                            <div class="content_block_4">
-                                <div class="content-box p_relative d_block mr_50">
-                                    <div class="title-box p_relative d_block mb_25">
-                                        <h3 class="d_block fs_24 lh_30 fw_exbold mb_3">مصنع للايجار</h3>
-                                        <span class="p_relative d_block fs_17 mt-3 lh_20">مواصفات العقار</span>
-                                    </div>
-                                    <div class="text p_relative d_block mb_30">
-                                        <p class="lh_30">Anim idet laborum. Sed ut perspiciatis und omnis iste natus
-                                            goluptatem acusantium dolore mque lorem ipsum dolor sit amet consectetur
-                                            adipisicing elit sed incididunt.</p>
-                                    </div>
-                                    <ul class="project-discription p_relative d_block mb_50">
-                                        <li style="text-align: right;"
-                                            class="p_relative d_block fs_16 lh_25 color_black mb_15">المساحة
-                                            الاجمالية: <span class="fw_sbold">1,195متر</span></li>
-                                        <li style="text-align: right;"
-                                            class="p_relative d_block fs_16 lh_25 color_black mb_15">مسطح البناء:
-                                            <span class="fw_sbold">1,111متر</span>
-                                        </li>
-                                        <li style="text-align: right;"
-                                            class="p_relative d_block fs_16 lh_25 color_black mb_15"> سعة عداد
-                                            لاكهربا: <span class="fw_sbold">200</span></li>
-                                        <li style="text-align: right;"
-                                            class="p_relative d_block fs_16 lh_25 color_black mb_15">تكلفة الكهرباء:
-                                            <span class="fw_sbold">1</span>
-                                        </li>
-                                        <li style="text-align: right;"
-                                            class="p_relative d_block fs_16 lh_25 color_black mb_15"> دورات المياة:
-                                            <span class="fw_sbold">1</span>
-                                        </li>
-                                        <li style="text-align: right;"
-                                            class="p_relative d_block fs_16 lh_25 color_black">
-                                            سعر الايجار السنوي:
-                                            <span class="fw_sbold">6300,000 ريال</span>
-                                        </li>
-                                        <p style="color: #526652; margin-top: 10px;">غير شامل الضريبة وعمولة الوساطة
-                                            العقارية</p>
-                                    </ul>
-                                    <div class="btn-box">
-                                        <!-- <a href="project-details.html" class="theme-btn btn-three mr_10">مشاهدة التفاصيل<i class="icon-3"></i></a> -->
-                                        <a href="project.html" class="theme-btn btn-one rounded-pill">مشاهدة
-                                            التفاصيل</a>
-                                    </div>
-                                </div>
+            @foreach($offers as $offer)
+                <div class="col-lg-4 col-md-6 col-sm-12 news-block mt-4 text-center">
+                    <div class="news-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                        <div class="inner-box bg-color-1">
+                            <div class="image-box">
+                                <figure class="image">
+                                    <a href="{{ route('offers.details', $offer) }}"><img
+                                            src="{{ $offer->getThumbUrl() }}" alt=""/></a>
+                                </figure>
+                            </div>
+                            <div class="lower-content">
+                                <h3>
+                                    <a href="{{ route('offers.details', $offer) }}">{!! $offer->short_title !!}</a>
+                                </h3>
+                                <p>
+                                    {!! $offer->short_description !!}
+                                </p>
+                                <h3>
+                                    <a href="{{ route('offers.details', $offer) }}">{{ $offer->price }} ريال / {{ $offer->price_type->label() }}</a>
+
+                                </h3>
+                                <p
+                                    style="background-color: #001D00; padding: 5px; color: #fff;font-weight: bold; border-radius: 5px;">
+                                    <a class="text-white" href="{{ route('offers.details', $offer) }}">
+                                    تفاصيل العقار
+                                    </a>
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            @endforeach
 
+            <div class="text-white bg-dark"><a class="text-white" href="{{ route('offers') }}">عرض الكل</a></div>
         </div>
     </section>
 
