@@ -317,7 +317,7 @@
                         <a href="project-details.html" class="btn mr_11"
                            style="background-color: #001D00; color: #fff;">  {{ $offer->price }} ريال سعودي </a>
 
-                        <a href="project-details.html" class="btn mr_11"
+                        <a download="" href="{{ $offer->getBrochureUrl() }}" class="btn mr_11"
                            style="background-color: #526652; color: #fff;"><i class="fas fa-download fs_16"></i>
                             تنزيل البرشور
                         </a>

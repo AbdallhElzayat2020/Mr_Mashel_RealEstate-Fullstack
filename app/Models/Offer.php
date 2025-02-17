@@ -96,6 +96,9 @@ class Offer extends Model implements HasMedia
         $this->addMediaCollection('gallery')
             ->useDisk('files')
             ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/webp', 'image/svg', 'image/jpg']);
+
+        $this->addMediaCollection('brochure')
+            ->useDisk('files');
     }
 
     public function gallery(): MediaCollection
@@ -106,6 +109,11 @@ class Offer extends Model implements HasMedia
     public function getThumbUrl(): string
     {
         return $this->getFirstMediaUrl('gallery');
+    }
+
+    public function getBrochureUrl(): string
+    {
+        return $this->getFirstMediaUrl('brochure');
     }
 
     // TODO: brochure

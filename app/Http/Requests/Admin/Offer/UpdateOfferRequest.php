@@ -40,6 +40,8 @@ class UpdateOfferRequest extends FormRequest
 
             'files' => ['sometimes', 'array'],
             'files.*' => ['file', 'mimes:jpg,png,jpeg', 'max:2048'],
+
+            'brochure' => ['nullable', 'file', 'mimes:pdf', 'max:2048'],
         ];
     }
 
@@ -75,6 +77,7 @@ class UpdateOfferRequest extends FormRequest
 
             'files' => 'الملفات',
             'files.*' => 'الملفات',
+            'brochure' => 'الكتيب',
         ];
     }
 }

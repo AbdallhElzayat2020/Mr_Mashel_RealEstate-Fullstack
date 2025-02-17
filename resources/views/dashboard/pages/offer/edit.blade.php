@@ -281,6 +281,18 @@
                                         </div>
                                         <div class="tab-pane fade" id="media-data" role="tabpanel">
                                             <div class="my-3 col-12 col-md-6">
+                                                <label for="brochure_input" class="form-label">الكتيب</label>
+                                                <input type="file" name="brochure" class="form-control"
+                                                       id="brochure_input"
+                                                       aria-describedby="brochure input"/>
+                                                <x-input-error class="mt-2" :messages="$errors->get('brochure')" />
+                                            </div>
+
+                                            <div>
+                                                <a href="{{ $offer->getBrochureUrl() }}" target="_blank">رابط الكتيب</a>
+                                            </div>
+
+                                            <div class="my-3 col-12 col-md-6">
                                                 <label for="file_input" class="form-label">
                                                     صور العقار</label>
                                                 <input type="file" name="files[]" class="form-control"

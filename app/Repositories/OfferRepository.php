@@ -42,6 +42,11 @@ class OfferRepository implements OfferRepositoryInterface
                         $fileAdder->toMediaCollection('gallery');
                     });
             }
+
+            if (request()->hasFile('brochure')) {
+                $offer->addMediaFromRequest('brochure')
+                    ->toMediaCollection('brochure');
+            }
         });
     }
 
@@ -67,6 +72,11 @@ class OfferRepository implements OfferRepositoryInterface
                     ->each(function (FileAdder $fileAdder) {
                         $fileAdder->toMediaCollection('gallery');
                     });
+            }
+
+            if (request()->hasFile('brochure')) {
+                $offer->addMediaFromRequest('brochure')
+                    ->toMediaCollection('brochure');
             }
         });
     }

@@ -37,6 +37,8 @@ class StoreOfferRequest extends FormRequest
 
             'files' => ['required', 'array'],
             'files.*' => ['file', 'mimes:jpg,png,jpeg', 'max:2048'],
+
+            'brochure' => ['nullable', 'file', 'mimes:pdf', 'max:2048'],
         ];
     }
 
@@ -72,6 +74,7 @@ class StoreOfferRequest extends FormRequest
 
             'files' => 'الملفات',
             'files.*' => 'الملفات',
+            'brochure' => 'الكتيب',
         ];
     }
 }
