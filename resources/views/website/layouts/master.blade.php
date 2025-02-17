@@ -33,6 +33,8 @@
 
     <link href="{{ asset('assets/website/css/responsive.css') }}" rel="stylesheet">
 
+    @vite(['resources/js/app.js'])
+
 </head>
 
 <body>

@@ -25,3 +25,6 @@
 <link href="{{ asset('assets/website/css/style.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/website/css/responsive.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/website/css/responsive.css') }}" rel="stylesheet">
+
+
+@vite(['resources/js/app.js'])

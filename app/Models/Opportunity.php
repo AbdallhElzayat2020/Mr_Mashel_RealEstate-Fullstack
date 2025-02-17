@@ -22,6 +22,7 @@ class Opportunity extends Model implements HasMedia
         'education',
         'job_title',
         'type',
+        'note',
     ];
 
     protected $casts = [
@@ -53,5 +54,17 @@ class Opportunity extends Model implements HasMedia
         });
 
         return $query;
+    }
+
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('resume')
+            ->useDisk('files')
+            ->singleFile();
+    }
+
+    public function getResumeUrl(): string
+    {
+        return $this->getFirstMediaUrl('resume');
     }
 }

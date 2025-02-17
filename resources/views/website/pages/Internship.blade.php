@@ -93,6 +93,11 @@
             <div class="sec-title mb_55 centred">
                 <h2 style="color: #001D00;" class="p_relative d_block fs_40 lh_60 mb-2 fw_exbold">التدريب</h2>
             </div>
+            @session('message')
+            <div x-data x-init="setTimeout(_=> $el.remove(), 5000)" class="alert alert-success mt-2" role="alert">
+                <span>{{ $value }}</span>
+            </div>
+            @endsession
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
@@ -150,6 +155,17 @@
     </section>
 
 
+    @if($errors->any())
+        <div class="alert alert-danger mt-2" role="alert">
+            <ul class="mb-0">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+
     <section class="contact-style-three p_relative pt_110 pb_120 bg-light" style="direction: rtl">
         <div class="large-container">
             <div class="sec-title mb_55 centred">
@@ -164,41 +180,42 @@
                 <div
                     class="col-lg-9 d-flex align-items-center justify-content-center col-md-12 col-sm-12 form-column">
                     <div class="form-inner d-flex align-items-center justify-content-center">
-                        <form method="post" action="#" id="contact-form" class="default-form">
+                        <form method="post" action="{{ route('internship.store') }}" id="contact-form" class="default-form" enctype="multipart/form-data">
+                            @csrf
                             <div class="row clearfix">
                                 <div class="col-lg-6 col-md-12 col-sm-12 form-group mb_20">
-                                    <input type="text" name="username" placeholder="الاسم الكامل" required="" />
+                                    <input type="text" name="name" placeholder="الاسم الكامل" required />
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 form-group mb_20">
-                                    <input type="text" name="phone" required="" placeholder="رقم الهاتف" />
+                                    <input type="text" name="phone" required placeholder="رقم الهاتف" />
                                 </div>
                                 <div class="col-lg-6 col-md-12 col-sm-12 form-group mb_20">
-                                    <input type="text" name="username" placeholder="البريد الالكتروني"
-                                           required="" />
+                                    <input type="text" name="email" placeholder="البريد الالكتروني"
+                                           required />
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 form-group mb_20">
-                                    <input type="text" name="subject" required="" placeholder="المؤهل الدراسي" />
+                                    <input type="text" name="education" required placeholder="المؤهل الدراسي" />
                                 </div>
                                 <div class="col-lg-6 col-md-12 col-sm-12 form-group">
                                     <div class="select-box">
-                                        <select class="wide">
+                                        <select class="wide" name="years_of_exp" required>
                                             <option data-display="عدد سنوات الخبرة">
                                                 عدد سنوات الخبرة
                                             </option>
-                                            <option value="1">لايوجد خبرة سابقة</option>
-                                            <option value="2">من سنة الي تلاثة سنوات</option>
-                                            <option value="3">من 3 سنوات الي 5 سنوات</option>
-                                            <option value="3">من 5 الي 10 سنوات</option>
+                                            <option value="لايوجد خبرة سابقة">لايوجد خبرة سابقة</option>
+                                            <option value="من سنة الي تلاثة سنوات">من سنة الي تلاثة سنوات</option>
+                                            <option value="من 3 سنوات الي 5 سنوات">من 3 سنوات الي 5 سنوات</option>
+                                            <option value="من 5 الي 10 سنوات">من 5 الي 10 سنوات</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 form-group mb_20">
-                                    <input type="text" name="phone" required="" placeholder="مجال الخبرة ان وجدت" />
+                                    <input type="text" name="field_of_exp" required placeholder="مجال الخبرة ان وجدت" />
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 form-group mb_20">
                                     <div
                                         style="border: 1px solid #ced4da; border-radius: 0.25rem; padding: 0.375rem 0.75rem; display: flex; align-items: center;">
-                                        <input type="file" class="form-control border-0" id="inputGroupFile02"
+                                        <input type="file" name="file" class="form-control border-0" id="inputGroupFile02"
                                                accept=".pdf,.doc,.docx"
                                                style="border: none; box-shadow: none; width: 100%;">
                                         <label class="input-group-text border-0" for="inputGroupFile02"

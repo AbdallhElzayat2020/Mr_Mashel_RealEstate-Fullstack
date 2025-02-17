@@ -94,6 +94,13 @@
             <div class="sec-title mb_55 centred">
                 <h2 style="color: #001D00;" class="p_relative d_block fs_40 lh_60 mb-2 fw_exbold">التوظيف</h2>
             </div>
+
+            @session('message')
+            <div x-data x-init="setTimeout(_=> $el.remove(), 5000)" class="alert alert-success mt-2" role="alert">
+                <span>{{ $value }}</span>
+            </div>
+            @endsession
+
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
@@ -169,6 +176,16 @@
         </div>
     </section>
 
+    @if($errors->any())
+        <div class="alert alert-danger mt-2" role="alert">
+            <ul class="mb-0">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
 
 
     <section class="contact-style-three p_relative pt_110 pb_120 bg-light" style="direction: rtl">
@@ -185,91 +202,93 @@
                 <div
                     class="col-lg-9 d-flex align-items-center justify-content-center col-md-12 col-sm-12 form-column">
                     <div class="form-inner d-flex align-items-center justify-content-center">
-                        <form method="post" action="#" id="contact-form" class="default-form">
+                        <form method="post" action="{{ route('apply.store') }}" id="contact-form" class="default-form" enctype="multipart/form-data">
+                            @csrf
+
                             <div class="row clearfix">
                                 <div class="col-lg-6 col-md-12 col-sm-12 form-group mb_20">
-                                    <input type="text" name="username" placeholder="الاسم الكامل" required=""/>
+                                    <input type="text" name="name" placeholder="الاسم الكامل" required/>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 form-group mb_20">
-                                    <input type="text" name="phone" required="" placeholder="رقم الهاتف"/>
+                                    <input type="text" name="phone" required placeholder="رقم الهاتف"/>
                                 </div>
                                 <div class="col-lg-6 col-md-12 col-sm-12 form-group mb_20">
-                                    <input type="text" name="username" placeholder="البريد الالكتروني"
-                                           required=""/>
+                                    <input type="text" name="email" placeholder="البريد الالكتروني"
+                                           required/>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 form-group mb_20">
-                                    <input type="text" name="subject" required="" placeholder="المؤهل الدراسي"/>
+                                    <input type="text" name="education" required placeholder="المؤهل الدراسي"/>
                                 </div>
                                 <div class="col-lg-6 col-md-12 col-sm-12 form-group">
                                     <div class="select-box">
-                                        <select class="wide">
+                                        <select class="wide" name="years_of_exp">
                                             <option data-display="عدد سنوات الخبرة">
                                                 عدد سنوات الخبرة
                                             </option>
-                                            <option value="1">لايوجد خبرة سابقة</option>
-                                            <option value="2">من سنة الي تلاثة سنوات</option>
-                                            <option value="3">من 3 سنوات الي 5 سنوات</option>
-                                            <option value="3">من 5 الي 10 سنوات</option>
+                                            <option value="لايوجد خبرة سابقة">لايوجد خبرة سابقة</option>
+                                            <option value="من سنة الي تلاثة سنوات">من سنة الي تلاثة سنوات</option>
+                                            <option value="من 3 سنوات الي 5 سنوات">من 3 سنوات الي 5 سنوات</option>
+                                            <option value="من 5 الي 10 سنوات">من 5 الي 10 سنوات</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 form-group mb_20">
-                                    <input type="text" name="phone" required="" placeholder="مجال الخبرة ان وجدت"/>
+                                    <input type="text" name="field_of_exp" required placeholder="مجال الخبرة ان وجدت"/>
                                 </div>
                                 <div class="col-lg- col-md-12 col-sm-12 form-group">
                                     <div class="select-box">
-                                        <select class="wide">
+                                        <select class="wide" name="job_title" required>
                                             <option data-display="المسمى الوظيفي">
                                                 المسمى الوظيفي
                                             </option>
-                                            <option value="">- مهندس مدني</option>
-                                            <option value="">- مهندس معماري</option>
-                                            <option value="">- مهندس كهربائي</option>
-                                            <option value="">- مهندس تقنية معلومات</option>
-                                            <option value="">- فني إلكترونيات</option>
-                                            <option value="">- فني كهربائي</option>
-                                            <option value="">- فني حدادة / لحام</option>
-                                            <option value="">- فني نجارة</option>
-                                            <option value="">- عامل عادي</option>
-                                            <option value="">- عامل تحميل وتنزيل</option>
-                                            <option value="">- أخصائي مشاريع</option>
-                                            <option value="">- منسق مشاريع</option>
-                                            <option value="">- مدير مشروع</option>
-                                            <option value="">- فني سباك</option>
-                                            <option value="">- فني دهان</option>
-                                            <option value="">- فني بناء</option>
-                                            <option value="">- مقاول</option>
-                                            <option value="">- مشرف عمال</option>
-                                            <option value="">- مشرف صيانة</option>
-                                            <option value="">- مشرف عقار</option>
-                                            <option value="">- أخصائي موارد بشرية</option>
-                                            <option value="">- مسؤول علاقات حكومية</option>
-                                            <option value="">- مسؤول تحصيل</option>
-                                            <option value="">- أخصائي تسويق</option>
-                                            <option value="">- أخصائي خدمة عملاء</option>
-                                            <option value="">- مشرف مرافق</option>
-                                            <option value="">- مدير عمليات</option>
-                                            <option value="">- مشرف عمليات</option>
-                                            <option value="">- مدير تنفيذي</option>
-                                            <option value="">- محاسب أول</option>
-                                            <option value="">- محاسب عام</option>
-                                            <option value="">- محاسب مالي</option>
-                                            <option value="">- محلل مالي</option>
-                                            <option value="">- فني شبكات وإتصالات</option>
-                                            <option value="">- وسيط عقاري</option>
-                                            <option value="">- مسجل عقاري</option>
-                                            <option value="">- محكم عقاري</option>
-                                            <option value="">- مدير عقار مشترك</option>
-                                            <option value="">- مسؤول مزادات عقارية</option>
-                                            <option value="">- مقيم عقاري</option>
-                                            <option value="">- سائق</option>
-                                            <option value="">- عامل نظافة</option>
-                                            <option value="">- مهندس ديكور</option>
-                                            <option value="">- مصمم داخلي</option>
-                                            <option value="">- سكرتير تنفيذي</option>
-                                            <option value="">- مراجع داخلي</option>
-                                            <option value="">- محلل مبيعات</option>
-                                            <option value="">- محلل أعمال</option>
+                                            <option value="مهندس مدني">مهندس مدني</option>
+                                            <option value="مهندس معماري">مهندس معماري</option>
+                                            <option value="مهندس كهربائي">مهندس كهربائي</option>
+                                            <option value="مهندس تقنية معلومات">مهندس تقنية معلومات</option>
+                                            <option value="فني إلكترونيات">فني إلكترونيات</option>
+                                            <option value="فني كهربائي">فني كهربائي</option>
+                                            <option value="فني حدادة / لحام">فني حدادة / لحام</option>
+                                            <option value="فني نجارة">فني نجارة</option>
+                                            <option value="عامل عادي">عامل عادي</option>
+                                            <option value="عامل تحميل وتنزيل">عامل تحميل وتنزيل</option>
+                                            <option value="أخصائي مشاريع">أخصائي مشاريع</option>
+                                            <option value="منسق مشاريع">منسق مشاريع</option>
+                                            <option value="مدير مشروع">مدير مشروع</option>
+                                            <option value="فني سباك">فني سباك</option>
+                                            <option value="فني دهان">فني دهان</option>
+                                            <option value="فني بناء">فني بناء</option>
+                                            <option value="مقاول">مقاول</option>
+                                            <option value="مشرف عمال">مشرف عمال</option>
+                                            <option value="مشرف صيانة">مشرف صيانة</option>
+                                            <option value="مشرف عقار">مشرف عقار</option>
+                                            <option value="أخصائي موارد بشرية">أخصائي موارد بشرية</option>
+                                            <option value="مسؤول علاقات حكومية">مسؤول علاقات حكومية</option>
+                                            <option value="مسؤول تحصيل">مسؤول تحصيل</option>
+                                            <option value="أخصائي تسويق">أخصائي تسويق</option>
+                                            <option value="أخصائي خدمة عملاء">أخصائي خدمة عملاء</option>
+                                            <option value="مشرف مرافق">مشرف مرافق</option>
+                                            <option value="مدير عمليات">مدير عمليات</option>
+                                            <option value="مشرف عمليات">مشرف عمليات</option>
+                                            <option value="مدير تنفيذي">مدير تنفيذي</option>
+                                            <option value="محاسب أول">محاسب أول</option>
+                                            <option value="محاسب عام">محاسب عام</option>
+                                            <option value="محاسب مالي">محاسب مالي</option>
+                                            <option value="محلل مالي">محلل مالي</option>
+                                            <option value="فني شبكات وإتصالات">فني شبكات وإتصالات</option>
+                                            <option value="وسيط عقاري">وسيط عقاري</option>
+                                            <option value="مسجل عقاري">مسجل عقاري</option>
+                                            <option value="محكم عقاري">محكم عقاري</option>
+                                            <option value="مدير عقار مشترك">مدير عقار مشترك</option>
+                                            <option value="مسؤول مزادات عقارية">مسؤول مزادات عقارية</option>
+                                            <option value="مقيم عقاري">مقيم عقاري</option>
+                                            <option value="سائق">سائق</option>
+                                            <option value="عامل نظافة">عامل نظافة</option>
+                                            <option value="مهندس ديكور">مهندس ديكور</option>
+                                            <option value="مصمم داخلي">مصمم داخلي</option>
+                                            <option value="سكرتير تنفيذي">سكرتير تنفيذي</option>
+                                            <option value="مراجع داخلي">مراجع داخلي</option>
+                                            <option value="محلل مبيعات">محلل مبيعات</option>
+                                            <option value="محلل أعمال">محلل أعمال</option>
                                         </select>
                                     </div>
                                 </div>
@@ -278,6 +297,7 @@
                                         style="border: 1px solid #ced4da; border-radius: 0.25rem; padding: 0.375rem 0.75rem; display: flex; align-items: center;">
                                         <input type="file" class="form-control border-0" id="inputGroupFile02"
                                                accept=".pdf,.doc,.docx"
+                                               name="file"
                                                style="border: none; box-shadow: none; width: 100%;">
                                         <label class="input-group-text border-0" for="inputGroupFile02"
                                                style="border: none; background-color: transparent; margin-bottom: 0;">
@@ -286,7 +306,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 form-group mb_20">
-                                    <textarea name="message" placeholder="ملاحظات"></textarea>
+                                    <textarea name="note" placeholder="ملاحظات"></textarea>
                                 </div>
 
                                 <div class="col-lg-12 mb-3 col-md-12 col-sm-12" style="text-align: start;">

@@ -14,11 +14,12 @@ return new class extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('phone');
-            $table->unsignedInteger('years_of_exp');
-            $table->unsignedInteger('field_of_exp')->nullable();
+            $table->string('years_of_exp');
+            $table->string('field_of_exp')->nullable();
             $table->string('education');
             $table->string('job_title')->nullable();
             $table->enum('type', OpportunityType::values())->comment(OpportunityType::comment());
+            $table->text('note')->nullable();
             $table->timestamps();
         });
     }
