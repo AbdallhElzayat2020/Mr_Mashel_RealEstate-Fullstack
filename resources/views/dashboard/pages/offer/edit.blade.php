@@ -280,9 +280,9 @@
 
                                         </div>
                                         <div class="tab-pane fade" id="media-data" role="tabpanel">
-                                            <div class="my-3">
+                                            <div class="my-3 col-12 col-md-6">
                                                 <label for="file_input" class="form-label">
-                                                    الصوره</label>
+                                                    صور العقار</label>
                                                 <input type="file" name="files[]" class="form-control"
                                                        multiple
                                                        id="file_input"
