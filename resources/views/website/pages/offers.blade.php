@@ -165,7 +165,9 @@
                                 </h3>
                                 <p
                                     style="background-color: #001D00; padding: 5px; color: #fff;font-weight: bold; border-radius: 5px;">
-                                    تفاصيل العقار
+                                    <a class="text-white" href="{{ route('offers.details', $offer) }}">
+                                        تفاصيل العقار
+                                    </a>
                                 </p>
                             </div>
                         </div>

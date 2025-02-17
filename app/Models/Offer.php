@@ -115,6 +115,4 @@ class Offer extends Model implements HasMedia
     {
         return $this->getFirstMediaUrl('brochure');
     }
-
-    // TODO: brochure
 }
