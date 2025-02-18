@@ -11,10 +11,12 @@ return new class extends Migration
         Schema::create('contact_inquiries', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email');
             $table->string('phone');
+            $table->string('offer_type');
+            $table->string('education');
+            $table->string('job_title')->nullable();
             $table->foreignId('service_id')->nullable()->constrained()->nullOnDelete();
-            $table->string('message');
+            $table->text('message');
             $table->timestamps();
         });
     }

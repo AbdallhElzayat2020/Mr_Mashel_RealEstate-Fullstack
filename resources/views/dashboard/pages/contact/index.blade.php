@@ -31,9 +31,10 @@
                     <tr>
                         <th>#</th>
                         <th>اسم العميل</th>
-                        <th>البريد الالكتروني</th>
                         <th>رقم الهاتف</th>
                         <th>الخدمة المطلوبة</th>
+                        <th>نوع العقار</th>
+                        <th>الرساله</th>
                         <th>تاريخ الإنشاء</th>
                         <th>التحكم</th>
                     </tr>
@@ -42,29 +43,29 @@
                     @forelse($contacts as $contact)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>
+                            <td class="text-wrap">
                                 {{ $contact->name }}
                             </td>
-                            <td>
-                                {{ $contact->email }}
-                            </td>
-                            <td>
+                            <td class="text-wrap">
                                 {{ $contact->phone }}
                             </td>
-                            <td>
+                            <td class="text-wrap">
                                 {{ $contact->service->title }}
                             </td>
-                            <td>
+                            <td class="text-wrap">
+                                {{ $contact->offer_type }}
+                            </td>
+                            <td class="text-wrap">
+                                {{ $contact->message }}
+                            </td>
+                            <td class="text-wrap">
                                 {{ $contact->created_at->diffForHumans() }}
                             </td>
                             <td>
-                                @can('view-contacts')
-                                    <a href="{{route('admin.blogs.show', $contact)}}" class="btn btn-primary">Show</a>
-                                @endcan
                                 @can('delete-contacts')
-                                    <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal"
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#delete{{ $contact->id }}">
-                                        Delete
+                                        حذف
                                     </button>
                                 @endcan
                             </td>

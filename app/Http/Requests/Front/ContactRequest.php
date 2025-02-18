@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Admin;
+namespace App\Http\Requests\Front;
 
+use App\Enums\OfferType;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class ContactRequest extends FormRequest
 {
@@ -15,10 +17,10 @@ class ContactRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:254'],
-            'email' => ['required', 'email', 'max:254'],
-            'phone' => ['required'],
-            'service_id' => ['required', 'integer'],
-            'message' => ['required'],
+            'phone' => ['required', 'string', 'max:254'],
+            'service_id' => ['required', 'integer', 'exists:services,id'],
+            'offer_type' => ['required', Rule::enum(OfferType::class)],
+            'message' => ['required', 'string', 'max:65535'],
         ];
     }
 
@@ -26,7 +28,7 @@ class ContactRequest extends FormRequest
     {
         return [
             'name' => 'الاسم',
-            'email' => 'البريد الإلكتروني',
+            'offer_type' => 'نوع العقار',
             'phone' => 'رقم الهاتف',
             'service_id' => 'الخدمة',
             'message' => 'الرسالة',

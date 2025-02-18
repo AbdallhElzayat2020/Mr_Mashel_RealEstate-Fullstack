@@ -31,7 +31,13 @@
                         <th>#</th>
                         <th>الإسم</th>
                         <th>البريد</th>
+                        <th>الهاتف</th>
+                        <th>المؤهل</th>
                         <th>النوع</th>
+                        <th>عدد سنوات الخبره</th>
+                        <th>مجال الخبره</th>
+                        <th>المسمي الوظيفي</th>
+                        <th>الرساله</th>
                         <th>تاريخ الإنشاء</th>
                         <th>التحكم</th>
                     </tr>
@@ -39,24 +45,26 @@
                     <tbody class="table-border-bottom-0">
                     @forelse($opportunities as $opportunity)
                         <tr>
-                            <td>
+                            <td class="text-wrap">
                                 {{ $loop->iteration }}
                             </td>
-                            <td>
+                            <td class="text-wrap">
                                 <strong>{{ $opportunity->name }}</strong>
                             </td>
-                            <td>{{ $opportunity->email }}</td>
-                            <td>
+                            <td class="text-wrap">{{ $opportunity->email }}</td>
+                            <td class="text-wrap">{{ $opportunity->phone }}</td>
+                            <td class="text-wrap">{{ $opportunity->education }}</td>
+                            <td class="text-wrap">
                                 {{ $opportunity->type->label() }}
                             </td>
-                            <td>
+                            <td class="text-wrap">{{ $opportunity->years_of_exp }}</td>
+                            <td class="text-wrap">{{ $opportunity->field_of_exp }}</td>
+                            <td class="text-wrap">{{ $opportunity->job_title }}</td>
+                            <td class="text-wrap" style="max-width: 500px">{{ $opportunity->note }}</td>
+                            <td class="text-wrap">
                                 {{ $opportunity->created_at->diffForHumans() }}
                             </td>
-                            <td>
-                                @can('view-opportunities')
-                                    <a href="{{route('admin.opportunities.show', $opportunity)}}"
-                                       class="btn btn-primary">تعديل</a>
-                                @endcan
+                            <td class="text-wrap">
                                 @can('delete-opportunities')
                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#delete{{ $opportunity->id }}">

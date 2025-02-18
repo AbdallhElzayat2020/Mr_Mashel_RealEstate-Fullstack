@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Contracts\Repositories\MailSubscriptionRepositoryInterface;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\MailSubscriptionRequest;
+use App\Http\Requests\Front\MailSubscriptionRequest;
 
 class MailSubscriptionController extends Controller
 {

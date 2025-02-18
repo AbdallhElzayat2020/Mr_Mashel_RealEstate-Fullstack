@@ -46,7 +46,7 @@
                     <tbody class="table-border-bottom-0">
                     @forelse($testimonials as $testimonial)
                         <tr>
-                            <td>و
+                            <td>
                                 {{ $loop->iteration }}
                             </td>
                             <td>

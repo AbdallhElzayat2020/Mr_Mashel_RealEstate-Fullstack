@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Contracts\Repositories\ContactRepositoryInterface;
 use App\Contracts\Repositories\ServiceRepositoryInterface;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\ContactRequest;
+use App\Http\Requests\Front\ContactRequest;
 use App\Models\Contact;
 
 class ContactController extends Controller
@@ -22,8 +22,8 @@ class ContactController extends Controller
 
     public function index()
     {
-        $contacts = $this->contactRepository->getAll([
-            'service:id,name',
+        $contacts = $this->contactRepository->getAll(relations: [
+            'service:id,title',
         ]);
 
         $services = $this->serviceRepository->getAll(cols: ['id', 'title']);

@@ -89,6 +89,16 @@
     </section>
     <!-- End Page Title -->
 
+    @if($errors->any())
+        <div class="alert alert-danger mt-2" role="alert">
+            <ul class="mb-0">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <!-- contact-style-three -->
     <section class="contact-style-three p_relative pt_110 pb_120" style="direction: rtl">
         <div class="large-container">
@@ -100,33 +110,34 @@
                 <div
                     class="col-lg-9 d-flex align-items-center justify-content-center col-md-12 col-sm-12 form-column">
                     <div class="form-inner d-flex align-items-center justify-content-center">
-                        <form method="post" action="#" id="contact-form" class="default-form">
+                        <form method="post" action="{{ route('contact.store') }}" id="contact-form" class="default-form">
+                            @csrf
                             <div class="row clearfix">
                                 <div class="col-lg-6 col-md-12 col-sm-12 form-group mb_20">
-                                    <input type="text" name="username" placeholder="الاسم الكامل" required="" />
+                                    <input type="text" name="name" placeholder="الاسم الكامل" required="" />
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 form-group mb_20">
                                     <input type="text" name="phone" required="" placeholder="رقم الهاتف" />
                                 </div>
                                 <div class="col-lg-6 col-md-12 col-sm-12 form-group">
                                     <div class="select-box">
-                                        <select class="wide">
+                                        <select class="wide" name="service_id">
                                             <option data-display="اختر الخدمة المطلوبة">
                                                 اختر الخدمة المطلوبة
                                             </option>
-                                            <option value="1">Duplex / Triplex</option>
-                                            <option value="2">Full Suite Apt.</option>
-                                            <option value="3">Railroad Complex</option>
+                                            @foreach($services as $service)
+                                                <option value="{{ $service->id }}">{{ $service->title }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-12 col-sm-12 form-group">
                                     <div class="select-box">
-                                        <select class="wide">
+                                        <select class="wide" name="offer_type">
                                             <option data-display="نوع العقار">نوع العقار</option>
-                                            <option value="1">Duplex / Triplex</option>
-                                            <option value="2">Full Suite Apt.</option>
-                                            <option value="3">Railroad Complex</option>
+                                            @foreach(\App\Enums\OfferType::cases() as $offerType)
+                                                <option value="{{ $offerType->value }}">{{ $offerType->label() }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>

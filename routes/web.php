@@ -54,6 +54,7 @@ Route::group(
         Route::get('/blogs-details/{id}', [BlogController::class, 'show'])->name('blogs.details');
 
         Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+        Route::post('/contact/save', [ContactController::class, 'store'])->name('contact.store');
 
         Route::post('/mail-subscription', MailSubscriptionController::class)->name('mails.store');
     });
