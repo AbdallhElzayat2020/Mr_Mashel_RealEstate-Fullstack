@@ -48,7 +48,6 @@ Route::middleware(['auth', 'check-status', 'force-ar'])->group(function () {
         ->controller(MailSubscriptionController::class)
         ->group(function () {
             Route::get('/', 'index')->name('index');
-            Route::post('/', 'store')->name('store');
             Route::delete('{mailSubscription}', 'destroy')->name('destroy');
         });
 

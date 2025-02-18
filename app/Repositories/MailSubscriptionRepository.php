@@ -9,7 +9,7 @@ class MailSubscriptionRepository implements MailSubscriptionRepositoryInterface
 {
     public function getAll(array $cols = ['*'], bool $paginate = true)
     {
-        $blogs = MailSubscription::filter()->select($cols);
+        $blogs = MailSubscription::filter()->select($cols)->orderByDesc('created_at');
 
         if ($paginate) {
             return $blogs->paginate();
