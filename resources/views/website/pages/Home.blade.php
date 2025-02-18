@@ -155,51 +155,57 @@
     @endif
     <!-- /Services -->
 
-    <section class="featured-projects p_relative sec-pad bg-color-3" style="direction: ltr;">
-        <div class="pattern-layer p_absolute t_0 r_0"
-             style="background-image: url(/assets/website/images/shape/shape-7.png);"></div>
-        <div class="large-container">
-            <div class="sec-title mb_55 centred">
-                <h2 style="color: #001D00;" class="p_relative d_block fs_40 lh_60 mb-2 fw_exbold">العروض العقارية
-                </h2>
-                <span class="sub-title p_relative d_block fs_18 lh_25 mb_10">عقارات مُختارة تُناسب إحتياجكم</span>
-            </div>
-            @foreach($offers as $offer)
-                <div class="col-lg-4 col-md-6 col-sm-12 news-block mt-4 text-center">
-                    <div class="news-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
-                        <div class="inner-box bg-color-1">
-                            <div class="image-box">
-                                <figure class="image">
-                                    <a href="{{ route('offers.details', $offer) }}"><img
-                                            src="{{ $offer->getThumbUrl() }}" alt=""/></a>
-                                </figure>
-                            </div>
-                            <div class="lower-content">
-                                <h3>
-                                    <a href="{{ route('offers.details', $offer) }}">{!! $offer->short_title !!}</a>
-                                </h3>
-                                <p>
-                                    {!! $offer->short_description !!}
-                                </p>
-                                <h3>
-                                    <a href="{{ route('offers.details', $offer) }}">{{ $offer->price }} ريال / {{ $offer->price_type->label() }}</a>
+    @if($offers->count())
+        <section class="featured-projects p_relative sec-pad bg-color-3" style="direction: ltr;">
+            <div class="large-container">
+                <div class="sec-title mb_55 centred">
+                    <h2 style="color: #001D00;" class="p_relative d_block fs_40 lh_60 mb-2 fw_exbold">العروض العقارية
+                    </h2>
+                    <span class="sub-title p_relative d_block fs_18 lh_25 mb_10">عقارات مُختارة تُناسب إحتياجكم</span>
+                </div>
+                <div class="row">
+                    @foreach($offers as $offer)
+                        <div class="col-lg-4 col-md-6 col-sm-12 news-block mt-4 text-center">
+                            <div class="news-block-one wow fadeInUp animated" data-wow-delay="00ms"
+                                 data-wow-duration="1500ms">
+                                <div class="inner-box bg-color-1">
+                                    <div class="image-box">
+                                        <figure class="image">
+                                            <a href="{{ route('offers.details', $offer) }}"><img
+                                                    src="{{ $offer->getThumbUrl() }}" alt=""/></a>
+                                        </figure>
+                                    </div>
+                                    <div class="lower-content">
+                                        <h3>
+                                            <a href="{{ route('offers.details', $offer) }}">{!! $offer->short_title !!}</a>
+                                        </h3>
+                                        <p>
+                                            {!! $offer->short_description !!}
+                                        </p>
+                                        <h3>
+                                            <a href="{{ route('offers.details', $offer) }}">{{ $offer->price }} ريال
+                                                / {{ $offer->price_type->label() }}</a>
 
-                                </h3>
-                                <p
-                                    style="background-color: #001D00; padding: 5px; color: #fff;font-weight: bold; border-radius: 5px;">
-                                    <a class="text-white" href="{{ route('offers.details', $offer) }}">
-                                    تفاصيل العقار
-                                    </a>
-                                </p>
+                                        </h3>
+                                        <p
+                                            style="background-color: #001D00; padding: 5px; color: #fff;font-weight: bold; border-radius: 5px;">
+                                            <a class="text-white" href="{{ route('offers.details', $offer) }}">
+                                                تفاصيل العقار
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
-            @endforeach
+                <div style="z-index: 1000;" class="mx-auto text-center mt-4"> <!-- أضف فئة text-center -->
+                    <a class="btn btn-dark" href="{{ route('offers') }}">عرض الكل</a>
+                </div>
+            </div>
+        </section>
+    @endif
 
-            <div class="text-white bg-dark"><a class="text-white" href="{{ route('offers') }}">عرض الكل</a></div>
-        </div>
-    </section>
 
     <section class="featured-projects p_relative sec-pad ">
         <!-- <div class="pattern-layer p_absolute t_0 r_0" style="background-image: url(/websiteassets//images/shape/shape-7.png);"></div> -->
