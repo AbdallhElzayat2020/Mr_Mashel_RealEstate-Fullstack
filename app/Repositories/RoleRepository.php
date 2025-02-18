@@ -11,7 +11,7 @@ class RoleRepository implements RoleRepositoryInterface
 {
     public function getAll(array $cols = ['*'], array $relations = [], bool $paginate = true)
     {
-        $roles = Role::select($cols)->orderByDesc('created_at');
+        $roles = Role::whereNot('id', 1)->select($cols)->orderByDesc('created_at');
 
         if (count($relations)) {
             $roles = $roles->with($relations);

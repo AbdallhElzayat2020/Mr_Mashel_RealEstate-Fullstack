@@ -84,14 +84,6 @@
                                         @endif
                                     </form>
                                 @endcan
-
-                                @can('update-users')
-                                    <form action="{{ route('admin.users.password-reset', $user) }}" method="post"
-                                          class="d-flex">
-                                        @csrf
-                                        <button class="btn btn-info">إسترجاع</button>
-                                    </form>
-                                @endcan
                             </td>
                         </tr>
                         @include('dashboard.layouts.delete-modal',

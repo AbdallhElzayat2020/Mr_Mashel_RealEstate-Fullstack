@@ -54,6 +54,8 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
+        abort_unless($user->id !== 1, 403);
+
         $roles = $this->roleRepository->getAll(paginate: false);
 
         $userRole = $user->roles()->first();
@@ -63,6 +65,8 @@ class UserController extends Controller
 
     public function update(UpdateUserRequest $request, User $user)
     {
+        abort_unless($user->id !== 1, 403);
+
         try {
             $this->userRepository->update($user, $request->validated());
 
@@ -77,6 +81,8 @@ class UserController extends Controller
 
     public function destroy(User $user)
     {
+        abort_unless($user->id !== 1, 403);
+
         $this->userRepository->delete($user);
 
         return to_route('admin.users.index');
@@ -84,27 +90,11 @@ class UserController extends Controller
 
     public function updateStatus(User $user)
     {
+        abort_unless($user->id !== 1, 403);
+
         try {
             $status = $user->status->is(Status::ACTIVE) ? Status::INACTIVE : Status::ACTIVE;
             $this->userRepository->updateStatus($user, $status);
-
-            toast('تمت العمليه بنجاح', 'success');
-        } catch (\Throwable $exception) {
-
-            toast('حدث خطأ جرب لاحقا', 'error');
-        }
-
-        return to_route('admin.users.index');
-    }
-
-    public function passwordReset(User $user)
-    {
-        try {
-            $data = [
-                'password' => User::DEFAULT_PASSWORD,
-            ];
-
-            $this->userRepository->update($user, $data);
 
             toast('تمت العمليه بنجاح', 'success');
         } catch (\Throwable $exception) {

@@ -19,7 +19,6 @@ Route::middleware(['auth', 'check-status', 'force-ar'])->group(function () {
 
     // ##################### Users Management Routes ###########################
     Route::post('users/{user}/update-status', [UserController::class, 'updateStatus'])->name('users.update-status');
-    Route::post('users/{user}/password-reset', [UserController::class, 'passwordReset'])->name('users.password-reset');
     Route::resource('users', UserController::class);
 
     // ##################### Blogs Management Routes ###########################

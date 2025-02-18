@@ -51,6 +51,8 @@ class RoleController extends Controller
 
     public function edit(Role $role)
     {
+        abort_unless($role->id !== 1, 403);
+
         $role->load('permissions');
 
         $rolePermissions = $role->permissions->pluck('id')->toArray();
@@ -62,6 +64,8 @@ class RoleController extends Controller
 
     public function update(RoleRequest $request, Role $role)
     {
+        abort_unless($role->id !== 1, 403);
+
         try {
             $this->roleRepository->update($role, $request->validated());
 
@@ -75,6 +79,8 @@ class RoleController extends Controller
 
     public function destroy(Role $role)
     {
+        abort_unless($role->id !== 1, 403);
+
         try {
             $this->roleRepository->delete($role);
 
