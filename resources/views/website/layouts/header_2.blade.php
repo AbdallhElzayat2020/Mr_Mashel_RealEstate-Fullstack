@@ -31,7 +31,7 @@
                                 <li class="dropdown"><a href="javascript:void(0)">التدريب والتوظيف</a>
                                     <ul>
                                         <li><a href="{{route('internship')}}">فرص التدريب</a></li>
-                                        <li><a href="{{route('hire')}}">فرص التوظيف</a></li>
+                                        <li><a href="{{route('apply')}}">فرص التوظيف</a></li>
 {{--                                        <li><a href="error.html">404</a></li>--}}
                                     </ul>
                                 </li>
@@ -39,7 +39,7 @@
                                     <a href="{{route('services')}}">خدماتنا</a>
                                 </li>
                                 <li class="dropdown">
-                                    <a href="{{route('projects')}}">العروض العقارية</a>
+                                    <a href="{{route('offers')}}">العروض العقارية</a>
                                 </li>
                                 <li class="">
                                     <a href="{{route('about')}}">من نحن</a>

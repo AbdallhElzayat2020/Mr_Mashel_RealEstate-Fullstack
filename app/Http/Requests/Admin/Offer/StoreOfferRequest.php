@@ -36,9 +36,9 @@ class StoreOfferRequest extends FormRequest
             'location' => ['required', Rule::enum(PropertyLocations::class)],
 
             'files' => ['required', 'array'],
-            'files.*' => ['file', 'mimes:jpg,png,jpeg', 'max:2048'],
+            'files.*' => ['file', 'mimes:jpg,png,jpeg', 'max:3000'],
 
-            'brochure' => ['nullable', 'file', 'mimes:pdf', 'max:2048'],
+            'brochure' => ['nullable', 'file', 'mimes:pdf', 'max:4000'],
         ];
     }
 

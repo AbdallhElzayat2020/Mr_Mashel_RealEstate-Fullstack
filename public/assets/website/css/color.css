@@ -323,9 +323,9 @@
 	border-color: #4564f3;
 }
 
-.news-block-two .inner-box .image-box .image{
-	background: #4564f3;
-}
+/*.news-block-two .inner-box .image-box .image{*/
+/*	background: transparent;*/
+/*}*/
 
 .news-block-two .inner-box .image-box .post-date{
 	background: #347469;

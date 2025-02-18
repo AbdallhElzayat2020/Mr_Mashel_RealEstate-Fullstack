@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ app()->getLocale() }}" dir="{{ app()->getLocale() === 'ar' ? 'rtl' : 'ltr' }}">
+
 
 <head>
     <meta charset="utf-8">
@@ -8,10 +9,9 @@
 
     <title>الرئيسية || قدرة العقارية</title>
 
-  @include('website.layouts.head')
+    @include('website.layouts.head')
 
 </head>
-
 
 <!-- page wrapper -->
 
@@ -41,7 +41,10 @@
         <div class="close-btn"><i class="fas fa-times"></i></div>
 
         <nav class="menu-box" style="direction: rtl; text-align: right;">
-            <div class="nav-logo"><a href="index-2.html"><img src="{{ asset('assets/website/images/LOGO.png') }}" alt="" title=""></a>
+            <div class="nav-logo">
+                <a href="{{route('home')}}">
+                    <img src="{{ asset('assets/website/images/LOGO.png') }}" alt="" title="">
+                </a>
             </div>
             <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
             </div>
@@ -55,10 +58,10 @@
             </div>
             <div class="social-links">
                 <ul class="clearfix">
-                    <li><a href="index-2.html"><span class="fab fa-x"></span></a></li>
-                    <li><a href="index-2.html"><span class="fab fa-facebook-square"></span></a></li>
-                    <li><a href="index-2.html"><span class="fab fa-instagram"></span></a></li>
-                    <li><a href="index-2.html"><span class="fab fa-youtube"></span></a></li>
+                    <li><a href="#"><span class="fab fa-x"></span></a></li>
+                    <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
+                    <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+                    <li><a href="#"><span class="fab fa-youtube"></span></a></li>
                 </ul>
             </div>
         </nav>
@@ -67,7 +70,7 @@
 
     <!-- banner-section -->
     <section class="page-title p_relative pt_250 pb_170 centred"
-             style="background-image: url(/assets/website/images/banner/Home_2.png);background-position: center;">
+             style="background-image: url({{asset('assets/website/images/banner/Home_2.png')}});background-position: center; height: 620px;">
         <div class="bg-layer p_absolute r_100 t_0">
         </div>
         <div class="large-container">
@@ -91,7 +94,8 @@
                             <div class="sec-title mb_45">
                                 <div class="icon-box p_relative d_block fs_14 lh_20 mb_10"
                                      style="text-align: right;">
-                                    <img src="{{ asset('assets/website/images/LOGO.png') }}" alt="LOGO" style="display: inline-block;">
+                                    <img src="{{ asset('assets/website/images/LOGO.png') }}" alt="LOGO"
+                                         style="display: inline-block;">
                                 </div>
                                 <h2 class="p_relative d_block fs_20 lh_60 fw_bold mt-4"
                                     style="color: #526652; text-align: start;">
@@ -136,10 +140,11 @@
                                 <div
                                     class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
                                     <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                        <img src="{{ $service->getThumbUrl() }}" alt="{{ $service->title }}">
+                                        <img style=" width: 100px; height: 100px" src="{{ $service->getImageUrl() }}" alt="{{ $service->title }}">
                                     </div>
                                     <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
-                                        <a href="{{ route('service.details', $service) }}" class="d_iblock color_black hov_color"
+                                        <a href="{{ route('service.details', $service) }}"
+                                           class="d_iblock color_black hov_color"
                                            style="color: #526652 !important;">{{ $service->title }}</a>
                                     </h3>
                                     <p style="text-align: start;">{!! $service->short_description !!}</p>
@@ -155,58 +160,54 @@
     @endif
     <!-- /Services -->
 
-    @if($offers->count())
-        <section class="featured-projects p_relative sec-pad bg-color-3" style="direction: ltr;">
-            <div class="large-container">
-                <div class="sec-title mb_55 centred">
-                    <h2 style="color: #001D00;" class="p_relative d_block fs_40 lh_60 mb-2 fw_exbold">العروض العقارية
-                    </h2>
-                    <span class="sub-title p_relative d_block fs_18 lh_25 mb_10">عقارات مُختارة تُناسب إحتياجكم</span>
-                </div>
-                <div class="row">
-                    @foreach($offers as $offer)
-                        <div class="col-lg-4 col-md-6 col-sm-12 news-block mt-4 text-center">
-                            <div class="news-block-one wow fadeInUp animated" data-wow-delay="00ms"
-                                 data-wow-duration="1500ms">
-                                <div class="inner-box bg-color-1">
-                                    <div class="image-box">
-                                        <figure class="image">
-                                            <a href="{{ route('offers.details', $offer) }}"><img
-                                                    src="{{ $offer->getThumbUrl() }}" alt=""/></a>
-                                        </figure>
-                                    </div>
-                                    <div class="lower-content">
-                                        <h3>
-                                            <a href="{{ route('offers.details', $offer) }}">{!! $offer->short_title !!}</a>
-                                        </h3>
-                                        <p>
-                                            {!! $offer->short_description !!}
-                                        </p>
-                                        <h3>
-                                            <a href="{{ route('offers.details', $offer) }}">{{ $offer->price }} ريال
-                                                / {{ $offer->price_type->label() }}</a>
+    <section class="featured-projects p_relative sec-pad bg-color-3" style="direction: ltr;">
+        <div class="large-container">
+            <div class="sec-title mb_55 centred">
+                <h2 style="color: #001D00;" class="p_relative d_block fs_40 lh_60 mb-2 fw_exbold">العروض العقارية
+                </h2>
+                <span class="sub-title p_relative d_block fs_18 lh_25 mb_10">عقارات مُختارة تُناسب إحتياجكم</span>
+            </div>
+            <div class="row">
+                @foreach($offers as $offer)
+                    <div class="col-lg-4 col-md-6 col-sm-12 news-block mt-4 text-center">
+                        <div class="news-block-one wow fadeInUp animated" data-wow-delay="00ms"
+                             data-wow-duration="1500ms">
+                            <div class="inner-box bg-color-1">
+                                <div class="image-box">
+                                    <figure class="image">
+                                        <a href="{{ route('offers.details', $offer) }}"><img
+                                                src="{{ $offer->getThumbUrl() }}" alt=""/></a>
+                                    </figure>
+                                </div>
+                                <div class="lower-content">
+                                    <h3>
+                                        <a href="{{ route('offers.details', $offer) }}">{!! $offer->short_title !!}</a>
+                                    </h3>
+                                    <p>
+                                        {!! $offer->short_description !!}
+                                    </p>
+                                    <h3>
+                                        <a href="{{ route('offers.details', $offer) }}">{{ $offer->price }} ريال
+                                            / {{ $offer->price_type->label() }}</a>
 
-                                        </h3>
-                                        <p
-                                            style="background-color: #001D00; padding: 5px; color: #fff;font-weight: bold; border-radius: 5px;">
-                                            <a class="text-white" href="{{ route('offers.details', $offer) }}">
-                                                تفاصيل العقار
-                                            </a>
-                                        </p>
-                                    </div>
+                                    </h3>
+                                    <p
+                                        style="background-color: #001D00; padding: 5px; color: #fff;font-weight: bold; border-radius: 5px;">
+                                        <a class="text-white" href="{{ route('offers.details', $offer) }}">
+                                            تفاصيل العقار
+                                        </a>
+                                    </p>
                                 </div>
                             </div>
                         </div>
-                    @endforeach
-                </div>
-                <div style="z-index: 1000;" class="mx-auto text-center mt-4"> <!-- أضف فئة text-center -->
-                    <a class="btn btn-dark" href="{{ route('offers') }}">عرض الكل</a>
-                </div>
+                    </div>
+                @endforeach
             </div>
-        </section>
-    @endif
-
-
+            <div style="z-index: 1000;" class="mx-auto text-center mt-4"> <!-- أضف فئة text-center -->
+                <a class="btn btn-dark" href="{{ route('offers') }}">عرض الكل</a>
+            </div>
+        </div>
+    </section>
     <section class="featured-projects p_relative sec-pad ">
         <!-- <div class="pattern-layer p_absolute t_0 r_0" style="background-image: url(/websiteassets//images/shape/shape-7.png);"></div> -->
         <div class="large-container">
@@ -225,7 +226,8 @@
                         </div>
                     </div>
                     <div class="col-lg-6 d-flex align-items-center">
-                        <img style="width: 100%; max-width: 100%;" src="{{ asset('assets/website/images/الخريطة.png') }}"
+                        <img style="width: 100%; max-width: 100%;"
+                             src="{{ asset('assets/website/images/الخريطة.png') }}"
                              alt="خريطة الممكلة">
                     </div>
                 </div>
@@ -279,7 +281,8 @@
     <!-- Testimonials -->
     @if($testimonials->count())
         <section class="testimonial-style-two p_relative sec-pad bg-color-1" style="direction: ltr;">
-            <div class="pattern-layer p_absolute" style="background-image: url({{ asset('assets/website/images/shape/shape-14.png') }});">
+            <div class="pattern-layer p_absolute"
+                 style="background-image: url({{ asset('assets/website/images/shape/shape-14.png') }});">
             </div>
             <div class="large-container">
                 <div class="sec-title centred mb_55">
@@ -291,11 +294,13 @@
                             <div class="testimonial-block-one mb_75">
                                 <div class="inner-box p_relative d_block bg_white pt_45 pr_40 pb_40 pl_40">
                                     <div class="author-box p_relative d_block pl_80 pr_80 mb_35">
-                                        <div class="quote p_absolute t_0 r_0 fs_50"><i class="fal fa-quote-right"></i></div>
+                                        <div class="quote p_absolute t_0 r_0 fs_50"><i class="fal fa-quote-right"></i>
+                                        </div>
                                         <figure class="author-thumb p_absolute l_0 t_0 w_60 h_60 b_radius_50"><img
                                                 src="{{ $testimonial->profileImageUrl() }}" alt=""></figure>
                                         <h5 class="d_block fs_18 lh_30 fw_sbold">{{ $testimonial->client_name }}</h5>
-                                        <span class="designation p_relative d_block fs_14 lh_20">{{ $testimonial->job_title }}</span>
+                                        <span
+                                            class="designation p_relative d_block fs_14 lh_20">{{ $testimonial->job_title }}</span>
                                     </div>
                                     <div class="text p_relative d_block">
                                         <p class="lh_30">{{ $testimonial->testimonial }}</p>
@@ -310,7 +315,6 @@
     @endif
 
     <!-- /Testimonials -->
-
 
 
     <section class="clients-section p_relative sec-pad centred" style="direction: ltr;">
@@ -356,7 +360,8 @@
     <section class="feature-style-two p_relative sec-pad">
         <div class="intro text-center mb-5">
             <div class="heading text-center font-weight-bold mb-3" style="color: #001D00; font-size: 40px;">لماذا
-                تختار قدرة</div>
+                تختار قدرة
+            </div>
         </div>
         <div class="large-container">
             <div class="row clearfix">
@@ -439,7 +444,8 @@
                         <div
                             class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
                             <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                <img src="{{ asset('assets/website/images/المزادات العقارية.png') }}" alt="المزادات العقارية">
+                                <img src="{{ asset('assets/website/images/المزادات العقارية.png') }}"
+                                     alt="المزادات العقارية">
                             </div>
                             <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
                                 <a href="index-3.html" class="d_iblock color_black hov_color"
@@ -475,7 +481,8 @@
                                                 <img src="{{ $blog->getThumbUrl() }}" alt="">
                                             </a>
                                         </figure>
-                                        <span class="post-date">{{ strtoupper($blog->created_at->format('d M Y')) }}</span>
+                                        <span
+                                            class="post-date">{{ strtoupper($blog->created_at->format('d M Y')) }}</span>
                                         {{--                                    <span class="post-date">23 JUN 2021</span>--}}
                                     </div>
                                     <div class="lower-content">

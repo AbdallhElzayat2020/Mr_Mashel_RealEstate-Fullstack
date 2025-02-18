@@ -21,7 +21,7 @@ class InternshipRequest extends FormRequest
             'field_of_exp' => ['required', 'string', 'max:255'],
             'education' => ['required', 'string', 'max:255'],
             'note' => ['nullable', 'string', 'max:65535'],
-            'file' => ['nullable', 'file', 'mimes:pdf,doc,docx', 'max:2048'],
+            'file' => ['nullable', 'file', 'mimes:pdf,doc,docx', 'max:5000'],
         ];
     }
 }

@@ -26,7 +26,7 @@ class StoreServiceRequest extends FormRequest
             'description.en' => ['required', 'string'],
             'features' => ['required', 'array', 'min:1'],
 
-            'file' => ['required', 'file', 'mimes:jpg,jpeg,png', 'max:1024'],
+            'file' => ['required', 'file', 'mimes:jpg,jpeg,png', 'max:2500'],
         ];
     }
 

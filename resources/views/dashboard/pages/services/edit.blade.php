@@ -21,7 +21,8 @@
                 <div class="card mb-4">
                     <div class="card-body">
 
-                        <form method="POST" action="{{ route('admin.services.update', $service) }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('admin.services.update', $service) }}"
+                              enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="col-xl-12 col-md-12">
@@ -255,7 +256,8 @@
                                             </div>
 
                                             <div>
-                                                <img class="image w-50 h-25" src="{{ $service->getImageUrl() }}"
+                                                <img style="width: 150px ; height: 150px" class="image "
+                                                     src="{{ $service->getImageUrl() }}"
                                                      alt="Blog Image">
                                             </div>
                                         </div>

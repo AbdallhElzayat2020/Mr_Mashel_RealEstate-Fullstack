@@ -13,9 +13,10 @@
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 form-column">
                     <div class="form-inner p_relative d_block ml_40 mt_8">
-                        <form action="https://azim.commonsupport.com/Amortez/contact.html" method="post">
+                        <form action="{{route('admin.mail-subscriptions.store')}}" method="post">
+                            @csrf
                             <div class="form-group p_relative d_block bg_white mr-0 p_13 b_radius_3 pr_100">
-                                <input type="email" name="Email" placeholder="البريد الالكتروني" required />
+                                <input type="email" name="email" placeholder="البريد الالكتروني" required />
                                 <button type="submit">
                                     <i class="fas fa-envelope-open"></i>
                                 </button>

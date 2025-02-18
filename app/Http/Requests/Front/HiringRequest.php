@@ -22,7 +22,7 @@ class HiringRequest extends FormRequest
             'education' => ['required', 'string', 'max:255'],
             'job_title' => ['nullable', 'string', 'max:255'],
             'note' => ['nullable', 'string', 'max:65535'],
-            'file' => ['nullable', 'file', 'mimes:pdf,doc,docx', 'max:2048'],
+            'file' => ['nullable', 'file', 'mimes:pdf,doc,docx', 'max:5000'],
         ];
     }
 }

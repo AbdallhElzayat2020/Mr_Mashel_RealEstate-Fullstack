@@ -1436,7 +1436,7 @@ img {
 
 .mobile-menu .navigation li.dropdown .dropdown-btn {
     position: absolute;
-    right: 6px;
+    left: 6px;
     top: 6px;
     width: 32px;
     height: 32px;

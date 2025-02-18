@@ -104,8 +104,8 @@
                         <div class="news-block-two">
                             <div class="inner-box">
                                 <div class="image-box">
-                                    <figure class="image">
-                                        <img src="{{ $blog->getImageUrl() }}"
+                                    <figure class="">
+                                        <img width="100%" src="{{ $blog->getImageUrl() }}"
                                                                alt="Blog_Image">
                                     </figure>
                                 </div>

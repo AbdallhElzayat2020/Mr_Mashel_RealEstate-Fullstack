@@ -33,17 +33,18 @@
 
                                 <li class="#"><a href="{{ route('blogs') }}">المدونة</a></li>
 
-                                <li class="dropdown"><a href="javascript:void(0)">التدريب والتوظيف</a>
+                                <li class="dropdown">
+                                    <a href="javascript:void(0)">التدريب والتوظيف <span class="dropdown-arrow"></span></a>
                                     <ul>
                                         <li><a href="{{ route('internship') }}">فرص التدريب</a></li>
                                         <li><a href="{{ route('apply') }}">فرص التوظيف</a></li>
-                                        <li><a href="error.html">404</a></li>
                                     </ul>
                                 </li>
+
                                 <li class="">
                                     <a href="{{ route('services') }}">خدماتنا</a>
                                 </li>
-                                <li class="dropdown">
+                                <li class="">
                                     <a href="{{ route('offers') }}">العروض العقارية</a>
                                 </li>
                                 <li class="">
@@ -71,7 +72,7 @@
             <div class="outer-box">
                 <div class="logo-box">
                     <figure class="logo">
-                        <a href="index-2.html"><img src="{{ asset('assets/website/images/LOGO_Sticky.png') }}" alt="LOGO" /></a>
+                        <a href="{{route('home')}}"><img src="{{ asset('assets/website/images/LOGO_Sticky.png') }}" alt="LOGO" /></a>
                     </figure>
                 </div>
                 <div class="menu-area clearfix">

@@ -303,7 +303,7 @@
                                             </div>
                                             <div class="row">
                                                 @foreach($offer->gallery() as $media)
-                                                    <img class="image w-50 h-25 col-4" src="{{ $media->getFullUrl() }}" alt="Offer Image">
+                                                    <img style="width: 150px; height: 150px" class="image col-4" src="{{ $media->getFullUrl() }}" alt="Offer Image">
                                                 @endforeach
                                             </div>
                                         </div>
