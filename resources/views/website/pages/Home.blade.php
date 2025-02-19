@@ -15,10 +15,9 @@
 
 <!-- page wrapper -->
 
-<body>
+<body class="{{ app()->getLocale() }}">
 
 <div class="boxed_wrapper">
-
 
     <!-- preloader -->
     <div class="loader-wrap">
@@ -70,7 +69,7 @@
 
     <!-- banner-section -->
     <section class="page-title p_relative pt_250 pb_170 centred"
-             style="background-image: url({{asset('assets/website/images/banner/Home_2.png')}});background-position: center; height: 620px;">
+             style="background-image: url({{asset('assets/website/images/banner/Home_2.png')}});background-position: center; height: 650px;">
         <div class="bg-layer p_absolute r_100 t_0">
         </div>
         <div class="large-container">
@@ -93,12 +92,12 @@
                         <div class="content-box p_relative d_block">
                             <div class="sec-title mb_45">
                                 <div class="icon-box p_relative d_block fs_14 lh_20 mb_10"
-                                     style="text-align: right;">
+                                     style="text-align: {{ app()->getLocale() === 'ar' ? 'right' : 'left' }};">
                                     <img src="{{ asset('assets/website/images/LOGO.png') }}" alt="LOGO"
                                          style="display: inline-block;">
                                 </div>
                                 <h2 class="p_relative d_block fs_20 lh_60 fw_bold mt-4"
-                                    style="color: #526652; text-align: start;">
+                                    style="color: #526652; text-align: {{ app()->getLocale() === 'ar' ? 'right' : 'left' }};">
                                     إنطلقت <span style="color: #c19c6e">“ قدرة العقارية”</span> في عام 2021 لتقديم
                                     مجموعة واسعة من الخدمات
                                     العقارية
@@ -161,7 +160,7 @@
     @endif
     <!-- /Services -->
 
-    <section class="featured-projects p_relative sec-pad bg-color-3" style="direction: ltr;">
+    <section class="featured-projects p_relative sec-pad bg-color-3">
         <div class="large-container">
             <div class="sec-title mb_55 centred">
                 <h2 style="color: #001D00;" class="p_relative d_block fs_40 lh_60 mb-2 fw_exbold">العروض العقارية
@@ -188,12 +187,12 @@
                                     word-wrap: break-word;
                                     overflow-wrap: break-word;
                                     white-space: normal;">
-                                        {!! $service->description !!}
+                                        {!! $offer->description !!}
                                     </p>
                                     <h3>
                                         <a href="{{ route('offers.details', $offer) }}">{{ $offer->price }} ريال
-                                            / {{ $offer->price_type->label() }}</a>
-
+                                            / {{ $offer->price_type->label() }}
+                                        </a>
                                     </h3>
                                     <p
                                         style="background-color: #001D00; padding: 5px; color: #fff;font-weight: bold; border-radius: 5px;">
@@ -218,13 +217,14 @@
             <div class="sec-title mb_55 centred">
                 <h2 style="color: #001D00;" class="p_relative d_block fs_40 lh_60 mb-2 fw_exbold">فروعنا</h2>
             </div>
+
             <div class="container">
                 <div class="row">
 
                     <div class="col-lg-6 d-flex align-items-center">
                         <div class="text">
                             <h2 style="color: #001D00; text-align: right;"
-                                class="p_relative d_block fs_50 lh_60 mb-2 fw_sbold">نخدمكم في</h2>
+                                class="p_relative d_block fs_50 lh_60 mb-5 fw_sbold">نخدمكم في</h2>
                             <p style="font-size: 30px; line-height: 1.8; color: #526652;">ونطمح لخدمتكم في جميع</p>
                             <p style="font-size: 30px; line-height: 1.8; color: #526652;">أنحاء السعودية عن قريب</p>
                         </div>
@@ -239,7 +239,8 @@
         </div>
     </section>
 
-    <section class="clients-section p_relative sec-pad centred" style="direction: ltr;">
+    <section class="clients-section p_relative sec-pad centred"
+             style="direction: {{ app()->getLocale() === 'ar' ? 'ltr' : 'ltr' }};">
         <div class="large-container">
             <div class="sec-title mb_30">
                 <h2 class="p_relative d_block fs_42 lh_52 mb_45 fw_exbold" style="color: #001D00;">شركاء النجاح</h2>
@@ -276,15 +277,13 @@
                                 src="{{ asset('assets/website/images/clients/clients-6.png') }}" alt=""></a></figure>
                 </li>
             </ul>
-            <div class="more-text p_relative d_block mt_10">
-                <p>ثقة عملائنا ورضاهم من اهم اهدافنا </p>
-            </div>
         </div>
     </section>
 
     <!-- Testimonials -->
     @if($testimonials->count())
-        <section class="testimonial-style-two p_relative sec-pad bg-color-1" style="direction: ltr;">
+        <section class="testimonial-style-two p_relative sec-pad bg-color-1"
+                 style="direction: {{ app()->getLocale() === 'ar' ? 'ltr' : 'ltr' }};">
             <div class="pattern-layer p_absolute"
                  style="background-image: url({{ asset('assets/website/images/shape/shape-14.png') }});">
             </div>
@@ -321,7 +320,8 @@
     <!-- /Testimonials -->
 
 
-    <section class="clients-section p_relative sec-pad centred" style="direction: ltr;">
+    <section class="clients-section p_relative sec-pad centred"
+             style="direction: {{ app()->getLocale() === 'ar' ? 'rtl' : 'ltr' }};">
         <div class="large-container">
             <div class="sec-title mb_30">
                 <h2 class="p_relative d_block fs_42 lh_52 mb_45 fw_exbold" style="color: #001D00;">عملاء يثقون بنا

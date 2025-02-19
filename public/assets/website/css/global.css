@@ -841,19 +841,6 @@ img {
     background-color: #1e2434;
 }
 
-.main-header .search-panel .search-btn {
-    position: absolute;
-    right: 1px;
-    top: 1px;
-    width: 50px;
-    height: 48px;
-    text-align: center;
-    color: #fff;
-    background: transparent;
-    font-size: 14px;
-    border-radius: 0px 3px 3px 0px;
-    cursor: pointer;
-}
 
 .dropdown-toggle::after {
     display: none;
@@ -1390,9 +1377,6 @@ img {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.header-style-three .menu-area .mobile-nav-toggler .icon-bar {
-    background: #222;
-}
 
 .mobile-menu .navigation li > a {
     position: relative;
@@ -1534,180 +1518,14 @@ div#mCSB_1_container {
     position: relative;
 }
 
-/** header-style-two **/
-
-.header-style-two {
-    background: #122243;
+.rtl-nav {
+    direction: rtl;
+    text-align: right;
+}
+.rtl-logo {
+    float: right; /* اجعل الشعار في جهة اليمين */
 }
 
-.header-top {
-    position: relative;
-    width: 100%;
-    background: #fff;
-    padding: 15px 0px;
-}
-
-.header-top .info li {
-    position: relative;
-    display: inline-block;
-    float: left;
-    margin-right: 40px;
-    padding-left: 30px;
-    font-size: 16px;
-    color: #222;
-    font-weight: 600;
-}
-
-.header-top .info li:last-child {
-    margin-right: 0px;
-}
-
-.header-top .info li i {
-    position: absolute;
-    left: 0px;
-    top: 7px;
-    font-size: 18px;
-}
-
-.header-top .info li a {
-    color: #222;
-    font-weight: 800;
-}
-
-.header-top .info li a:hover {
-}
-
-.header-top .social-links li {
-    position: relative;
-    display: inline-block;
-    float: left;
-    margin-right: 20px;
-}
-
-.header-top .social-links li:last-child {
-    margin: 0px !important;
-}
-
-.header-top .social-links li a {
-    position: relative;
-    display: inline-block;
-    font-size: 16px;
-    color: #192e5c;
-    width: 25px;
-    height: 25px;
-    line-height: 25px;
-    text-align: center;
-    border-radius: 50%;
-}
-
-.header-top .social-links li a:hover {
-    color: #fff;
-}
-
-.header-style-two .main-menu {
-    float: left;
-    margin-right: 45px;
-}
-
-.header-style-two .inner-container .nav-right {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 46px 0px;
-}
-
-.header-style-two .nav-right li {
-    position: relative;
-    display: inline-block;
-    float: left;
-}
-
-.header-style-two .nav-right .search-box-outer {
-    margin-right: 55px;
-}
-
-.header-style-two .inner-container .main-menu .navigation > li {
-    padding-top: 19px;
-    padding-bottom: 30px;
-}
-
-.header-style-two .inner-container .logo-box {
-    padding: 52px 0px;
-}
-
-.header-style-two:before {
-    position: absolute;
-    content: "";
-    background: #192e5c;
-    width: 127px;
-    height: 100%;
-    left: 0px;
-    bottom: 0px;
-    z-index: 1;
-    clip-path: polygon(0% 0%, 100% 0%, 0% 100%, 0% 100%, 0% 0%);
-}
-
-.header-style-two .sticky-header .main-menu .navigation > li > a {
-    color: #fff;
-}
-
-.header-style-two .sticky-header .support-box .icon-box {
-}
-
-.header-style-two .sticky-header .support-box h3 a:hover {
-    color: #fff;
-    text-decoration: underline;
-}
-
-/** header-style-three **/
-
-.header-style-three .header-lower .main-menu .navigation > li > a {
-    color: #222222;
-}
-
-.header-style-three .header-lower .support-box span {
-    color: #222;
-}
-
-.header-style-three .header-lower .support-box h3 a {
-    color: #333;
-}
-
-.header-style-three .header-lower .nav-right {
-    display: flex;
-    align-items: center;
-}
-
-.header-style-three .header-lower .nav-right .support-box {
-    margin-right: 50px;
-}
-
-.header-style-three .header-lower {
-    padding: 0px 80px;
-}
-
-.header-style-three .header-lower .logo-box,
-.header-style-three .header-lower .main-menu {
-    float: left;
-}
-
-.header-style-three .header-lower .logo-box {
-    margin-right: 100px;
-}
-
-.header-style-three .header-lower .logo-box {
-    position: relative;
-    padding: 36px 0px 35px 0px;
-}
-
-.header-style-three .header-lower .main-menu .navigation > li > a {
-    padding: 44px 0px 43px 0px;
-}
-
-.header-style-three .header-lower .nav-right {
-    padding-left: 50px;
-    border-left: 1px solid #dddddd;
-}
 
 /** main-footer **/
 

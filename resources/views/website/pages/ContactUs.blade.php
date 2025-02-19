@@ -77,6 +77,7 @@
     <section class="page-title p_relative pt_250 pb_170 centred" style="
           background-image: url('{{asset('assets/website/images/banner/Home_2.png')}}');
           background-position: center;
+          height: 650px;
         ">
         <div class="bg-layer p_absolute r_100 t_0"></div>
         <div class="large-container">

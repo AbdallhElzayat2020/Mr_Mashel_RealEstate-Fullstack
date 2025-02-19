@@ -12,5 +12,7 @@
 <script src="{{ asset('assets/website/js/jquery.paroller.min.js') }}"></script>
 <script src="{{ asset('assets/website/js/jquery.nice-select.min.js') }}"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 <!-- main-js -->
 <script src="{{ asset('assets/website/js/script.js') }}"></script>
