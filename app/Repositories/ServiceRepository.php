@@ -48,6 +48,10 @@ class ServiceRepository implements ServiceRepositoryInterface
             if (request()->hasFile('file')) {
                 $service->addMediaFromRequest('file')->toMediaCollection('image');
             }
+
+            if (request()->hasFile('icon')) {
+                $service->addMediaFromRequest('icon')->toMediaCollection('icon');
+            }
         });
     }
 
@@ -71,6 +75,10 @@ class ServiceRepository implements ServiceRepositoryInterface
 
             if (request()->hasFile('file')) {
                 $service->addMediaFromRequest('file')->toMediaCollection('image');
+            }
+
+            if (request()->hasFile('icon')) {
+                $service->addMediaFromRequest('icon')->toMediaCollection('icon');
             }
         });
     }

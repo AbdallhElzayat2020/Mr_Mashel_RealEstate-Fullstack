@@ -88,7 +88,7 @@
                     </li>
                     <li class="breadcrumb-item" style="color: green; text-decoration: none; font-weight: bold;"
                         aria-current="page">
-                        اسم الخدمة
+                        {{ $service->title }}
                     </li>
                 </ol>
             </nav>

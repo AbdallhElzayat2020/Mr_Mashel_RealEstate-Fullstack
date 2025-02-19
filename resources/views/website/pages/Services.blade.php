@@ -107,7 +107,7 @@
                             <div
                                 class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
                                 <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                    <img src="{{ $service->getThumbUrl() }}" alt="service_image">
+                                    <img src="{{ $service->getIconUrl() }}" alt="service_image">
                                 </div>
                                 <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
                                     <a href="{{ route('service.details', $service) }}" class="d_iblock color_black hov_color"
