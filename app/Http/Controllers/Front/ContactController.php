@@ -22,6 +22,6 @@ class ContactController extends Controller
     {
         $this->contactRepository->create($request->validated());
 
-        return to_route('contact');
+        return to_route('contact')->with('message', 'Your message has been sent.');
     }
 }
