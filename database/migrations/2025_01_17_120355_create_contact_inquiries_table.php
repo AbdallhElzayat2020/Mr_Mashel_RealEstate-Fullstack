@@ -12,10 +12,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('phone');
-            $table->string('offer_type');
-            $table->string('education');
-            $table->string('job_title')->nullable();
             $table->foreignId('service_id')->nullable()->constrained()->nullOnDelete();
+            $table->string('offer_type');
             $table->text('message');
             $table->timestamps();
         });
