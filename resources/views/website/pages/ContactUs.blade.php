@@ -99,6 +99,12 @@
         </div>
     @endif
 
+    @session('message')
+    <div x-data x-init="setTimeout(_=> $el.remove(), 5000)" class="alert alert-success mt-2" role="alert">
+        <span>{{ $value }}</span>
+    </div>
+    @endsession
+
     <!-- contact-style-three -->
     <section class="contact-style-three p_relative pt_110 pb_120" style="direction: rtl">
         <div class="large-container">
