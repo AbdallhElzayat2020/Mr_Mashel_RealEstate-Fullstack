@@ -77,7 +77,8 @@
                                     <div class="tab-content shadow-none">
                                         <div class="tab-pane fade show active" id="navs-pills-top-home" role="tabpanel">
                                             <div class="my-3 col-12 col-md-6">
-                                                <label for="defaultFormControlInput" class="form-label">إسم الخدمه</label>
+                                                <label for="defaultFormControlInput" class="form-label">إسم
+                                                    الخدمه</label>
                                                 <input type="text" name="title[ar]" class="form-control"
                                                        id="title_ar" placeholder="إسم الخدمه"
                                                        value="{{ old('title.ar') }}"
@@ -87,7 +88,8 @@
 
                                             <div class="form-group my-3">
                                                 <label for="short_description_ar" class="form-label">وصف مختصر</label>
-                                                <textarea class="form-control" name="short_description[ar]" id="short_description_ar"
+                                                <textarea class="form-control" name="short_description[ar]"
+                                                          id="short_description_ar"
                                                           cols="30"
                                                           rows="5">{{ old('short_description.ar') }}</textarea>
                                                 <x-input-error class="mt-2" :messages="$errors->get('short_description.ar')" />
@@ -95,7 +97,8 @@
 
                                             <div class="form-group">
                                                 <label for="description_ar" class="form-label">تفاصيل الخدمه</label>
-                                                <textarea class="form-control" name="description[ar]" id="description_ar"
+                                                <textarea class="form-control" name="description[ar]"
+                                                          id="description_ar"
                                                           cols="30"
                                                           rows="10">{{ old('description.ar') }}</textarea>
                                                 <x-input-error class="mt-2" :messages="$errors->get('description.ar')" />
@@ -131,13 +134,17 @@
                                                                                aria-describedby="feature text"/>
                                                                     </td>
                                                                     <td style="width: 25px">
-                                                                        <button class="btn btn-danger" type="button" @click="features.splice(index, 1)">حذف</button>
+                                                                        <button class="btn btn-danger" type="button"
+                                                                                @click="features.splice(index, 1)">حذف
+                                                                        </button>
                                                                     </td>
                                                                 </tr>
                                                             </template>
                                                             </tbody>
                                                         </table>
-                                                        <button @click="features.push({})" type="button" class="btn btn-success mt-3">إضافه ميزه</button>
+                                                        <button @click="features.push({})" type="button"
+                                                                class="btn btn-success mt-3">إضافه ميزه
+                                                        </button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -154,7 +161,8 @@
 
                                             <div class="form-group my-3">
                                                 <label for="short_description_en" class="form-label">وصف مختصر</label>
-                                                <textarea class="form-control" name="short_description[en]" id="short_description_en"
+                                                <textarea class="form-control" name="short_description[en]"
+                                                          id="short_description_en"
                                                           cols="30"
                                                           rows="5">{{ old('short_description.en') }}</textarea>
                                                 <x-input-error class="mt-2" :messages="$errors->get('short_description.en')" />
@@ -162,7 +170,8 @@
 
                                             <div class="form-group">
                                                 <label for="description_en" class="form-label">تفاصيل الخدمه</label>
-                                                <textarea class="form-control" name="description[en]" id="description_en"
+                                                <textarea class="form-control" name="description[en]"
+                                                          id="description_en"
                                                           cols="30"
                                                           rows="10">{{ old('description.en') }}</textarea>
                                                 <x-input-error class="mt-2" :messages="$errors->get('description.en')" />
@@ -196,13 +205,17 @@
                                                                                aria-describedby="feature text"/>
                                                                     </td>
                                                                     <td style="width: 25px">
-                                                                        <button class="btn btn-danger" type="button" @click="features.splice(index, 1)">حذف</button>
+                                                                        <button class="btn btn-danger" type="button"
+                                                                                @click="features.splice(index, 1)">حذف
+                                                                        </button>
                                                                     </td>
                                                                 </tr>
                                                             </template>
                                                             </tbody>
                                                         </table>
-                                                        <button @click="features.push({})" type="button" class="btn btn-success mt-3">إضافه ميزه</button>
+                                                        <button @click="features.push({})" type="button"
+                                                                class="btn btn-success mt-3">إضافه ميزه
+                                                        </button>
                                                     </div>
                                                 </div>
                                             </div>

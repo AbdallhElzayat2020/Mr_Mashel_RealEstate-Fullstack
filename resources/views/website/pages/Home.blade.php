@@ -321,7 +321,7 @@
 
 
     <section class="clients-section p_relative sec-pad centred"
-             style="direction: {{ app()->getLocale() === 'ar' ? 'rtl' : 'ltr' }};">
+             style="direction: {{ app()->getLocale() === 'ar' ? 'ltr' : 'ltr' }};">
         <div class="large-container">
             <div class="sec-title mb_30">
                 <h2 class="p_relative d_block fs_42 lh_52 mb_45 fw_exbold" style="color: #001D00;">عملاء يثقون بنا

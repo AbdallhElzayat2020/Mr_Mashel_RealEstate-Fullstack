@@ -19,26 +19,7 @@
 
                     <nav class="main-menu navbar-expand-md navbar-light">
                         <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
-
-                            {{--                            <ul class="navigation clearfix {{ app()->getLocale() === 'ar' ? 'rtl-nav' : 'ltr-nav' }}">--}}
-                            {{--                                <li class="#"><a href="{{ route('contact') }}">تواصل معنا</a></li>--}}
-                            {{--                                <li class="#"><a href="{{ route('blogs') }}">المدونة</a></li>--}}
-                            {{--                                <li class="nav-item dropdown">--}}
-                            {{--                                    <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarDropdown"--}}
-                            {{--                                       role="button" data-bs-toggle="dropdown" aria-expanded="false">--}}
-                            {{--                                        التدريب والتوظيف <i class="fas fa-chevron-down"></i>--}}
-                            {{--                                    </a>--}}
-                            {{--                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">--}}
-                            {{--                                        <li><a class="dropdown-item" href="{{ route('internship') }}">فرص التدريب</a></li>--}}
-                            {{--                                        <li><a class="dropdown-item" href="{{ route('apply') }}">فرص التوظيف</a></li>--}}
-                            {{--                                    </ul>--}}
-                            {{--                                </li>--}}
-                            {{--                                <li><a href="{{ route('services') }}">خدماتنا</a></li>--}}
-                            {{--                                <li><a href="{{ route('offers') }}">العروض العقارية</a></li>--}}
-                            {{--                                <li><a href="{{ route('about') }}">من نحن</a></li>--}}
-                            {{--                            </ul>--}}
-
-                            @if(app()->getLocale() == 'ar')
+                            @if(app()->getLocale() === 'ar')
                                 <ul class="navigation clearfix">
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
