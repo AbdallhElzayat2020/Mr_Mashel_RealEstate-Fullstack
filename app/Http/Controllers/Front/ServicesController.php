@@ -27,8 +27,14 @@ class ServicesController extends Controller
             abort(404);
         }
 
-        $service->loadMissing(['media']);
+        $service->loadMissing(['media', 'features']);
 
-        return view('website.pages.Services-details', compact('service'));
+        $all_services = Service::active()->latest()->get(['id', 'title']);
+
+        $other_services = $all_services->where('id', '!=', $service->id);
+
+        $testimonials = Testimonial::active()->latest()->get();
+
+        return view('website.pages.Services-details', compact('service', 'all_services', 'other_services', 'testimonials'));
     }
 }
