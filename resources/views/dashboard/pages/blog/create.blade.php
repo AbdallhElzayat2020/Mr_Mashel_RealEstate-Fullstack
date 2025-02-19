@@ -31,7 +31,7 @@
                                            type="checkbox"
                                            id="blog">
                                     <label class="form-check-label" for="blog">حاله المقاله</label>
-                                    <x-input-error class="mt-2" :messages="$errors->get('status')" />
+                                    <x-input-error class="mt-2" :messages="$errors->get('status')"/>
                                 </div>
 
                                 <div class="nav-align-top mb-4 shadow-none">
@@ -39,16 +39,16 @@
                                         <li class="nav-item">
                                             <button type="button" class="nav-link active" role="tab"
                                                     data-bs-toggle="tab"
-                                                    data-bs-target="#ar-data"
-                                                    aria-controls="ar-data"
+                                                    data-bs-target="#navs-pills-top-home"
+                                                    aria-controls="navs-pills-top-home"
                                                     aria-selected="true">
                                                 العربيه
                                             </button>
                                         </li>
                                         <li class="nav-item">
                                             <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
-                                                    data-bs-target="#en-data"
-                                                    aria-controls="en-data"
+                                                    data-bs-target="#navs-pills-top-profile"
+                                                    aria-controls="navs-pills-top-profile"
                                                     aria-selected="false">
                                                 الإنجليزيه
                                             </button>
@@ -63,7 +63,7 @@
                                         </li>
                                     </ul>
                                     <div class="tab-content shadow-none">
-                                        <div class="tab-pane fade show active" id="ar-data" role="tabpanel">
+                                        <div class="tab-pane fade show active" id="navs-pills-top-home" role="tabpanel">
                                             <div class="my-3">
                                                 <label for="defaultFormControlInput" class="form-label">عنوان
                                                     المقاله</label>
@@ -71,14 +71,14 @@
                                                        id="defaultFormControlInput" placeholder="عنوان المقاله"
                                                        value="{{ old('title.ar') }}"
                                                        aria-describedby="defaultFormControlHelp"/>
-                                                <x-input-error class="mt-2" :messages="$errors->get('title.ar')" />
+                                                <x-input-error class="mt-2" :messages="$errors->get('title.ar')"/>
                                             </div>
                                             <div class="form-group my-3">
                                                 <label for="excerpt_ar" class="form-label">المقتطفات</label>
                                                 <textarea class="form-control" name="excerpt[ar]" id="excerpt_ar"
                                                           cols="30"
                                                           rows="5">{{ old('excerpt.ar') }}</textarea>
-                                                <x-input-error class="mt-2" :messages="$errors->get('excerpt.ar')" />
+                                                <x-input-error class="mt-2" :messages="$errors->get('excerpt.ar')"/>
                                             </div>
 
                                             <div class="form-group">
@@ -86,10 +86,10 @@
                                                 <textarea class="form-control" name="content[ar]" id="content_ar"
                                                           cols="30"
                                                           rows="10">{{ old('content.ar') }}</textarea>
-                                                <x-input-error class="mt-2" :messages="$errors->get('content.ar')" />
+                                                <x-input-error class="mt-2" :messages="$errors->get('content.ar')"/>
                                             </div>
                                         </div>
-                                        <div class="tab-pane fade" id="en-data" role="tabpanel">
+                                        <div class="tab-pane fade" id="navs-pills-top-profile" role="tabpanel">
                                             <div class="my-3">
                                                 <label for="defaultFormControlInput" class="form-label">عنوان
                                                     المقاله</label>
@@ -97,7 +97,7 @@
                                                        value="{{ old('title.en') }}"
                                                        id="defaultFormControlInput" placeholder="عنوان المقاله"
                                                        aria-describedby="defaultFormControlHelp"/>
-                                                <x-input-error class="mt-2" :messages="$errors->get('title.en')" />
+                                                <x-input-error class="mt-2" :messages="$errors->get('title.en')"/>
                                             </div>
 
                                             <div class="form-group my-3">
@@ -105,7 +105,7 @@
                                                 <textarea class="form-control" name="excerpt[en]" id="excerpt_en"
                                                           cols="30"
                                                           rows="5">{{ old('excerpt.en') }}</textarea>
-                                                <x-input-error class="mt-2" :messages="$errors->get('excerpt.en')" />
+                                                <x-input-error class="mt-2" :messages="$errors->get('excerpt.en')"/>
                                             </div>
 
                                             <div class="form-group">
@@ -113,18 +113,18 @@
                                                 <textarea class="form-control" name="content[en]" id="content_en"
                                                           cols="30"
                                                           rows="10">{{ old('content.en') }}</textarea>
-                                                <x-input-error class="mt-2" :messages="$errors->get('content.en')" />
+                                                <x-input-error class="mt-2" :messages="$errors->get('content.en')"/>
                                             </div>
                                         </div>
 
                                         <div class="tab-pane fade" id="media-data" role="tabpanel">
-                                            <div class="my-3">
+                                            <div class="my-3 col-12 col-md-6 mb-4">
                                                 <label for="file_input" class="form-label">
-                                                    الصوره ( بمقاس 450 * 800 )</label>
+                                                    الصوره ( بمقاس 800 * 450 )</label>
                                                 <input type="file" name="file" class="form-control"
                                                        id="file_input"
                                                        aria-describedby="File input"/>
-                                                <x-input-error class="mt-2" :messages="$errors->get('file')" />
+                                                <x-input-error class="mt-2" :messages="$errors->get('file')"/>
                                             </div>
                                         </div>
                                     </div>
@@ -138,7 +138,6 @@
                         </form>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

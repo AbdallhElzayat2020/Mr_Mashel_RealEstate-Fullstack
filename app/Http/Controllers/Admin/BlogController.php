@@ -43,8 +43,6 @@ class BlogController extends Controller
             toast('حدث خطأ جرب لاحقا', 'error');
         }
 
-        $this->blogRepository->create($request->validated());
-
         return to_route('admin.blogs.index');
     }
 

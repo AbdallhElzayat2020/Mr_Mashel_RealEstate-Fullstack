@@ -42,12 +42,15 @@ class BlogRepository implements BlogRepositoryInterface
 
     public function update(Blog $blog, array $data)
     {
-        $blog->update($data);
+        DB::transaction(function () use ($data, $blog) {
+            $blog->update($data);
 
-        if (request()->hasFile('file')) {
-            $blog->addMediaFromRequest('file')
-                ->toMediaCollection('image');
-        }
+            if (request()->hasFile('file')) {
+                $blog->addMediaFromRequest('file')
+                    ->toMediaCollection('image');
+            }
+
+        });
     }
 
     public function delete(Blog $blog)
