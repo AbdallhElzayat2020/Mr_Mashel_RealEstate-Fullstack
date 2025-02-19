@@ -58,6 +58,17 @@ class PermissionsSeeder extends Seeder
             ['name' => 'view-mail-subscriptions', 'display_name' => 'عرض اشتراكات البريد الإلكتروني', 'guard_name' => 'web', 'created_at' => now(), 'updated_at' => now()],
             ['name' => 'delete-mail-subscriptions', 'display_name' => 'حذف اشتراكات البريد الإلكتروني', 'guard_name' => 'web', 'created_at' => now(), 'updated_at' => now()],
 
+            // Partners
+            ['name' => 'create-partners', 'display_name' => 'إنشاء الشركاء', 'guard_name' => 'web', 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'view-partners', 'display_name' => 'عرض الشركاء', 'guard_name' => 'web', 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'update-partners', 'display_name' => 'تحديث الشركاء', 'guard_name' => 'web', 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'delete-partners', 'display_name' => 'حذف الشركاء', 'guard_name' => 'web', 'created_at' => now(), 'updated_at' => now()],
+
+            // Clients
+            ['name' => 'create-clients', 'display_name' => 'إنشاء الشركاء', 'guard_name' => 'web', 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'view-clients', 'display_name' => 'عرض الشركاء', 'guard_name' => 'web', 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'update-clients', 'display_name' => 'تحديث الشركاء', 'guard_name' => 'web', 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'delete-clients', 'display_name' => 'حذف الشركاء', 'guard_name' => 'web', 'created_at' => now(), 'updated_at' => now()],
         ];
 
         DB::table('permissions')->insert($permissions);

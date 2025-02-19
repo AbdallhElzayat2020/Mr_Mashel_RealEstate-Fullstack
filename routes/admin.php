@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\DashboardHomeController;
 use App\Http\Controllers\Admin\MailSubscriptionController;
 use App\Http\Controllers\Admin\OfferController;
 use App\Http\Controllers\Admin\OpportunityController;
+use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\TestimonialController;
@@ -41,6 +43,12 @@ Route::middleware(['auth', 'check-status', 'force-ar'])->group(function () {
 
     // ##################### Roles Management Routes ###########################
     Route::resource('roles', RoleController::class);
+
+    // ##################### Partners Management Routes ###########################
+    Route::resource('partners', PartnerController::class);
+
+    // ##################### Clients Management Routes ###########################
+    Route::resource('clients', ClientController::class);
 
     // ##################### Mail-Subscriptions Management Routes ###########################
     Route::prefix('mail-subscriptions')->as('mail-subscriptions.')

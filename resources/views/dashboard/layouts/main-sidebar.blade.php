@@ -105,6 +105,24 @@
             </li>
         @endcan
 
+        @can('view-partners')
+            <li class="menu-item {{ request()->routeIs('admin.partners.*') ? 'active' : '' }}">
+                <a href="{{route('admin.partners.index')}}" class="menu-link">
+                    <i class="menu-icon tf-icons ti ti-mail"></i>
+                    <div data-i18n="Home">الشركاء</div>
+                </a>
+            </li>
+        @endcan
+
+        @can('view-partners')
+            <li class="menu-item {{ request()->routeIs('admin.clients.*') ? 'active' : '' }}">
+                <a href="{{route('admin.clients.index')}}" class="menu-link">
+                    <i class="menu-icon tf-icons ti ti-mail"></i>
+                    <div data-i18n="Home">العملاء</div>
+                </a>
+            </li>
+        @endcan
+
         @can('view-opportunities')
             <li class="menu-item {{ request()->routeIs('admin.opportunities.*') ? 'active' : '' }}">
                 <a href="{{route('admin.opportunities.index')}}" class="menu-link">
