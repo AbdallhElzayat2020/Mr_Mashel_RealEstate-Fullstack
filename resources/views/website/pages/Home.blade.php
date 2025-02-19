@@ -140,7 +140,8 @@
                                 <div
                                     class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
                                     <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                        <img style=" width: 100px; height: 100px" src="{{ $service->getImageUrl() }}" alt="{{ $service->title }}">
+                                        <img style=" width: 100px; height: 100px" src="{{ $service->getImageUrl() }}"
+                                             alt="{{ $service->title }}">
                                     </div>
                                     <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
                                         <a href="{{ route('service.details', $service) }}"
@@ -183,8 +184,11 @@
                                     <h3>
                                         <a href="{{ route('offers.details', $offer) }}">{!! $offer->short_title !!}</a>
                                     </h3>
-                                    <p>
-                                        {!! $offer->short_description !!}
+                                    <p style="
+                                    word-wrap: break-word;
+                                    overflow-wrap: break-word;
+                                    white-space: normal;">
+                                        {!! $service->description !!}
                                     </p>
                                     <h3>
                                         <a href="{{ route('offers.details', $offer) }}">{{ $offer->price }} ريال

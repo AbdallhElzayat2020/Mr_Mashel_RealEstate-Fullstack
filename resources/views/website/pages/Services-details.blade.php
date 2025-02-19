@@ -109,7 +109,8 @@
                             @foreach($other_services as  $other_service)
                                 <li
                                     style="background-color: #F9F9F9; padding: 5px; font-weight: 400; margin-top: 10px;">
-                                    <a style="color: #112e11;" href="{{ route('service.details', $other_service) }}">{{ $other_service->title }}</a>
+                                    <a style="color: #112e11;"
+                                       href="{{ route('service.details', $other_service) }}">{{ $other_service->title }}</a>
                                 </li>
                             @endforeach
                         </ul>
@@ -156,7 +157,11 @@
                                         الخدمة</h3>
                                     <div class="text"
                                          style="text-align: start; padding: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 10px;">
-                                        <p>{!! $service->description !!}</p>
+
+                                        <p style="word-wrap: break-word; overflow-wrap: break-word; white-space: normal;">
+                                            {!! $service->description !!}
+                                        </p>
+
                                     </div>
                                     <div class="features mt-3" style="text-align: start; margin-bottom: 15px;">
                                         <div class="text">
@@ -195,12 +200,14 @@
                             <div class="testimonial-block-one mb_75">
                                 <div class="inner-box p_relative d_block bg_white pt_45 pr_40 pb_40 pl_40">
                                     <div class="author-box p_relative d_block pl_80 pr_80 mb_35">
-                                        <div class="quote p_absolute t_0 r_0 fs_50"><i class="fal fa-quote-right"></i></div>
+                                        <div class="quote p_absolute t_0 r_0 fs_50"><i class="fal fa-quote-right"></i>
+                                        </div>
                                         <figure class="author-thumb p_absolute l_0 t_0 w_60 h_60 b_radius_50"><img
                                                 src="{{ $testimonial->profileImageUrl() }}" alt="">
                                         </figure>
                                         <h5 class="d_block fs_18 lh_30 fw_sbold">{{ $testimonial->client_name }}</h5>
-                                        <span class="designation p_relative d_block fs_14 lh_20">{{ $testimonial->job_title }}</span>
+                                        <span
+                                            class="designation p_relative d_block fs_14 lh_20">{{ $testimonial->job_title }}</span>
                                     </div>
                                     <div class="text p_relative d_block">
                                         <p class="lh_30">{{ $testimonial->testimonial }}</p>
@@ -266,14 +273,15 @@
                 <div
                     class="col-lg-9 d-flex align-items-center justify-content-center col-md-12 col-sm-12 form-column">
                     <div class="form-inner d-flex align-items-center justify-content-center">
-                        <form method="post" action="{{ route('contact.store') }}" id="contact-form" class="default-form">
+                        <form method="post" action="{{ route('contact.store') }}" id="contact-form"
+                              class="default-form">
                             @csrf
                             <div class="row clearfix">
                                 <div class="col-lg-6 col-md-12 col-sm-12 form-group mb_20">
-                                    <input type="text" name="name" placeholder="الاسم الكامل" required="" />
+                                    <input type="text" name="name" placeholder="الاسم الكامل" required=""/>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 form-group mb_20">
-                                    <input type="text" name="phone" required="" placeholder="رقم الهاتف" />
+                                    <input type="text" name="phone" required="" placeholder="رقم الهاتف"/>
                                 </div>
                                 <div class="col-lg-6 col-md-12 col-sm-12 form-group">
                                     <div class="select-box">
@@ -292,7 +300,8 @@
                                         <select class="wide" name="offer_type">
                                             <option data-display="نوع العقار">نوع العقار</option>
                                             @foreach(\App\Enums\OfferType::cases() as $offerType)
-                                                <option value="{{ $offerType->value }}">{{ $offerType->label() }}</option>
+                                                <option
+                                                    value="{{ $offerType->value }}">{{ $offerType->label() }}</option>
                                             @endforeach
                                         </select>
                                     </div>
