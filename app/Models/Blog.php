@@ -17,6 +17,7 @@ class Blog extends Model implements HasMedia
     use HasFactory, HasTranslations, InteractsWithMedia;
 
     protected $fillable = [
+        'slug',
         'title',
         'user_id',
         'content',

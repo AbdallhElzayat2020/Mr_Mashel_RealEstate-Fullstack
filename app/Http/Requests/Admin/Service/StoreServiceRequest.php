@@ -27,6 +27,7 @@ class StoreServiceRequest extends FormRequest
             'features' => ['required', 'array', 'min:1'],
 
             'file' => ['required', 'file', 'mimes:jpg,jpeg,png', 'max:2500'],
+            'icon' => ['required', 'file', 'mimes:jpg,jpeg,png', 'max:2500'],
         ];
     }
 

@@ -246,20 +246,38 @@
                                             </div>
                                         </div>
                                         <div class="tab-pane fade" id="media-data" role="tabpanel">
+
                                             <div class="my-3 col-12 col-md-6 mb-4">
+                                                <label for="icon_input" class="form-label">
+                                                    صورة مصغرة ( بمقاس 100 * 100 )</label>
+                                                <input type="file" name="icon" class="form-control"
+                                                       id="icon_input"
+                                                       aria-describedby="Icon input"/>
+                                                <x-input-error class="mt-2" :messages="$errors->get('icon')"/>
+                                            </div>
+
+                                            <div>
+                                                <img style="width: 150px ; height: 150px" class="image "
+                                                     src="{{ $service->getIconUrl() }}"
+                                                     alt="Service Icon">
+                                            </div>
+
+                                            <div class="my-3 col-12 col-md-6">
                                                 <label for="file_input" class="form-label">
-                                                    الصوره ( بمقاس 100 * 100 )</label>
+                                                    صورة الخدمة</label>
                                                 <input type="file" name="file" class="form-control"
                                                        id="file_input"
                                                        aria-describedby="File input"/>
-                                                <x-input-error class="mt-2" :messages="$errors->get('file')"/>
+                                                <x-input-error class="mt-2" :messages="$errors->get('file')" />
                                             </div>
 
                                             <div>
                                                 <img style="width: 150px ; height: 150px" class="image "
                                                      src="{{ $service->getImageUrl() }}"
-                                                     alt="Blog Image">
+                                                     alt="Service Image">
                                             </div>
+
+
                                         </div>
                                     </div>
                                 </div>

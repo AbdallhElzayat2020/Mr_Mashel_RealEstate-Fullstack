@@ -38,6 +38,7 @@ class ServiceController extends Controller
 
             toast('تمت العمليه بنجاح', 'success');
         } catch (\Throwable $exception) {
+            throw $exception;
             toast('حدث خطأ جرب لاحقا', 'error');
         }
 

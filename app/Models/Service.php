@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
-use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\Translatable\HasTranslations;
 
 class Service extends Model implements HasMedia
@@ -17,6 +16,7 @@ class Service extends Model implements HasMedia
     use HasFactory, HasTranslations, InteractsWithMedia;
 
     protected $fillable = [
+        'slug',
         'title',
         'description',
         'short_description',
@@ -52,18 +52,16 @@ class Service extends Model implements HasMedia
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('image')
-            ->useFallbackUrl(asset('assets/dashboard/assets/img/user.png'))
+//            ->useFallbackUrl(asset('assets/dashboard/assets/img/user.png'))
             ->useDisk('files')
             ->singleFile()
             ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/webp', 'image/svg', 'image/jpg']);
-    }
 
-    public function registerMediaConversions(?Media $media = null): void
-    {
-        $this->addMediaConversion('thumb')
-            ->width(100)
-            ->height(100)
-            ->nonQueued();
+        $this->addMediaCollection('icon')
+//            ->useFallbackUrl(asset('assets/dashboard/assets/img/user.png'))
+            ->useDisk('files')
+            ->singleFile()
+            ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/webp', 'image/svg', 'image/jpg']);
     }
 
     public function getImageUrl(): string
@@ -71,10 +69,10 @@ class Service extends Model implements HasMedia
         return $this->getFirstMediaUrl('image');
     }
 
-    public function getThumbUrl(): string
+    public function getIconUrl(): string
     {
-        return $this->getFirstMediaUrl('image', 'thumb');
+        return $this->getFirstMediaUrl('icon');
     }
 
-    // TODO:  Icon and brochure, image
+    // TODO:  brochure
 }

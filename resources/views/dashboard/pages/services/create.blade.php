@@ -210,8 +210,17 @@
 
                                         <div class="tab-pane fade" id="media-data" role="tabpanel">
                                             <div class="my-3 col-12 col-md-6">
+                                                <label for="icon_input" class="form-label">
+                                                    صورة مصغرة ( بمقاس 100 * 100 )</label>
+                                                <input type="file" name="icon" class="form-control"
+                                                       id="icon_input"
+                                                       aria-describedby="Icon input"/>
+                                                <x-input-error class="mt-2" :messages="$errors->get('icon')" />
+                                            </div>
+
+                                            <div class="my-3 col-12 col-md-6">
                                                 <label for="file_input" class="form-label">
-                                                    الصوره ( بمقاس 100 * 100 )</label>
+                                                    صورة الخدمة</label>
                                                 <input type="file" name="file" class="form-control"
                                                        id="file_input"
                                                        aria-describedby="File input"/>

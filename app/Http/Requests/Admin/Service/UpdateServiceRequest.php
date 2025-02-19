@@ -27,6 +27,7 @@ class UpdateServiceRequest extends FormRequest
             'features' => ['required', 'array', 'min:1'],
 
             'file' => ['nullable', 'file', 'mimes:jpg,jpeg,png', 'max:2500'],
+            'icon' => ['nullable', 'file', 'mimes:jpg,jpeg,png', 'max:2500'],
         ];
     }
 

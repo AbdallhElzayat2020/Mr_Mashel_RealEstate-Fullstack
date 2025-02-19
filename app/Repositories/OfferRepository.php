@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Contracts\Repositories\OfferRepositoryInterface;
 use App\Models\Offer;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use Spatie\MediaLibrary\MediaCollections\FileAdder;
 
 class OfferRepository implements OfferRepositoryInterface
@@ -32,6 +33,10 @@ class OfferRepository implements OfferRepositoryInterface
     public function create(array $data)
     {
         DB::transaction(function () use ($data) {
+            $slug = Str::slug($data['title']['en'].'-'.time());
+
+            $data['slug'] = $slug;
+
             $offer = Offer::create($data);
 
             $this->CreateDetails($data, $offer);

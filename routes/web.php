@@ -37,11 +37,11 @@ Route::group(
 
         Route::get('/services', [ServicesController::class, 'index'])->name('services');
 
-        Route::get('/services-details/{id}', [ServicesController::class, 'show'])->name('service.details');
+        Route::get('/services-details/{service:slug}', [ServicesController::class, 'show'])->name('service.details');
 
         Route::get('/offers', [OfferController::class, 'index'])->name('offers');
 
-        Route::get('/offer-details/{id}', [OfferController::class, 'show'])->name('offers.details');
+        Route::get('/offer-details/{offer:slug}', [OfferController::class, 'show'])->name('offers.details');
 
         Route::get('/apply', [HiringController::class, 'index'])->name('apply');
         Route::post('/apply-store', [HiringController::class, 'store'])->name('apply.store');
@@ -51,7 +51,7 @@ Route::group(
 
         Route::get('/blogs', [BlogController::class, 'index'])->name('blogs');
 
-        Route::get('/blogs-details/{id}', [BlogController::class, 'show'])->name('blogs.details');
+        Route::get('/blogs-details/{blog:slug}', [BlogController::class, 'show'])->name('blogs.details');
 
         Route::get('/contact', [ContactController::class, 'index'])->name('contact');
         Route::post('/contact/save', [ContactController::class, 'store'])->name('contact.store');

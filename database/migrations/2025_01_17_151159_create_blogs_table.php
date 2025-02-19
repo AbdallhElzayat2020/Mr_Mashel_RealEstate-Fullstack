@@ -11,6 +11,7 @@ return new class extends Migration
     {
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
+            $table->string('slug')->unique();
             $table->json('title');
             $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
             $table->text('excerpt');

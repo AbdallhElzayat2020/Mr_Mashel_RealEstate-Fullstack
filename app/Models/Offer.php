@@ -21,6 +21,7 @@ class Offer extends Model implements HasMedia
     use HasFactory, HasTranslations, InteractsWithMedia;
 
     protected $fillable = [
+        'slug',
         'title',
         'short_title',
         'description',
