@@ -14,9 +14,9 @@ class OfferController extends Controller
         return view('website.pages.offers', compact('offers'));
     }
 
-    public function show(string $offerId)
+    public function show(string $offerSlug)
     {
-        $offer = Offer::active()->firstWhere(['id' => $offerId]);
+        $offer = Offer::active()->firstWhere(['slug' => $offerSlug]);
 
         if (! $offer) {
             abort(404);

@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Contracts\Repositories\ServiceRepositoryInterface;
 use App\Models\Service;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class ServiceRepository implements ServiceRepositoryInterface
 {
@@ -32,6 +33,10 @@ class ServiceRepository implements ServiceRepositoryInterface
     public function create(array $data)
     {
         DB::transaction(function () use ($data) {
+            $slug = Str::slug($data['title']['en'].'-'.time());
+
+            $data['slug'] = $slug;
+
             $service = Service::create($data);
 
             $features = [];

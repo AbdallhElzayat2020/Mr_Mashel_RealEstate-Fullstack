@@ -14,9 +14,9 @@ class BlogController extends Controller
         return view('website.pages.Blog', compact('blogs'));
     }
 
-    public function show(string $blogId)
+    public function show(string $blogSlug)
     {
-        $blog = Blog::active()->firstWhere(['id' => $blogId]);
+        $blog = Blog::active()->firstWhere(['slug' => $blogSlug]);
 
         if (! $blog) {
             abort(404);

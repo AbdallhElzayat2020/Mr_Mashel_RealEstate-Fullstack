@@ -19,9 +19,9 @@ class ServicesController extends Controller
         return view('website.pages.Services', compact('services', 'testimonials'));
     }
 
-    public function show(string $serviceId)
+    public function show(string $serviceSlug)
     {
-        $service = Service::active()->firstWhere(['id' => $serviceId]);
+        $service = Service::active()->firstWhere(['slug' => $serviceSlug]);
 
         if (! $service) {
             abort(404);
@@ -33,7 +33,7 @@ class ServicesController extends Controller
 
         $other_services = $all_services->where('id', '!=', $service->id);
 
-        $testimonials = Testimonial::active()->latest()->get();
+        $testimonials = Testimonial::active()->latest()->with(['media'])->get();
 
         return view('website.pages.Services-details', compact('service', 'all_services', 'other_services', 'testimonials'));
     }

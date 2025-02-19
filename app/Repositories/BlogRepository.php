@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Contracts\Repositories\BlogRepositoryInterface;
 use App\Models\Blog;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class BlogRepository implements BlogRepositoryInterface
 {
@@ -31,6 +32,11 @@ class BlogRepository implements BlogRepositoryInterface
     public function create(array $data)
     {
         DB::transaction(function () use ($data) {
+
+            $slug = Str::slug($data['title']['en'].'-'.time());
+
+            $data['slug'] = $slug;
+
             $blog = Blog::create($data);
 
             if (request()->hasFile('file')) {
