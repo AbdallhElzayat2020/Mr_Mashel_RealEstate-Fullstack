@@ -208,7 +208,8 @@
                 @endforeach
             </div>
             <div style="z-index: 1000;" class="mx-auto text-center mt-4"> <!-- أضف فئة text-center -->
-                <a class="btn btn-dark" href="{{ route('offers') }}">عرض الكل</a>
+                <a style="background-color: #001D00; padding: 7px 20px; color: #fff;font-weight: bold; border-radius: 5px;"
+                   href="{{ route('offers') }}">عرض الكل</a>
             </div>
         </div>
     </section>

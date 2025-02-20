@@ -288,11 +288,11 @@ h6 {
 }
 
 .handle-preloader {
-    background: #122243;
+    background: #347469;
 }
 
 .preloader-close {
-    color: #122243;
+    color: #347469;
 }
 
 /* AnimaciÃ³n del preloader */
@@ -1003,7 +1003,7 @@ img {
     opacity: 0;
     visibility: hidden;
     border-radius: 0px;
-    background-color: #122243;
+    background-color: #347469;
     box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
     transition: all 500ms ease;
     -moz-transition: all 500ms ease;
@@ -1089,7 +1089,7 @@ img {
     z-index: 100;
     display: none;
     border-radius: 0px;
-    background-color: #122243;
+    background-color: #347469;
     box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
     transition: all 500ms ease;
     -moz-transition: all 500ms ease;
@@ -1539,7 +1539,7 @@ div#mCSB_1_container {
 /** header-style-two **/
 
 .header-style-two {
-    background: #122243;
+    background: #347469;
 }
 
 .header-top {
