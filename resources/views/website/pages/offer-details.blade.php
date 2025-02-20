@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ app()->getLocale() }}" dir="{{ app()->getLocale() === 'ar' ? 'rtl' : 'ltr' }}">
+
 
 <head>
     <meta charset="utf-8"/>
@@ -136,7 +137,7 @@
 
 <!-- page wrapper -->
 
-<body>
+<body class="{{ app()->getLocale() }}">
 <div class="boxed_wrapper">
     <!-- preloader -->
     <div class="loader-wrap">

@@ -15,7 +15,7 @@
 
 <!-- page wrapper -->
 
-<body>
+<body class="{{ app()->getLocale() }}">
 
 <div class="boxed_wrapper">
 
@@ -93,7 +93,7 @@
                         <div class="content-box p_relative d_block">
                             <div class="sec-title mb_45">
                                 <div class="icon-box p_relative d_block fs_14 lh_20 mb_10"
-                                     style="text-align: right;">
+                                     style="text-align: {{ app()->getLocale() === 'ar' ? 'right' : 'left' }};">
                                     <img src="{{ asset('assets/website/images/LOGO.png') }}" alt="LOGO"
                                          style="display: inline-block;">
                                 </div>

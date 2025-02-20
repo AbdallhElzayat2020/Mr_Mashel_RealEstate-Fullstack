@@ -1415,6 +1415,7 @@ img {
     font-size: 16px;
     margin-left: 20px;
     text-transform: capitalize;
+    color: #ffffff !important;
 }
 
 .mobile-menu .navigation li > a:before {
@@ -1444,7 +1445,7 @@ img {
     text-align: center;
     font-size: 16px;
     line-height: 32px;
-    color: #ffffff;
+    /*color: #ffffff;*/
     background: rgba(255, 255, 255, 0.1);
     cursor: pointer;
     border-radius: 2px;

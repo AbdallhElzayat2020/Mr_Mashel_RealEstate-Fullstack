@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ app()->getLocale() }}" dir="{{ app()->getLocale() === 'ar' ? 'rtl' : 'ltr' }}">
+
 
 <head>
     <meta charset="utf-8"/>
@@ -13,7 +14,7 @@
 
 <!-- page wrapper -->
 
-<body>
+<body class="{{ app()->getLocale() }}">
 <div class="boxed_wrapper">
     <!-- preloader -->
     <div class="loader-wrap">
@@ -125,11 +126,11 @@
                         <p class="color_white">وأبشر بطيبة الخاطر</p>
                         <h3 class="color_white fw_bold mt-2">{{ $service->contact_number }}</h3>
                     </div>
-                    <div class="button mt-4 text-center" style="background-color:#526652 ; padding: 10px;">
-                        <a href="" class="color_white text-white">
-                            تنزيل برشور الشركة <i class="fa-solid fa-file-pdf mx-3"></i>
-                        </a>
-                    </div>
+                    {{--                    <div class="button mt-4 text-center" style="background-color:#526652 ; padding: 10px;">--}}
+                    {{--                        <a href="" class="color_white text-white">--}}
+                    {{--                            تنزيل برشور الشركة <i class="fa-solid fa-file-pdf mx-3"></i>--}}
+                    {{--                        </a>--}}
+                    {{--                    </div>--}}
                 </div>
 
                 <div class="col-lg-8 col-md-12 col-sm-12 content-side">

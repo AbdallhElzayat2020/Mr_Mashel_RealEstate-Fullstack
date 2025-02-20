@@ -1398,6 +1398,7 @@ img {
     font-size: 16px;
     margin-left: 20px;
     text-transform: capitalize;
+    color: #ffffff !important;
 }
 
 .mobile-menu .navigation li > a:before {
@@ -1406,7 +1407,7 @@ img {
     left: 0;
     top: 0;
     height: 0;
-    border-left: 5px solid #fff;
+    border-left: 5px solid #000000;
     -webkit-transition: all 500ms ease;
     -moz-transition: all 500ms ease;
     -ms-transition: all 500ms ease;
@@ -1811,4 +1812,9 @@ div#mCSB_1_container {
 }
 
 
+@media (max-width: 767px) {
+    .navigation .dropdown > a i {
+        display: none!important;
+    }
+}
 /* projects Page */

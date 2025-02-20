@@ -2,9 +2,9 @@
 <html lang="{{ app()->getLocale() }}" dir="{{ app()->getLocale() === 'ar' ? 'rtl' : 'ltr' }}">
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
 
     <title>من نحن</title>
 
@@ -72,20 +72,25 @@
     </div>
     <!-- End Mobile Menu -->
 
-    <section class="page-title p_relative pt_250 pb_170 centred"
-             style="background-image: url('{{asset('assets/website/images/banner/Home_2.png')}}');background-position: center;">
-        <div class="bg-layer p_absolute r_100 t_0">
-        </div>
+    <section class="page-title p_relative centred"
+             style="background-image: url('{{asset('assets/website/images/banner/Home_2.png')}}');
+                background-position: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 650px;">
+        <div class="bg-layer p_absolute r_100 t_0"></div>
         <div class="large-container">
             <div class="content-box p_relative d_block z_5">
                 <div class="title mb_25">
-                    <h1 class="d_block fs_68 lh_76 color_white fw_exbold">عن قدرة العقارية</h1>
+                    <h1 class="d_block fs_40 lh_76 color_white fw_exbold">عن قدرة العقارية</h1>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="about-style-three p_relative sec-pad" style="padding-top: 200px;">
+
+    <section class="about-style-three p_relative sec-pad" style="padding-top: 50px;">
         <div class="large-container">
             <div class="row clearfix">
                 <div class="col-lg-6 col-md-12 col-sm-12 content-column">

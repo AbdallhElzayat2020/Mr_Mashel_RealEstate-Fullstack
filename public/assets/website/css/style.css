@@ -1,20 +1,22 @@
 /*header*/
-/*.navigation .dropdown > a {*/
-/*    position: relative;*/
-/*    padding-right: 10px;*/
-/*}*/
+/* إضافة أيقونة السهم بجانب عناصر القائمة */
+.dropdown-toggle {
+    position: relative;
+    padding-right: 15px; /* تعديل المسافة لتناسب الأيقونة */
+}
 
-/*!* شكل السهم *!*/
-/*.navigation .dropdown > a i {*/
-/*    font-size: 14px;*/
-/*    margin-left: 5px;*/
-/*    transition: transform 0.3s ease;*/
-/*}*/
+.dropdown-toggle::after {
+    content: "\f107"; /* أيقونة السهم للأسفل من Font Awesome */
+    font-family: "Font Awesome 5 Free"; /* تحديد مكتبة FontAwesome */
+    font-weight: 900;
+    position: absolute;
+    right: 5px; /* ضبط المسافة من اليمين */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #fff; /* تغيير لون الأيقونة حسب الحاجة */
+}
 
-/*!* تدوير السهم عند تمرير الماوس *!*/
-/*.navigation .dropdown:hover > a i {*/
-/*    transform: rotate(180deg);*/
-/*}*/
 
 /*body[dir="rtl"] .navbar-nav {*/
 /*    margin-right: auto !important;*/
