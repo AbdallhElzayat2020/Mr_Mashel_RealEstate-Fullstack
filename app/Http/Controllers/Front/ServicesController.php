@@ -29,7 +29,7 @@ class ServicesController extends Controller
 
         $service->loadMissing(['media', 'features']);
 
-        $all_services = Service::active()->latest()->get(['id', 'title']);
+        $all_services = Service::active()->latest()->get(['id', 'title', 'slug']);
 
         $other_services = $all_services->where('id', '!=', $service->id);
 
