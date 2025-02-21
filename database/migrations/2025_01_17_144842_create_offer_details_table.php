@@ -13,7 +13,7 @@ return new class extends Migration
             $table->foreignId('offer_id')->constrained('offers')->cascadeOnDelete();
             $table->string('key');
             $table->string('section');
-            $table->text('data');
+            $table->json('data');
         });
     }
 

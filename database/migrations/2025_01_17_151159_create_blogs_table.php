@@ -14,8 +14,8 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->json('title');
             $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
-            $table->text('excerpt');
-            $table->longText('content');
+            $table->json('excerpt');
+            $table->json('content');
             $table->enum('status', Status::values())->default(Status::ACTIVE)->comment(Status::comment());
             $table->timestamps();
         });

@@ -12,9 +12,9 @@ return new class extends Migration
         Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->string('slug')->unique();
-            $table->string('title');
-            $table->text('description');
-            $table->text('short_description');
+            $table->json('title');
+            $table->json('description');
+            $table->json('short_description');
             $table->string('contact_number')->nullable();
             $table->enum('status', Status::values())->default(Status::ACTIVE)->comment(Status::comment());
             $table->timestamps();

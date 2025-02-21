@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('offers', function (Blueprint $table) {
             $table->id();
             $table->string('slug')->unique();
-            $table->text('title');
-            $table->text('short_title');
-            $table->text('description');
-            $table->text('short_description');
+            $table->json('title');
+            $table->json('short_title');
+            $table->json('description');
+            $table->json('short_description');
             $table->unsignedDouble('price');
             $table->enum('status', Status::values())->comment(Status::comment());
             $table->enum('price_type', OfferPriceType::values())->comment(OfferPriceType::comment());
