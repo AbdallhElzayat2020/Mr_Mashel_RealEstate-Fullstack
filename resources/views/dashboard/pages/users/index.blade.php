@@ -63,7 +63,7 @@
                             <td>
                                 {{ $user->created_at->diffForHumans() }}
                             </td>
-                            <td class="d-flex justify-content-center align-content-center gap-2">
+                            <td class="d-flex justify-content-center align-items-center gap-2 flex-wrap">
                                 @can('update-users')
                                     <a href="{{route('admin.users.edit', $user)}}" class="btn btn-primary">تعديل</a>
                                 @endcan

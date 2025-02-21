@@ -24,7 +24,7 @@
                         <th>#</th>
                         <th>البريد الالكتروني</th>
                         <th>تاريخ الإنشاء</th>
-                        <th>التحكم</th>
+                        <th class="text-center">التحكم</th>
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
@@ -36,7 +36,7 @@
                             <td>{{ $counter++ }}</td>
                             <td>{{ $mail_subscription->email }}</td>
                             <td>{{ $mail_subscription->created_at->diffForHumans() }}</td>
-                            <td>
+                            <td class="d-flex justify-content-center align-items-center gap-2 flex-wrap">
                                 @can('delete-mail-subscriptions')
                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#delete{{ $mail_subscription->id }}">

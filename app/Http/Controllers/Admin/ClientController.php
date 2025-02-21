@@ -89,6 +89,6 @@ class ClientController extends Controller
             toast('حدث خطأ جرب لاحقا', 'error');
         }
 
-        return to_route('dashboard.banks.index')->with('success', 'Client updated successfully');
+        return to_route('admin.clients.index')->with('success', 'Client updated successfully');
     }
 }

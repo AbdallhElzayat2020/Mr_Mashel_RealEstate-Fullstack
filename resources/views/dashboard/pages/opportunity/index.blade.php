@@ -39,7 +39,7 @@
                         <th>المسمي الوظيفي</th>
                         <th>الرساله</th>
                         <th>تاريخ الإنشاء</th>
-                        <th>التحكم</th>
+                        <th class="text-center">التحكم</th>
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
@@ -67,7 +67,7 @@
                             <td class="text-wrap">
                                 {{ $opportunity->created_at->diffForHumans() }}
                             </td>
-                            <td class="text-wrap">
+                            <td class="d-flex justify-content-center align-items-center gap-2 flex-wrap">
                                 @can('delete-opportunities')
                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#delete{{ $opportunity->id }}">

@@ -20,7 +20,7 @@
                         <th>#</th>
                         <th>الإسم</th>
                         <th>تاريخ الإنشاء</th>
-                        <th>التحكم</th>
+                        <th class="text-center">التحكم</th>
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
@@ -38,7 +38,7 @@
                             <td>
                                 {{ $role->created_at->diffForHumans() }}
                             </td>
-                            <td>
+                            <td class="d-flex justify-content-center align-items-center gap-2 flex-wrap">
                                 @can('update-roles')
                                     <a href="{{route('admin.roles.edit', $role)}}" class="btn btn-primary">تعديل</a>
                                 @endcan

@@ -40,7 +40,7 @@
                             <td>
                                 {{ $partner->created_at->diffForHumans() }}
                             </td>
-                            <td class="d-flex justify-content-center gap-2">
+                            <td class="d-flex justify-content-center align-items-center gap-2 flex-wrap">
                                 @can('update-partners')
                                     <a href="{{route('admin.partners.edit', $partner)}}"
                                        class="btn btn-primary">تعديل</a>
@@ -52,10 +52,10 @@
                                     </button>
                                 @endcan
                                 @can('update-partners')
-                                    <form action="{{ route('admin.partners.update-status', $user) }}" method="post"
+                                    <form action="{{ route('admin.partners.update-status', $partner) }}" method="post"
                                           class="d-flex">
                                         @csrf
-                                        @if($user->status->is(\App\Enums\Status::ACTIVE))
+                                        @if($partner->status->is(\App\Enums\Status::ACTIVE))
                                             <button class="btn btn-warning">إيقاف</button>
                                         @else
                                             <button class="btn btn-warning">تفعيل</button>

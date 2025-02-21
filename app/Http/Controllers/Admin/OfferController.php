@@ -102,6 +102,6 @@ class OfferController extends Controller
             toast('حدث خطأ جرب لاحقا', 'error');
         }
 
-        return to_route('dashboard.banks.index')->with('success', 'Offer updated successfully');
+        return to_route('admin.offers.index')->with('success', 'Offer updated successfully');
     }
 }

@@ -42,7 +42,7 @@
                         <th>السعر</th>
                         <th>المكان</th>
                         <th>الحالة</th>
-                        <th>التحكم</th>
+                        <th class="text-center">التحكم</th>
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
@@ -62,7 +62,7 @@
                                 <span
                                     class="badge {{ $offer->status->style() }} me-1">{{ $offer->status->label() }}</span>
                             </td>
-                            <td>
+                            <td class="d-flex justify-content-center align-items-center gap-2 flex-wrap">
                                 @can('update-offers')
                                     <a href="{{route('admin.offers.edit', $offer)}}" class="btn btn-primary">تعديل</a>
                                 @endcan
@@ -76,7 +76,7 @@
                                     <form action="{{ route('admin.offers.update-status', $offer) }}" method="post"
                                           class="d-flex">
                                         @csrf
-                                        @if($user->status->is(\App\Enums\Status::ACTIVE))
+                                        @if($offer->status->is(\App\Enums\Status::ACTIVE))
                                             <button class="btn btn-warning">إيقاف</button>
                                         @else
                                             <button class="btn btn-warning">تفعيل</button>

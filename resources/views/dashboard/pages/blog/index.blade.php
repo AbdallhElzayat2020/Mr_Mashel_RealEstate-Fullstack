@@ -41,7 +41,7 @@
                         <th>عنوان المدونة</th>
                         <th>دونت بواسطة</th>
                         <th>الحالة</th>
-                        <th>التحكم</th>
+                        <th class="text-center">التحكم</th>
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
@@ -58,7 +58,7 @@
                             <td><span
                                     class="badge {{ $blog->status->style() }} me-1">{{ $blog->status->label() }}</span>
                             </td>
-                            <td>
+                            <td class="d-flex justify-content-center align-items-center gap-2 flex-wrap">
                                 @can('update-blogs')
                                     <a href="{{route('admin.blogs.edit', $blog)}}" class="btn btn-primary">تعديل</a>
                                 @endcan
@@ -72,7 +72,7 @@
                                     <form action="{{ route('admin.blogs.update-status', $blog) }}" method="post"
                                           class="d-flex">
                                         @csrf
-                                        @if($user->status->is(\App\Enums\Status::ACTIVE))
+                                        @if($blog->status->is(\App\Enums\Status::ACTIVE))
                                             <button class="btn btn-warning">إيقاف</button>
                                         @else
                                             <button class="btn btn-warning">تفعيل</button>

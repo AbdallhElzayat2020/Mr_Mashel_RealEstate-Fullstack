@@ -99,6 +99,6 @@ class ServiceController extends Controller
             toast('حدث خطأ جرب لاحقا', 'error');
         }
 
-        return to_route('dashboard.banks.index')->with('success', 'Service updated successfully');
+        return to_route('admin.services.index')->with('success', 'Service updated successfully');
     }
 }

@@ -89,6 +89,6 @@ class PartnerController extends Controller
             toast('حدث خطأ جرب لاحقا', 'error');
         }
 
-        return to_route('dashboard.banks.index')->with('success', 'Partner updated successfully');
+        return to_route('admin.partners.index')->with('success', 'Partner updated successfully');
     }
 }

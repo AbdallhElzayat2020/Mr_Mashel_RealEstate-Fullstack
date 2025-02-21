@@ -40,7 +40,7 @@
                             <td>
                                 {{ $client->created_at->diffForHumans() }}
                             </td>
-                            <td class="d-flex justify-content-center gap-2">
+                            <td class="d-flex justify-content-center align-items-center gap-2 flex-wrap">
                                 @can('update-clients')
                                     <a href="{{route('admin.clients.edit', $client)}}"
                                        class="btn btn-primary">تعديل</a>
@@ -55,7 +55,7 @@
                                     <form action="{{ route('admin.clients.update-status', $client) }}" method="post"
                                           class="d-flex">
                                         @csrf
-                                        @if($user->status->is(\App\Enums\Status::ACTIVE))
+                                        @if($client->status->is(\App\Enums\Status::ACTIVE))
                                             <button class="btn btn-warning">إيقاف</button>
                                         @else
                                             <button class="btn btn-warning">تفعيل</button>

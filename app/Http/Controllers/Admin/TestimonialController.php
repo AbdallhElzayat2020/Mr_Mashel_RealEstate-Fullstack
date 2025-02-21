@@ -95,6 +95,6 @@ class TestimonialController extends Controller
             toast('حدث خطأ جرب لاحقا', 'error');
         }
 
-        return to_route('dashboard.banks.index')->with('success', 'Testimonial updated successfully');
+        return to_route('admin.testimonials.index')->with('success', 'Testimonial updated successfully');
     }
 }

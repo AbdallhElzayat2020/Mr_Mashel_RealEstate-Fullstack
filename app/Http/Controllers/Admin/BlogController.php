@@ -100,6 +100,6 @@ class BlogController extends Controller
             toast('حدث خطأ جرب لاحقا', 'error');
         }
 
-        return to_route('dashboard.banks.index')->with('success', 'Blog updated successfully');
+        return to_route('admin.blogs.index')->with('success', 'Blog updated successfully');
     }
 }

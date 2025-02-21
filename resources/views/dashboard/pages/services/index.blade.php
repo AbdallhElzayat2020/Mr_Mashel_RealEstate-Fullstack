@@ -28,7 +28,7 @@
                         <th>اسم الخدمه</th>
                         <th>الحاله</th>
                         <th>تاريخ الإنشاء</th>
-                        <th>التحكم</th>
+                        <th class="text-center">التحكم</th>
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
@@ -47,7 +47,7 @@
                             <td>
                                 {{ $service->created_at->diffForHumans() }}
                             </td>
-                            <td>
+                            <td class="d-flex justify-content-center align-items-center gap-2 flex-wrap">
                                 @can('update-services')
                                     <a href="{{route('admin.services.edit', $service)}}"
                                        class="btn btn-primary">تعديل</a>
@@ -62,7 +62,7 @@
                                     <form action="{{ route('admin.services.update-status', $service) }}" method="post"
                                           class="d-flex">
                                         @csrf
-                                        @if($user->status->is(\App\Enums\Status::ACTIVE))
+                                        @if($service->status->is(\App\Enums\Status::ACTIVE))
                                             <button class="btn btn-warning">إيقاف</button>
                                         @else
                                             <button class="btn btn-warning">تفعيل</button>
