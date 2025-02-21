@@ -18,11 +18,11 @@
                             <select name="b_status" class="form-control mx-2" id="">
                                 <option value="">الكل</option>
                                 <option
-                                        value="active" @selected(request('b_status') === \App\Enums\Status::ACTIVE->value)>
+                                    value="active" @selected(request('b_status') === \App\Enums\Status::ACTIVE->value)>
                                     مفعل
                                 </option>
                                 <option
-                                        value="inactive" @selected(request('b_status') === \App\Enums\Status::INACTIVE->value)>
+                                    value="inactive" @selected(request('b_status') === \App\Enums\Status::INACTIVE->value)>
                                     غير مفعل
                                 </option>
                             </select>
@@ -37,6 +37,7 @@
                 <table class="table">
                     <thead>
                     <tr>
+                        <th>#</th>
                         <th>عنوان المدونة</th>
                         <th>دونت بواسطة</th>
                         <th>الحالة</th>
@@ -44,14 +45,18 @@
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
+                        <?php
+                        $counter = paginate_counter();
+                        ?>
                     @forelse($blogs as $blog)
                         <tr>
+                            <td>{{ $counter++ }}</td>
                             <td>
                                 <strong>{{ $blog->title }}</strong>
                             </td>
                             <td>{{ $blog->author->name }}</td>
                             <td><span
-                                        class="badge {{ $blog->status->style() }} me-1">{{ $blog->status->label() }}</span>
+                                    class="badge {{ $blog->status->style() }} me-1">{{ $blog->status->label() }}</span>
                             </td>
                             <td>
                                 @can('update-blogs')
@@ -62,6 +67,17 @@
                                             data-bs-target="#delete{{ $blog->id }}">
                                         حذف
                                     </button>
+                                @endcan
+                                @can('update-blogs')
+                                    <form action="{{ route('admin.blogs.update-status', $blog) }}" method="post"
+                                          class="d-flex">
+                                        @csrf
+                                        @if($user->status->is(\App\Enums\Status::ACTIVE))
+                                            <button class="btn btn-warning">إيقاف</button>
+                                        @else
+                                            <button class="btn btn-warning">تفعيل</button>
+                                        @endif
+                                    </form>
                                 @endcan
                             </td>
                         </tr>

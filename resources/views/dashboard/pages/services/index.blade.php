@@ -32,9 +32,12 @@
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
+                        <?php
+                        $counter = paginate_counter();
+                        ?>
                     @forelse($services as $service)
                         <tr>
-                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $counter++ }}</td>
                             <td>
                                 {{ $service->title }}
                             </td>
@@ -54,6 +57,17 @@
                                             data-bs-target="#delete{{ $service->id }}">
                                         حذف
                                     </button>
+                                @endcan
+                                @can('update-services')
+                                    <form action="{{ route('admin.services.update-status', $service) }}" method="post"
+                                          class="d-flex">
+                                        @csrf
+                                        @if($user->status->is(\App\Enums\Status::ACTIVE))
+                                            <button class="btn btn-warning">إيقاف</button>
+                                        @else
+                                            <button class="btn btn-warning">تفعيل</button>
+                                        @endif
+                                    </form>
                                 @endcan
                             </td>
                         </tr>

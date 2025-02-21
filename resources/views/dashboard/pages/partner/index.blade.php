@@ -25,9 +25,12 @@
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
+                        <?php
+                        $counter = paginate_counter();
+                        ?>
                     @forelse($partners as $partner)
                         <tr>
-                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $counter++ }}</td>
                             <td>
                                 {{ $partner->name }}
                             </td>
@@ -47,6 +50,17 @@
                                             data-bs-target="#delete{{ $partner->id }}">
                                         حذف
                                     </button>
+                                @endcan
+                                @can('update-partners')
+                                    <form action="{{ route('admin.partners.update-status', $user) }}" method="post"
+                                          class="d-flex">
+                                        @csrf
+                                        @if($user->status->is(\App\Enums\Status::ACTIVE))
+                                            <button class="btn btn-warning">إيقاف</button>
+                                        @else
+                                            <button class="btn btn-warning">تفعيل</button>
+                                        @endif
+                                    </form>
                                 @endcan
                             </td>
                         </tr>

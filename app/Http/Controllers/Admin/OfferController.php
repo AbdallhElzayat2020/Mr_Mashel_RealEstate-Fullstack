@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Contracts\Repositories\OfferRepositoryInterface;
+use App\Enums\Status;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Offer\StoreOfferRequest;
 use App\Http\Requests\Admin\Offer\UpdateOfferRequest;
@@ -84,5 +85,23 @@ class OfferController extends Controller
         }
 
         return to_route('admin.offers.index');
+    }
+
+    public function updateStatus(Offer $offer)
+    {
+        try {
+            $status = $offer->status->is(Status::ACTIVE) ? Status::INACTIVE : Status::ACTIVE;
+
+            $offer->update([
+                'status' => $status,
+            ]);
+
+            toast('تمت العمليه بنجاح', 'success');
+        } catch (\Throwable $exception) {
+
+            toast('حدث خطأ جرب لاحقا', 'error');
+        }
+
+        return to_route('dashboard.banks.index')->with('success', 'Offer updated successfully');
     }
 }

@@ -24,10 +24,13 @@
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
+                        <?php
+                        $counter = paginate_counter();
+                        ?>
                     @forelse($roles as $role)
                         <tr>
                             <td>
-                                {{ $loop->iteration }}
+                                {{ $counter++ }}
                             </td>
                             <td>
                                 <strong>{{ $role->display_name }}</strong>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Contracts\Repositories\ServiceRepositoryInterface;
+use App\Enums\Status;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Service\StoreServiceRequest;
 use App\Http\Requests\Admin\Service\UpdateServiceRequest;
@@ -81,5 +82,23 @@ class ServiceController extends Controller
         }
 
         return to_route('admin.services.index');
+    }
+
+    public function updateStatus(Service $service)
+    {
+        try {
+            $status = $service->status->is(Status::ACTIVE) ? Status::INACTIVE : Status::ACTIVE;
+
+            $service->update([
+                'status' => $status,
+            ]);
+
+            toast('تمت العمليه بنجاح', 'success');
+        } catch (\Throwable $exception) {
+
+            toast('حدث خطأ جرب لاحقا', 'error');
+        }
+
+        return to_route('dashboard.banks.index')->with('success', 'Service updated successfully');
     }
 }

@@ -28,9 +28,12 @@
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
+                    <?php
+                    $counter = paginate_counter();
+                    ?>
                     @forelse($mail_subscriptions as $mail_subscription)
                         <tr>
-                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $counter++ }}</td>
                             <td>{{ $mail_subscription->email }}</td>
                             <td>{{ $mail_subscription->created_at->diffForHumans() }}</td>
                             <td>

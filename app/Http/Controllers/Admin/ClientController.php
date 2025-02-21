@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Enums\Status;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Client\StoreClientRequest;
 use App\Http\Requests\Admin\Client\UpdateClientRequest;
@@ -71,5 +72,23 @@ class ClientController extends Controller
         }
 
         return to_route('admin.clients.index');
+    }
+
+    public function updateStatus(Client $client)
+    {
+        try {
+            $status = $client->status->is(Status::ACTIVE) ? Status::INACTIVE : Status::ACTIVE;
+
+            $client->update([
+                'status' => $status,
+            ]);
+
+            toast('تمت العمليه بنجاح', 'success');
+        } catch (\Throwable $exception) {
+
+            toast('حدث خطأ جرب لاحقا', 'error');
+        }
+
+        return to_route('dashboard.banks.index')->with('success', 'Client updated successfully');
     }
 }

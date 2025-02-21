@@ -44,10 +44,13 @@
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
+                        <?php
+                        $counter = paginate_counter();
+                        ?>
                     @forelse($testimonials as $testimonial)
                         <tr>
                             <td>
-                                {{ $loop->iteration }}
+                                {{ $counter++ }}
                             </td>
                             <td>
                                 <strong>{{ $testimonial->client_name }}</strong>
@@ -70,6 +73,18 @@
                                             data-bs-target="#delete{{ $testimonial->id }}">
                                         حذف
                                     </button>
+                                @endcan
+                                @can('update-testimonials')
+                                    <form action="{{ route('admin.testimonials.update-status', $testimonial) }}"
+                                          method="post"
+                                          class="d-flex">
+                                        @csrf
+                                        @if($user->status->is(\App\Enums\Status::ACTIVE))
+                                            <button class="btn btn-warning">إيقاف</button>
+                                        @else
+                                            <button class="btn btn-warning">تفعيل</button>
+                                        @endif
+                                    </form>
                                 @endcan
                             </td>
                         </tr>

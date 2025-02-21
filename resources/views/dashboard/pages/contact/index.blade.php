@@ -18,7 +18,8 @@
                             <select name="ser" class="form-control mx-2">
                                 @foreach($services as $service)
                                     <option value="">الكل</option>
-                                    <option value="{{ $service->id }}" @selected(request('ser') == $service->id)>{{ $service->title }}</option>
+                                    <option
+                                        value="{{ $service->id }}" @selected(request('ser') == $service->id)>{{ $service->title }}</option>
                                 @endforeach
                             </select>
                             <button type="submit" class="btn btn-primary mx-2">بحث</button>
@@ -40,9 +41,12 @@
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
+                    <?php
+                    $counter = paginate_counter();
+                    ?>
                     @forelse($contacts as $contact)
                         <tr>
-                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $counter++ }}</td>
                             <td class="text-wrap">
                                 {{ $contact->name }}
                             </td>

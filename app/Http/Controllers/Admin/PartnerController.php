@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Enums\Status;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Partner\StorePartnerRequest;
 use App\Http\Requests\Admin\Partner\UpdatePartnerRequest;
@@ -71,5 +72,23 @@ class PartnerController extends Controller
         }
 
         return to_route('admin.partners.index');
+    }
+
+    public function updateStatus(Partner $partner)
+    {
+        try {
+            $status = $partner->status->is(Status::ACTIVE) ? Status::INACTIVE : Status::ACTIVE;
+
+            $partner->update([
+                'status' => $status,
+            ]);
+
+            toast('تمت العمليه بنجاح', 'success');
+        } catch (\Throwable $exception) {
+
+            toast('حدث خطأ جرب لاحقا', 'error');
+        }
+
+        return to_route('dashboard.banks.index')->with('success', 'Partner updated successfully');
     }
 }

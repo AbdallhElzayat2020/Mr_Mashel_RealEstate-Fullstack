@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Contracts\Repositories\TestimonialRepositoryInterface;
+use App\Enums\Status;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\TestimonialRequest;
 use App\Models\Testimonial;
@@ -77,5 +78,23 @@ class TestimonialController extends Controller
         }
 
         return to_route('admin.testimonials.index');
+    }
+
+    public function updateStatus(Testimonial $testimonial)
+    {
+        try {
+            $status = $testimonial->status->is(Status::ACTIVE) ? Status::INACTIVE : Status::ACTIVE;
+
+            $testimonial->update([
+                'status' => $status,
+            ]);
+
+            toast('تمت العمليه بنجاح', 'success');
+        } catch (\Throwable $exception) {
+
+            toast('حدث خطأ جرب لاحقا', 'error');
+        }
+
+        return to_route('dashboard.banks.index')->with('success', 'Testimonial updated successfully');
     }
 }

@@ -25,14 +25,17 @@
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
+                        <?php
+                        $counter = paginate_counter();
+                        ?>
                     @forelse($clients as $client)
                         <tr>
-                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $counter++ }}</td>
                             <td>
                                 {{ $client->name }}
                             </td>
                             <td><span
-                                    class="badge {{ $client->status->style() }} me-1">{{ $client->status->label() }}</span>
+                                        class="badge {{ $client->status->style() }} me-1">{{ $client->status->label() }}</span>
                             </td>
                             <td>
                                 {{ $client->created_at->diffForHumans() }}
@@ -47,6 +50,17 @@
                                             data-bs-target="#delete{{ $client->id }}">
                                         حذف
                                     </button>
+                                @endcan
+                                @can('update-clients')
+                                    <form action="{{ route('admin.clients.update-status', $client) }}" method="post"
+                                          class="d-flex">
+                                        @csrf
+                                        @if($user->status->is(\App\Enums\Status::ACTIVE))
+                                            <button class="btn btn-warning">إيقاف</button>
+                                        @else
+                                            <button class="btn btn-warning">تفعيل</button>
+                                        @endif
+                                    </form>
                                 @endcan
                             </td>
                         </tr>

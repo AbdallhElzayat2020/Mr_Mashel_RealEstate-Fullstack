@@ -46,9 +46,12 @@
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
+                        <?php
+                        $counter = paginate_counter();
+                        ?>
                     @forelse($offers as $offer)
                         <tr>
-                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $counter++ }}</td>
                             <td>
                                 <strong class="text-start">{!! $offer->short_title !!}</strong>
                             </td>
@@ -68,6 +71,17 @@
                                             data-bs-target="#delete{{ $offer->id }}">
                                         حذف
                                     </button>
+                                @endcan
+                                @can('update-offers')
+                                    <form action="{{ route('admin.offers.update-status', $offer) }}" method="post"
+                                          class="d-flex">
+                                        @csrf
+                                        @if($user->status->is(\App\Enums\Status::ACTIVE))
+                                            <button class="btn btn-warning">إيقاف</button>
+                                        @else
+                                            <button class="btn btn-warning">تفعيل</button>
+                                        @endif
+                                    </form>
                                 @endcan
                             </td>
                         </tr>

@@ -24,18 +24,22 @@ Route::middleware(['auth', 'check-status', 'force-ar'])->group(function () {
     Route::resource('users', UserController::class);
 
     // ##################### Blogs Management Routes ###########################
+    Route::post('blogs/{blog}/update-status', [UserController::class, 'updateStatus'])->name('blogs.update-status');
     Route::resource('blogs', BlogController::class);
 
     // ##################### Offers Management Routes ###########################
+    Route::post('offers/{offer}/update-status', [UserController::class, 'updateStatus'])->name('offers.update-status');
     Route::resource('offers', OfferController::class);
 
     // ##################### Contact us Management Routes ###########################
     Route::resource('contacts', ContactController::class);
 
     // ##################### Services Management Routes ###########################
+    Route::post('services/{service}/update-status', [UserController::class, 'updateStatus'])->name('services.update-status');
     Route::resource('services', ServiceController::class);
 
     // ##################### Testimonials Management Routes ###########################
+    Route::post('testimonials/{testimonial}/update-status', [UserController::class, 'updateStatus'])->name('testimonials.update-status');
     Route::resource('testimonials', TestimonialController::class);
 
     // ##################### Opportunities Management Routes ###########################
@@ -45,9 +49,11 @@ Route::middleware(['auth', 'check-status', 'force-ar'])->group(function () {
     Route::resource('roles', RoleController::class);
 
     // ##################### Partners Management Routes ###########################
+    Route::post('partners/{partner}/update-status', [UserController::class, 'updateStatus'])->name('partners.update-status');
     Route::resource('partners', PartnerController::class);
 
     // ##################### Clients Management Routes ###########################
+    Route::post('clients/{client}/update-status', [UserController::class, 'updateStatus'])->name('clients.update-status');
     Route::resource('clients', ClientController::class);
 
     // ##################### Mail-Subscriptions Management Routes ###########################

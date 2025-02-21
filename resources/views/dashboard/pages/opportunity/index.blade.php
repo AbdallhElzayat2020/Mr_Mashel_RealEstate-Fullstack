@@ -18,7 +18,7 @@
                                 <option value="">الكل</option>
                                 @foreach(\App\Enums\OpportunityType::cases() as $opportunity)
                                     <option
-                                            value="{{ $opportunity->value }}" @selected(request('op_type') === $opportunity->value)>{{ $opportunity->label() }}</option>
+                                        value="{{ $opportunity->value }}" @selected(request('op_type') === $opportunity->value)>{{ $opportunity->label() }}</option>
                                 @endforeach
                             </select>
                             <button type="submit" class="btn btn-primary mx-2">بحث</button>
@@ -43,10 +43,13 @@
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
+                    <?php
+                    $counter = paginate_counter();
+                    ?>
                     @forelse($opportunities as $opportunity)
                         <tr>
                             <td class="text-wrap">
-                                {{ $loop->iteration }}
+                                {{ $counter++ }}
                             </td>
                             <td class="text-wrap">
                                 <strong>{{ $opportunity->name }}</strong>

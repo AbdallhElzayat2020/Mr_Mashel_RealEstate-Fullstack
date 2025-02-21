@@ -9,7 +9,7 @@ class ContactRepository implements ContactRepositoryInterface
 {
     public function getAll(array $cols = ['*'], array $relations = [], bool $paginate = true)
     {
-        $contactInquiries = Contact::filter()->select($cols);
+        $contactInquiries = Contact::filter()->select($cols)->latest();
 
         if (count($relations)) {
             $contactInquiries = $contactInquiries->with($relations);

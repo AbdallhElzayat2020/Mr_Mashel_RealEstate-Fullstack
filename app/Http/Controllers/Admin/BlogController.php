@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Contracts\Repositories\BlogRepositoryInterface;
+use App\Enums\Status;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Blog\StoreBlogRequest;
 use App\Http\Requests\Admin\Blog\UpdateBlogRequest;
@@ -82,5 +83,23 @@ class BlogController extends Controller
         }
 
         return to_route('admin.blogs.index');
+    }
+
+    public function updateStatus(Blog $blog)
+    {
+        try {
+            $status = $blog->status->is(Status::ACTIVE) ? Status::INACTIVE : Status::ACTIVE;
+
+            $blog->update([
+                'status' => $status,
+            ]);
+
+            toast('تمت العمليه بنجاح', 'success');
+        } catch (\Throwable $exception) {
+
+            toast('حدث خطأ جرب لاحقا', 'error');
+        }
+
+        return to_route('dashboard.banks.index')->with('success', 'Blog updated successfully');
     }
 }
