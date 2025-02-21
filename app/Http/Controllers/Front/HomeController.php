@@ -9,7 +9,6 @@ use App\Models\Offer;
 use App\Models\Partner;
 use App\Models\Service;
 use App\Models\Testimonial;
-use Illuminate\Support\Facades\Artisan;
 
 class HomeController extends Controller
 {
