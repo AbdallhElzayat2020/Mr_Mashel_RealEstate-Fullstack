@@ -7,7 +7,7 @@
                 <div class="col-lg-6 col-md-12 col-sm-12 text-column">
                     <div class="text">
                         <h2 class="d_block fs_30 lh_50 color_white fw_exbold" style="text-align: start">
-                            اشترك ليصلك كل جديد
+                           {{__('home.subscribe')}}
                         </h2>
                     </div>
                 </div>
@@ -16,7 +16,7 @@
                         <form action="{{route('mails.store')}}" method="post">
                             @csrf
                             <div class="form-group p_relative d_block bg_white mr-0 p_13 b_radius_3 pr_100">
-                                <input type="email" name="email" placeholder="البريد الالكتروني" required />
+                                <input type="email" name="email" placeholder="{{__('home.mail')}}" required />
                                 <button type="submit">
                                     <i class="fas fa-envelope-open"></i>
                                 </button>

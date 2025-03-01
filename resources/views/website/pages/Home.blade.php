@@ -126,10 +126,12 @@
     @if($services->count())
         <section class="feature-style-two p_relative sec-pad">
             <div class="intro text-center mb-5">
-                <div class="heading text-center font-weight-bold mb-3" style="color: #001D00; font-size: 40px;">خدماتنا
+                <div class="heading text-center font-weight-bold mb-3" style="color: #001D00; font-size: 40px;">
+                    {{__('home.services')}}
                 </div>
-                <p style="color: #526652;">تقدم <span class="gold-color text-center">“قدرة العقارية”</span> مجموعة
-                    متنوعة من الخدمات بإسلوب حديث وإحترافي بخبرات متنوعة لتلبية إحتياجات مُختلف شرائح القطاع العقاري</p>
+                <p style="color: #526652;">
+                    {{__('home.services_desc')}}
+                </p>
             </div>
             <div class="large-container">
                 <div class="row clearfix d-flex align-items-center justify-content-center">
@@ -164,7 +166,8 @@
     <section class="featured-projects p_relative sec-pad bg-color-3" style="direction: ltr;">
         <div class="large-container">
             <div class="sec-title mb_55 centred">
-                <h2 style="color: #001D00;" class="p_relative d_block fs_40 lh_60 mb-2 fw_exbold">العروض العقارية
+                <h2 style="color: #001D00;" class="p_relative d_block fs_40 lh_60 mb-2 fw_exbold">
+                    {{__('home.offers')}}
                 </h2>
                 <span class="sub-title p_relative d_block fs_18 lh_25 mb_10">عقارات مُختارة تُناسب إحتياجكم</span>
             </div>
@@ -198,7 +201,7 @@
                                     <p
                                         style="background-color: #001D00; padding: 5px; color: #fff;font-weight: bold; border-radius: 5px;">
                                         <a class="text-white" href="{{ route('offers.details', $offer) }}">
-                                            تفاصيل العقار
+                                            {{__('home.offer_details')}}
                                         </a>
                                     </p>
                                 </div>
@@ -207,27 +210,34 @@
                     </div>
                 @endforeach
             </div>
-            <div style="z-index: 1000;" class="mx-auto text-center mt-4"> <!-- أضف فئة text-center -->
+            <div style="z-index: 1000;" class="mx-auto text-center mt-4">
+
                 <a style="background-color: #001D00; padding: 7px 20px; color: #fff;font-weight: bold; border-radius: 5px;"
-                   href="{{ route('offers') }}">عرض الكل</a>
+                   href="{{ route('offers') }}">{{__('home.show_all')}}</a>
             </div>
         </div>
     </section>
+
     <section class="featured-projects p_relative sec-pad ">
         <!-- <div class="pattern-layer p_absolute t_0 r_0" style="background-image: url(/websiteassets//images/shape/shape-7.png);"></div> -->
         <div class="large-container">
             <div class="sec-title mb_55 centred">
-                <h2 style="color: #001D00;" class="p_relative d_block fs_40 lh_60 mb-2 fw_exbold">فروعنا</h2>
+                <h2 style="color: #001D00;"
+                    class="p_relative d_block fs_40 lh_60 mb-2 fw_exbold">
+                    {{__('home.our_branches')}}
+                </h2>
             </div>
             <div class="container">
                 <div class="row">
 
                     <div class="col-lg-6 d-flex align-items-center">
                         <div class="text">
-                            <h2 style="color: #001D00; text-align: right;"
-                                class="p_relative d_block fs_50 lh_60 mb-2 fw_sbold">نخدمكم في</h2>
-                            <p style="font-size: 30px; line-height: 1.8; color: #526652;">ونطمح لخدمتكم في جميع</p>
-                            <p style="font-size: 30px; line-height: 1.8; color: #526652;">أنحاء السعودية عن قريب</p>
+                            <h2 style="color: #001D00; text-align: {{ app()->getLocale() === 'ar' ? 'right' : 'left' }};"
+                                class="p_relative d_block fs_50 lh_60 mb-5 fw_sbold">
+                                {{__('home.brach_desc')}}
+                            </h2>
+                            <p style="font-size: 30px; line-height: 1.8; color: #526652;">{{__('home.brach_desc2')}}</p>
+                            <p style="font-size: 30px; line-height: 1.8; color: #526652;">{{__('home.brach_desc3')}}</p>
                         </div>
                     </div>
                     <div class="col-lg-6 d-flex align-items-center">
@@ -245,9 +255,10 @@
         <section class="clients-section p_relative sec-pad centred" style="direction: ltr;">
             <div class="large-container">
                 <div class="sec-title mb_30">
-                    <h2 class="p_relative d_block fs_42 lh_52 mb_45 fw_exbold" style="color: #001D00;">شركاء النجاح</h2>
-                    <p style="color: #526652;">تقدم تطور قدرة العقارية شراكاتها الاستراتيجية في مختلف
-                        القطاعات لتعزز قدرتها وتوسيع نطاقها
+                    <h2 class="p_relative d_block fs_42 lh_52 mb_45 fw_exbold"
+                        style="color: #001D00;">{{__('home.partners')}}</h2>
+                    <p style="color: #526652;">
+                        {{__('home.partners_desc')}}
                     </p>
                 </div>
                 <ul class="six-item-carousel owl-carousel owl-theme owl-dots-none owl-nav-none">
@@ -259,9 +270,6 @@
                         </li>
                     @endforeach
                 </ul>
-                <div class="more-text p_relative d_block mt_10">
-                    <p>ثقة عملائنا ورضاهم من اهم اهدافنا </p>
-                </div>
             </div>
         </section>
     @endif
@@ -275,7 +283,8 @@
             </div>
             <div class="large-container">
                 <div class="sec-title centred mb_55">
-                    <h2 class="p_relative d_block fs_40 lh_60 fw_exbold" style="color: #001D00;">ماذا يقولون عنا</h2>
+                    <h2 class="p_relative d_block fs_40 lh_60 fw_exbold"
+                        style="color: #001D00;">{{__('home.testimonials')}}</h2>
                 </div>
                 <div class="testimonial-inner p_relative pl_100 pr_100">
                     <div class="two-item-carousel owl-carousel owl-theme owl-nav-none">
@@ -309,10 +318,12 @@
     <section class="clients-section p_relative sec-pad centred" style="direction: ltr;">
         <div class="large-container">
             <div class="sec-title mb_30">
-                <h2 class="p_relative d_block fs_42 lh_52 mb_45 fw_exbold" style="color: #001D00;">عملاء يثقون بنا
+                <h2 class="p_relative d_block fs_42 lh_52 mb_45 fw_exbold" style="color: #001D00;">
+                    {{__('home.companies')}}
                 </h2>
-                <p style="color: #526652;">تطور قدرةالعقارية شراكاتها الاستراتيجية في مختلف القطاعات لتعزز قدرتها
-                    وتوسيع نطاقها</p>
+                <p style="color: #526652;">
+                    {{__('home.companies_desc')}}
+                </p>
             </div>
             <ul class="six-item-carousel owl-carousel owl-theme owl-dots-none owl-nav-none">
                 @foreach($clients as $client)
@@ -328,8 +339,8 @@
 
     <section class="feature-style-two p_relative sec-pad">
         <div class="intro text-center mb-5">
-            <div class="heading text-center font-weight-bold mb-3" style="color: #001D00; font-size: 40px;">لماذا
-                تختار قدرة
+            <div class="heading text-center font-weight-bold mb-3" style="color: #001D00; font-size: 40px;">
+                {{__('home.why_us')}}
             </div>
         </div>
         <div class="large-container">
@@ -343,11 +354,11 @@
                                 <img src="{{ asset('assets/website/images/التوسيق العقاري.png') }}" alt="تسويق العقاري">
                             </div>
                             <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
-                                <a href="index-3.html" class="d_iblock color_black hov_color"
-                                   style="color: #526652 !important;">‫مرخصة‫ومعتمدة</a>
+                                <a href="javascript:void(0)" class="d_iblock color_black hov_color"
+                                   style="color: #526652 !important;">{{__('home.why_us_1')}}</a>
                             </h3>
-                            <p>‫تعتبر‬‫شركة‬ ‫قدرة‬ ‫العقارية‬ ‫من‬ ‫أوائل‬ ‫الشركات‬ ‫المرخصة‬
-                                ‫والمصنفة‬ ‫من‬ ‫قبل‬ ‫الهيئة‬ ‫العامة‬ ‫للعقار‬ ‫في‬ ‫المملكة‬ ‫العربية‬ ‫السعودية‬
+                            <p>
+                                {{__('home.why_us_desc_1')}}
                             </p>
                         </div>
                     </div>
@@ -362,11 +373,12 @@
                                 <img src="{{ asset('assets/website/images/إدارة العقارات.png') }}" alt="ادارة العقارات">
                             </div>
                             <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
-                                <a href="index-3.html" class="d_iblock color_black hov_color"
-                                   style="color: #526652 !important;">الابتكار والتطوير</a>
+                                <a href="javascript:void(0)" class="d_iblock color_black hov_color"
+                                   style="color: #526652 !important;">{{__('home.why_us_2')}}</a>
                             </h3>
-                            <p>‫تدمج‬‫قدرة‬ ‫العقارية‬ ‫التقنيات‬ ‫الحديثة‬ ‫في‬ ‫جميع‬ ‫مراحل‬
-                                ‫الخدمات‬ ‫العقارية‬ ‫لتحسين‬ ‫عمليات‬ ‫ه‬‫ا‬‫وتقديم‬ ‫حلول‬ ‫جديدة‬ ‫وفعالة‬</p>
+                            <p>
+                                {{__('home.why_us_desc_2')}}
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -380,12 +392,14 @@
                                 <img src="{{ asset('assets/website/images/ادارة المرافق.png') }}" alt="ادارة المرافق">
                             </div>
                             <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
-                                <a href="index-3.html" class="d_iblock color_black hov_color"
-                                   style="color: #526652 !important;">‫الكفاءة ‬‫واالحترافية‬</a>
+                                <a href="javascript:void(0)" class="d_iblock color_black hov_color"
+                                   style="color: #526652 !important;">
+                                    {{__('home.why_us_3')}}
+                                </a>
                             </h3>
-                            <p class="text-center">‫بسلسلة‬‫من‬ ‫الممارسات‬ ‫االحترافية‬ ‫المستدامة‪،‬‬ ‫تمكن‬
-                                ‫قدرة‬ ‫العقارية‬ ‫من‬ ‫رفع‬ ‫الكفاءة‬ ‫التشغيلية‬ ‫للعقار‬ ‫وإطالة‬ ‫العمر‬
-                                ‫الفعلي‬</p>
+                            <p class="text-center">
+                                {{__('home.why_us_desc_3')}}
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -399,11 +413,12 @@
                                 <img src="{{ asset('assets/website/images/ادارة المرافق.png') }}" alt="ادارة المرافق">
                             </div>
                             <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
-                                <a href="index-3.html" class="d_iblock color_black hov_color"
-                                   style="color: #526652 !important;">‫النزاهة</a>
+                                <a href="javascript:void(0)" class="d_iblock color_black hov_color"
+                                   style="color: #526652 !important;">{{__('home.why_us_4')}}</a>
                             </h3>
-                            <p class="text-center">‫نتمسك‬‫بأعلى‬ ‫المعايير‬ ‫األخالقية‬ ‫والشفافية‬ ‫في‬ ‫جميع‬
-                                ‫تعامالتنا‬ ‫مع‬ ‫عمالئنا‬</p>
+                            <p class="text-center">
+                                {{__('home.why_us_desc_4')}}
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -417,11 +432,12 @@
                                      alt="المزادات العقارية">
                             </div>
                             <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
-                                <a href="index-3.html" class="d_iblock color_black hov_color"
-                                   style="color: #526652 !important;">‫المسؤولية‬‫والثقة</a>
+                                <a href="javascript:void(0)" class="d_iblock color_black hov_color"
+                                   style="color: #526652 !important;">{{__('home.why_us_5')}}</a>
                             </h3>
-                            <p class="text-center">‫نسعى ‬‫لبناء‬ ‫علاقات‬ ‫متينة‬ ‫مع‬ ‫عمالئنا‬ ‫وشركاء‬ ‫األعمال‬
-                                ‫عبر‬ ‫تقديم‬ ‫األولية‬ ‫القصوى‬ ‫ل‬ ‫مصالح‬‫هم‬‫المتنوعة‬</p>
+                            <p class="text-center">
+                                {{__('home.why_us_desc_5')}}
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -436,7 +452,7 @@
         <section class="news-section p_relative sec-pad">
             <div class="large-container">
                 <div class="sec-title centred mb_55">
-                    <h2 class="p_relative d_block fs_50 lh_60 fw_exbold">مقالات تُفيدك</h2>
+                    <h2 class="p_relative d_block fs_50 lh_60 fw_exbold">{{__('home.blog')}}</h2>
                 </div>
                 <div class="row clearfix">
                     @foreach($blogs as $blog)

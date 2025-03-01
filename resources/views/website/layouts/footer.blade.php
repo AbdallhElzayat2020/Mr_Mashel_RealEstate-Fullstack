@@ -10,13 +10,12 @@
                 <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
                     <div class="footer-widget logo-widget">
                         <figure class="footer-logo">
-                            <a href="index-2.html"><img src="{{ asset('assets/website/images/LOGO_Sticky.png') }}" alt="" /></a>
+                            <a href="javascript:void(0)"><img src="{{ asset('assets/website/images/LOGO_Sticky.png') }}"
+                                                              alt=""/></a>
                         </figure>
                         <div class="text">
                             <p>
-                                انطلقت قدرة العقارية لتقديم مجموعة واسعة من الخدمات
-                                العقارية عالية الجودة والتي تتوافق مع افضل المعايير
-                                والممارسات لتواكب رؤية الممكلة 2030 نحو مستقبل عقاري مزدهر
+                                {{__('home.footer_4')}}
                             </p>
                         </div>
                         <!-- <div class="location-box">
@@ -32,16 +31,16 @@
                 <div class="col-lg-2 col-md-6 col-sm-12 footer-column">
                     <div class="footer-widget links-widget">
                         <div class="widget-title">
-                            <h3>الخدمات</h3>
+                            <h3>{{__('home.services')}}</h3>
                         </div>
                         <div class="widget-content">
                             <ul class="links-list clearfix">
-                                <li><a href="index-2.html">التسويق العقاري</a></li>
-                                <li><a href="index-2.html">ادارة العقارات</a></li>
-                                <li><a href="index-2.html">ادارة المرافق</a></li>
-                                <li><a href="index-2.html">ادارة العقارات</a></li>
-                                <li><a href="index-2.html">الاستشارات العقارية</a></li>
-                                <li><a href="index-2.html">المزادات العقارية</a></li>
+                                <li><a href="javascript:void(0)">{{__('home.ser_1')}}</a></li>
+                                <li><a href="javascript:void(0)">{{__('home.ser_2')}}</a></li>
+                                <li><a href="javascript:void(0)">{{__('home.ser_3')}}</a></li>
+                                <li><a href="javascript:void(0)">{{__('home.ser_4')}}</a></li>
+                                <li><a href="javascript:void(0)">{{__('home.ser_5')}}</a></li>
+                                <li><a href="javascript:void(0)">{{__('home.ser_6')}}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -49,15 +48,15 @@
                 <div class="col-lg-2 col-md-6 col-sm-12 footer-column">
                     <div class="footer-widget links-widget">
                         <div class="widget-title">
-                            <h3>اهم الروابط</h3>
+                            <h3>{{__('home.links')}}</h3>
                         </div>
                         <div class="widget-content">
                             <ul class="links-list clearfix">
-                                <li><a href="index-2.html">الرئيسية</a></li>
-                                <li><a href="index-2.html">من نحن</a></li>
-                                <li><a href="index-2.html">اهم المقالات</a></li>
-                                <li><a href="index-2.html">العروض العقارية</a></li>
-                                <li><a href="index-2.html">للتوظيف</a></li>
+                                <li><a href="{{ route('home') }}">{{__('home.home')}}</a></li>
+                                <li><a href="{{ route('about') }}">{{__('home.about')}}</a></li>
+                                <li><a href="{{ route('blogs') }}">{{__('home.blogs')}}</a></li>
+                                <li><a href="{{ route('offers') }}">{{__('home.offers')}}</a></li>
+                                <li><a href="{{ route('apply') }}">{{__('home.hire')}}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -65,13 +64,13 @@
                 <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
                     <div class="footer-widget links-widget">
                         <div class="widget-title">
-                            <h3>فروعنا</h3>
+                            <h3>{{__('home.our_branches')}}</h3>
                         </div>
                         <div class="location-box">
-                            <p>المكتب الرئيسي - الرياض - حي المروج</p>
+                            <p>{{__('home.footer_1')}}</p>
                         </div>
                         <div class="location-box">
-                            <p>المكتب الفرعي - الرياض - حي السلي</p>
+                            <p>{{__('home.footer_2')}}</p>
                         </div>
                     </div>
                 </div>
@@ -79,7 +78,7 @@
         </div>
         <div class="footer-bottom clearfix centred">
             <div class="copyright">
-                <p>الحقوق محفوظة لشركة قدرة العقارية &copy; 2025</p>
+                <p>{{__('home.footer_3')}} &copy; 2025</p>
             </div>
 
             <ul class="footer-social">

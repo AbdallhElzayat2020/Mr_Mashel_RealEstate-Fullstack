@@ -951,7 +951,7 @@ img {
     position: inherit;
     float: left;
     z-index: 2;
-    margin: 0px 25px;
+    margin: 0px 15px;
     -webkit-transition: all 300ms ease;
     -moz-transition: all 300ms ease;
     -ms-transition: all 300ms ease;
@@ -1836,7 +1836,6 @@ div#mCSB_1_container {
     line-height: 32px;
     color: #fff;
     font-weight: 800;
-    text-transform: uppercase;
 }
 
 .footer-top .links-widget .links-list li {

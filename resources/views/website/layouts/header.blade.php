@@ -39,68 +39,70 @@
                                         </ul>
                                     </li>
 
+                                    <li class="#"><a href="{{ route('contact') }}">{{__('home.contact')}}</a></li>
 
-                                    <li class="#"><a href="{{ route('contact') }}">تواصل معنا</a></li>
-
-                                    <li class="#"><a href="{{ route('blogs') }}">المدونة</a></li>
+                                    <li class="#"><a href="{{ route('blogs') }}">{{__('home.blogs')}}</a></li>
 
                                     <li class=" dropdown">
                                         <a>
-                                            التدريب والتوظيف
+                                            {{__('home.dropdown')}}
                                             <i class="fas fa-chevron-down arrow_mob"></i>
                                         </a>
                                         <ul>
-                                            <li><a href="{{ route('internship') }}">فرص
-                                                    التدريب</a>
+                                            <li>
+                                                <a href="{{ route('internship') }}">
+                                                    {{__('home.train')}}
+                                                </a>
                                             </li>
-                                            <li><a href="{{ route('apply') }}">فرص التوظيف</a>
+                                            <li><a href="{{ route('apply') }}">{{__('home.hire')}}</a>
                                             </li>
                                         </ul>
                                     </li>
 
                                     <li class="">
-                                        <a href="{{ route('services') }}">خدماتنا</a>
+                                        <a href="{{ route('services') }}">{{__('home.services')}}</a>
                                     </li>
                                     <li class="">
-                                        <a href="{{ route('offers') }}">العروض العقارية</a>
+                                        <a href="{{ route('offers') }}">{{__('home.offers')}}</a>
                                     </li>
                                     <li class="">
-                                        <a href="{{ route('about') }}">من نحن</a>
+                                        <a href="{{ route('about') }}">{{__('home.about')}}</a>
                                     </li>
                                     <li class="">
-                                        <a href="/">الرئيسية</a>
+                                        <a href="/">{{__('home.home')}}</a>
                                     </li>
                                 </ul>
                             @else
                                 {{--------------------------------}}
                                 <ul class="navigation clearfix">
                                     <li class="">
-                                        <a href="/">الرئيسية</a>
+                                        <a href="/">{{__('home.home')}}</a>
                                     </li>
                                     <li class="">
-                                        <a href="{{ route('about') }}">من نحن</a>
+                                        <a href="{{ route('about') }}">{{__('home.about')}}</a>
                                     </li>
                                     <li class="">
-                                        <a href="{{ route('offers') }}">العروض العقارية</a>
+                                        <a href="{{ route('offers') }}">{{__('home.offers')}}</a>
                                     </li>
                                     <li class="">
-                                        <a href="{{ route('services') }}">خدماتنا</a>
+                                        <a href="{{ route('services') }}">{{__('home.services')}}</a>
                                     </li>
                                     <li class=" dropdown">
                                         <a>
-                                            التدريب والتوظيف
+                                            {{__('home.dropdown')}}
                                             <i class="fas fa-chevron-down arrow_mob"></i>
                                         </a>
                                         <ul>
-                                            <li><a href="{{ route('internship') }}">فرص
-                                                    التدريب</a>
+                                            <li><a href="{{ route('internship') }}">
+                                                    {{__('home.train')}}
+                                                    </a>
                                             </li>
-                                            <li><a href="{{ route('apply') }}">فرص التوظيف</a>
+                                            <li><a href="{{ route('apply') }}">{{__('home.hire')}}</a>
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="#"><a href="{{ route('blogs') }}">المدونة</a></li>
-                                    <li class="#"><a href="{{ route('contact') }}">تواصل معنا</a></li>
+                                    <li class="#"><a href="{{ route('blogs') }}">{{__('home.blogs')}}</a></li>
+                                    <li class="#"><a href="{{ route('contact') }}">{{__('home.contact')}}</a></li>
 
                                     <li class=" dropdown">
                                         <a>
@@ -128,7 +130,7 @@
                 </div>
                 <div class="nav-right">
                     <div class="support-box">
-                        <a href="tel:+966541111426" class="theme-btn btn-one">تواصل معنا</a>
+                        <a href="tel:+966541111426" class="theme-btn btn-one">{{__('home.contact')}}</a>
                     </div>
                 </div>
             </div>
@@ -153,7 +155,7 @@
                 <div class="nav-right">
                     <div class="support-box">
                         <!-- <div class="icon-box"><i class="far fa-phone"></i></div> -->
-                        <a href="tel:+966541111426" class="theme-btn btn-one">تواصل معنا</a>
+                        <a href="tel:+966541111426" class="theme-btn btn-one">{{__('home.contact')}}</a>
 
                         <!-- <h3><a href="tel:+966541111426">تواصل معنا</a></h3> -->
                     </div>
