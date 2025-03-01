@@ -22,7 +22,7 @@ return [
     'hire_2' => '• You have the ambition to build a strong career path.',
     'hire_3' => '• You want to work in a team that values your passion and creativity.',
 
-    'form_header' => 'Ready to Start Your Journey With Us🚀?',
+    'form_header' => '? 🚀 Ready to Start Your Journey With Us',
     'form_info' => 'Fill out your details in the form below and let’s start the path to success together!',
 
     'form_input_1' => 'Full Name',

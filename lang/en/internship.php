@@ -18,7 +18,7 @@ return [
     'why_choose_our_program_body_2' => '• Comprehensive qualification covering everything you need to excel in the market.',
     'why_choose_our_program_body_3' => '• A real opportunity to turn your passion into a future career.',
 
-    'form_header' => 'The opportunity is here 🚀!',
+    'form_header' => '!🚀 The opportunity is here',
     'form_info' => 'Fill in your details and let’s start the journey to success together.',
 
     'form_input_1' => 'Full Name',
