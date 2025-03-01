@@ -51,8 +51,8 @@
             <div class="contact-info">
                 <h4>{{__('home.contact')}}</h4>
                 <ul>
-                    <li>الرياض - حي المروج</li>
-                    <li> الرياض - حي السلي</li>
+                    <li>{{__('offers.address_1')}}</li>
+                    <li>{{__('offers.address_2')}}</li>
                     <li><a href="mailto:info@example.com">info@example.com</a></li>
                 </ul>
             </div>
@@ -77,7 +77,7 @@
             <div class="content-box p_relative d_block z_5">
                 <div class="title mb_25">
                     <h3 class="color_white d_block fs_30 lh_76 mb_35 fw_exbold">
-                        بقدرتنا المتنوعة نُحقق أهدافكم
+                        {{__('home.tag')}}
                     </h3>
                 </div>
             </div>
