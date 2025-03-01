@@ -11,7 +11,7 @@ return [
     'contact' => 'contact us',
     'dropdown' => 'training & employment',
     'currency' => 'SAR',
-
+    'tag' => 'With our diverse capabilities, we achieve your goals',
     'services_desc' => '"Qudrah Real Estate" offers a diverse range of services in a modern and professional manner, leveraging various expertise to meet the needs of different segments of the real estate sector.',
     'offers_desc' => 'Selected properties that suit your needs.',
     'show_all' => 'show all',
