@@ -40,7 +40,7 @@
 
         <nav class="menu-box" style="direction: rtl; text-align: right">
             <div class="nav-logo">
-                <a href="index-2.html"><img src="{{ asset('assets/website/images/LOGO.png') }}" alt="" title=""/></a>
+                <a href="/"><img src="{{ asset('assets/website/images/LOGO.png') }}" alt="" title=""/></a>
             </div>
             <div class="menu-outer">
                 <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
@@ -78,10 +78,10 @@
              aria-label="breadcrumb">
             <ol class="breadcrumb" style=" margin: 0; background-color: transparent; padding: 0;">
                 <li class="breadcrumb-item">
-                    <a href="#" style="color: #001D00; text-decoration: none; font-weight: bold;">الرئيسية</a>
+                    <a href="#" style="color: #001D00; text-decoration: none; font-weight: bold;">{{ __('internship.bread_crumb_1') }}</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
-                    التدريب
+                    {{ __('internship.bread_crumb_2') }}
                 </li>
 
             </ol>
@@ -92,7 +92,7 @@
         <!-- <div class="pattern-layer p_absolute t_0 r_0" style="background-image: url(assets/images/shape/shape-7.png);"></div> -->
         <div class="large-container">
             <div class="sec-title mb_55 centred">
-                <h2 style="color: #001D00;" class="p_relative d_block fs_40 lh_60 mb-2 fw_exbold">التدريب</h2>
+                <h2 style="color: #001D00;" class="p_relative d_block fs_40 lh_60 mb-2 fw_exbold">{{ __('internship.header') }}</h2>
             </div>
             @session('message')
             <div x-data x-init="setTimeout(_=> $el.remove(), 5000)" class="alert alert-success mt-2" role="alert">
@@ -104,23 +104,21 @@
                     <div class="col-lg-12">
                         <div class="text">
                             <h2 style="color: #001D00; text-align: start;"
-                                class="p_relative d_block fs_25 lh_60 mb-2 fw_bold">إنطلق نحو عالم العقار مع برنامج
-                                تدريب قدرة
-                            </h2>
+                                class="p_relative d_block fs_25 lh_60 mb-2 fw_bold">{{ __('internship.intern_1') }}</h2>
                             <ul class="d-flex flex-column gap-3 " style="text-align: start;">
                                 <li>
                                     <a style="color: #526652;" href="javascript:void(0)">
-                                        أكيد تطمح تبني مسيرة مهنية ناجحة في المجال العقاري
+                                        {{ __('internship.intern_1_body') }}
                                     </a>
                                 </li>
                                 <li>
                                     <a class="mt-3" style="color: #526652;" href="javascript:void(0)">
-                                        في شركة قدرة العقارية، نقدم لك فرصة فريدة لتبدأ طريقك باحترافية
+                                        {{ __('internship.intern_2_body') }}
                                     </a>
                                 </li>
                                 <li>
                                     <a class="mt-3" style="color: #526652;" href="javascript:void(0)">
-                                        ينضمون لفريقنا بعروض وظيفية مميزة!
+                                        {{ __('internship.intern_3_body') }}
                                     </a>
                                 </li>
                             </ul>
@@ -128,22 +126,22 @@
                         <div class="text mt-5">
                             <h2 style="color: #001D00; text-align: start;"
                                 class="p_relative d_block fs_25 lh_60 mb-2 fw_bold">
-                                ليش تختار برنامجنا؟
+                                {{ __('internship.why_choose_our_program') }}
                             </h2>
                             <ul class="d-flex flex-column gap-3 " style="text-align: start;">
                                 <li>
                                     <a style="color: #526652;" href="javascript:void(0)">
-                                        • تدريب عملي واحترافي يقوده خبراء المجال
+                                        {{ __('internship.why_choose_our_program_body_1') }}
                                     </a>
                                 </li>
                                 <li>
                                     <a class="mt-3" style="color: #526652;" href="javascript:void(0)">
-                                        • تأهيل شامل يغطي كل ما تحتاجه لتتميز في السوق
+                                        {{ __('internship.why_choose_our_program_body_2') }}
                                     </a>
                                 </li>
                                 <li>
                                     <a class="mt-3" style="color: #526652;" href="javascript:void(0)">
-                                        • فرصة حقيقية لتحول شغفك إلى وظيفة مستقبلية
+                                        {{ __('internship.why_choose_our_program_body_3') }}
                                     </a>
                                 </li>
                             </ul>
@@ -171,10 +169,10 @@
         <div class="large-container">
             <div class="sec-title mb_55 centred">
                 <h2 style="color: #001D00;" class="p_relative d_block fs_30 lh_60 mb-2 fw_exbold">
-                    الفرصة قدامك الآن🚀!
+                    {!! __('internship.form_header') !!}
                 </h2>
                 <p style="color: #526652" class="text-center">
-                    عبّ بياناتك وخلنا نبدأ سوا رحلة النجاح
+                    {!! __('internship.form_info') !!}
                 </p>
             </div>
             <div class="row clearfix d-flex align-items-center justify-content-center">
@@ -185,33 +183,33 @@
                             @csrf
                             <div class="row clearfix">
                                 <div class="col-lg-6 col-md-12 col-sm-12 form-group mb_20">
-                                    <input type="text" name="name" placeholder="الاسم الكامل" required />
+                                    <input type="text" name="name" placeholder="{!! __('internship.form_input_1') !!}" required />
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 form-group mb_20">
-                                    <input type="text" name="phone" required placeholder="رقم الهاتف" />
+                                    <input type="text" name="phone" required placeholder="{!! __('internship.form_input_2') !!}" />
                                 </div>
                                 <div class="col-lg-6 col-md-12 col-sm-12 form-group mb_20">
-                                    <input type="text" name="email" placeholder="البريد الالكتروني"
+                                    <input type="text" name="email" placeholder="{!! __('internship.form_input_3') !!}"
                                            required />
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 form-group mb_20">
-                                    <input type="text" name="education" required placeholder="المؤهل الدراسي" />
+                                    <input type="text" name="education" required placeholder="{!! __('internship.form_input_4') !!}" />
                                 </div>
                                 <div class="col-lg-6 col-md-12 col-sm-12 form-group">
                                     <div class="select-box">
                                         <select class="wide" name="years_of_exp" required>
-                                            <option data-display="عدد سنوات الخبرة">
-                                                عدد سنوات الخبرة
+                                            <option data-display="{!! __('internship.form_input_5') !!}">
+                                                {!! __('internship.form_input_5') !!}
                                             </option>
-                                            <option value="لايوجد خبرة سابقة">لايوجد خبرة سابقة</option>
-                                            <option value="من سنة الي تلاثة سنوات">من سنة الي تلاثة سنوات</option>
-                                            <option value="من 3 سنوات الي 5 سنوات">من 3 سنوات الي 5 سنوات</option>
-                                            <option value="من 5 الي 10 سنوات">من 5 الي 10 سنوات</option>
+                                            <option value="لايوجد خبرة سابقة">{{ __('internship.option_1') }}</option>
+                                            <option value="من سنة الي تلاثة سنوات">{{ __('internship.option_2') }}</option>
+                                            <option value="من 3 سنوات الي 5 سنوات">{{ __('internship.option_3') }}</option>
+                                            <option value="من 5 الي 10 سنوات">{{ __('internship.option_4') }}</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 form-group mb_20">
-                                    <input type="text" name="field_of_exp" required placeholder="مجال الخبرة ان وجدت" />
+                                    <input type="text" name="field_of_exp" required placeholder="{!! __('internship.form_input_6') !!}" />
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 form-group mb_20">
                                     <div
@@ -221,12 +219,12 @@
                                                style="border: none; box-shadow: none; width: 100%;">
                                         <label class="input-group-text border-0" for="inputGroupFile02"
                                                style="border: none; background-color: transparent; margin-bottom: 0;">
-                                            ارفق السيرة الذاتية
+                                            {!! __('internship.form_input_7') !!}
                                         </label>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 form-group mb_20">
-                                    <textarea name="message" placeholder="ملاحظات"></textarea>
+                                    <textarea name="message" placeholder="{!! __('internship.form_input_8') !!}"></textarea>
                                 </div>
 
                                 <div class="col-lg-12 mb-3 col-md-12 col-sm-12" style="text-align: start;">
@@ -234,8 +232,7 @@
                                         <input class="form-check-input " type="checkbox" value="checked"
                                                id="flexCheckChecked" checked>
                                         <label class="form-check-label mr-3" for="flexCheckChecked">
-                                            أقر بأنني قد قرأت <a href="#">الشروط والاحكام</a> الخاصة بشركة قدرة
-                                            العقارية
+                                            {!! __('internship.form_input_9') !!}
                                         </label>
                                     </div>
                                 </div>
@@ -243,7 +240,7 @@
                                      style="text-align: center;">
                                     <button class="theme-btn btn-one rounded-lg w-100" style="text-align: center;"
                                             type="submit" name="submit-form">
-                                        ارسال
+                                        {{ __('internship.form_input_10') }}
                                     </button>
                                 </div>
                             </div>

@@ -75,7 +75,7 @@
         <div class="large-container">
             <div class="content-box p_relative d_block z_5">
                 <div class="title mb_25">
-                    <h1 class="d_block fs_40 lh_76 color_white fw_exbold">عن قدرة العقارية</h1>
+                    <h1 class="d_block fs_40 lh_76 color_white fw_exbold">{{ __('about.about_header') }}</h1>
                 </div>
             </div>
         </div>
