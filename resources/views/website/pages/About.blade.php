@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
 
-    <title>من نحن</title>
+    <title>{{ __('about.page_title') }}</title>
 
     @include('website.layouts.head')
 </head>
@@ -99,7 +99,7 @@
                             <div class="sec-title">
                                 <h2 class="p_relative d_block fs_25 lh_60 fw_bold"
                                     style="color: #526652; text-align: start">
-                                    عن قدرة العقارية
+                                    {{ __('about.about_header') }}
                                 </h2>
                             </div>
 
@@ -107,37 +107,22 @@
                                 <ul style="list-style: bullet;">
                                     <li style="color: #001d00; text-align: start; line-height: 2.2rem;">
                                         <b style="font-weight: 800;">-</b>
-                                        تأسست <span style=" color: #C19C6E;">قدرة العقارية</span> في عام 2021م ,
-                                        وبفضل خبرة فريق إدارتهـا
-                                        الذي يمتلك خبرة
-                                        في <span style="color: #C19C6E;">السوق العقاري</span>
-                                        لأكثر من عشرين عاما استطاعت
-                                        قدرة العقارية
-                                        ان تثبت نفسها كاسم موثوق
-                                        في فترة قصيرة يستند الي
-                                        اعلى معايير الجودة والإحترافية
+                                        {!! __('about.about_1') !!}
                                     </li>
                                     <br>
                                     <li style="color: #001d00; text-align: start; line-height: 2.2rem;">
                                         <b style="font-weight: 800;">-</b>
-                                        ﺗﺴﻌﻰ "قدرة العقارية " جاهدة لتلبية احتياجات ﻋﻤﻼﺋﻬﺎ وتحقيق أﻫﺪاﻓـﻬـﻢ
-                                        اﻻﺳـﺘـﺜﻤـﺎرﻳـﺔ في مجال العقارات
+                                        {!! __('about.about_2') !!}
                                     </li>
                                     <br>
                                     <li style="color: #001d00; text-align: start; line-height: 2.2rem;">
                                         <b style="font-weight: 800;">-</b>
-                                        تعتبر "قدرة العقارية" من اواهل الشركات المرخصة والمنصفة والمصنفة من قبل
-                                        الهيئة العقارية في المملكة العربية السعودية
+                                        {!! __('about.about_3') !!}
                                     </li>
                                     <br>
                                     <li style="color: #001d00; text-align: start; line-height: 2.2rem;">
                                         <b style="font-weight: 800;">-</b>
-                                        كما تقدم مجموعة واسعة من الخدمات في المجال العقاري بما في ذالك
-                                        <span style="color: #C19C6E;">
-                                                التسويق العقاري , الاستشارات العقارية , اتحاد الملاك , المزادات العقارية
-                                                , ادارة
-                                                وتشغيل العقارات
-                                            </span>
+                                        {!! __('about.about_4') !!}
                                     </li>
                                 </ul>
                             </div>
@@ -161,13 +146,9 @@
                 <div class="col-lg-12">
                     <div class="about_section">
                         <div class="about_content">
-                            <h4>رؤيتنا</h4>
+                            <h4>{{ __('about.our_vision') }}</h4>
                             <p>
-                                أن تُصبح <span>"قدرة العقارية"</span> الرائدة في المجال العقاري من خلال تحقيق الرؤية
-                                التامة
-                                لعملائها عبر تقديم مجموعة متكاملة من الخدمات المتميزة التي تحافظ على استدامة الأصول
-                                العقارية
-                                وتحقيق العوائد المرجوة.
+                                {!! __('about.our_vision_body') !!}
                             </p>
                         </div>
                     </div>
@@ -176,10 +157,9 @@
                 <div class="col-lg-12">
                     <div class="about_section">
                         <div class="about_content">
-                            <h4>رسالتنا</h4>
+                            <h4>{{ __('about.our_message') }}</h4>
                             <p>
-                                في <span>"قدرة العقارية"</span> نُقدم لك خدمات عقارية متكاملة وفعّالة مُصممة لتلبية
-                                تطلعات عملائها، مع التركيز على تقديم تجربة إستثنائية تُضيف قيمة حقيقة عملائها.
+                                {!! __('about.our_message_body') !!}
                             </p>
                         </div>
                     </div>
@@ -191,7 +171,7 @@
     <section class="feature-style-two p_relative sec-pad">
         <div class="intro text-center mb-5">
             <div class="heading text-center font-weight-bold mb-3" style="color: #001d00; font-size: 40px">
-                لماذا تختار قدرة
+                {{ __('about.why_choose_us') }}
             </div>
         </div>
         <div class="large-container">
@@ -202,17 +182,13 @@
                         <div
                             class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
                             <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                <img src="{{ asset('assets/website/images/مرخصة_ومعتمدة.png') }}" alt="مرخصة ومعتمدة"/>
+                                <img src="{{ asset('assets/website/images/مرخصة_ومعتمدة.png') }}" alt="{!! __('about.why_choose_us_1') !!}"/>
                             </div>
                             <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
                                 <a href="index-3.html" class="d_iblock color_black hov_color"
-                                   style="color: #526652 !important">‫مرخصة‫ومعتمدة</a>
+                                   style="color: #526652 !important">{!! __('about.why_choose_us_1') !!}</a>
                             </h3>
-                            <p class="text-center">
-                                ‫تعتبر‬‫شركة‬ ‫قدرة‬ ‫العقارية‬ ‫من‬ ‫أوائل‬ ‫الشركات‬
-                                ‫المرخصة‬ ‫والمصنفة‬ ‫من‬ ‫قبل‬ ‫الهيئة‬ ‫العامة‬ ‫للعقار‬
-                                ‫في‬ ‫المملكة‬ ‫العربية‬ ‫السعودية‬
-                            </p>
+                            <p class="text-center">{!! __('about.why_choose_us_1_body') !!}</p>
                         </div>
                     </div>
                 </div>
@@ -224,17 +200,13 @@
                             class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
                             <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
                                 <img src="{{ asset('assets/website/images/الابتكار_والتطوير.png') }}"
-                                     alt="الابتكار_والتطوير"/>
+                                     alt="{!! __('about.why_choose_us_2') !!}"/>
                             </div>
                             <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
                                 <a href="index-3.html" class="d_iblock color_black hov_color"
-                                   style="color: #526652 !important">الابتكار والتطوير</a>
+                                   style="color: #526652 !important">{!! __('about.why_choose_us_2') !!}</a>
                             </h3>
-                            <p class="text-center">
-                                ‫تدمج‬‫قدرة‬ ‫العقارية‬ ‫التقنيات‬ ‫الحديثة‬ ‫في‬ ‫جميع‬
-                                ‫مراحل‬ ‫الخدمات‬ ‫العقارية‬ ‫لتحسين‬ ‫عمليات‬
-                                ‫ه‬‫ا‬‫وتقديم‬ ‫حلول‬ ‫جديدة‬ ‫وفعالة‬
-                            </p>
+                            <p class="text-center">{!! __('about.why_choose_us_2_body') !!}</p>
                         </div>
                     </div>
                 </div>
@@ -246,17 +218,13 @@
                             class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
                             <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
                                 <img src="{{ asset('assets/website/images/الكفاءة_والاحترافية.png') }}"
-                                     alt="الكفاءة_والاحترافية"/>
+                                     alt="{!! __('about.why_choose_us_3') !!}"/>
                             </div>
                             <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
                                 <a href="index-3.html" class="d_iblock color_black hov_color"
-                                   style="color: #526652 !important">‫الكفاءة ‬‫واالحترافية‬</a>
+                                   style="color: #526652 !important">{!! __('about.why_choose_us_3') !!}</a>
                             </h3>
-                            <p class="text-center">
-                                ‫بسلسلة‬‫من‬ ‫الممارسات‬ ‫االحترافية‬ ‫المستدامة‪،‬‬ ‫تمكن‬
-                                ‫قدرة‬ ‫العقارية‬ ‫من‬ ‫رفع‬ ‫الكفاءة‬ ‫التشغيلية‬ ‫للعقار‬
-                                ‫وإطالة‬ ‫العمر‬ ‫الفعلي‬
-                            </p>
+                            <p class="text-center">{!! __('about.why_choose_us_3_body') !!}</p>
                         </div>
                     </div>
                 </div>
@@ -267,16 +235,13 @@
                         <div
                             class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
                             <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                <img src="{{ asset('assets/website/images/النزاهة.png') }}" alt="النزاهة"/>
+                                <img src="{{ asset('assets/website/images/النزاهة.png') }}" alt="{!! __('about.why_choose_us_4') !!}"/>
                             </div>
                             <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
                                 <a href="index-3.html" class="d_iblock color_black hov_color"
-                                   style="color: #526652 !important">‫النزاهة</a>
+                                   style="color: #526652 !important">{!! __('about.why_choose_us_4') !!}</a>
                             </h3>
-                            <p class="text-center">
-                                ‫نتمسك‬‫بأعلى‬ ‫المعايير‬ ‫األخالقية‬ ‫والشفافية‬ ‫في‬
-                                ‫جميع‬ ‫تعامالتنا‬ ‫مع‬ ‫عمالئنا‬
-                            </p>
+                            <p class="text-center">{!! __('about.why_choose_us_4_body') !!}</p>
                         </div>
                     </div>
                 </div>
@@ -287,17 +252,13 @@
                             class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
                             <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
                                 <img src="{{ asset('assets/website/images/المسؤلية_والثقة.png') }}"
-                                     alt="المسؤلية_والثقة"/>
+                                     alt="{!! __('about.why_choose_us_5') !!}"/>
                             </div>
                             <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
                                 <a href="index-3.html" class="d_iblock color_black hov_color"
-                                   style="color: #526652 !important">‫المسؤولية‬‫والثقة</a>
+                                   style="color: #526652 !important">{!! __('about.why_choose_us_5') !!}</a>
                             </h3>
-                            <p class="text-center">
-                                ‫نسعى ‬‫لبناء‬ ‫علاقات‬ ‫متينة‬ ‫مع‬ ‫عمالئنا‬ ‫وشركاء‬
-                                ‫األعمال‬ ‫عبر‬ ‫تقديم‬ ‫األولية‬ ‫القصوى‬ ‫ل‬
-                                ‫مصالح‬‫هم‬‫المتنوعة‬
-                            </p>
+                            <p class="text-center">{!! __('about.why_choose_us_5_body') !!}</p>
                         </div>
                     </div>
                 </div>
@@ -314,10 +275,8 @@
                 <div class="col-lg-6 col-md-12">
                     <div class="vision-card">
                         <div class="vision-content">
-                            <h4 style="color: #C19C6E;">رضا العملاء</h4>
-                            <p>
-                                تقديم خدمة إستثنائية لعملائنا وتلبية إحتياجاتهم وتحقيق تطلعاتهم
-                            </p>
+                            <h4 style="color: #C19C6E;">{!! __('about.our_goals_1') !!}</h4>
+                            <p>{!! __('about.our_goals_1_body') !!}</p>
                         </div>
                     </div>
                 </div>
@@ -325,9 +284,9 @@
                 <div class="col-lg-6 col-md-12">
                     <div class="vision-card">
                         <div class="vision-content">
-                            <h4 style="color: #C19C6E;">الجودة والتميز</h4>
+                            <h4 style="color: #C19C6E;">{!! __('about.our_goals_2') !!}</h4>
                             <p>
-                                تحقيق أعلى مستويات الجودة والتميز في الخدمات العقارية
+                                {!! __('about.our_goals_2_body') !!}
                             </p>
                         </div>
                     </div>
@@ -335,9 +294,9 @@
                 <div class="col-lg-6 col-md-12">
                     <div class="vision-card">
                         <div class="vision-content">
-                            <h4 style="color: #C19C6E;">الشراكات الإستراتيجية</h4>
+                            <h4 style="color: #C19C6E;">{!! __('about.our_goals_3') !!}</h4>
                             <p>
-                                تطوير شراكات إستراتيجية مع الشركات والجهات الحكومية لتعزيز قدراتنا وتوسيع نطاقنا
+                                {!! __('about.our_goals_3_body') !!}
                             </p>
                         </div>
                     </div>
@@ -345,9 +304,8 @@
                 <div class="col-lg-6 col-md-12">
                     <div class="vision-card">
                         <div class="vision-content">
-                            <h4 style="color: #C19C6E;">إستدامة العقار</h4>
-                            <p>
-                                بتقديم إهتماماً كبيراً لصيانة وإدارة العقارات بطريقة تضمن إستدامتها لفترة طويلة </p>
+                            <h4 style="color: #C19C6E;">{!! __('about.our_goals_4') !!}</h4>
+                            <p>{!! __('about.our_goals_4_body') !!}</p>
                         </div>
                     </div>
                 </div>
