@@ -54,18 +54,10 @@
             </div>
             <div class="social-links">
                 <ul class="clearfix">
-                    <li>
-                        <a href="index-2.html"><span class="fab fa-x"></span></a>
-                    </li>
-                    <li>
-                        <a href="index-2.html"><span class="fab fa-facebook-square"></span></a>
-                    </li>
-                    <li>
-                        <a href="index-2.html"><span class="fab fa-instagram"></span></a>
-                    </li>
-                    <li>
-                        <a href="index-2.html"><span class="fab fa-youtube"></span></a>
-                    </li>
+                    <li><a href="#"><span class="fab fa-x"></span></a></li>
+                    <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
+                    <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+                    <li><a href="#"><span class="fab fa-youtube"></span></a></li>
                 </ul>
             </div>
         </nav>
