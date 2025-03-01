@@ -1,5 +1,6 @@
 <?php
 return [
+    'title' => 'home || Qudrah Real Estate',
     'home' => 'home',
     'about' => 'about',
     'offers' => 'real estate offers',
@@ -9,6 +10,7 @@ return [
     'blogs' => 'blog',
     'contact' => 'contact us',
     'dropdown' => 'training & employment',
+    'currency' => 'SAR',
 
     'services_desc' => '"Qudrah Real Estate" offers a diverse range of services in a modern and professional manner, leveraging various expertise to meet the needs of different segments of the real estate sector.',
     'offers_desc' => 'Selected properties that suit your needs.',

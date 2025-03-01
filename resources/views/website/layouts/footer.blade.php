@@ -94,9 +94,6 @@
                 <li>
                     <a href="index-2.html"><i class="fab fa-instagram"></i></a>
                 </li>
-                <li>
-                    <a href="index-2.html"><i class="fab fa-linkedin-in"></i></a>
-                </li>
             </ul>
         </div>
     </div>

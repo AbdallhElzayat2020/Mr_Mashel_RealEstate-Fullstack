@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
 
-    <title>العروض العقاريه</title>
+    <title>{{__('offers.title')}}</title>
 
     @include('website.layouts.head')
 </head>
@@ -40,32 +40,32 @@
 
         <nav class="menu-box" style="direction: rtl; text-align: right">
             <div class="nav-logo">
-                <a href="index-2.html"><img src="{{ asset('assets/website/images/LOGO.png') }}" alt="" title=""/></a>
+                <a href="{{ route('home') }}"><img src="{{ asset('assets/website/images/LOGO.png') }}" alt="" title=""/></a>
             </div>
             <div class="menu-outer">
                 <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
             </div>
             <div class="contact-info">
-                <h4>للتواصل معنا</h4>
+                <h4>{{__('offers.contact')}}</h4>
                 <ul>
-                    <li>الرياض - حي المروج</li>
-                    <li>الرياض - حي السلي</li>
+                    <li>{{__('offers.address_1')}}</li>
+                    <li>{{__('offers.address_2')}}</li>
                     <li><a href="mailto:info@example.com">info@example.com</a></li>
                 </ul>
             </div>
             <div class="social-links">
                 <ul class="clearfix">
                     <li>
-                        <a href="index-2.html"><span class="fab fa-x"></span></a>
+                        <a href="javascript:void(0)"><span class="fab fa-x"></span></a>
                     </li>
                     <li>
-                        <a href="index-2.html"><span class="fab fa-facebook-square"></span></a>
+                        <a href="javascript:void(0)"><span class="fab fa-facebook-square"></span></a>
                     </li>
                     <li>
-                        <a href="index-2.html"><span class="fab fa-instagram"></span></a>
+                        <a href="javascript:void(0)"><span class="fab fa-instagram"></span></a>
                     </li>
                     <li>
-                        <a href="index-2.html"><span class="fab fa-youtube"></span></a>
+                        <a href="javascript:void(0)"><span class="fab fa-youtube"></span></a>
                     </li>
                 </ul>
             </div>
@@ -79,10 +79,11 @@
              aria-label="breadcrumb">
             <ol class="breadcrumb" style=" margin: 0; background-color: transparent; padding: 0;">
                 <li class="breadcrumb-item">
-                    <a href="#" style="color: #001D00; text-decoration: none; font-weight: bold;">الرئيسية</a>
+                    <a href="#"
+                       style="color: #001D00; text-decoration: none; font-weight: bold;">{{__('offers.home')}}</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
-                    العروض العقارية
+                    {{__('offers.offers')}}
                 </li>
 
             </ol>
@@ -94,9 +95,10 @@
                 <div class="col-lg-4 mt-3 col-md-4 col-sm-6">
                     <div class="select-box">
                         <select class="wide" name="o_type">
-                            <option data-display="حالة العقار" value="">حالة العقار</option>
+                            <option data-display="{{__('offers.status')}}" value="">{{__("offers.status")}}</option>
                             @foreach(\App\Enums\OfferType::cases() as $offerType)
-                                <option @selected(request('o_type') == $offerType->value) value="{{ $offerType->value }}">{{ $offerType->label() }}</option>
+                                <option
+                                    @selected(request('o_type') == $offerType->value) value="{{ $offerType->value }}">{{ $offerType->label() }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -105,9 +107,10 @@
                 <div class="col-lg-4 mt-3 col-md-4 col-sm-6">
                     <div class="select-box">
                         <select class="wide" name="op_type">
-                            <option selected value="">نوع العقار</option>
+                            <option selected value="">{{__('offers.type')}}</option>
                             @foreach(\App\Enums\PropertyType::cases() as $propertyType)
-                                <option @selected(request('op_type') == $propertyType->value) value="{{ $propertyType->value }}">{{ $propertyType->label() }}</option>
+                                <option
+                                    @selected(request('op_type') == $propertyType->value) value="{{ $propertyType->value }}">{{ $propertyType->label() }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -117,23 +120,25 @@
 
                     <div class="select-box">
                         <select class="wide" name="op_location">
-                            <option selected value="">الموقع</option>
+                            <option selected value="">{{__('offers.location')}}</option>
                             @foreach(\App\Enums\PropertyLocations::cases() as $propertyLocation)
-                                <option @selected(request('op_location') == $propertyLocation->value) value="{{ $propertyLocation->value }}">{{ $propertyLocation->label() }}</option>
+                                <option
+                                    @selected(request('op_location') == $propertyLocation->value) value="{{ $propertyLocation->value }}">{{ $propertyLocation->label() }}</option>
                             @endforeach
                         </select>
                     </div>
                 </div>
                 <!-- Price Range -->
                 <div class="col-lg-9 col-md-4 col-sm-6 mt-3">
-                    <input type="number" value="{{ request('price') }}"  class="form-control shadow-sm" placeholder="السعر"
+                    <input type="number" value="{{ request('price') }}" class="form-control shadow-sm"
+                           placeholder="{{__('offers.price')}}"
                            name="price"
-                            id="priceRangeInput">
+                           id="priceRangeInput">
                 </div>
 
                 <!-- Search Button -->
                 <div class="col-lg-3 col-md-4 col-sm-12 mt-3 text-center">
-                    <button class="btn btn-success w-100 shadow-sm">بحث <i class="fas fa-search"></i></button>
+                    <button class="btn btn-success w-100 shadow-sm">{{__('offers.search')}} <i class="fas fa-search"></i></button>
                 </div>
             </div>
         </form>
@@ -144,9 +149,6 @@
                         <div class="inner-box bg-color-1">
                             <div class="image-box">
                                 <figure class="image">
-{{--                                    <a href="blog-details.html"><img--}}
-{{--                                            src="{{asset('assets/website/images/news/news-1.jpg')}}" alt=""/></a>--}}
-
                                     <a href="{{ route('offers.details', $offer) }}"><img
                                             src="{{ $offer->getThumbUrl() }}" alt=""/></a>
                                 </figure>
@@ -159,15 +161,17 @@
                                     {!! $offer->short_description !!}
                                 </p>
                                 <h3>
-{{--                                    <a href="blog-details.html">200,000 ريال / سنوياً</a>--}}
+                                    {{--                                    <a href="blog-details.html">200,000 ريال / سنوياً</a>--}}
 
-                                    <a href="{{ route('offers.details', $offer) }}">{{ $offer->price }} ريال / {{ $offer->price_type->label() }}</a>
+                                    <a href="{{ route('offers.details', $offer) }}">{{ $offer->price }}
+                                        {{__('home.currency')}}
+                                        / {{ $offer->price_type->label() }}</a>
 
                                 </h3>
                                 <p
                                     style="background-color: #001D00; padding: 5px; color: #fff;font-weight: bold; border-radius: 5px;">
                                     <a class="text-white" href="{{ route('offers.details', $offer) }}">
-                                        تفاصيل العقار
+                                        {{__('home.offer_details')}}
                                     </a>
                                 </p>
                             </div>

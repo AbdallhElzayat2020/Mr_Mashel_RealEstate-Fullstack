@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
-    <title>الرئيسية || قدرة العقارية</title>
+    <title>{{__('home.title')}}</title>
 
     @include('website.layouts.head')
 
@@ -49,7 +49,7 @@
             <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
             </div>
             <div class="contact-info">
-                <h4>للتواصل معنا</h4>
+                <h4>{{__('home.contact')}}</h4>
                 <ul>
                     <li>الرياض - حي المروج</li>
                     <li> الرياض - حي السلي</li>
@@ -76,8 +76,9 @@
         <div class="large-container">
             <div class="content-box p_relative d_block z_5">
                 <div class="title mb_25">
-                    <h3 class="color_white d_block fs_30 lh_76 mb_35 fw_exbold">بقدرتنا المتنوعة نُحقق
-                        أهدافكم</h3>
+                    <h3 class="color_white d_block fs_30 lh_76 mb_35 fw_exbold">
+                        بقدرتنا المتنوعة نُحقق أهدافكم
+                    </h3>
                 </div>
             </div>
         </div>
