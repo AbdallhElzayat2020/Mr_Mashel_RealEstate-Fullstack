@@ -100,11 +100,7 @@
                                 </div>
                                 <h2 class="p_relative d_block fs_20 lh_60 fw_bold mt-4"
                                     style="color: #526652; text-align: start;">
-                                    إنطلقت <span style="color: #c19c6e">“ قدرة العقارية”</span> في عام 2021 لتقديم
-                                    مجموعة واسعة من الخدمات
-                                    العقارية
-                                    عالية الجودة والتي تتوافق مع أفضل المعايير
-                                    والممارسات لتواكب رؤية المملكة 2030 نحو مستقبل عقاري مزدهر.
+                                    {!! __('home.about_sec') !!}
                                 </h2>
                             </div>
                         </div>
@@ -170,7 +166,7 @@
                 <h2 style="color: #001D00;" class="p_relative d_block fs_40 lh_60 mb-2 fw_exbold">
                     {{__('home.offers')}}
                 </h2>
-                <span class="sub-title p_relative d_block fs_18 lh_25 mb_10">عقارات مُختارة تُناسب إحتياجكم</span>
+                <span class="sub-title p_relative d_block fs_18 lh_25 mb_10">{{ __('home.real_offers') }}</span>
             </div>
             <div class="row">
                 @foreach($offers as $offer)

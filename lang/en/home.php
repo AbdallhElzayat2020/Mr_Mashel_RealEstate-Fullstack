@@ -18,6 +18,15 @@ return [
     'show_all' => 'show all',
     'offer_details' => 'Offer details',
     'our_branches' => 'our branches',
+    'about_sec' => '
+    <span style="color: #c19c6e">“Qudra Real Estate”</span> was launched in 2021 to provide
+    a wide range of high-quality real estate services
+    that align with the best standards
+    and practices, keeping pace with Saudi Vision 2030
+    towards a thriving real estate future.',
+
+    'real_offers' => 'Selected properties that suit your needs',
+
     'brach_desc' => 'we serve you in',
     'brach_desc2' => 'and we aspire to serve you in all',
     'brach_desc3' => 'Parts of Saudi Arabia soon',
