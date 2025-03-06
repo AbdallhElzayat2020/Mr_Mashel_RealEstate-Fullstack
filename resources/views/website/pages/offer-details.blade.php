@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
 
-    <title>عرض عقاري || قدرة العقارية</title>
+    <title>{{__('offers.title')}}</title>
 
     @include('website.layouts.head')
 
@@ -196,15 +196,15 @@
                  aria-label="breadcrumb">
                 <ol class="breadcrumb" style=" margin: 0; background-color: transparent; padding: 0;">
                     <li class="breadcrumb-item">
-                        <a href="#" class="breadcrumb-item active">الرئيسية</a>
+                        <a href="#" class="breadcrumb-item active">{{__('offers.home')}}</a>
                     </li>
                     <li class="breadcrumb-item active" aria-current="page">
-                        العروض العقارية
+                       {{__('offers.offers')}}
                     </li>
-                    <li class="breadcrumb-item" style="color: green; text-decoration: none; font-weight: bold;"
-                        aria-current="page">
-                        اسم العرض العقاري
-                    </li>
+{{--                    <li class="breadcrumb-item" style="color: green; text-decoration: none; font-weight: bold;"--}}
+{{--                        aria-current="page">--}}
+{{--                        {!! $offer->short_title !!}--}}
+{{--                    </li>--}}
                 </ol>
             </nav>
         </div>
@@ -307,18 +307,18 @@
                     </div>
 
                     <div class="btn-box d-flex align-items-center justify-content-center">
-                        <a href="project-details.html" class="btn mr_11"
+                        <a href="javascript:void(0)" class="btn mr_11"
                            style="background-color: #001D00; color: #fff;">  {{ $offer->price }} ريال سعودي </a>
 
                         <a download="" href="{{ $offer->getBrochureUrl() }}" class="btn mr_11"
                            style="background-color: #526652; color: #fff;"><i class="fas fa-download fs_16"></i>
                             تنزيل البرشور
                         </a>
-                        <a href="project-details.html" class="btn mr_11"
+                        <a href="javascript:void(0)" class="btn mr_11"
                            style="background-color: #001D00; color: #fff;"><i class="fas fa-phone fs_16"></i> إتصل
                             بنا
                         </a>
-                        <a href="project-details.html" class="btn mr_11"
+                        <a href="javascript:void(0)" class="btn mr_11"
                            style="background-color: #526652; color: #fff;"><i class="fas fa-envelope fs_16"></i>
                             إتصل بنا
                         </a>

@@ -126,7 +126,7 @@
                 </div>
                 <div class="nav-right">
                     <div class="support-box">
-                        <a href="tel:+966541111426" class="theme-btn btn-one">تواصل معنا</a>
+                        <a href="tel:+966541111426" class="theme-btn btn-one">{{__('home.contact')}}</a>
                     </div>
                 </div>
             </div>
@@ -151,7 +151,7 @@
                 <div class="nav-right">
                     <div class="support-box">
                         <!-- <div class="icon-box"><i class="far fa-phone"></i></div> -->
-                        <a href="tel:+966541111426" class="theme-btn btn-one">تواصل معنا</a>
+                        <a href="tel:+966541111426" class="theme-btn btn-one">{{__('home.contact')}}</a>
 
                         <!-- <h3><a href="tel:+966541111426">تواصل معنا</a></h3> -->
                     </div>
@@ -160,38 +160,3 @@
         </div>
     </div>
 </header>
-
-<div class="mobile-menu">
-    <div class="menu-backdrop"></div>
-    <div class="close-btn"><i class="fas fa-times"></i></div>
-
-    <nav class="menu-box" style="direction: rtl; text-align: right">
-        <div class="nav-logo">
-            <a href="index-2.html"><img src="{{asset('assets/website/images/LOGO.png')}}" alt="" title=""/></a>
-        </div>
-        <div class="menu-outer">
-            <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
-        </div>
-        <div class="contact-info">
-            <h4>للتواصل معنا</h4>
-            <ul>
-                <li>الرياض - حي المروج</li>
-                <li>الرياض - حي السلي</li>
-                <li><a href="mailto:info@example.com">info@example.com</a></li>
-            </ul>
-        </div>
-        <div class="social-links">
-            <ul class="clearfix">
-                <li>
-                    <a href="#"><span class="fab fa-facebook-square"></span></a>
-                </li>
-                <li>
-                    <a href="#l"><span class="fab fa-instagram"></span></a>
-                </li>
-                <li>
-                    <a href="#"><span class="fab fa-youtube"></span></a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</div>

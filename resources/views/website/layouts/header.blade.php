@@ -143,8 +143,9 @@
             <div class="outer-box">
                 <div class="logo-box">
                     <figure class="logo">
-                        <a href="{{route('home')}}"><img src="{{ asset('assets/website/images/logo_quadrash.png') }}"
-                                                         alt="LOGO"/></a>
+                        <a href="{{route('home')}}">
+                            <img src="{{ asset('assets/website/images/logo_quadrash.png') }}" alt="LOGO"/>
+                        </a>
                     </figure>
                 </div>
                 <div class="menu-area clearfix">

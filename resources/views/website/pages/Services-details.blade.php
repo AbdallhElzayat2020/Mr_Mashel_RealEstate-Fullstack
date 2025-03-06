@@ -76,10 +76,10 @@
                  aria-label="breadcrumb">
                 <ol class="breadcrumb" style=" margin: 0; background-color: transparent; padding: 0;">
                     <li class="breadcrumb-item">
-                        <a href="#" class="breadcrumb-item active">الرئيسية</a>
+                        <a href="#" class="breadcrumb-item active">{{__('offers.home')}}</a>
                     </li>
                     <li class="breadcrumb-item active" aria-current="page">
-                        الخدمات
+                        {{__('services.home')}}
                     </li>
                     <li class="breadcrumb-item" style="color: green; text-decoration: none; font-weight: bold;"
                         aria-current="page">
@@ -99,7 +99,7 @@
                         </div>
                     </div> -->
                     <div class="text" style="text-align: start;">
-                        <h3>خدمات اخري</h3>
+                        <h3>{{__('services.services')}}</h3>
                         <ul>
                             @foreach($other_services as  $other_service)
                                 <li
@@ -120,11 +120,6 @@
                         <p class="color_white">وأبشر بطيبة الخاطر</p>
                         <h3 class="color_white fw_bold mt-2">{{ $service->contact_number }}</h3>
                     </div>
-                    {{--                    <div class="button mt-4 text-center" style="background-color:#526652 ; padding: 10px;">--}}
-                    {{--                        <a href="" class="color_white text-white">--}}
-                    {{--                            تنزيل برشور الشركة <i class="fa-solid fa-file-pdf mx-3"></i>--}}
-                    {{--                        </a>--}}
-                    {{--                    </div>--}}
                 </div>
 
                 <div class="col-lg-8 col-md-12 col-sm-12 content-side">
@@ -187,7 +182,7 @@
             </div>
             <div class="large-container">
                 <div class="sec-title centred mb_55">
-                    <h2 class="p_relative d_block fs_40 lh_60 fw_exbold" style="color: #001D00;">ماذا يقولون عنا</h2>
+                    <h2 class="p_relative d_block fs_40 lh_60 fw_exbold" style="color: #001D00;">{{__('home.testimonials')}}</h2>
                 </div>
                 <div class="testimonial-inner p_relative pl_100 pr_100">
                     <div class="two-item-carousel owl-carousel owl-theme owl-nav-none">
@@ -222,10 +217,12 @@
     <section class="clients-section p_relative sec-pad centred" style="direction: ltr;">
         <div class="large-container">
             <div class="sec-title mb_30">
-                <h2 class="p_relative d_block fs_42 lh_52 mb_45 fw_exbold" style="color: #001D00;">عملاء يثقون بنا
+                <h2 class="p_relative d_block fs_42 lh_52 mb_45 fw_exbold" style="color: #001D00;">
+                    {{__('home.companies')}}
                 </h2>
-                <p style="color: #526652;">تطور قدرةالعقارية شراكاتها الاستراتيجية في مختلف القطاعات لتعزز قدرتها
-                    وتوسيع نطاقها</p>
+                <p style="color: #526652;">
+                    {{__('home.companies_desc')}}
+                </p>
             </div>
             <ul class="six-item-carousel owl-carousel owl-theme owl-dots-none owl-nav-none">
                 <li>
@@ -261,7 +258,8 @@
     <section class="contact-style-three p_relative pt_110 pb_120" style="direction: rtl">
         <div class="large-container">
             <div class="sec-title mb_55 centred">
-                <h2 style="color: #001D00;" class="p_relative d_block fs_40 lh_60 mb-2 fw_exbold">للتواصل والاستفسار
+                <h2 style="color: #001D00;" class="p_relative d_block fs_40 lh_60 mb-2 fw_exbold">
+                    {{__('contact.title')}}
                 </h2>
             </div>
             <div class="row clearfix d-flex align-items-center justify-content-center">
@@ -273,16 +271,16 @@
                             @csrf
                             <div class="row clearfix">
                                 <div class="col-lg-6 col-md-12 col-sm-12 form-group mb_20">
-                                    <input type="text" name="name" placeholder="الاسم الكامل" required=""/>
+                                    <input type="text" name="name" placeholder="{{__('contact.email')}}" required=""/>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 form-group mb_20">
-                                    <input type="text" name="phone" required="" placeholder="رقم الهاتف"/>
+                                    <input type="text" name="phone" required="" placeholder="{{__('contact.phone')}}"/>
                                 </div>
                                 <div class="col-lg-6 col-md-12 col-sm-12 form-group">
                                     <div class="select-box">
                                         <select class="wide" name="service_id">
-                                            <option data-display="اختر الخدمة المطلوبة">
-                                                اختر الخدمة المطلوبة
+                                            <option data-display="{{__('contact.choose')}}">
+                                             {{__('contact.choose')}}
                                             </option>
                                             @foreach($all_services as $a_service)
                                                 <option value="{{ $a_service->id }}">{{ $a_service->title }}</option>

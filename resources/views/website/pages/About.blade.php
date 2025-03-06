@@ -180,7 +180,7 @@
                                      alt="{!! __('about.why_choose_us_1') !!}"/>
                             </div>
                             <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
-                                <a href="index-3.html" class="d_iblock color_black hov_color"
+                                <a href="javascript:void(0)" class="d_iblock color_black hov_color"
                                    style="color: #526652 !important">{!! __('about.why_choose_us_1') !!}</a>
                             </h3>
                             <p class="text-center">{!! __('about.why_choose_us_1_body') !!}</p>
