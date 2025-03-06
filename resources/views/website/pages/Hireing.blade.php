@@ -3,9 +3,9 @@
 
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
 
     <title>{{ __('hireing.page_title') }}</title>
 
@@ -30,7 +30,7 @@
     <!-- preloader end -->
 
     <!-- main header -->
-    @include('website.layouts.header')
+    @include('website.layouts.header_2')
     <!-- main-header end -->
 
     <!-- Mobile Menu  -->
@@ -40,16 +40,18 @@
 
         <nav class="menu-box" style="direction: rtl; text-align: right">
             <div class="nav-logo">
-                <a href="/"><img src="{{ asset('assets/website/images/LOGO.png') }}" alt="" title=""/></a>
+                <a href="javascript:void(0)">
+                    <img style="width: 190px" src="{{ asset('assets/website/images/logo_quadrash.png') }}" alt="LOGO">
+                </a>
             </div>
             <div class="menu-outer">
                 <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
             </div>
             <div class="contact-info">
-                <h4>للتواصل معنا</h4>
+                <h4>{{ __('home.contact') }}</h4>
                 <ul>
-                    <li>الرياض - حي المروج</li>
-                    <li>الرياض - حي السلي</li>
+                    <li>{{ __('offers.address_1') }}</li>
+                    <li>{{ __('offers.address_2') }}</li>
                     <li><a href="mailto:info@example.com">info@example.com</a></li>
                 </ul>
             </div>
@@ -79,7 +81,8 @@
              aria-label="breadcrumb">
             <ol class="breadcrumb" style=" margin: 0; background-color: transparent; padding: 0;">
                 <li class="breadcrumb-item">
-                    <a href="#" style="color: #001D00; text-decoration: none; font-weight: bold;">{{ __('hireing.bread_1') }}</a>
+                    <a href="#"
+                       style="color: #001D00; text-decoration: none; font-weight: bold;">{{ __('hireing.bread_1') }}</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
                     {{ __('hireing.bread_2') }}
@@ -93,7 +96,8 @@
         <!-- <div class="pattern-layer p_absolute t_0 r_0" style="background-image: url(assets/images/shape/shape-7.png);"></div> -->
         <div class="large-container">
             <div class="sec-title mb_55 centred">
-                <h2 style="color: #001D00;" class="p_relative d_block fs_40 lh_60 mb-2 fw_exbold">{{ __('hireing.header') }}</h2>
+                <h2 style="color: #001D00;"
+                    class="p_relative d_block fs_40 lh_60 mb-2 fw_exbold">{{ __('hireing.header') }}</h2>
             </div>
 
             @session('message')
@@ -117,7 +121,8 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="mt-3" style="color: #526652;" href="javascript:void(0)">{{ __('hireing.main_header_body_2') }}</a>
+                                    <a class="mt-3" style="color: #526652;"
+                                       href="javascript:void(0)">{{ __('hireing.main_header_body_2') }}</a>
                                 </li>
                             </ul>
                         </div>
@@ -185,7 +190,6 @@
     @endif
 
 
-
     <section class="contact-style-three p_relative pt_110 pb_120 bg-light" style="direction: rtl">
         <div class="large-container">
             <div class="sec-title mb_55 centred">
@@ -200,22 +204,26 @@
                 <div
                     class="col-lg-9 d-flex align-items-center justify-content-center col-md-12 col-sm-12 form-column">
                     <div class="form-inner d-flex align-items-center justify-content-center">
-                        <form method="post" action="{{ route('apply.store') }}" id="contact-form" class="default-form" enctype="multipart/form-data">
+                        <form method="post" action="{{ route('apply.store') }}" id="contact-form" class="default-form"
+                              enctype="multipart/form-data">
                             @csrf
 
                             <div class="row clearfix">
                                 <div class="col-lg-6 col-md-12 col-sm-12 form-group mb_20">
-                                    <input type="text" name="name" placeholder="{{ __('hireing.form_input_1') }}" required/>
+                                    <input type="text" name="name" placeholder="{{ __('hireing.form_input_1') }}"
+                                           required/>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 form-group mb_20">
-                                    <input type="text" name="phone" required placeholder="{{ __('hireing.form_input_2') }}"/>
+                                    <input type="text" name="phone" required
+                                           placeholder="{{ __('hireing.form_input_2') }}"/>
                                 </div>
                                 <div class="col-lg-6 col-md-12 col-sm-12 form-group mb_20">
                                     <input type="text" name="email" placeholder="{{ __('hireing.form_input_3') }}"
                                            required/>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 form-group mb_20">
-                                    <input type="text" name="education" required placeholder="{{ __('hireing.form_input_4') }}"/>
+                                    <input type="text" name="education" required
+                                           placeholder="{{ __('hireing.form_input_4') }}"/>
                                 </div>
                                 <div class="col-lg-6 col-md-12 col-sm-12 form-group">
                                     <div class="select-box">
@@ -231,7 +239,8 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 form-group mb_20">
-                                    <input type="text" name="field_of_exp" required placeholder="{{ __('hireing.form_input_6') }}"/>
+                                    <input type="text" name="field_of_exp" required
+                                           placeholder="{{ __('hireing.form_input_6') }}"/>
                                 </div>
                                 <div class="col-lg- col-md-12 col-sm-12 form-group">
                                     <div class="select-box">
@@ -311,7 +320,8 @@
                                     <div class="form-check ">
                                         <input class="form-check-input " type="checkbox" value="checked"
                                                id="flexCheckChecked" checked>
-                                        <label class="form-check-label mr-3" for="flexCheckChecked">{!!  __('hireing.form_input_9')  !!}</label>
+                                        <label class="form-check-label mr-3"
+                                               for="flexCheckChecked">{!!  __('hireing.form_input_9')  !!}</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn mr-0"

@@ -153,7 +153,7 @@
     <!-- preloader end -->
 
     <!-- main header -->
-    @include('website.layouts.header')
+    @include('website.layouts.header_2')
     <!-- main-header end -->
 
     <!-- Mobile Menu  -->
@@ -161,35 +161,27 @@
         <div class="menu-backdrop"></div>
         <div class="close-btn"><i class="fas fa-times"></i></div>
 
-        <nav class="menu-box" style="direction: rtl; text-align: right">
+        <nav class="menu-box" style="direction: ltr; text-align: right">
             <div class="nav-logo">
-                <a href="index-2.html"><img src="{{ asset('assets/website/images/LOGO.png') }}" alt="" title=""/></a>
+                <a href="javascript:void(0)"><img style="width: 160px" src="{{ asset('assets/website/images/logo_quadrash.png') }}" alt="" title=""/></a>
             </div>
             <div class="menu-outer">
                 <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
             </div>
             <div class="contact-info">
-                <h4>للتواصل معنا</h4>
+                <h4>{{ __('home.contact') }}</h4>
                 <ul>
-                    <li>الرياض - حي المروج</li>
-                    <li>الرياض - حي السلي</li>
+                    <li>{{ __('offers.address_1') }}</li>
+                    <li>{{ __('offers.address_2') }}</li>
                     <li><a href="mailto:info@example.com">info@example.com</a></li>
                 </ul>
             </div>
             <div class="social-links">
                 <ul class="clearfix">
-                    <li>
-                        <a href="index-2.html"><span class="fab fa-x"></span></a>
-                    </li>
-                    <li>
-                        <a href="index-2.html"><span class="fab fa-facebook-square"></span></a>
-                    </li>
-                    <li>
-                        <a href="index-2.html"><span class="fab fa-instagram"></span></a>
-                    </li>
-                    <li>
-                        <a href="index-2.html"><span class="fab fa-youtube"></span></a>
-                    </li>
+                    <li><a href="#"><span class="fab fa-x"></span></a></li>
+                    <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
+                    <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+                    <li><a href="#"><span class="fab fa-youtube"></span></a></li>
                 </ul>
             </div>
         </nav>

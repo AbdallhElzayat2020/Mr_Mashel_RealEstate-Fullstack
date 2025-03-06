@@ -10,7 +10,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
                     <div class="footer-widget logo-widget">
                         <figure class="footer-logo">
-                            <a href="javascript:void(0)"><img src="{{ asset('assets/website/images/LOGO_Sticky.png') }}"
+                            <a href="javascript:void(0)"><img style="width: 165px" src="{{ asset('assets/website/images/logo_quadrash.png') }}"
                                                               alt=""/></a>
                         </figure>
                         <div class="text">

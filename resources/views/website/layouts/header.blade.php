@@ -1,11 +1,11 @@
-<header class="main-header header-style-one">
+<header class="main-header header-style-one"  >
     <!-- header-lower -->
     <div class="header-lower">
         <div class="large-container">
             <div class="outer-box">
                 <div class="logo-box mx-1 {{ app()->getLocale() === 'ar' ? 'rtl-logo' : 'ltr-logo' }}">
                     <figure class="logo">
-                        <a href="/"><img src="{{ asset('assets/website/images/LOGO_Sticky.png') }}" alt="logo"/></a>
+                        <a href="/"><img src="{{ asset('assets/website/images/logo_quadrash.png') }}" alt="logo"/></a>
                     </figure>
                 </div>
                 <div class="menu-area clearfix">
@@ -143,7 +143,7 @@
             <div class="outer-box">
                 <div class="logo-box">
                     <figure class="logo">
-                        <a href="{{route('home')}}"><img src="{{ asset('assets/website/images/LOGO_Sticky.png') }}"
+                        <a href="{{route('home')}}"><img src="{{ asset('assets/website/images/logo_quadrash.png') }}"
                                                          alt="LOGO"/></a>
                     </figure>
                 </div>

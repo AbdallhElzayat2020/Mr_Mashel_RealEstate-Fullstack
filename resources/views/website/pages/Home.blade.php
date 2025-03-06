@@ -41,8 +41,8 @@
 
         <nav class="menu-box" style="direction: rtl; text-align: right;">
             <div class="nav-logo">
-                <a href="{{route('home')}}">
-                    <img src="{{ asset('assets/website/images/LOGO.png') }}" alt="" title="">
+                <a href="javascript:void(0)">
+                    <img style="width: 190px" src="{{ asset('assets/website/images/logo_quadrash.png') }}" alt="LOGO">
                 </a>
             </div>
             <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
@@ -94,8 +94,8 @@
                             <div class="sec-title mb_45">
                                 <div class="icon-box p_relative d_block fs_14 lh_20 mb_10"
                                      style="text-align: {{ app()->getLocale() === 'ar' ? 'right' : 'left' }};">
-                                    <img src="{{ asset('assets/website/images/LOGO.png') }}" alt="LOGO"
-                                         style="display: inline-block;">
+                                    <img  src="{{ asset('assets/website/images/logo_quadrash_2.png') }}" alt="LOGO"
+                                         style="display: inline-block; width: 190px; "/>
                                 </div>
                                 <h2 class="p_relative d_block fs_20 lh_60 fw_bold mt-4"
                                     style="color: #526652; text-align: start;">

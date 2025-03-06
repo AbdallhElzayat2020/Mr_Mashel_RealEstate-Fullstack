@@ -39,16 +39,18 @@
 
         <nav class="menu-box" style="direction: rtl; text-align: right">
             <div class="nav-logo">
-                <a href="index-2.html"><img src="{{ asset('assets/website/images/LOGO.png') }}" alt="" title=""/></a>
+                <a href="javascript:void(0)">
+                    <img style="width: 190px" src="{{ asset('assets/website/images/logo_quadrash.png') }}" alt="LOGO">
+                </a>
             </div>
             <div class="menu-outer">
                 <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
             </div>
             <div class="contact-info">
-                <h4>للتواصل معنا</h4>
+                <h4>{{__('home.contact')}}</h4>
                 <ul>
-                    <li>الرياض - حي المروج</li>
-                    <li>الرياض - حي السلي</li>
+                    <li>{{__('offers.address_1')}}</li>
+                    <li>{{__('offers.address_2')}}</li>
                     <li><a href="mailto:info@example.com">info@example.com</a></li>
                 </ul>
             </div>
@@ -174,7 +176,8 @@
                         <div
                             class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
                             <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                <img src="{{ asset('assets/website/images/مرخصة_ومعتمدة.png') }}" alt="{!! __('about.why_choose_us_1') !!}"/>
+                                <img src="{{ asset('assets/website/images/مرخصة_ومعتمدة.png') }}"
+                                     alt="{!! __('about.why_choose_us_1') !!}"/>
                             </div>
                             <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
                                 <a href="index-3.html" class="d_iblock color_black hov_color"
@@ -195,7 +198,7 @@
                                      alt="{!! __('about.why_choose_us_2') !!}"/>
                             </div>
                             <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
-                                <a href="index-3.html" class="d_iblock color_black hov_color"
+                                <a href="javascript:void(0)" class="d_iblock color_black hov_color"
                                    style="color: #526652 !important">{!! __('about.why_choose_us_2') !!}</a>
                             </h3>
                             <p class="text-center">{!! __('about.why_choose_us_2_body') !!}</p>
@@ -213,7 +216,7 @@
                                      alt="{!! __('about.why_choose_us_3') !!}"/>
                             </div>
                             <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
-                                <a href="index-3.html" class="d_iblock color_black hov_color"
+                                <a href="javascript:void(0)" class="d_iblock color_black hov_color"
                                    style="color: #526652 !important">{!! __('about.why_choose_us_3') !!}</a>
                             </h3>
                             <p class="text-center">{!! __('about.why_choose_us_3_body') !!}</p>
@@ -227,10 +230,11 @@
                         <div
                             class="inner-box p_relative text-center d_block bg_white b_shadow_6 pt_60 pr_45 pb_55 pl_45 tran_5">
                             <div class="icon-box p_relative d_block fs_100 lh_100 green_color mb_25 tran_5">
-                                <img src="{{ asset('assets/website/images/النزاهة.png') }}" alt="{!! __('about.why_choose_us_4') !!}"/>
+                                <img src="{{ asset('assets/website/images/النزاهة.png') }}"
+                                     alt="{!! __('about.why_choose_us_4') !!}"/>
                             </div>
                             <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
-                                <a href="index-3.html" class="d_iblock color_black hov_color"
+                                <a href="javascript:void(0)" class="d_iblock color_black hov_color"
                                    style="color: #526652 !important">{!! __('about.why_choose_us_4') !!}</a>
                             </h3>
                             <p class="text-center">{!! __('about.why_choose_us_4_body') !!}</p>
@@ -247,7 +251,7 @@
                                      alt="{!! __('about.why_choose_us_5') !!}"/>
                             </div>
                             <h3 class="d_block fs_20 lh_30 fw_exbold mb_25 pb_25">
-                                <a href="index-3.html" class="d_iblock color_black hov_color"
+                                <a href="javascript:void(0)" class="d_iblock color_black hov_color"
                                    style="color: #526652 !important">{!! __('about.why_choose_us_5') !!}</a>
                             </h3>
                             <p class="text-center">{!! __('about.why_choose_us_5_body') !!}</p>
@@ -261,7 +265,7 @@
     <section class="vision-mission-section p_relative">
         <div class="container">
             <div class="heading text-center font-weight-bold mb-3" style="color: #001d00; font-size: 40px">
-                اهدافنا
+                {{__('about.our_goals')}}
             </div>
             <div class="row justify-content-between align-items-center">
                 <div class="col-lg-6 col-md-12">

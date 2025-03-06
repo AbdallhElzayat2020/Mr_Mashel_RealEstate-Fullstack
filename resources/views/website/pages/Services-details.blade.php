@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
 
-    <title>خدماتنا</title>
+    <title>{{__('services.title')}}</title>
 
     @include('website.layouts.head')
 </head>
@@ -30,7 +30,7 @@
     <!-- preloader end -->
 
     <!-- main header -->
-    @include('website.layouts.header')
+    @include('website.layouts.header_2')
     <!-- main-header end -->
 
     <!-- Mobile Menu  -->
@@ -40,33 +40,27 @@
 
         <nav class="menu-box" style="direction: rtl; text-align: right">
             <div class="nav-logo">
-                <a href="index-2.html"><img src="{{ asset('assets/website/images/LOGO.png') }}" alt="" title=""/></a>
+                <a href="javascript:void(0)">
+                    <img style="width: 190px" src="{{ asset('assets/website/images/logo_quadrash.png') }}" alt="LOGO">
+                </a>
             </div>
             <div class="menu-outer">
                 <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
             </div>
             <div class="contact-info">
-                <h4>للتواصل معنا</h4>
+                <h4>{{ __('home.contact') }}</h4>
                 <ul>
-                    <li>الرياض - حي المروج</li>
-                    <li>الرياض - حي السلي</li>
+                    <li>{{ __('offers.address_1') }}</li>
+                    <li>{{ __('offers.address_2') }}</li>
                     <li><a href="mailto:info@example.com">info@example.com</a></li>
                 </ul>
             </div>
             <div class="social-links">
                 <ul class="clearfix">
-                    <li>
-                        <a href="index-2.html"><span class="fab fa-x"></span></a>
-                    </li>
-                    <li>
-                        <a href="index-2.html"><span class="fab fa-facebook-square"></span></a>
-                    </li>
-                    <li>
-                        <a href="index-2.html"><span class="fab fa-instagram"></span></a>
-                    </li>
-                    <li>
-                        <a href="index-2.html"><span class="fab fa-youtube"></span></a>
-                    </li>
+                    <li><a href="#"><span class="fab fa-x"></span></a></li>
+                    <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
+                    <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+                    <li><a href="#"><span class="fab fa-youtube"></span></a></li>
                 </ul>
             </div>
         </nav>
@@ -235,27 +229,27 @@
             </div>
             <ul class="six-item-carousel owl-carousel owl-theme owl-dots-none owl-nav-none">
                 <li>
-                    <figure class="clients-logo"><a href="index-3.html"><img
+                    <figure class="clients-logo"><a href="javascript:void(0)"><img
                                 src="{{asset('assets/website/images/clients/clients-1.png')}}" alt=""></a>
                     </figure>
                 </li>
                 <li>
-                    <figure class="clients-logo"><a href="index-3.html"><img
+                    <figure class="clients-logo"><a href="javascript:void(0)"><img
                                 src="{{asset('assets/website/images/clients/clients-1.png')}}" alt=""></a>
                     </figure>
                 </li>
                 <li>
-                    <figure class="clients-logo"><a href="index-3.html"><img
+                    <figure class="clients-logo"><a href="javascript:void(0)"><img
                                 src="{{asset('assets/website/images/clients/clients-1.png')}}" alt=""></a>
                     </figure>
                 </li>
                 <li>
-                    <figure class="clients-logo"><a href="index-3.html"><img
+                    <figure class="clients-logo"><a href="javascript:void(0)"><img
                                 src="{{asset('assets/website/images/clients/clients-1.png')}}" alt=""></a>
                     </figure>
                 </li>
                 <li>
-                    <figure class="clients-logo"><a href="index-3.html"><img
+                    <figure class="clients-logo"><a href="javascript:void(0)"><img
                                 src="{{asset('assets/website/images/clients/clients-1.png')}}" alt=""></a>
                     </figure>
                 </li>

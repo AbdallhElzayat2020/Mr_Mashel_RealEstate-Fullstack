@@ -1,11 +1,11 @@
-<header class="main-header header-style-one">
+<header class="main-header header-style-one" style="background-color: #112e11;">
     <!-- header-lower -->
     <div class="header-lower">
         <div class="large-container">
             <div class="outer-box">
-                <div class="logo-box">
+                <div class="logo-box mx-1 {{ app()->getLocale() === 'ar' ? 'rtl-logo' : 'ltr-logo' }}">
                     <figure class="logo">
-                        <a href="{{route('home')}}"><img src="{{asset('assets/website/images/LOGO_Sticky.png')}}" alt="logo" /></a>
+                        <a href="/"><img src="{{ asset('assets/website/images/logo_quadrash.png') }}" alt="logo"/></a>
                     </figure>
                 </div>
                 <div class="menu-area clearfix">
@@ -17,37 +17,110 @@
                     </div>
                     <nav class="main-menu navbar-expand-md navbar-light">
                         <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
-                            <ul class="navigation clearfix">
-                                <li class="dropdown"><a href="#">EN</a>
-                                    <ul>
-                                        <li><a href="#">EN</a></li>
-                                        <li><a href="#">AR</a></li>
-                                    </ul>
-                                </li>
-                                <li class="#"><a href="{{route('contact')}}">تواصل معنا</a></li>
+                            @if(app()->getLocale() === 'ar')
+                                <ul class="navigation clearfix">
+                                    <li class="dropdown">
+                                        <a>
+                                            {{ app()->getLocale() === 'ar' ? 'English' : 'العربية' }}
+                                            <i class="fas fa-chevron-down arrow_mob"></i>
+                                        </a>
+                                        <ul>
+                                            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                                <li>
+                                                    <a class="" rel="alternate"
+                                                       hreflang="{{ $localeCode }}"
+                                                       href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                                        {{ $properties['native'] }}
+                                                    </a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </li>
 
-                                <li class="#"><a href="{{route('blogs')}}">المدونة</a></li>
+                                    <li class="#"><a href="{{ route('contact') }}">{{__('home.contact')}}</a></li>
 
-                                <li class="dropdown"><a href="javascript:void(0)">التدريب والتوظيف</a>
-                                    <ul>
-                                        <li><a href="{{route('internship')}}">فرص التدريب</a></li>
-                                        <li><a href="{{route('apply')}}">فرص التوظيف</a></li>
-{{--                                        <li><a href="error.html">404</a></li>--}}
-                                    </ul>
-                                </li>
-                                <li class="">
-                                    <a href="{{route('services')}}">خدماتنا</a>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="{{route('offers')}}">العروض العقارية</a>
-                                </li>
-                                <li class="">
-                                    <a href="{{route('about')}}">من نحن</a>
-                                </li>
-                                <li class="">
-                                    <a href="{{route('home')}}">الرئيسية</a>
-                                </li>
-                            </ul>
+                                    <li class="#"><a href="{{ route('blogs') }}">{{__('home.blogs')}}</a></li>
+
+                                    <li class=" dropdown">
+                                        <a>
+                                            {{__('home.dropdown')}}
+                                            <i class="fas fa-chevron-down arrow_mob"></i>
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="{{ route('internship') }}">
+                                                    {{__('home.train')}}
+                                                </a>
+                                            </li>
+                                            <li><a href="{{ route('apply') }}">{{__('home.hire')}}</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="{{ route('services') }}">{{__('home.services')}}</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="{{ route('offers') }}">{{__('home.offers')}}</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="{{ route('about') }}">{{__('home.about')}}</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="/">{{__('home.home')}}</a>
+                                    </li>
+                                </ul>
+                            @else
+                                {{--------------------------------}}
+                                <ul class="navigation clearfix">
+                                    <li class="">
+                                        <a href="/">{{__('home.home')}}</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="{{ route('about') }}">{{__('home.about')}}</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="{{ route('offers') }}">{{__('home.offers')}}</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="{{ route('services') }}">{{__('home.services')}}</a>
+                                    </li>
+                                    <li class=" dropdown">
+                                        <a>
+                                            {{__('home.dropdown')}}
+                                            <i class="fas fa-chevron-down arrow_mob"></i>
+                                        </a>
+                                        <ul>
+                                            <li><a href="{{ route('internship') }}">
+                                                    {{__('home.train')}}
+                                                </a>
+                                            </li>
+                                            <li><a href="{{ route('apply') }}">{{__('home.hire')}}</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="#"><a href="{{ route('blogs') }}">{{__('home.blogs')}}</a></li>
+                                    <li class="#"><a href="{{ route('contact') }}">{{__('home.contact')}}</a></li>
+
+                                    <li class=" dropdown">
+                                        <a>
+                                            {{ app()->getLocale() === 'ar' ? 'English' : 'العربية' }}
+                                            <i class="fas fa-chevron-down arrow_mob"></i>
+                                        </a>
+                                        <ul>
+                                            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                                <li>
+                                                    <a rel="alternate"
+                                                       hreflang="{{ $localeCode }}"
+                                                       href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                                        {{ $properties['native'] }}
+                                                    </a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </li>
+                                </ul>
+                            @endif
                         </div>
                     </nav>
                 </div>
@@ -67,7 +140,7 @@
                 <div class="logo-box">
                     <figure class="logo">
                         <a href="{{route('home')}}">
-                            <img src="{{asset('assets/website/images/LOGO_Sticky.png')}}" alt="LOGO" /></a>
+                            <img src="{{asset('assets/website/images/LOGO_Sticky.png')}}" alt="LOGO"/></a>
                     </figure>
                 </div>
                 <div class="menu-area clearfix">
@@ -94,7 +167,7 @@
 
     <nav class="menu-box" style="direction: rtl; text-align: right">
         <div class="nav-logo">
-            <a href="index-2.html"><img src="{{asset('assets/website/images/LOGO.png')}}" alt="" title="" /></a>
+            <a href="index-2.html"><img src="{{asset('assets/website/images/LOGO.png')}}" alt="" title=""/></a>
         </div>
         <div class="menu-outer">
             <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->

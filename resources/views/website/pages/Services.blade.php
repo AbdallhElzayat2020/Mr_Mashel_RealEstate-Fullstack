@@ -30,7 +30,7 @@
     <!-- preloader end -->
 
     <!-- main header -->
-    @include('website.layouts.header')
+    @include('website.layouts.header_2')
     <!-- main-header end -->
 
     <!-- Mobile Menu  -->
@@ -40,8 +40,9 @@
 
         <nav class="menu-box" style="direction: rtl; text-align: right">
             <div class="nav-logo">
-                <a href="{{ route('home') }}"><img src="{{ asset('assets/website/images/LOGO.png') }}"
-                                                   alt="" title=""/></a>
+                <a href="javascript:void(0)">
+                    <img style="width: 190px" src="{{ asset('assets/website/images/logo_quadrash.png') }}" alt="LOGO">
+                </a>
             </div>
             <div class="menu-outer">
                 <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
