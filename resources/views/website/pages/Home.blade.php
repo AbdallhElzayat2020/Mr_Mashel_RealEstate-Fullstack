@@ -19,7 +19,6 @@
 
 <div class="boxed_wrapper">
 
-
     <!-- preloader -->
     <div class="loader-wrap">
         <div class="preloader">
@@ -220,7 +219,7 @@
         <div class="large-container">
             <div class="sec-title mb_55 centred">
                 <h2 style="color: #001D00;"
-                    class="p_relative d_block fs_40 lh_60 mb-2 fw_exbold">
+                    class="p_relative d_block fs_40 lh_60 mb-5 fw_exbold">
                     {{__('home.our_branches')}}
                 </h2>
             </div>
@@ -229,7 +228,7 @@
 
                     <div class="col-lg-6 d-flex align-items-center">
                         <div class="text">
-                            <h2 style="color: #001D00; text-align: {{ app()->getLocale() === 'ar' ? 'right' : 'left' }};"
+                            <h2 style="color: #001D00; text-align: {{ app()->getLocale() === 'ar' ? 'start' : 'left' }};"
                                 class="p_relative d_block fs_50 lh_60 mb-5 fw_sbold">
                                 {{__('home.brach_desc')}}
                             </h2>
@@ -237,6 +236,7 @@
                             <p style="font-size: 30px; line-height: 1.8; color: #526652;">{{__('home.brach_desc3')}}</p>
                         </div>
                     </div>
+
                     <div class="col-lg-6 d-flex align-items-center">
                         <img style="width: 100%; max-width: 100%;"
                              src="{{ asset('assets/website/images/الخريطة.png') }}"

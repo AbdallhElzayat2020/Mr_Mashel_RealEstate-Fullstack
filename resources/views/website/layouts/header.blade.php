@@ -1,4 +1,4 @@
-<header class="main-header header-style-one" style="background-color: #112e11;">
+<header class="main-header header-style-one">
     <!-- header-lower -->
     <div class="header-lower">
         <div class="large-container">
