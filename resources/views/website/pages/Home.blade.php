@@ -20,16 +20,16 @@
 <div class="boxed_wrapper">
 
     <!-- preloader -->
-    <div class="loader-wrap">
-        <div class="preloader">
-            <div class="preloader-close">x</div>
-            <div id="handle-preloader" class="handle-preloader">
-                <div class="animation-preloader">
-                    <div class="spinner"></div>
-                </div>
-            </div>
-        </div>
-    </div>
+{{--    <div class="loader-wrap">--}}
+{{--        <div class="preloader">--}}
+{{--            <div class="preloader-close">x</div>--}}
+{{--            <div id="handle-preloader" class="handle-preloader">--}}
+{{--                <div class="animation-preloader">--}}
+{{--                    <div class="spinner"></div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
     <!-- preloader end -->
 
     @include('website.layouts.header')
@@ -228,8 +228,8 @@
 
                     <div class="col-lg-6 d-flex align-items-center">
                         <div class="text">
-                            <h2 style="color: #001D00; text-align: {{ app()->getLocale() === 'ar' ? 'start' : 'left' }};"
-                                class="p_relative d_block fs_50 lh_60 mb-5 fw_sbold">
+                            <h2 style="color: #001D00; margin-bottom: 80px !important; text-align: {{ app()->getLocale() === 'ar' ? 'start' : 'left' }};"
+                                class="p_relative d_block fs_50 lh_60 services-home-title  fw_sbold">
                                 {{__('home.brach_desc')}}
                             </h2>
                             <p style="font-size: 30px; line-height: 1.8; color: #526652;">{{__('home.brach_desc2')}}</p>

@@ -57,6 +57,7 @@
                                 <li><a href="{{ route('blogs') }}">{{__('home.blogs')}}</a></li>
                                 <li><a href="{{ route('offers') }}">{{__('home.offers')}}</a></li>
                                 <li><a href="{{ route('apply') }}">{{__('home.hire')}}</a></li>
+                                <li><a href="{{ route('terms') }}">{{__('home.polices')}}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -83,16 +84,16 @@
 
             <ul class="footer-social">
                 <li>
-                    <a href="index-2.html"><i class="fab fa-x"></i></a>
+                    <a href="#"><i class="fab fa-x"></i></a>
                 </li>
                 <li>
-                    <a href="index-2.html"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
                 </li>
                 <li>
-                    <a href="index-2.html"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
                 </li>
                 <li>
-                    <a href="index-2.html"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
                 </li>
             </ul>
         </div>

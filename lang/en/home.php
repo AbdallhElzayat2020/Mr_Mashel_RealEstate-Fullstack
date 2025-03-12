@@ -17,6 +17,7 @@ return [
     'offers_desc' => 'Selected properties that suit your needs.',
     'show_all' => 'show all',
     'offer_details' => 'Offer details',
+    'polices' => 'Terms and Conditions',
     'our_branches' => 'our branches',
     'about_sec' => '
     <span style="color: #c19c6e">“Qudra Real Estate”</span> was launched in 2021 to provide

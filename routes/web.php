@@ -9,8 +9,8 @@ use App\Http\Controllers\Front\InternshipController;
 use App\Http\Controllers\Front\MailSubscriptionController;
 use App\Http\Controllers\Front\OfferController;
 use App\Http\Controllers\Front\ServicesController;
+use App\Http\Controllers\Front\TermsController;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,6 +32,8 @@ Route::group(
     ], function () {
 
         Route::get('/', [HomeController::class, 'index'])->name('home');
+
+        Route::get('/terms', [TermsController::class, 'index'])->name('terms');
 
         Route::get('/about', [AboutController::class, 'index'])->name('about');
 

@@ -17,6 +17,8 @@ return [
     'offers_desc' => 'عقارات مُختارة تُناسب إحتياجكم',
     'show_all' => 'عرض الكل',
     'offer_details' => 'تفاصيل العرض',
+    'polices' => ' الشروط والأحكام',
+    'name_company'=>'شركة قدرة العقارية',
     'our_branches' => 'فروعنا',
     'brach_desc' => 'نخدمكم في',
     'about_sec' => '

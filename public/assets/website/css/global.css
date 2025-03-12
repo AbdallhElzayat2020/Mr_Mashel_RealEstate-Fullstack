@@ -1817,3 +1817,8 @@ div#mCSB_1_container {
     }
 }
 /* projects Page */
+@media (max-width: 767px) {
+    .services-home-title {
+        margin-bottom: 30px !important;
+    }
+}

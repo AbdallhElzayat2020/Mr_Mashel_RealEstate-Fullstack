@@ -17,16 +17,16 @@
 <body class="{{ app()->getLocale() }}">
 <div class="boxed_wrapper">
     <!-- preloader -->
-    <div class="loader-wrap">
-        <div class="preloader">
-            <div class="preloader-close">x</div>
-            <div id="handle-preloader" class="handle-preloader">
-                <div class="animation-preloader">
-                    <div class="spinner"></div>
-                </div>
-            </div>
-        </div>
-    </div>
+{{--    <div class="loader-wrap">--}}
+{{--        <div class="preloader">--}}
+{{--            <div class="preloader-close">x</div>--}}
+{{--            <div id="handle-preloader" class="handle-preloader">--}}
+{{--                <div class="animation-preloader">--}}
+{{--                    <div class="spinner"></div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
     <!-- preloader end -->
 
     <!-- main header -->
@@ -57,18 +57,10 @@
             </div>
             <div class="social-links">
                 <ul class="clearfix">
-                    <li>
-                        <a href="index-2.html"><span class="fab fa-x"></span></a>
-                    </li>
-                    <li>
-                        <a href="index-2.html"><span class="fab fa-facebook-square"></span></a>
-                    </li>
-                    <li>
-                        <a href="index-2.html"><span class="fab fa-instagram"></span></a>
-                    </li>
-                    <li>
-                        <a href="index-2.html"><span class="fab fa-youtube"></span></a>
-                    </li>
+                    <li><a href="#"><span class="fab fa-x"></span></a></li>
+                    <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
+                    <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+                    <li><a href="#"><span class="fab fa-youtube"></span></a></li>
                 </ul>
             </div>
         </nav>
