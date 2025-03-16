@@ -35,6 +35,7 @@
                         </div>
                         <div class="widget-content">
                             <ul class="links-list clearfix">
+
                                 <li><a href="javascript:void(0)">{{__('home.ser_1')}}</a></li>
                                 <li><a href="javascript:void(0)">{{__('home.ser_2')}}</a></li>
                                 <li><a href="javascript:void(0)">{{__('home.ser_3')}}</a></li>
@@ -68,10 +69,10 @@
                             <h3>{{__('home.our_branches')}}</h3>
                         </div>
                         <div class="location-box">
-                            <p>{{__('home.footer_1')}}</p>
+                            <a href="https://maps.app.goo.gl/Pxw6Xs6kKWRdotPP6" target="_blank">{{__('home.footer_1')}}</a>
                         </div>
                         <div class="location-box">
-                            <p>{{__('home.footer_2')}}</p>
+                            <a href="https://maps.app.goo.gl/RX62SGxEqX6ec8jB9" target="_blank">{{__('home.footer_2')}}</a>
                         </div>
                     </div>
                 </div>

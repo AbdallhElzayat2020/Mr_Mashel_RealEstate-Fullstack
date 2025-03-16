@@ -14,6 +14,7 @@ class HomeController extends Controller
 {
     public function index()
     {
+
         $testimonials = Testimonial::active()->with(['media'])->get();
 
         $services = Service::active()->with(['media'])->get();

@@ -725,7 +725,7 @@ img {
 .main-header {
     position: relative;
     left: 0px;
-    top: 0px;
+    top: -15px;
     right: 0px;
     z-index: 999;
     width: 100%;
@@ -1003,7 +1003,7 @@ img {
     opacity: 0;
     visibility: hidden;
     border-radius: 0px;
-    background-color: #347469;
+    background-color: #c39e70;
     box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
     transition: all 500ms ease;
     -moz-transition: all 500ms ease;

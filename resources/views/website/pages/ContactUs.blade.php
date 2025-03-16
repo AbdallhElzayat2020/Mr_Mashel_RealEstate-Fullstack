@@ -95,11 +95,7 @@
         </div>
     @endif
 
-    @session('message')
-    <div x-data x-init="setTimeout(_ => $el.remove(), 5000)" class="alert alert-success mt-2" role="alert">
-        <span>{{ $value }}</span>
-    </div>
-    @endsession
+
 
     <!-- contact-style-three -->
     <section class="contact-style-three p_relative pt_110 pb_120" style="direction: rtl">
@@ -112,7 +108,12 @@
             <div class="row clearfix d-flex align-items-center justify-content-center">
                 <div
                     class="col-lg-9 d-flex align-items-center justify-content-center col-md-12 col-sm-12 form-column">
-                    <div class="form-inner d-flex align-items-center justify-content-center">
+                    <div class="form-inner ">
+                        @session('message')
+                        <div x-data x-init="setTimeout(_ => $el.remove(), 5000)" class="alert alert-success mt-2" role="alert">
+                            <span>{{ $value }}</span>
+                        </div>
+                        @endsession
                         <form method="post" action="{{ route('contact.store') }}" id="contact-form"
                               class="default-form">
                             @csrf

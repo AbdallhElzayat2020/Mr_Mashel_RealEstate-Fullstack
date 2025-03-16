@@ -92,11 +92,7 @@
                     class="p_relative d_block fs_40 lh_60 mb-2 fw_exbold">{{ __('hireing.header') }}</h2>
             </div>
 
-            @session('message')
-            <div x-data x-init="setTimeout(_=> $el.remove(), 5000)" class="alert alert-success mt-2" role="alert">
-                <span>{{ $value }}</span>
-            </div>
-            @endsession
+
 
             <div class="container">
                 <div class="row">
@@ -195,7 +191,12 @@
             <div class="row clearfix d-flex align-items-center justify-content-center">
                 <div
                     class="col-lg-9 d-flex align-items-center justify-content-center col-md-12 col-sm-12 form-column">
-                    <div class="form-inner d-flex align-items-center justify-content-center">
+                    <div class="form-inner">
+                        @session('message')
+                        <div x-data x-init="setTimeout(_=> $el.remove(), 5000)" class="alert alert-success mt-2" role="alert">
+                            <span>{{ $value }}</span>
+                        </div>
+                        @endsession
                         <form method="post" action="{{ route('apply.store') }}" id="contact-form" class="default-form"
                               enctype="multipart/form-data">
                             @csrf

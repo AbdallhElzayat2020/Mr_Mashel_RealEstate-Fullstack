@@ -11,6 +11,7 @@ use App\Http\Controllers\Front\OfferController;
 use App\Http\Controllers\Front\ServicesController;
 use App\Http\Controllers\Front\TermsController;
 use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,34 +32,38 @@ Route::group(
         'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath'],
     ], function () {
 
-        Route::get('/', [HomeController::class, 'index'])->name('home');
 
-        Route::get('/terms', [TermsController::class, 'index'])->name('terms');
+//        Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('/', function () {
+        return view('website.layouts.soon');
+    })->name('home');
 
-        Route::get('/about', [AboutController::class, 'index'])->name('about');
+    Route::get('/terms', [TermsController::class, 'index'])->name('terms');
 
-        Route::get('/services', [ServicesController::class, 'index'])->name('services');
+    Route::get('/about', [AboutController::class, 'index'])->name('about');
 
-        Route::get('/services-details/{service:slug}', [ServicesController::class, 'show'])->name('service.details');
+    Route::get('/services', [ServicesController::class, 'index'])->name('services');
 
-        Route::get('/offers', [OfferController::class, 'index'])->name('offers');
+    Route::get('/services-details/{service:slug}', [ServicesController::class, 'show'])->name('service.details');
 
-        Route::get('/offer-details/{offer:slug}', [OfferController::class, 'show'])->name('offers.details');
+    Route::get('/offers', [OfferController::class, 'index'])->name('offers');
 
-        Route::get('/apply', [HiringController::class, 'index'])->name('apply');
-        Route::post('/apply-store', [HiringController::class, 'store'])->name('apply.store');
+    Route::get('/offer-details/{offer:slug}', [OfferController::class, 'show'])->name('offers.details');
 
-        Route::get('/internship', [InternshipController::class, 'index'])->name('internship');
-        Route::post('/internship-store', [InternshipController::class, 'store'])->name('internship.store');
+    Route::get('/apply', [HiringController::class, 'index'])->name('apply');
+    Route::post('/apply-store', [HiringController::class, 'store'])->name('apply.store');
 
-        Route::get('/blogs', [BlogController::class, 'index'])->name('blogs');
+    Route::get('/internship', [InternshipController::class, 'index'])->name('internship');
+    Route::post('/internship-store', [InternshipController::class, 'store'])->name('internship.store');
 
-        Route::get('/blogs-details/{blog:slug}', [BlogController::class, 'show'])->name('blogs.details');
+    Route::get('/blogs', [BlogController::class, 'index'])->name('blogs');
 
-        Route::get('/contact', [ContactController::class, 'index'])->name('contact');
-        Route::post('/contact/save', [ContactController::class, 'store'])->name('contact.store');
+    Route::get('/blogs-details/{blog:slug}', [BlogController::class, 'show'])->name('blogs.details');
 
-        Route::post('/mail-subscription', MailSubscriptionController::class)->name('mails.store');
-    });
+    Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+    Route::post('/contact/save', [ContactController::class, 'store'])->name('contact.store');
 
-require __DIR__.'/auth.php';
+    Route::post('/mail-subscription', MailSubscriptionController::class)->name('mails.store');
+});
+
+require __DIR__ . '/auth.php';
