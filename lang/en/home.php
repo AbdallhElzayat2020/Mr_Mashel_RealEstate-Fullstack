@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'title' => 'home || Qudrah Real Estate',
+    'title' => 'Home || Qudrah Real Estate',
     'home' => 'Home',
     'about' => 'About',
     'offers' => 'Real Estate Offers',
