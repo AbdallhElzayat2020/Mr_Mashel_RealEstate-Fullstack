@@ -178,7 +178,22 @@
     @endif
 
 
-    <section class="contact-style-three p_relative pt_110 pb_120 bg-light" style="direction: rtl">
+    <section class="contact-style-three p_relative pt_110 pb_120 bg-light" style="direction: rtl"
+
+     x-data="{
+            terms: false,
+            showError  : false,
+             checkTerms() {
+                 if (!this.terms)
+                 {
+                    this.showError = true;
+                    return;
+                 }
+
+                 this.$refs.form.submit()
+             }
+        }"
+    >
         <div class="large-container">
             <div class="sec-title mb_55 centred">
                 <h2 style="color: #001D00;" class="p_relative d_block fs_30 lh_60 mb-2 fw_exbold">
@@ -197,7 +212,7 @@
                             <span>{{ $value }}</span>
                         </div>
                         @endsession
-                        <form method="post" action="{{ route('apply.store') }}" id="contact-form" class="default-form"
+                        <form method="post" @submit.prevent="checkTerms" x-ref="form" action="{{ route('apply.store') }}" id="contact-form" class="default-form"
                               enctype="multipart/form-data">
                             @csrf
 
@@ -311,11 +326,18 @@
 
                                 <div class="col-lg-12 mb-3 col-md-12 col-sm-12" style="text-align: start;">
                                     <div class="form-check ">
-                                        <input class="form-check-input " type="checkbox" value="checked"
-                                               id="flexCheckChecked" checked>
+                                        <input class="form-check-input " x-model="terms" type="checkbox" value="checked"
+                                               id="flexCheckChecked">
                                         <label class="form-check-label mr-3"
                                                for="flexCheckChecked">{!!  __('hireing.form_input_9')  !!}</label>
                                     </div>
+                                    <template x-if="showError">
+                                        <div class="alert alert-danger mt-2" role="alert">
+                                            <ul class="mb-0">
+                                                <li>You Must check the terms</li>
+                                            </ul>
+                                        </div>
+                                    </template>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn mr-0"
                                      style="text-align: center;">
